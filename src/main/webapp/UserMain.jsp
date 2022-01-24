@@ -23,7 +23,8 @@
         <li><a class="a1" href="index.jsp?message=<%ses.setAttribute("logout", "Logged out successfully");%>">Logout</a></li>
         <li><a class="a1" href="ContactUs.jsp?userid=<%=userid%>">Contact us</a></li>
         <li><a class="a1" href="AboutUs.jsp">About us</a></li>
-        <li><a class="a1" href="ShowFeedback.jsp?userid=<%=userid%>">My Feedbacks</a></li>
+        <!-- <form action="showfeedback" method="post"> -->
+        <li><a class="a1" href="ShowFeedback.jsp?userid=<%=userid%>">My Feedbacks</a></li><!-- </form> -->
         <li><a class="a1" href="StudentScoreDetails.jsp">MyExams</a></li>
         
     </ul>

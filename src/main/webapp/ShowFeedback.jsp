@@ -1,5 +1,11 @@
+<%@page import="org.apache.catalina.connector.Response"%>
+<%@page import="org.apache.catalina.connector.Request"%>
 <%@page import="com.onlineexam.impl.FeedbackDetailsDao"%>
+<%@page import="com.onlineexam.model.*" %>
+<%@page import="java.util.ArrayList" %>
+<%@page import="java.util.List" %>
 <%@page import="java.sql.ResultSet"%>
+<%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
@@ -35,7 +41,10 @@ a{
 <% int userid= (int)session.getAttribute("userid");
 String username=(String)session.getAttribute("username");
 FeedbackDetailsDao fdd=new FeedbackDetailsDao();
-ResultSet rs=fdd.showFeedback(userid);
+ResultSet rs=fdd.showFeedback(userid); 
+/* FeedbackDetailsDao fdd=new FeedbackDetailsDao();
+List<FeedbackDetailsPojo> fdp=fdd.showFeedbacks(userid);
+ */
 %>
 <table style="width: 80%;margin-left: 100px;font-size:large;">
         <tr>
@@ -55,5 +64,24 @@ ResultSet rs=fdd.showFeedback(userid);
                </tr>
                <%} %>
                </table> 
+               
+               <%-- <table>
+   <tr>
+      <th>User name</th>
+            <th>Exam Id</th>
+            <th>Feedback</th>
+            <th>Feedback Date</th>
+   </tr>
+
+   <c:forEach items="${feedback}" var="list">
+     <tr>
+     	 <td><%=username%></td>
+         <td>${list.examid}</td>
+         <td>${list.feedback}</td>
+         <td>${list.feedbackdate}</td>
+     </tr>
+   </c:forEach>
+
+ </table> --%> 
 </body>
 </html>
