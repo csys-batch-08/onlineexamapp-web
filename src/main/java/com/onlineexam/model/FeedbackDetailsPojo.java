@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class FeedbackDetailsPojo {
 	private int userid;
+	private String username;
 	private int examid;
 	private String feedback;
 	private Date feedbackdate;
@@ -41,6 +42,16 @@ public class FeedbackDetailsPojo {
 	public void setFeedback(String feedback) {
 		this.feedback = feedback;
 	}
+	
+	
+
+	public String getUsername() {
+		return username;
+	}
+
+	public void setUsername(String username) {
+		this.username = username;
+	}
 
 	public FeedbackDetailsPojo(int userid, int examid, String feedback) {
 		super();
@@ -49,11 +60,16 @@ public class FeedbackDetailsPojo {
 		this.feedback = feedback;
 	}
 
-	public FeedbackDetailsPojo(int examid, String feedback, Date feedbackdate) {
+	public FeedbackDetailsPojo(int examid, String feedback, Date feedbackdate, String username) {
 		super();
 		this.examid = examid;
 		this.feedback = feedback;
 		this.feedbackdate = feedbackdate;
+		this.username=username;
+	}
+
+	public FeedbackDetailsPojo() {
+		// TODO Auto-generated constructor stub
 	}
 
 	@Override

@@ -5,6 +5,30 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<style>
+/* .nav li form
+{
+	margin-right:10px;
+	text-decoration: none;
+  font-weight: bold;
+	font-size: 25px;
+	color:black;
+}
+.nav form:hover
+{
+	height: 30px;
+	color: white;
+  border-top-left-radius: 5px;
+	background-color: black;
+   transition-delay: 0.7s; 
+  transition-duration: 0.2s;
+	
+}
+li form{
+  padding: 12px;
+
+} */
+</style>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -22,9 +46,8 @@
     <ul class="nav">
         <li><a class="a1" href="index.jsp?message=<%ses.setAttribute("logout", "Logged out successfully");%>">Logout</a></li>
         <li><a class="a1" href="ContactUs.jsp?userid=<%=userid%>">Contact us</a></li>
-        <li><a class="a1" href="AboutUs.jsp">About us</a></li>
-        <!-- <form action="showfeedback" method="post"> -->
-        <li><a class="a1" href="ShowFeedback.jsp?userid=<%=userid%>">My Feedbacks</a></li><!-- </form> -->
+        <li><a class="a1" href="AboutUs.jsp" class="a1">About us</a></li>
+        <li><a class="a1" href="showfeedback">My Feedbacks</a></li>
         <li><a class="a1" href="StudentScoreDetails.jsp">MyExams</a></li>
         
     </ul>
