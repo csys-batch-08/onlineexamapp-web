@@ -1,5 +1,4 @@
-<%@page import="com.onlineexam.impl.ContactUsDao" %>
-<%@page import="java.sql.ResultSet"%>
+<%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
@@ -32,9 +31,6 @@ a{
 <body>
 	<h2><u>Users Comments Details</u></h2>
 	<a href="AdminMain.jsp"><b>Home</b></a>
-	
-<% ContactUsDao cud=new ContactUsDao();
-ResultSet rs=cud.showCommentsAdmin();%>
 <div >
 <table style="width: 80%;margin-left: 100px;font-size:large;">
         <tr>
@@ -43,16 +39,15 @@ ResultSet rs=cud.showCommentsAdmin();%>
             <th>Comments</th>
             <th>Comment Date</th>
         </tr>
-        <% while(rs.next()){ 
-        	%>
+        <c:forEach items="${contactlist}" var="contact">
         	<tr>
-                <td><%=rs.getInt(1)%></td>
-                <td><%=rs.getString(2)%></td>
-                <td><%=rs.getString(3)%></td>
-                <td><%=rs.getDate(4)%></td>
+                <td>${contact.userid}</td>
+                <td>${contact.email}</td>
+                <td>${contact.comments}</td>
+                <td>${contact.commentdate}</td>
                 
                </tr>
-               <%} %>
+               </c:forEach>
                </table> 
                </div>
 </body>

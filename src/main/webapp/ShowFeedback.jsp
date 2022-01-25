@@ -1,6 +1,3 @@
-<%@page import="org.apache.catalina.connector.Response"%>
-<%@page import="org.apache.catalina.connector.Request"%>
-<%@page import="java.util.List" %>
 <%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
@@ -41,6 +38,7 @@ a{
             <th>Exam Id</th>
             <th>Feedback</th>
             <th>Feedback Date</th>
+            
    </tr>
 
    <c:forEach items="${feedback}" var="list">
@@ -49,6 +47,7 @@ a{
          <td>${list.examid}</td>
          <td>${list.feedback}</td>
          <td>${list.feedbackdate}</td>
+        
      </tr>
    </c:forEach>
 

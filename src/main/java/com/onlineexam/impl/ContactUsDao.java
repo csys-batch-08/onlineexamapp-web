@@ -5,6 +5,8 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 import com.onlineexam.dao.ContactUsInterface;
 import com.onlineexam.model.ContactUsPojo;
@@ -20,11 +22,23 @@ public class ContactUsDao implements ContactUsInterface {
 		pstmt.setString(3, cup.getComments());
 		pstmt.executeQuery();
 	}
-	public ResultSet showCommentsAdmin() throws SQLException {
+//	public ResultSet showCommentsAdmin() throws SQLException {
+//		Connection con=ConnectionPage.connection();
+//		String query="select * from contactUs";
+//		PreparedStatement pstmt=con.prepareStatement(query);
+//		ResultSet rs=pstmt.executeQuery();
+//		return rs;
+//	}
+	public List<ContactUsPojo> showCommentsAdmin() throws SQLException {
+		List<ContactUsPojo> contactlist=new ArrayList<ContactUsPojo>();
 		Connection con=ConnectionPage.connection();
-		String query="select * from contactUs";
+		String query="select userid,email,comments,commentdate from contactUs";
 		PreparedStatement pstmt=con.prepareStatement(query);
 		ResultSet rs=pstmt.executeQuery();
-		return rs;
+		while(rs.next()) {
+			ContactUsPojo cup=new ContactUsPojo(rs.getInt(1),rs.getString(2),rs.getString(3),rs.getDate(4));
+			contactlist.add(cup);
+		}
+		return contactlist;
 	}
 }

@@ -1,5 +1,4 @@
-<%@page import="com.onlineexam.impl.ScoreDetailsDao"%>
-<%@page import="java.sql.ResultSet"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
@@ -32,11 +31,6 @@ a{
 <body>
 	<h2><u>Score Details</u></h2>
 	<a href="UserMain.jsp"><b>Home</b></a>
-	<%int userid= (int)session.getAttribute("userid");
-	String username=(String)session.getAttribute("username");
-	ScoreDetailsDao dd=new ScoreDetailsDao();
-	ResultSet rs=dd.viewScore(userid); 
-	%>
 	<table style="width: 80%;margin-left: 100px;font-size:large;">
         <tr>
             <th>Student name</th>
@@ -46,18 +40,17 @@ a{
             <th>Grade</th>
             <th>Exam Date</th>
         </tr>
-        <% while(rs.next()){ 
-        	%>
+        <c:forEach items="${scorelist}" var="scores">
         	<tr>
-                <td><%=username%></td>
-                <td><%=rs.getString(3)%></td>
-                <td><%=rs.getInt(4)%></td>
-                <td><%=rs.getString(5)%></td>
-                <td><%=rs.getString(6)%></td>
-                <td><%=rs.getDate(7)%></td>
+                <td>${sessionScope.username}</td>
+                <td>${scores.examName}</td>
+                <td>${scores.score}</td>
+                <td>${scores.passOrFail}</td>
+                <td>${scores.grade}</td>
+                <td>${scores.examdate}</td>
                 
                </tr>
-               <%} %>
+               </c:forEach>
                </table> 
                
      

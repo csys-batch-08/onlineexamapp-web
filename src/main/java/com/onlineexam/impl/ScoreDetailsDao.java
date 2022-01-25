@@ -6,6 +6,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 
 import com.onlineexam.dao.*;
 import com.onlineexam.model.ScoreDetailsPojo;
@@ -23,19 +25,32 @@ public class ScoreDetailsDao implements ScoreDetailsDaoInterface{
 		pstmt.setString(6, sd.getGrade());
 		pstmt.executeUpdate();
 	}
-	public ResultSet viewScore(int studentId) throws SQLException {
+//	public ResultSet viewScore(int studentId) throws SQLException {
+//		Connection con=ConnectionPage.connection();
+//		String query="select * from scoreDetails where studentId=? order by examdate desc";
+//		PreparedStatement pstmt=con.prepareStatement(query);
+//		pstmt.setInt(1, studentId);
+//		ResultSet rs=pstmt.executeQuery();
+//		return rs;
+//	}
+	public List<ScoreDetailsPojo> viewScore(int studentId) throws SQLException {
+		List<ScoreDetailsPojo> sdp=new ArrayList<ScoreDetailsPojo>();
 		Connection con=ConnectionPage.connection();
-		String query="select * from scoreDetails where studentId=? order by examdate desc";
+		String query="select studentid,examid,examname,score,passorfail,grade,examdate from scoreDetails where studentId=? order by examdate desc";
 		PreparedStatement pstmt=con.prepareStatement(query);
 		pstmt.setInt(1, studentId);
 		ResultSet rs=pstmt.executeQuery();
-		return rs;
+		while(rs.next()) {
+			ScoreDetailsPojo sdpp=new ScoreDetailsPojo(rs.getInt(1), rs.getInt(2), rs.getString(3), rs.getInt(4), rs.getString(5), rs.getString(6),rs.getDate(7));
+			sdp.add(sdpp);
+		}
+		return sdp;
 	}
 	public  ResultSet filterbydate(ScoreDetailsPojo sd) throws SQLException {
 		Connection con=ConnectionPage.connection();
 		String query="select * from scoreDetails where to_char(trunc(examdate),'yyyy-mm-dd')=? order by examdate desc";
 		PreparedStatement pstmt=con.prepareStatement(query);
-		pstmt.setString(1, sd.getExamdate());
+		pstmt.setDate(1, (Date) sd.getExamdate());
 		ResultSet rs=pstmt.executeQuery();
 		return rs;
 	}

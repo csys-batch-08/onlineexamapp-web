@@ -9,14 +9,14 @@ public class ScoreDetailsPojo {
 	private int score;
 	private String passOrFail;
 	private String grade;
-	private String examdate;
+	private Date examdate;
 	
 	
 	
-	public String getExamdate() {
+	public Date getExamdate() {
 		return examdate;
 	}
-	public void setExamdate(String examdate) {
+	public void setExamdate(Date examdate) {
 		this.examdate = examdate;
 	}
 	public int getStudentId() {
@@ -64,7 +64,7 @@ public class ScoreDetailsPojo {
 		this.passOrFail = passOrFail;
 		this.grade = grade;
 	}
-	public ScoreDetailsPojo(String examdate) {
+	public ScoreDetailsPojo(Date examdate) {
 		// TODO Auto-generated constructor stub
 		this.examdate=examdate;
 	}
@@ -88,5 +88,17 @@ public class ScoreDetailsPojo {
 		super();
 		this.studentId = studentId;
 	}
+	public ScoreDetailsPojo(int studentId, int examId, String examName, int score, String passOrFail, String grade,
+			Date examdate) {
+		super();
+		this.studentId = studentId;
+		this.examId = examId;
+		this.examName = examName;
+		this.score = score;
+		this.passOrFail = passOrFail;
+		this.grade = grade;
+		this.examdate = examdate;
+	}
+	
 	
 }

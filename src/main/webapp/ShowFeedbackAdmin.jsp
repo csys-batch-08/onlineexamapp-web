@@ -1,5 +1,4 @@
-<%@page import="com.onlineexam.impl.FeedbackDetailsDao"%>
-<%@page import="java.sql.ResultSet"%>
+<%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
@@ -32,10 +31,7 @@ a{
 <body>
 	<h2><u>Feedback Details</u></h2>
 	<a href="AdminMain.jsp"><b>Home</b></a>
-<%
-FeedbackDetailsDao fdd=new FeedbackDetailsDao();
-ResultSet rs=fdd.showFeedbackAdmin();
-%>
+
 <table style="width: 80%;margin-left: 100px;font-size:large;">
         <tr>
             <th>Feedback Id</th>
@@ -44,17 +40,17 @@ ResultSet rs=fdd.showFeedbackAdmin();
             <th>Feedback</th>
             <th>Feedback Date</th>
         </tr>
-        <% while(rs.next()){ 
-        	%>
+        <c:forEach items="${showfeedback}" var="feedback">
         	<tr>
-                <td><%=rs.getInt(1)%></td>
-                <td><%=rs.getInt(2)%></td>
-                <td><%=rs.getInt(3)%></td>
-                <td><%=rs.getString(4)%></td>
-                <td><%=rs.getDate(5)%></td>
+                <td>${feedback.feedbackid}</td>
+                <td>${feedback.userid}</td>
+                <td>${feedback.examid}</td>
+                <td>${feedback.feedback}</td>
+                <td>${feedback.feedbackdate}</td>
                 
                </tr>
-               <%} %>
+               </c:forEach>
+               
                </table> 
 </body>
 </html>

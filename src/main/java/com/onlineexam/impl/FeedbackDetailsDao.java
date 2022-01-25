@@ -26,19 +26,14 @@ public class FeedbackDetailsDao implements FeedbackDetailsDaoInterface{
 		pstmt.setString(3, fdp.getFeedback());
 		pstmt.executeQuery();
 	}
-//	public ResultSet showFeedback(int userid) throws SQLException {
-//		Connection con=ConnectionPage.connection();
-//		String query="select * from feedbackDetails where userid="+userid+" order by feedbackdate desc";
-//		PreparedStatement pstmt=con.prepareStatement(query);
-//		ResultSet rs=pstmt.executeQuery();
-//		return rs;
-//	}
 	public List<FeedbackDetailsPojo> showFeedbacks(int userid,String username) throws SQLException {
 		List<FeedbackDetailsPojo> fdp=new ArrayList<FeedbackDetailsPojo>();
 		Connection con=ConnectionPage.connection();
-		String query="select examid,feedback,feedbackdate from feedbackDetails where userid="+userid+" order by feedbackdate desc";
-		Statement stmt=con.createStatement();
-		ResultSet rs=stmt.executeQuery(query);
+		String query="select examid,feedback,feedbackdate from feedbackDetails where userid=? order by feedbackdate desc";
+		PreparedStatement pstmt=con.prepareStatement(query);
+		//Statement stmt=con.createStatement();
+		pstmt.setInt(1, userid);
+		ResultSet rs=pstmt.executeQuery();
 		while(rs.next()) {
 			FeedbackDetailsPojo fdp1=new FeedbackDetailsPojo(rs.getInt(1), rs.getString(2), rs.getDate(3),username);
 			fdp.add(fdp1);
@@ -46,16 +41,18 @@ public class FeedbackDetailsDao implements FeedbackDetailsDaoInterface{
 		
 		return fdp;
 	}
-	public ResultSet showFeedbackAdmin() throws SQLException {
+	public List<FeedbackDetailsPojo> showFeedbacksAdmin() throws SQLException {
+		List<FeedbackDetailsPojo> fdp=new ArrayList<FeedbackDetailsPojo>();
 		Connection con=ConnectionPage.connection();
-		String query="select * from feedbackDetails order by feedbackdate desc";
+		String query="select feedbackid,userid,examid,feedback,feedbackdate from feedbackDetails order by feedbackdate desc";
 		PreparedStatement pstmt=con.prepareStatement(query);
 		ResultSet rs=pstmt.executeQuery();
-		return rs;
+		while(rs.next()) {
+			FeedbackDetailsPojo fdp1=new FeedbackDetailsPojo(rs.getInt(1),rs.getInt(2),rs.getInt(3),rs.getString(4),rs.getDate(5));
+			fdp.add(fdp1);
+		}
+		return fdp;
 	}
-	@Override
-	public ResultSet showFeedback(int userid) throws SQLException {
-		// TODO Auto-generated method stub
-		return null;
-	}
+	
+	
 }

@@ -3,12 +3,23 @@ package com.onlineexam.model;
 import java.util.Date;
 
 public class FeedbackDetailsPojo {
+	private int feedbackid;
 	private int userid;
 	private String username;
 	private int examid;
 	private String feedback;
 	private Date feedbackdate;
 	
+	
+	
+	public int getFeedbackid() {
+		return feedbackid;
+	}
+
+	public void setFeedbackid(int feedbackid) {
+		this.feedbackid = feedbackid;
+	}
+
 	public int getUserid() {
 		return userid;
 	}
@@ -76,6 +87,15 @@ public class FeedbackDetailsPojo {
 	public String toString() {
 		return "FeedbackDetailsPojo [examid=" + examid + ", feedback=" + feedback + ", feedbackdate=" + feedbackdate
 				+ "]";
+	}
+
+	public FeedbackDetailsPojo(int feedbackid, int userid, int examid, String feedback, Date feedbackdate) {
+		super();
+		this.feedbackid = feedbackid;
+		this.userid = userid;
+		this.examid = examid;
+		this.feedback = feedback;
+		this.feedbackdate = feedbackdate;
 	}
 
 

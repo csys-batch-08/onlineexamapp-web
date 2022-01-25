@@ -10,23 +10,23 @@
     <link rel="stylesheet" href="UserMain.css">
 </head>
 <body>
-<%HttpSession ses=request.getSession(); %>
+<%HttpSession ses=request.getSession();%>
     
     <ul class="nav">
         <li><a class="a1 big" href="index.jsp?message=<%ses.setAttribute("logout", "Logged out successfully");%>">Logout</a></li>
-        <li><a class="a1 big" href="ShowCommentsAdmin.jsp">Contact us</a></li>
+        <li><a class="a1 big" href="ShowCommentsAdmin">Contact us</a></li>
         <li><a class="a1 big" href="AboutUsAdmin.jsp">About us</a></li>
-        <li><a class="a1 big" href="ShowFeedbackAdmin.jsp">Feedbacks</a></li>
+        <li><a class="a1 big" href="ShowFeedbackAdmin">Feedbacks</a></li>
         <li><a class="a1 big" href="ExamDetails.jsp">Admin Actions</a></li>
     </ul>
-    <img src="images/onlineExamIcon.png" class="imgIcon">
+    <img src="images/onlineExamIcon.png" class="imgIcon" alt="onlineexamicon">
     <div class="h1">
       <h1>Explore the Exam</h1>
       <h1 style="margin-left: 70px;">Exclusively</h1>
       <h1 style="margin-left: 40px;">made for you</h1><br><br>
       <h4><a href=""><button style="margin-left: 80px; margin-right: 60px;" class="button examButton">Take Exam</button></a><a href=""><button style="margin-right: 70px;" class="button studyButton">Study</button></a></h4>
     </div>
-    <img src="images/onlineExamReferenceRemovedBackground.png" class="image">
+    <img src="images/onlineExamReferenceRemovedBackground.png" class="image" alt="examimage">
     
 </body>
 </html>

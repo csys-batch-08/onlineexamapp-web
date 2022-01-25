@@ -6,28 +6,6 @@
 <html lang="en">
 <head>
 <style>
-/* .nav li form
-{
-	margin-right:10px;
-	text-decoration: none;
-  font-weight: bold;
-	font-size: 25px;
-	color:black;
-}
-.nav form:hover
-{
-	height: 30px;
-	color: white;
-  border-top-left-radius: 5px;
-	background-color: black;
-   transition-delay: 0.7s; 
-  transition-duration: 0.2s;
-	
-}
-li form{
-  padding: 12px;
-
-} */
 </style>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -48,7 +26,7 @@ li form{
         <li><a class="a1" href="ContactUs.jsp?userid=<%=userid%>">Contact us</a></li>
         <li><a class="a1" href="AboutUs.jsp" class="a1">About us</a></li>
         <li><a class="a1" href="showfeedback">My Feedbacks</a></li>
-        <li><a class="a1" href="StudentScoreDetails.jsp">MyExams</a></li>
+        <li><a class="a1" href="StudentScoreDetails">MyExams</a></li>
         
     </ul>
     <img src="images/onlineExamIcon.png" class="imgIcon">
