@@ -2,6 +2,7 @@ package com.onlineexam.dao;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.List;
 
 import com.onlineexam.model.RegisterPojo;
 
@@ -21,5 +22,5 @@ public interface RegisterDaoInterface {
 	public  ResultSet showInactiveUsers();
 	public ResultSet fetchlogin(RegisterPojo rp) throws SQLException, ClassNotFoundException;
 	public  ResultSet validUser(String email,String password) throws ClassNotFoundException, SQLException;
-	public ResultSet userprofile(int userid) throws SQLException;
+	public RegisterPojo userprofile(int userid) throws SQLException;
 }

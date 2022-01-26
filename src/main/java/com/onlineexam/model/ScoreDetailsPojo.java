@@ -69,6 +69,7 @@ public class ScoreDetailsPojo {
 		this.examdate=examdate;
 	}
 	
+	
 	public ScoreDetailsPojo(int score, String passOrFail) {
 		super();
 		this.score = score;

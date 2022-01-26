@@ -1,6 +1,12 @@
 package com.onlineexam.model;
 
 public class RegisterPojo {
+	@Override
+	public String toString() {
+		return "RegisterPojo [userid=" + userid + ", first_name=" + first_name + ", last_name=" + last_name + ", email="
+				+ email + ", password=" + password + ", confirm_password=" + confirm_password + ", phone_number="
+				+ phone_number + ", photo=" + photo + ", reason=" + reason + "]";
+	}
 	private int userid;
 	private String first_name;
 	private String last_name;
@@ -68,6 +74,14 @@ public class RegisterPojo {
 	
 	
 	
+	public RegisterPojo(String first_name, String last_name, String email, long phone_number, String photo) {
+		super();
+		this.first_name = first_name;
+		this.last_name = last_name;
+		this.email = email;
+		this.phone_number = phone_number;
+		this.photo = photo;
+	}
 	public RegisterPojo(int userid, String first_name, String last_name, String email, long phone_number) {
 		super();
 		this.userid = userid;

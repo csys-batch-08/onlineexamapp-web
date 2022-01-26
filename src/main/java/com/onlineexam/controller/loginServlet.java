@@ -3,7 +3,9 @@ package com.onlineexam.controller;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.ResultSet;
+import java.util.List;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -46,6 +48,11 @@ public class loginServlet extends HttpServlet
 				else if(role.equals("student")){
 					RegisterPojo rp1=new RegisterPojo(userid);
 					rd.updateactivedate(rp1);
+					RegisterDao rdao=new RegisterDao();
+					RegisterPojo rpojo=rdao.userprofile(userid);
+					req.setAttribute("profile", rp);
+//					RequestDispatcher rdis=req.getRequestDispatcher("UserProfile.jsp");
+//					rd.forward(req, res);
 					res.sendRedirect("UserMain.jsp");
 				}
 				else if(role.equals("inactive")) {

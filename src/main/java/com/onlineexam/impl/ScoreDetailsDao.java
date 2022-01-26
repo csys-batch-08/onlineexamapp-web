@@ -1,7 +1,7 @@
 package com.onlineexam.impl;
 
 import java.sql.Connection;
-import java.sql.Date;
+import java.util.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -25,14 +25,6 @@ public class ScoreDetailsDao implements ScoreDetailsDaoInterface{
 		pstmt.setString(6, sd.getGrade());
 		pstmt.executeUpdate();
 	}
-//	public ResultSet viewScore(int studentId) throws SQLException {
-//		Connection con=ConnectionPage.connection();
-//		String query="select * from scoreDetails where studentId=? order by examdate desc";
-//		PreparedStatement pstmt=con.prepareStatement(query);
-//		pstmt.setInt(1, studentId);
-//		ResultSet rs=pstmt.executeQuery();
-//		return rs;
-//	}
 	public List<ScoreDetailsPojo> viewScore(int studentId) throws SQLException {
 		List<ScoreDetailsPojo> sdp=new ArrayList<ScoreDetailsPojo>();
 		Connection con=ConnectionPage.connection();
@@ -46,41 +38,76 @@ public class ScoreDetailsDao implements ScoreDetailsDaoInterface{
 		}
 		return sdp;
 	}
-	public  ResultSet filterbydate(ScoreDetailsPojo sd) throws SQLException {
+	public  List<ScoreDetailsPojo> filterbydate(String date) throws SQLException {
+		List<ScoreDetailsPojo> sdp=new ArrayList<ScoreDetailsPojo>();
 		Connection con=ConnectionPage.connection();
-		String query="select * from scoreDetails where to_char(trunc(examdate),'yyyy-mm-dd')=? order by examdate desc";
+		String query="select studentid,examid,examname,score,passorfail,grade,examdate from scoreDetails where to_char(trunc(examdate),'yyyy-mm-dd')=? order by examdate desc";
 		PreparedStatement pstmt=con.prepareStatement(query);
-		pstmt.setDate(1, (Date) sd.getExamdate());
+		pstmt.setString(1, date);
 		ResultSet rs=pstmt.executeQuery();
-		return rs;
-	}
-	public  ResultSet filterbygrade(ScoreDetailsPojo sd) throws SQLException {
-		Connection con=ConnectionPage.connection();
-		String query="select * from scoreDetails where grade=?";
-		PreparedStatement pstmt=con.prepareStatement(query);
-		pstmt.setString(1, sd.getGrade());
-		ResultSet rs=pstmt.executeQuery();
-		return rs;
-	}
-	public  ResultSet filterbyPOF(ScoreDetailsPojo sd) throws SQLException {
-		Connection con=ConnectionPage.connection();
-		String query="select * from scoreDetails where passOrFail=?";
-		PreparedStatement pstmt=con.prepareStatement(query);
-		pstmt.setString(1, sd.getPassOrFail());
-		ResultSet rs=pstmt.executeQuery();
-		return rs;
-	}
-	public  ResultSet viewAllScore() throws SQLException {
-		Connection con=ConnectionPage.connection();
-		String query="select * from scoreDetails order by examdate desc";
-		ResultSet rs=null;
-		try {
-			Statement st=con.createStatement();
-			rs=st.executeQuery(query);
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+		while(rs.next()) {
+			ScoreDetailsPojo sdpp=new ScoreDetailsPojo(rs.getInt(1), rs.getInt(2), rs.getString(3), rs.getInt(4), rs.getString(5), rs.getString(6),rs.getDate(7));
+			sdp.add(sdpp);
 		}
-		return rs;
+		return sdp;
+	}
+	public  List<ScoreDetailsPojo> filterbyPOF(String pof) throws SQLException {
+		List<ScoreDetailsPojo> sdp=new ArrayList<ScoreDetailsPojo>();
+		Connection con=ConnectionPage.connection();
+		String query="select studentid,examid,examname,score,passorfail,grade,examdate from scoreDetails where passOrFail=? order by examdate desc";
+		PreparedStatement pstmt=con.prepareStatement(query);
+		pstmt.setString(1, pof);
+		ResultSet rs=pstmt.executeQuery();
+		while(rs.next()) {
+			ScoreDetailsPojo sdpp=new ScoreDetailsPojo(rs.getInt(1), rs.getInt(2), rs.getString(3), rs.getInt(4), rs.getString(5), rs.getString(6),rs.getDate(7));
+			sdp.add(sdpp);
+		}
+		return sdp;
+	}
+	public  List<ScoreDetailsPojo> filterbygrade(String grade) throws SQLException {
+		List<ScoreDetailsPojo> sdp=new ArrayList<ScoreDetailsPojo>();
+		Connection con=ConnectionPage.connection();
+		String query="select studentid,examid,examname,score,passorfail,grade,examdate from scoreDetails where grade=? order by examdate desc";
+		PreparedStatement pstmt=con.prepareStatement(query);
+		pstmt.setString(1, grade);
+		ResultSet rs=pstmt.executeQuery();
+		while(rs.next()) {
+			ScoreDetailsPojo sdpp=new ScoreDetailsPojo(rs.getInt(1), rs.getInt(2), rs.getString(3), rs.getInt(4), rs.getString(5), rs.getString(6),rs.getDate(7));
+			sdp.add(sdpp);
+		}
+		return sdp;
+	}
+//	public  ResultSet filterbygrade(ScoreDetailsPojo sd) throws SQLException {
+//		Connection con=ConnectionPage.connection();
+//		String query="select * from scoreDetails where grade=?";
+//		PreparedStatement pstmt=con.prepareStatement(query);
+//		pstmt.setString(1, sd.getGrade());
+//		ResultSet rs=pstmt.executeQuery();
+//		return rs;
+//	}
+//	public  ResultSet filterbyPOF(ScoreDetailsPojo sd) throws SQLException {
+//		Connection con=ConnectionPage.connection();
+//		String query="select * from scoreDetails where passOrFail=?";
+//		PreparedStatement pstmt=con.prepareStatement(query);
+//		pstmt.setString(1, sd.getPassOrFail());
+//		ResultSet rs=pstmt.executeQuery();
+//		return rs;
+//	}
+	public List<ScoreDetailsPojo> viewAllScore() throws SQLException {
+		List<ScoreDetailsPojo> sdp=new ArrayList<ScoreDetailsPojo>();
+		Connection con=ConnectionPage.connection();
+		String query="select studentid,examid,examname,score,passorfail,grade,examdate from scoreDetails order by examdate desc";
+		PreparedStatement pstmt=con.prepareStatement(query);
+		ResultSet rs=pstmt.executeQuery();
+		while(rs.next()) {
+			ScoreDetailsPojo sdpp=new ScoreDetailsPojo(rs.getInt(1), rs.getInt(2), rs.getString(3), rs.getInt(4), rs.getString(5), rs.getString(6),rs.getDate(7));
+			sdp.add(sdpp);
+		}
+		return sdp;
+	}
+	@Override
+	public List<ScoreDetailsPojo> filterbydate(java.sql.Date date) throws SQLException {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }

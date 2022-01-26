@@ -65,6 +65,14 @@ public class ExamDetailsPojo {
 		return "ExamDetailsPojo [examId=" + examId + ", examName=" + examName + ", examType=" + examType
 				+ ", difficultyLevel=" + difficultyLevel + ", durationMinutes=" + durationMinutes + "]";
 	}
+	public ExamDetailsPojo(int examId, String examName, String examType, String difficultyLevel, int durationMinutes) {
+		super();
+		this.examId = examId;
+		this.examName = examName;
+		this.examType = examType;
+		this.difficultyLevel = difficultyLevel;
+		this.durationMinutes = durationMinutes;
+	}
 	
 	
 }

@@ -2,31 +2,29 @@ package com.onlineexam.controller;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.List;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
-import com.onlineexam.impl.RegisterDao;
-import com.onlineexam.model.RegisterPojo;
-
-@WebServlet("/changeprofile")
-public class ProfilePhotoChangeServlet extends HttpServlet {
+import com.onlineexam.impl.ScoreDetailsDao;
+import com.onlineexam.model.ScoreDetailsPojo;
+@WebServlet("/FilterExamsByPOF")
+public class FilterExamsByPOFServlet extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		HttpSession session=req.getSession();
-		int userid=(int)session.getAttribute("userid");
-		String photo=req.getParameter("avatar");
-		RegisterPojo rp=new RegisterPojo(userid,photo);
-		RegisterDao rd=new RegisterDao();
+		String pof=req.getParameter("pof");
+		ScoreDetailsDao sdd=new ScoreDetailsDao();
 		try {
-			rd.changephoto(rp);
-			
-			resp.sendRedirect("UserProfile");
+			List<ScoreDetailsPojo> sdp=sdd.filterbyPOF(pof);
+			req.setAttribute("passfail", sdp);
+			RequestDispatcher rd=req.getRequestDispatcher("FilterExamsByPOF.jsp");
+			rd.forward(req, resp);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

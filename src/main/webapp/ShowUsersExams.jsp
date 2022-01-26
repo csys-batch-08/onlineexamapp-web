@@ -1,8 +1,6 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1" %>
-    <%@page import="java.sql.ResultSet"%>
-    <%@page import="com.onlineexam.impl.*"%>
-    <%@page import="com.onlineexam.model.*" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -47,25 +45,22 @@ background-color: #008CBA;
 <body>
 <h1><u>All Exams</u></h1>
 		<a id="ExamDetails" href="ExamDetails.jsp"><h4 style="float: right;margin-right:10px;margin-top:-50px;font-size:x-large;color:black;"><u>Back</u></h4></a>
-	<div style="margin-left:100px;"><form action="FilterExamsByDate.jsp" method="post">
+	
+	<div style="margin-left:100px;"><form action="FilterExamsByDate" method="post">
 	<h3>Filter by date <input type="date" name="date"></h3>
 	<button type="submit" style="margin-left:75px;" class="buttons button2">Filter</button></form>
 	
 	<div style="margin-left:330px;margin-top:-100px;">
-	<form action="FilterExamsByPOF.jsp" method="post">
+	<form action="FilterExamsByPOF" method="post">
 	<h3>Filter by pass or fail <input type="text" name="pof"></h3>
 	<button type="submit" style="margin-left:140px;" class="buttons button2">Filter</button></form></div>
 	
 	<div style="margin-left:750px;margin-top:-100px;">
-	<form action="FilterExamsByGrade.jsp" method="post">
+	<form action="FilterExamsByGrade" method="post">
 	<h3>Filter by Grade <input type="text" name="grade"></h3>
 	<button type="submit" style="margin-left:120px;" class="buttons button2">Filter</button></form></div></div>
 	
 	<br><br>
-	
-	<%
-	ScoreDetailsDao sdd=new ScoreDetailsDao();
-	ResultSet rs=sdd.viewAllScore(); %>
 	<table style="width: 80%;margin-left: 100px;font-size:large;">
         <tr>
             <th>Student Id</th>
@@ -76,17 +71,17 @@ background-color: #008CBA;
             <th>Grade</th>
             <th>Exam Date</th>
         </tr>
-        <% while(rs.next()){ %>
+        <c:forEach items="${allscores}" var="score">
             <tr>
-                <td><%=rs.getInt(1)%></td>
-                <td><%=rs.getInt(2)%></td>
-                <td><%=rs.getString(3)%></td>
-                <td><%=rs.getInt(4)%></td>
-                <td><%=rs.getString(5)%></td>
-                <td><%=rs.getString(6)%></td>
-                <td><%=rs.getString(7)%></td>
+                <td>${score.studentId}</td>
+                <td>${score.examId}</td>
+                <td>${score.examName}</td>
+                <td>${score.score}</td>
+                <td>${score.passOrFail}</td>
+                <td>${score.grade}</td>
+                <td>${score.examdate}</td>
             </tr>
-        <%} %>
+        </c:forEach>
     </table>
 </body>
 </html>

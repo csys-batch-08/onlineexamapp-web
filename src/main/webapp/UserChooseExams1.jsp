@@ -1,5 +1,4 @@
-<%@page import="java.sql.ResultSet"%>
-<%@page import="com.onlineexam.impl.*" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
@@ -49,9 +48,7 @@ body{
 <body>
 	<a href="FilterByDifficulty.html"><h4 style="float: right;margin-right:10px;margin-top:-7px;font-size:x-large;color:black;"><u><b>Back</b></u></h4></a>
 	<h2><u>Exams</u></h2>
-	<% ExamDetailsDao ed=new ExamDetailsDao();
-	ResultSet rs=ed.showExams();
-	%>
+	
 	<table style="width: 80%;margin-left: 100px;">
         <tr>
             <th>Exam Id</th>
@@ -61,32 +58,26 @@ body{
             <th>Duration Minutes</th>
             <th>Exam</th>
         </tr>
-        <% while(rs.next()){ 
-        	 %>
+        <c:forEach items="${hardexams}" var="hard">
             <tr>
-            
-              <% if(rs.getString(4).equals("Hard")){%>
-                <td><%=rs.getString(1)%></td>
-                <td><%=rs.getString(2)%></td>
-                <td><%=rs.getString(3)%></td>
-                <td><%=rs.getString(4)%></td>
-                <td><%=rs.getString(5)%></td>
-                <% if(rs.getString(2).equals("JAVA")){%>
-                	<td><a href="JavaExamHard.jsp?examid=<%=rs.getInt(1)%>&examName=<%=rs.getString(2)%>"><center><button type="submit" class="button examButton">Take Exam</button></center></a></td>
-                	
-               <% } 
-                else if(rs.getString(2).equals("HTML")){%>
-                	<td><a href="HtmlExamHard.jsp?examid=<%=rs.getInt(1)%>&examName=<%=rs.getString(2)%>"><center><button type="submit" class="button examButton">Take Exam</button></center></a></td>
-               <%  }
-                else if(rs.getString(2).equals("CSS")){%>
-                	<td><a href="CssExamHard.jsp?examid=<%=rs.getInt(1)%>&examName=<%=rs.getString(2)%>"><center><button type="submit" class="button examButton">Take Exam</button></center></a></td>
-                	<%HttpSession session1=request.getSession();
-                session1.setAttribute("duration", rs.getString(5)); %>
-               <%  }
-                 %>
+            <c:set var="duration" value="${hard.durationMinutes}" scope="session" />
+                <td>${hard.examId}</td>
+                <td>${hard.examName}</td>
+                <td>${hard.examType}</td>
+                <td>${hard.difficultyLevel}</td>
+                <td>${hard.durationMinutes}</td>
+                <c:if test="${hard.examName=='JAVA'}">
+                <td><a href="JavaExamHard.jsp?examid=${hard.examId}&examName=${hard.examName}"><center><button type="submit" class="button examButton">Take Exam</button></center></a></td>
+                </c:if>
+                <c:if test="${hard.examName=='HTML'}">
+                <td><a href="HtmlExamHard.jsp?examid=${hard.examId}&examName=${hard.examName}"><center><button type="submit" class="button examButton">Take Exam</button></center></a></td>
+                </c:if>
+                <c:if test="${hard.examName=='CSS'}">
+                <td><a href="CssExamHard.jsp?examid=${hard.examId}&examName=${hard.examName}"><center><button type="submit" class="button examButton">Take Exam</button></center></a></td>
+                </c:if>
                 
             </tr>
-        <%} }%>
+        </c:forEach>
     </table>
 </body>
 </html>

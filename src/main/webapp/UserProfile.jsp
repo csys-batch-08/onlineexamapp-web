@@ -1,7 +1,6 @@
-<%@page import="java.sql.ResultSet"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-    <%@page import="com.onlineexam.impl.*" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -64,13 +63,10 @@ background-color: #008CBA;
 <title>User Profile</title>
 </head>
 <body>
-	<%int userid=(int)session.getAttribute("userid"); 
-	RegisterDao rd=new RegisterDao();
-	ResultSet rs=rd.userprofile(userid);%>
 	<a href="UserMain.jsp">Home</a>
 	<div class="container">
-	<%while(rs.next()){%>
-		<img src="images/<%=rs.getString(9) %>" style="border-radius:50%;height:250px;width:260px;border-color:black"><br><br>
+		
+		<img src="./images/${sessionScope.profile.getPhoto()}" style="border-radius:50%;height:250px;width:260px;border-color:black"><br><br>
 		
 		<center><button id="photo" onclick="photochange()" style="display: block;" class="buttons button2">Change photo</button></center>
 		<div id="photochange" style="display: none;">
@@ -80,17 +76,14 @@ background-color: #008CBA;
 		</form></div>
 		<br>
 		<form action="editprofile" method="post">
-		<label for="firstname">Firstname : </label><input type="text" name="firstname" id="firstname" value="<%=rs.getString(2) %>"><br><br>
-		<label for="lastname">Lastname : </label><input type="text" name="lastname" id="lastname" value="<%=rs.getString(3) %>"><br><br>
-		<label for="email" class="emailalign">Email : </label><input type="email" name="email" id="email" value="<%=rs.getString(4) %>" readonly><br><br>
-		<label for="phone" class="phonealign">Phone number : </label><input type="text" name="phone" id="phone" value="<%=rs.getLong(7) %>"><br><br>
+		<label for="firstname">Firstname : </label><input type="text" name="firstname" id="firstname" value="${sessionScope.profile.getFirst_name()}"><br><br>
+		<label for="lastname">Lastname : </label><input type="text" name="lastname" id="lastname" value="${sessionScope.profile.getLast_name()}"><br><br>
+		<label for="email" class="emailalign">Email : </label><input type="email" name="email" id="email" value="${sessionScope.profile.getEmail()}" readonly><br><br>
+		<label for="phone" class="phonealign">Phone number : </label><input type="text" name="phone" id="phone" value="${sessionScope.profile.getPhone_number()}"><br><br>
 		<button type="submit" class="buttons button2">Edit Profile</button>
 		</form></div>
 		
-	<%} %>
-	<%if(session.getAttribute("editres")!=null){ %>
-		<h3><%=session.getAttribute("editres") %></h3>
-		<%} %>
+		
 </body>
 <script>
 function photochange(){

@@ -53,7 +53,7 @@
 	<h2 style="margin-left: 80px;"><u>List of Exams</u></h2>
    <a href="ShowExams.jsp"><button type="submit" class="button examButton">Show Exams</button></a><br>
    <h2><u>List of Exams report</u></h2>
-   <a href="ShowUsersExams.jsp"><button type="submit" class="button examButton">Show Exams report</button></a><br>
+   <a href="ShowUsersExams"><button type="submit" class="button examButton">Show Exams report</button></a><br>
    <h2><u>List of Active Users</u></h2>
    <a href="ShowUsers.jsp"><button type="submit" class="button examButton">Show Active Users</button></a><br>
    <h2><u>List of Inactive Users</u></h2>

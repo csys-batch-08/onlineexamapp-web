@@ -8,6 +8,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 
 public class RegisterDao implements RegisterDaoInterface {
 	public void fetchregister(RegisterPojo rd) throws ClassNotFoundException, SQLException {
@@ -164,12 +166,18 @@ public class RegisterDao implements RegisterDaoInterface {
 
 		return rs;
 	}
-	public ResultSet userprofile(int userid) throws SQLException {
+	public RegisterPojo userprofile(int userid) throws SQLException {
+		//List<RegisterPojo> rp=new ArrayList<RegisterPojo>();
+		RegisterPojo rpp=null;
 		Connection con=ConnectionPage.connection();
-		String que="select * from registerPage where id=?";
+		String que="select first_name,last_name,email,phone_number,profilepicture from registerPage where id=?";
 		PreparedStatement pstmt=con.prepareStatement(que);
 		pstmt.setInt(1, userid);
 		ResultSet rs=pstmt.executeQuery();
-		return rs;
+		while(rs.next()) {
+			rpp=new RegisterPojo(rs.getString(1),rs.getString(2),rs.getString(3),rs.getLong(4),rs.getString(5));
+			//rp.add(rpp);
+		}
+		return rpp;
 	}
 }

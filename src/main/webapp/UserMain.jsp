@@ -1,7 +1,6 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-    <%@page import="java.sql.ResultSet"%>
-    <%@page import="com.onlineexam.impl.*" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,16 +13,10 @@
     <link rel="stylesheet" href="UserMain.css">
 </head>
 <body>
-    <%int userid=(int)session.getAttribute("userid");
-    HttpSession ses=request.getSession();
-    RegisterDao rd=new RegisterDao();
-	ResultSet rs=rd.userprofile(userid);
-    rs.next();
-    %>
-    <a href="UserProfile.jsp"><img class="imgalign" src="images/<%=rs.getString(9) %>" height="50px" width="55px" style="float:right;border-radius: 50%;margin-right:10px;margin-top:-3px;border:1px groove black;" title="My Profile"></a>
+    <a href="UserProfile"><img class="imgalign" src="./images/${sessionScope.profile.getPhoto()}" height="50px" width="55px" style="float:right;border-radius: 50%;margin-right:10px;margin-top:-3px;border:1px groove black;" title="My Profile"></a>
     <ul class="nav">
-        <li><a class="a1" href="index.jsp?message=<%ses.setAttribute("logout", "Logged out successfully");%>">Logout</a></li>
-        <li><a class="a1" href="ContactUs.jsp?userid=<%=userid%>">Contact us</a></li>
+        <li><a class="a1" href="index.jsp">Logout</a></li>
+        <li><a class="a1" href="ContactUs.jsp">Contact us</a></li>
         <li><a class="a1" href="AboutUs.jsp" class="a1">About us</a></li>
         <li><a class="a1" href="showfeedback">My Feedbacks</a></li>
         <li><a class="a1" href="StudentScoreDetails">MyExams</a></li>
