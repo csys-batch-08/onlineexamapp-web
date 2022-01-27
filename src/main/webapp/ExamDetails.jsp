@@ -1,7 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-    <%@page import="java.sql.ResultSet"%>
-<%@page import="com.onlineexam.impl.*" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -48,16 +46,14 @@
 	<a href="AdminMain.jsp"><p style="float: right;margin-right: 20px;font-size: 20px;color: black;font-size:x-large;" class="homeDesign"><b><u>Home</u></b></p></a><br>
     <div class="container">
 
-   
-   
 	<h2 style="margin-left: 80px;"><u>List of Exams</u></h2>
-   <a href="ShowExams.jsp"><button type="submit" class="button examButton">Show Exams</button></a><br>
+   <a href="ShowExams"><button type="submit" class="button examButton">Show Exams</button></a><br>
    <h2><u>List of Exams report</u></h2>
    <a href="ShowUsersExams"><button type="submit" class="button examButton">Show Exams report</button></a><br>
    <h2><u>List of Active Users</u></h2>
-   <a href="ShowUsers.jsp"><button type="submit" class="button examButton">Show Active Users</button></a><br>
+   <a href="ShowUsers"><button type="submit" class="button examButton">Show Active Users</button></a><br>
    <h2><u>List of Inactive Users</u></h2>
-   <a href="ShowInactiveUsers.jsp"><button type="submit" class="button examButton">Show Inactive users</button></a>
+   <a href="ShowInactiveUsers"><button type="submit" class="button examButton">Show Inactive users</button></a>
    </div>
 </body>
 </html>

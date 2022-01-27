@@ -22,17 +22,10 @@ public class ContactUsDao implements ContactUsInterface {
 		pstmt.setString(3, cup.getComments());
 		pstmt.executeQuery();
 	}
-//	public ResultSet showCommentsAdmin() throws SQLException {
-//		Connection con=ConnectionPage.connection();
-//		String query="select * from contactUs";
-//		PreparedStatement pstmt=con.prepareStatement(query);
-//		ResultSet rs=pstmt.executeQuery();
-//		return rs;
-//	}
 	public List<ContactUsPojo> showCommentsAdmin() throws SQLException {
 		List<ContactUsPojo> contactlist=new ArrayList<ContactUsPojo>();
 		Connection con=ConnectionPage.connection();
-		String query="select userid,email,comments,commentdate from contactUs";
+		String query="select userid,email,comments,commentdate from contactUs order by commentdate desc";
 		PreparedStatement pstmt=con.prepareStatement(query);
 		ResultSet rs=pstmt.executeQuery();
 		while(rs.next()) {

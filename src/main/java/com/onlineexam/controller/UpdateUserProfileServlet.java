@@ -32,10 +32,8 @@ public class UpdateUserProfileServlet extends HttpServlet{
 			rd.editprofile(rp);
 			out.println("<script type=\"text/javascript\">");
 			out.println("alert('Profile updated successfully');");
-			out.println("location='UserProfile.jsp';");
+			out.println("location='UserProfile';");
 			out.println("</script>");
-			//session.setAttribute("editres", "Profile updated successfully");
-			//resp.sendRedirect("UserProfile.jsp");
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

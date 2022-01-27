@@ -1,5 +1,4 @@
-<%@page import="java.sql.ResultSet"%>
-<%@page import="com.onlineexam.impl.*" %>
+
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
@@ -94,17 +93,6 @@ margin-top:-400px;
 <title>HTML Exam</title>
 </head>
 <body>
-	<% ExamDetailsDao ed=new ExamDetailsDao();
-	ResultSet rs=ed.showExams();
-	%>
-	
-	<%int userid= (int)session.getAttribute("userid");
-int examId=Integer.parseInt(request.getParameter("examid"));
-String examName=request.getParameter("examName");
-HttpSession session1=request.getSession();
-int duration=Integer.parseInt(session1.getAttribute("duration").toString());
-%>
-	
 	<h2 style="margin-left:50px;" id="css"><u>HTML Exam</u></h2>
 	<a id="home" href="UserChooseExams.jsp"><h4 style="color:black;"><u>Back</u></h4></a>
 	<div id="clock">
@@ -213,14 +201,14 @@ int duration=Integer.parseInt(session1.getAttribute("duration").toString());
 <center><p>Your time is up!....</p></center>
 <center><p>You have to submit exam</p></center></div>
 <div id="feed">
-<a href="feedbackDetails.jsp?examid=<%=examId%>&userid=<%=userid%>"><center><button class="button examButton" style="margin-top:100px;">Send feedback</button></center>&nbsp;&nbsp;</a>
+<a href="feedbackDetails?examid=${exam_Id}&userid=${user_id}"><center><button class="button examButton" style="margin-top:100px;">Send feedback</button></center>&nbsp;&nbsp;</a>
 </div>
 <audio src="musics/exam_music.mp3" id="music"></audio>
 <div id="buttons" class="form">
 <form action="scoreDetails" >
-<input style="visibility:hidden;" type="text" id="examId" name="examId" value="<%=examId%>">
-<input style="visibility:hidden;" type="text" id="examName" name="examName" value="<%=examName%>">
-<input style="visibility:hidden;" type="text" id="studentId" name="uID" value="<%=userid%>"/>
+<input style="visibility:hidden;" type="text" id="examId" name="examId" value="${exam_Id}">
+<input style="visibility:hidden;" type="text" id="examName" name="examName" value="${exam_Name}">
+<input style="visibility:hidden;" type="text" id="studentId" name="uID" value="${user_id}"/>
 <input style="visibility:hidden;" type="text" id="score" name="score">
 <input style="visibility:hidden;" type="text" id="passOrFail" name="passOrFail">
 <input style="visibility:hidden;" type="text" id="grade" name="grade">
@@ -588,7 +576,7 @@ document.getElementById("hour").style.color="green";
 document.getElementById("min").style.color="green";    
 
 var min=0;
-var hour=<%=duration%>;
+var hour=${durationtime};
 var inter=0;
 function clcok(){
 	document.getElementById("buttons").style.visibility="visible";

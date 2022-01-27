@@ -18,8 +18,8 @@ public interface RegisterDaoInterface {
 	public void userrequest(RegisterPojo rp) throws SQLException;
 	public void updatelastdate(RegisterPojo rp) throws SQLException;
 	public void updateactivedate(RegisterPojo rp) throws SQLException;
-	public  ResultSet showUsers();
-	public  ResultSet showInactiveUsers();
+	public  List<RegisterPojo> showUsers();
+	public  List<RegisterPojo> showInactiveUsers();
 	public ResultSet fetchlogin(RegisterPojo rp) throws SQLException, ClassNotFoundException;
 	public  ResultSet validUser(String email,String password) throws ClassNotFoundException, SQLException;
 	public RegisterPojo userprofile(int userid) throws SQLException;

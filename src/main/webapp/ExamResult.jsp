@@ -1,5 +1,4 @@
-<%@page import="com.onlineexam.impl.ScoreDetailsDao"%>
-<%@page import="java.sql.ResultSet"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
@@ -52,24 +51,14 @@ margin-right:15px;
 <title>Exam Result</title>
 </head>
 <body>
-<%int userid= (int)session.getAttribute("userid");
-	String username=(String)session.getAttribute("username");
-	int examId=Integer.parseInt(request.getParameter("examid"));
-	String examName=request.getParameter("examName");
-	int mark=Integer.parseInt(request.getParameter("score"));
-	String passorfail=request.getParameter("passfail");
-	String grade=request.getParameter("grade");
-	ScoreDetailsDao dd=new ScoreDetailsDao();
-	ResultSet rs=dd.viewScore(userid); 
-	%>
 	<center><h2><u>Score Details</u></h2></center><br><br>
 	<a href="UserMain.jsp" class="homealign">Home</a>
 <div class="container">
-Your mark is:  <%=mark %><br><br>
-Your status is:  <%=passorfail %><br><br>
-Your grade is:  <%=grade %><br><br><br>
+Your mark is:  ${score}<br><br>
+Your status is:  ${passfail}<br><br>
+Your grade is:  ${grade}<br><br><br>
 </div>
-<center><a href="feedbackDetails.jsp?userid=<%=userid %>&examid=<%=examId%>&examname=<%=examName%>"><button type="submit" class="button examButton">Send Feedback</button></a></center>
+<center><a href="feedbackDetails?userid=${userid}&examid=${examid}&examname=${examName}"><button type="submit" class="button examButton">Send Feedback</button></a></center>
 	
 </body>
 </html>

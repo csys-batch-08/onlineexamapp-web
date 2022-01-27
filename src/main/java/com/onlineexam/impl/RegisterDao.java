@@ -120,31 +120,41 @@ public class RegisterDao implements RegisterDaoInterface {
 		pstmt.setInt(1, rp.getUserid());
 		pstmt.executeUpdate();
 	}
-	public  ResultSet showUsers() {
+	public  List<RegisterPojo> showUsers() {
+		List<RegisterPojo> rp=new ArrayList<RegisterPojo>();
 		Connection con=ConnectionPage.connection();
-		String query="select * from registerPage where role='student'";
+		String query="select id,first_name,last_name,email,phone_number,lastactivedate from registerPage where role='student'";
 		ResultSet rs=null;
 		try {
-			Statement st=con.createStatement();
-			rs=st.executeQuery(query);
+			PreparedStatement pstmt=con.prepareStatement(query);
+			rs=pstmt.executeQuery();
+			while(rs.next()) {
+				RegisterPojo rpojo=new RegisterPojo(rs.getInt(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getLong(5),rs.getString(6));
+				rp.add(rpojo);
+			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		return rs;
+		return rp;
 	}
-	public  ResultSet showInactiveUsers() {
+	public  List<RegisterPojo> showInactiveUsers() {
+		List<RegisterPojo> rp=new ArrayList<RegisterPojo>();
 		Connection con=ConnectionPage.connection();
-		String query="select * from registerPage where role='inactive'";
+		String query="select id,first_name,last_name,email,phone_number,reason from registerPage where role='inactive'";
 		ResultSet rs=null;
 		try {
-			Statement st=con.createStatement();
-			rs=st.executeQuery(query);
+			PreparedStatement pstmt=con.prepareStatement(query);
+			rs=pstmt.executeQuery();
+			while(rs.next()) {
+				RegisterPojo rpojo=new RegisterPojo(rs.getInt(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getLong(5),rs.getString(6));
+				rp.add(rpojo);
+			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		return rs;
+		return rp;
 	}
 	public ResultSet fetchlogin(RegisterPojo rp) throws SQLException, ClassNotFoundException {
 		Connection con=ConnectionPage.connection();

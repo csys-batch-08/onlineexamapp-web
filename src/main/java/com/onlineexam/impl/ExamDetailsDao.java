@@ -57,6 +57,37 @@ public class ExamDetailsDao implements ExamDetailsDaoInterface{
 			return false;
 		}
 	}
+	public  ResultSet showExams() {
+		Connection con=ConnectionPage.connection();
+		String query="select examId,examName,examType,difficultyLevel,durationMinutes from examDetails";
+		ResultSet rs=null;
+		try {
+			Statement st=con.createStatement();
+			rs=st.executeQuery(query);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return rs;
+	}
+	public  List<ExamDetailsPojo> showAllExams() {
+		List<ExamDetailsPojo> edp=new ArrayList<ExamDetailsPojo>();
+		Connection con=ConnectionPage.connection();
+		String query="select examId,examName,examType,difficultyLevel,durationMinutes from examDetails";
+		ResultSet rs=null;
+		try {
+			PreparedStatement pstmt=con.prepareStatement(query);
+			rs=pstmt.executeQuery();
+			while(rs.next()) {
+				ExamDetailsPojo edpp=new ExamDetailsPojo(rs.getInt(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getInt(5));
+				edp.add(edpp);
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return edp;
+	}
 	public  List<ExamDetailsPojo> showExamsEasy() {
 		List<ExamDetailsPojo> edp=new ArrayList<ExamDetailsPojo>();
 		Connection con=ConnectionPage.connection();

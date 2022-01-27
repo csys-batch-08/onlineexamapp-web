@@ -37,10 +37,8 @@ public class AddExamDetailsServlet extends HttpServlet {
 			if(flag) {
 				out.println("<script type=\"text/javascript\">");
 				out.println("alert('Exam added successfully');");
-				out.println("location='ShowExams.jsp';");
+				out.println("location='ShowExams';");
 				out.println("</script>");
-//				session.setAttribute("addExamResult","Exam added successfully");
-//				res.sendRedirect("ShowExams.jsp");
 			}
 			
 		} catch (SQLException e) {

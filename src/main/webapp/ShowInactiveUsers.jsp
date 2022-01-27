@@ -1,5 +1,4 @@
-<%@page import="com.onlineexam.impl.*"%>
-<%@page import="java.sql.ResultSet"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
@@ -49,13 +48,6 @@ body{
 <body>
 	<a id="ExamDetails" href="ExamDetails.jsp"><h4 style="float: right;margin-right:10px;font-size:x-large;color:black"><u>Back</u></h4></a>
 	<h2><u>Inactive Users</u></h2>
-	<%String message=(String)session.getAttribute("madeactive");
-    if(message!=null){
-    	%><h3 style="text-align:center;"><%=session.getAttribute("madeactive") %></h3><% 
-    }%>
-	
-	<% RegisterDao rd=new RegisterDao();
-	ResultSet rs=rd.showInactiveUsers(); %>
 	<table style="width: 80%;margin-left: 100px;font-size:large;">
         <tr>
             <th>User Id</th>
@@ -66,19 +58,18 @@ body{
             <th>Request</th>
             <th>Status</th>
         </tr>
-        <% while(rs.next()){ %>
+        <c:forEach items="${inusers}" var="in">
             <tr>
-                <td><%=rs.getString(1)%></td>
-                <td><%=rs.getString(2)%></td>
-                <td><%=rs.getString(3)%></td>
-                <td><%=rs.getString(4)%></td>
-                <td><%=rs.getString(7)%></td>
-                <td><%=rs.getString(10)%></td>
-                <form action="active?userid=<%=rs.getInt(1) %>" method="post">
+                <td>${in.userid}</td>
+                <td>${in.first_name}</td>
+                <td>${in.last_name}</td>
+                <td>${in.email}</td>
+                <td>${in.phone_number}</td>
+                <td>${in.reason}</td>
+                <form action="active?userid=${in.userid}" method="post">
                 <td><center><button type="submit" class="button examButton">Make Active</button></center></td></form>
             </tr>
-        <%} %>
+        </c:forEach>
     </table>
-    <%session.removeAttribute("madeactive"); %>
 </body>
 </html>

@@ -67,13 +67,13 @@ body{
                 <td>${hard.difficultyLevel}</td>
                 <td>${hard.durationMinutes}</td>
                 <c:if test="${hard.examName=='JAVA'}">
-                <td><a href="JavaExamHard.jsp?examid=${hard.examId}&examName=${hard.examName}"><center><button type="submit" class="button examButton">Take Exam</button></center></a></td>
+                <td><a href="JavaExamHard?examid=${hard.examId}&examName=${hard.examName}"><center><button type="submit" class="button examButton">Take Exam</button></center></a></td>
                 </c:if>
                 <c:if test="${hard.examName=='HTML'}">
-                <td><a href="HtmlExamHard.jsp?examid=${hard.examId}&examName=${hard.examName}"><center><button type="submit" class="button examButton">Take Exam</button></center></a></td>
+                <td><a href="HtmlExamHard?examid=${hard.examId}&examName=${hard.examName}"><center><button type="submit" class="button examButton">Take Exam</button></center></a></td>
                 </c:if>
                 <c:if test="${hard.examName=='CSS'}">
-                <td><a href="CssExamHard.jsp?examid=${hard.examId}&examName=${hard.examName}"><center><button type="submit" class="button examButton">Take Exam</button></center></a></td>
+                <td><a href="CssExamHard?examid=${hard.examId}&examName=${hard.examName}"><center><button type="submit" class="button examButton">Take Exam</button></center></a></td>
                 </c:if>
                 
             </tr>

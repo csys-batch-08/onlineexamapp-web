@@ -47,7 +47,7 @@ background-color: #008CBA;
 		<a id="ExamDetails" href="ExamDetails.jsp"><h4 style="float: right;margin-right:10px;margin-top:-50px;font-size:x-large;color:black;"><u>Back</u></h4></a>
 	
 	<div style="margin-left:100px;"><form action="FilterExamsByDate" method="post">
-	<h3>Filter by date <input type="date" name="date"></h3>
+	<h3>Filter by date <input type="date" name="date" id="search"></h3>
 	<button type="submit" style="margin-left:75px;" class="buttons button2">Filter</button></form>
 	
 	<div style="margin-left:330px;margin-top:-100px;">
@@ -84,4 +84,13 @@ background-color: #008CBA;
         </c:forEach>
     </table>
 </body>
+
+<script type="text/javascript">
+		let today = new Date().toISOString().slice(0, 10);
+	
+		console.log(today);
+		document.getElementById("search").max =today;
+		
+	</script>
+
 </html>

@@ -28,10 +28,8 @@ public class UserInActiveServlet extends HttpServlet {
 			rd.updatestatus(rp);
 			out.println("<script type=\"text/javascript\">");
 			out.println("alert('Made user as inactive');");
-			out.println("location='ShowInactiveUsers.jsp';");
+			out.println("location='ShowInactiveUsers';");
 			out.println("</script>");
-//			session.setAttribute("statusmessage", "Made as inactive");
-//			resp.sendRedirect("ShowUsers.jsp");
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

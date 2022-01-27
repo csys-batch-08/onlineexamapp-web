@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
@@ -10,10 +11,9 @@
     <link rel="stylesheet" href="UserMain.css">
 </head>
 <body>
-<%HttpSession ses=request.getSession();%>
     
     <ul class="nav">
-        <li><a class="a1 big" href="index.jsp?message=<%ses.setAttribute("logout", "Logged out successfully");%>">Logout</a></li>
+        <li><a class="a1 big" href="index.jsp">Logout</a></li>
         <li><a class="a1 big" href="ShowCommentsAdmin">Contact us</a></li>
         <li><a class="a1 big" href="AboutUsAdmin.jsp">About us</a></li>
         <li><a class="a1 big" href="ShowFeedbackAdmin">Feedbacks</a></li>

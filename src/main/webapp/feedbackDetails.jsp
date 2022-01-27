@@ -1,5 +1,4 @@
-<%@page import="java.sql.ResultSet"%>
-<%@page import="com.onlineexam.impl.*" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
@@ -43,20 +42,12 @@ h2{
 </head>
 <body>
 <a href="UserMain.jsp"><h4 style="float:right;margin-right:10px;margin-top:-0.3px;font-size:x-large;color:black;"><u>Home</u></h4></a>
-<% ExamDetailsDao ed=new ExamDetailsDao();
-	ResultSet rs=ed.showExams();
-	%>
-	
-	
-<%int userid= (int)session.getAttribute("userid");
-int examId=Integer.parseInt(request.getParameter("examid"));
-String examName=request.getParameter("examName");
-%>
-<form action="feedbackDetails" method="post" style="text-align:center;font-size:large;">
+
+<form action="feedbacks" method="post" style="text-align:center;font-size:large;">
 	<h2 style="margin-left:75px;"><u>Feedback Details</u></h2><br><br><br>
-	<input style="visibility:hidden;" type="text" id="examId" name="examId" value="<%=examId%>">
-	<input style="visibility:hidden;" type="text" id="examName" name="examName" value="<%=examName%>">
-	<input style="visibility:hidden;" type="text" id="studentId" name="uID" value="<%=userid%>"/>
+	<input style="visibility:hidden;" type="text" id="examId" name="examId" value="${idofexam}">
+	<input style="visibility:hidden;" type="text" id="examName" name="examName" value="${Nameofexam}">
+	<input style="visibility:hidden;" type="text" id="studentId" name="uID" value="${idofuser}"/>
 	<p style="font-size:large;font-weight:bolder;"><u>Drop your feedback</u></p>
 	<textarea name="feedback" id="feedback" autofocus required></textarea><br><br>
 	<button type="submit" class="button examButton">Submit</button>

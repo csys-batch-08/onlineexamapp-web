@@ -1,5 +1,4 @@
-<%@page import="java.sql.ResultSet"%>
-<%@page import="com.onlineexam.impl.*" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
@@ -70,19 +69,11 @@ button {
   70%,100% { opacity: 0; }
   50% { opacity: 1; }
 }
-/* .input{
-align-items: center; 
-} */
-/* .examdetails{
-	align-items: center;
-} */
 </style>
 <title>List of Exams</title>
 </head>
 <body>
-<%
-ExamDetailsDao ed=new ExamDetailsDao();
-	ResultSet rs=ed.showExams();%>
+
 	<a id="ExamDetails" href="ExamDetails.jsp"><h4
 			style="float: right; margin-right: 10px;margin-top:-0.8px; font-size: x-large; color: black;">
 			<u>Back</u>
@@ -91,19 +82,12 @@ ExamDetailsDao ed=new ExamDetailsDao();
 		<u>Exams</u>
 	</h2>
 	<div class="addexamalign">
-   <!-- <h2 style="margin-left:80px;"><u>Add Exam</u></h2> -->
 		<button onclick="addexam()" id="addexam"
 			style="display: block; margin-left: 595px;" class="button examButton">Add
 			Exam</button>
 		<div id="add" style="display: none;">
 			<form action="addExamDetails" method="post">
-				<!-- <h2 style="margin-left: -80px;">
-					<u>Add Exam</u>
-				</h2> -->
-
-
-				<!-- <label for="examId">Exam Id</label> <input type="text" name="examId"
-					id="examId" required><br> <br> -->
+					
 					<div class="input">
 					 <div class="examdetails"><label
 					for="examName" style="margin-left:74px;">Exam Name</label> <input type="text" name="examName"
@@ -125,25 +109,9 @@ ExamDetailsDao ed=new ExamDetailsDao();
 				<br> <br>
 		</div>
 	</div>
-	<% 
-      	if(session.getAttribute("addExamResult")!=null){%>
-	<h3
-		style="margin-left: 10px; margin-top: 20px; size: 70%; text-align: center;" class="elementToFadeInAndOut"><%=session.getAttribute("addExamResult") %></h3>
-	<%} %>
 
 	</form>
 	
-
-	<% 
-      	if(session.getAttribute("updateExamResult")!=null){%>
-	<h3
-		style="margin-left: 10px; margin-top: 20px; size: 70%; text-align: center;" class="elementToFadeInAndOut"><%=session.getAttribute("updateExamResult") %></h3>
-	<%} %>
-	<% 
-      	if(session.getAttribute("deleteExamResult")!=null){%>
-	<h3
-		style="margin-left: 10px; margin-top: 20px; size: 70%; text-align: center;" class="elementToFadeInAndOut"><%=session.getAttribute("deleteExamResult") %></h3>
-	<%} %>
 	<table style="width: 80%; margin-left: 100px;font-size:large;">
 		<tr>
 			<th>Exam Id</th>
@@ -154,18 +122,17 @@ ExamDetailsDao ed=new ExamDetailsDao();
 			<th>Update</th>
 			<th>Delete</th>
 		</tr>
-		<% while(rs.next()){ %>
+		<c:forEach items="${exams}" var="exam">
 		
 		<tr>
-			<td><%=rs.getString(1)%></td>
-			<td><%=rs.getString(2)%></td>
-			<td><%=rs.getString(3)%></td>
-			<td><%=rs.getString(4)%></td>
-			<td><%=rs.getString(5)%></td>
+			<td>${exam.examId}</td>
+			<td>${exam.examName}</td>
+			<td>${exam.examType}</td>
+			<td>${exam.difficultyLevel}</td>
+			<td>${exam.durationMinutes}</td>
 
 			<td>
-				
-				<form action="updateExamDetails?examid=<%=rs.getInt(1)%>" method="post">
+				<form action="updateExamDetails?examid=${exam.examId}" method="post">
 
 					<h2>
 						<u>Update Exam</u>
@@ -181,13 +148,10 @@ ExamDetailsDao ed=new ExamDetailsDao();
 					
 						<center><button type="submit" style="text-align: center;"
 							class="button examButton">Update Exam</button></center>
-					
 				</form> 
-
-				
 			</td>
 			<td>
-			<form action="deleteExamServlet?examid=<%=rs.getInt(1)%>"
+			<form action="deleteExamServlet?examid=${exam.examId}"
 					method="post">
 					
 					<button type="submit" class="button examButton">Delete
@@ -196,15 +160,9 @@ ExamDetailsDao ed=new ExamDetailsDao();
 				</form>
 			</td>
 		</tr>
-		<%} %>
+		</c:forEach>
 
 	</table>
-	
-	<%HttpSession session1=request.getSession();%>
-	
-	<% session.removeAttribute("addExamResult");%>
-	<% session.removeAttribute("updateExamResult");%>
-	<% session.removeAttribute("deleteExamResult");%>
 </body>
 <script>
 function addexam(){

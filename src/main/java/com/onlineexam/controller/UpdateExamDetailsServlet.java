@@ -31,10 +31,8 @@ public class UpdateExamDetailsServlet extends HttpServlet {
 			if(flag) {
 				out.println("<script type=\"text/javascript\">");
 				out.println("alert('Exam updated successfully');");
-				out.println("location='ShowExams.jsp';");
+				out.println("location='ShowExams';");
 				out.println("</script>");
-//				session.setAttribute("updateExamResult","Exam updated successfully");
-//				res.sendRedirect("ShowExams.jsp");
 			}
 			else {
 				session.setAttribute("updateExamResult","Couldn't update exam");

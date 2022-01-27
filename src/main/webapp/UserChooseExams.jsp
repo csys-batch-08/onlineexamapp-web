@@ -60,20 +60,20 @@ body{
         </tr>
         <c:forEach items="${easyexams}" var="easy">
             <tr>
-            <c:set var="duration" value="${hard.durationMinutes}" scope="session" />
+            <c:set var="duration" value="${easy.durationMinutes}" scope="session" />
                 <td>${easy.examId}</td>
                 <td>${easy.examName}</td>
                 <td>${easy.examType}</td>
                 <td>${easy.difficultyLevel}</td>
                 <td>${easy.durationMinutes}</td>
                 <c:if test="${easy.examName=='JAVA'}">
-                <td><a href="JavaExamEasy.jsp?examid=${easy.examId}&examName=${easy.examName}"><center><button type="submit" class="button examButton">Take Exam</button></center></a></td>
+                <td><a href="JavaExamEasy?examid=${easy.examId}&examName=${easy.examName}"><center><button type="submit" class="button examButton">Take Exam</button></center></a></td>
                 </c:if>
                 <c:if test="${easy.examName=='HTML'}">
-                <td><a href="HtmlExamEasy.jsp?examid=${easy.examId}&examName=${easy.examName}"><center><button type="submit" class="button examButton">Take Exam</button></center></a></td>
+                <td><a href="HtmlExamEasy?examid=${easy.examId}&examName=${easy.examName}"><center><button type="submit" class="button examButton">Take Exam</button></center></a></td>
                 </c:if>
                 <c:if test="${easy.examName=='CSS'}">
-                <td><a href="CssExamEasy.jsp?examid=${easy.examId}&examName=${easy.examName}"><center><button type="submit" class="button examButton">Take Exam</button></center></a></td>
+                <td><a href="CssExamEasy?examid=${easy.examId}&examName=${easy.examName}"><center><button type="submit" class="button examButton">Take Exam</button></center></a></td>
                 </c:if>
                
                  </c:forEach>

@@ -27,7 +27,7 @@ public class DeleteExamDetailsServlet extends HttpServlet {
 			if(flag) {
 				out.println("<script type=\"text/javascript\">");
 				out.println("alert('Exam deleted successfully');");
-				out.println("location='ShowExams.jsp';");
+				out.println("location='ShowExams';");
 				out.println("</script>");
 			}
 			else {
@@ -43,7 +43,7 @@ public class DeleteExamDetailsServlet extends HttpServlet {
 			catch(ExamNotDeleteException end) {
 				out.println("<script type=\"text/javascript\">");
 				out.println("alert('Exam already registered, so could not delete');");
-				out.println("location='ShowExams.jsp';");
+				out.println("location='ShowExams';");
 				out.println("</script>");
 			}
 			

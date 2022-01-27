@@ -22,6 +22,7 @@ import com.onlineexam.model.RegisterPojo;
 public class loginServlet extends HttpServlet
 {
 	public void doPost(HttpServletRequest req,HttpServletResponse res) throws IOException, ServletException {
+		HttpSession session=req.getSession();
 		PrintWriter out=res.getWriter();
 		String email=req.getParameter("email");
 		String password=req.getParameter("password");
@@ -50,7 +51,7 @@ public class loginServlet extends HttpServlet
 					rd.updateactivedate(rp1);
 					RegisterDao rdao=new RegisterDao();
 					RegisterPojo rpojo=rdao.userprofile(userid);
-					req.setAttribute("profile", rp);
+					session.setAttribute("profile", rpojo);
 //					RequestDispatcher rdis=req.getRequestDispatcher("UserProfile.jsp");
 //					rd.forward(req, res);
 					res.sendRedirect("UserMain.jsp");
@@ -60,7 +61,6 @@ public class loginServlet extends HttpServlet
 				}
 				
 				else {
-					HttpSession session=req.getSession();
 					session.setAttribute("loginResult","Invalid username or password");
 				}
 			}

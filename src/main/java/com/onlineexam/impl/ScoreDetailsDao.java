@@ -77,22 +77,6 @@ public class ScoreDetailsDao implements ScoreDetailsDaoInterface{
 		}
 		return sdp;
 	}
-//	public  ResultSet filterbygrade(ScoreDetailsPojo sd) throws SQLException {
-//		Connection con=ConnectionPage.connection();
-//		String query="select * from scoreDetails where grade=?";
-//		PreparedStatement pstmt=con.prepareStatement(query);
-//		pstmt.setString(1, sd.getGrade());
-//		ResultSet rs=pstmt.executeQuery();
-//		return rs;
-//	}
-//	public  ResultSet filterbyPOF(ScoreDetailsPojo sd) throws SQLException {
-//		Connection con=ConnectionPage.connection();
-//		String query="select * from scoreDetails where passOrFail=?";
-//		PreparedStatement pstmt=con.prepareStatement(query);
-//		pstmt.setString(1, sd.getPassOrFail());
-//		ResultSet rs=pstmt.executeQuery();
-//		return rs;
-//	}
 	public List<ScoreDetailsPojo> viewAllScore() throws SQLException {
 		List<ScoreDetailsPojo> sdp=new ArrayList<ScoreDetailsPojo>();
 		Connection con=ConnectionPage.connection();
@@ -104,10 +88,5 @@ public class ScoreDetailsDao implements ScoreDetailsDaoInterface{
 			sdp.add(sdpp);
 		}
 		return sdp;
-	}
-	@Override
-	public List<ScoreDetailsPojo> filterbydate(java.sql.Date date) throws SQLException {
-		// TODO Auto-generated method stub
-		return null;
 	}
 }
