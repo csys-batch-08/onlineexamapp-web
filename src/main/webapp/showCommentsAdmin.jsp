@@ -30,7 +30,7 @@ a{
 </head>
 <body>
 	<h2><u>Users Comments Details</u></h2>
-	<a href="AdminMain.jsp"><b>Home</b></a>
+	<a href="adminMain.jsp"><b>Home</b></a>
 <div >
 <table style="width: 80%;margin-left: 100px;font-size:large;">
         <tr>

@@ -44,7 +44,7 @@ public class loginServlet extends HttpServlet
 				
 				String role=rs.getString(8);
 				if(role.equals("admin")) {
-					res.sendRedirect("AdminMain.jsp");
+					res.sendRedirect("adminMain.jsp");
 				}
 				else if(role.equals("student")){
 					RegisterPojo rp1=new RegisterPojo(userid);
@@ -52,8 +52,6 @@ public class loginServlet extends HttpServlet
 					RegisterDao rdao=new RegisterDao();
 					RegisterPojo rpojo=rdao.userprofile(userid);
 					session.setAttribute("profile", rpojo);
-//					RequestDispatcher rdis=req.getRequestDispatcher("UserProfile.jsp");
-//					rd.forward(req, res);
 					res.sendRedirect("UserMain.jsp");
 				}
 				else if(role.equals("inactive")) {

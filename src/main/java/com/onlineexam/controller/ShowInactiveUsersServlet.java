@@ -20,7 +20,7 @@ public class ShowInactiveUsersServlet extends HttpServlet {
 		RegisterDao rdao=new RegisterDao();
 		List<RegisterPojo> rp=rdao.showInactiveUsers();
 		req.setAttribute("inusers", rp);
-		RequestDispatcher rd=req.getRequestDispatcher("ShowInactiveUsers.jsp");
+		RequestDispatcher rd=req.getRequestDispatcher("showInactiveUsers.jsp");
 		rd.forward(req, resp);
 	}
 }

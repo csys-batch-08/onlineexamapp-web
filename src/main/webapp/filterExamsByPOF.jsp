@@ -44,7 +44,7 @@ background-color: #008CBA;
 </head>
 <body>
 <h1><u>All Exams</u></h1>
-		<a id="ExamDetails" href="ExamDetails.jsp"><h4 style="float: right;margin-right:10px;margin-top:-50px;font-size:x-large;color:black;"><u>Back</u></h4></a>
+		<a id="ExamDetails" href="examDetails.jsp"><h4 style="float: right;margin-right:10px;margin-top:-50px;font-size:x-large;color:black;"><u>Back</u></h4></a>
 	<div style="margin-left:100px;"><form action="FilterExamsByDate" method="post">
 	<h3>Filter by date <input type="date" name="date"></h3>
 	<button type="submit" style="margin-left:75px;" class="buttons button2">Filter</button></form>
@@ -71,15 +71,15 @@ background-color: #008CBA;
             <th>Grade</th>
             <th>Exam Date</th>
         </tr>
-        <c:forEach items="${grades}" var="grade">
+        <c:forEach items="${passfail}" var="pf">
             <tr>
-                <td>${grade.studentId}</td>
-                <td>${grade.examId}</td>
-                <td>${grade.examName}</td>
-                <td>${grade.score}</td>
-                <td>${grade.passOrFail}</td>
-                <td>${grade.grade}</td>
-                <td>${grade.examdate}</td>
+                <td>${pf.studentId}</td>
+                <td>${pf.examId}</td>
+                <td>${pf.examName}</td>
+                <td>${pf.score}</td>
+                <td>${pf.passOrFail}</td>
+                <td>${pf.grade}</td>
+                <td>${pf.examdate}</td>
             </tr>
         </c:forEach>
     </table>

@@ -40,13 +40,14 @@ background-color: #008CBA;
   box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
 }
 </style>
-<title>List of exams</title>
+<title>List of completed exams</title>
 </head>
 <body>
 <h1><u>All Exams</u></h1>
-		<a id="ExamDetails" href="ExamDetails.jsp"><h4 style="float: right;margin-right:10px;margin-top:-50px;font-size:x-large;color:black;"><u>Back</u></h4></a>
+		<a id="ExamDetails" href="examDetails.jsp"><h4 style="float: right;margin-right:10px;margin-top:-50px;font-size:x-large;color:black;"><u>Back</u></h4></a>
+	
 	<div style="margin-left:100px;"><form action="FilterExamsByDate" method="post">
-	<h3>Filter by date <input type="date" name="date"></h3>
+	<h3>Filter by date <input type="date" name="date" id="search"></h3>
 	<button type="submit" style="margin-left:75px;" class="buttons button2">Filter</button></form>
 	
 	<div style="margin-left:330px;margin-top:-100px;">
@@ -57,10 +58,9 @@ background-color: #008CBA;
 	<div style="margin-left:750px;margin-top:-100px;">
 	<form action="FilterExamsByGrade" method="post">
 	<h3>Filter by Grade <input type="text" name="grade"></h3>
-	<button type="submit" style="margin-left:120px;" class="buttons button2">Filter</button></form></div></div><br><br>
+	<button type="submit" style="margin-left:120px;" class="buttons button2">Filter</button></form></div></div>
 	
-	<center><a href="ShowUsersExams"><button class="buttons button2">View all</button></a></center><br><br>
-	
+	<br><br>
 	<table style="width: 80%;margin-left: 100px;font-size:large;">
         <tr>
             <th>Student Id</th>
@@ -71,17 +71,21 @@ background-color: #008CBA;
             <th>Grade</th>
             <th>Exam Date</th>
         </tr>
-        <c:forEach items="${dates}" var="date">
+        <c:forEach items="${allscores}" var="score">
             <tr>
-                <td>${date.studentId}</td>
-                <td>${date.examId}</td>
-                <td>${date.examName}</td>
-                <td>${date.score}</td>
-                <td>${date.passOrFail}</td>
-                <td>${date.grade}</td>
-                <td>${date.examdate}</td>
+                <td>${score.studentId}</td>
+                <td>${score.examId}</td>
+                <td>${score.examName}</td>
+                <td>${score.score}</td>
+                <td>${score.passOrFail}</td>
+                <td>${score.grade}</td>
+                <td>${score.examdate}</td>
             </tr>
         </c:forEach>
     </table>
 </body>
+<script type="text/javascript">
+		let today = new Date().toISOString().slice(0, 10);
+		document.getElementById("search").max =today;
+	</script>
 </html>

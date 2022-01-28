@@ -74,7 +74,7 @@ button {
 </head>
 <body>
 
-	<a id="ExamDetails" href="ExamDetails.jsp"><h4
+	<a id="ExamDetails" href="examDetails.jsp"><h4
 			style="float: right; margin-right: 10px;margin-top:-0.8px; font-size: x-large; color: black;">
 			<u>Back</u>
 		</h4></a>

@@ -15,9 +15,9 @@
     <ul class="nav">
         <li><a class="a1 big" href="index.jsp">Logout</a></li>
         <li><a class="a1 big" href="ShowCommentsAdmin">Contact us</a></li>
-        <li><a class="a1 big" href="AboutUsAdmin.jsp">About us</a></li>
+        <li><a class="a1 big" href="aboutUsAdmin.jsp">About us</a></li>
         <li><a class="a1 big" href="ShowFeedbackAdmin">Feedbacks</a></li>
-        <li><a class="a1 big" href="ExamDetails.jsp">Admin Actions</a></li>
+        <li><a class="a1 big" href="examDetails.jsp">Admin Actions</a></li>
     </ul>
     <img src="images/onlineExamIcon.png" class="imgIcon" alt="onlineexamicon">
     <div class="h1">

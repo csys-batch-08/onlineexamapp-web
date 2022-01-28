@@ -36,7 +36,7 @@ public class UpdateExamDetailsServlet extends HttpServlet {
 			}
 			else {
 				session.setAttribute("updateExamResult","Couldn't update exam");
-				res.sendRedirect("ShowExams.jsp");
+				res.sendRedirect("showExams.jsp");
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block

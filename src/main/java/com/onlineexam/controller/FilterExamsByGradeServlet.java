@@ -23,7 +23,7 @@ public class FilterExamsByGradeServlet extends HttpServlet {
 		try {
 			List<ScoreDetailsPojo> sdp=sdd.filterbygrade(grade);
 			req.setAttribute("grades", sdp);
-			RequestDispatcher rd=req.getRequestDispatcher("FilterExamsByGrade.jsp");
+			RequestDispatcher rd=req.getRequestDispatcher("filterExamsByGrade.jsp");
 			rd.forward(req, resp);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block

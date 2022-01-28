@@ -43,11 +43,12 @@ body{
   transition: 2ms;
 }
 </style>
-<title>Inactive Users</title>
+<title>List of Users</title>
 </head>
 <body>
-	<a id="ExamDetails" href="ExamDetails.jsp"><h4 style="float: right;margin-right:10px;font-size:x-large;color:black"><u>Back</u></h4></a>
-	<h2><u>Inactive Users</u></h2>
+	<a id="ExamDetails" href="examDetails.jsp"><h4 style="float: right;margin-right:10px;font-size:x-large;color:black"><u>Back</u></h4></a>
+	<h2><u>Users</u></h2>
+	
 	<table style="width: 80%;margin-left: 100px;font-size:large;">
         <tr>
             <th>User Id</th>
@@ -55,19 +56,19 @@ body{
             <th>Last Name</th>
             <th>Email</th>
             <th>Phone Number</th>
-            <th>Request</th>
+            <th>Last active date</th>
             <th>Status</th>
         </tr>
-        <c:forEach items="${inusers}" var="in">
+        <c:forEach items="${users}" var="active">
             <tr>
-                <td>${in.userid}</td>
-                <td>${in.first_name}</td>
-                <td>${in.last_name}</td>
-                <td>${in.email}</td>
-                <td>${in.phone_number}</td>
-                <td>${in.reason}</td>
-                <form action="active?userid=${in.userid}" method="post">
-                <td><center><button type="submit" class="button examButton">Make Active</button></center></td></form>
+                <td>${active.userid}</td>
+                <td>${active.first_name}</td>
+                <td>${active.last_name}</td>
+                <td>${active.email}</td>
+                <td>${active.phone_number}</td>
+                <td>${active.reason}</td>
+                <form action="userstatus?userid=${active.userid}" method="post">
+                <td><center><button type="submit" class="button examButton">Make Inactive</button></center></td></form>
             </tr>
         </c:forEach>
     </table>

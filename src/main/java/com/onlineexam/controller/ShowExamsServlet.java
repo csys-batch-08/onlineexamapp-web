@@ -20,7 +20,7 @@ public class ShowExamsServlet extends HttpServlet {
 		ExamDetailsDao edd=new ExamDetailsDao();
 		List<ExamDetailsPojo> edp=edd.showAllExams();
 		req.setAttribute("exams", edp);
-		RequestDispatcher rd=req.getRequestDispatcher("ShowExams.jsp");
+		RequestDispatcher rd=req.getRequestDispatcher("showExams.jsp");
 		rd.forward(req, resp);
 	}
 }

@@ -27,7 +27,7 @@ public class FilterExamsByDateServlet extends HttpServlet {
 			ScoreDetailsDao sdd=new ScoreDetailsDao();
 			List<ScoreDetailsPojo> sdp=sdd.filterbydate(date);
 			req.setAttribute("dates", sdp);
-			RequestDispatcher rd=req.getRequestDispatcher("FilterExamsByDate.jsp");
+			RequestDispatcher rd=req.getRequestDispatcher("filterExamsByDate.jsp");
 			rd.forward(req, resp);
 		}  catch (SQLException e) {
 			// TODO Auto-generated catch block

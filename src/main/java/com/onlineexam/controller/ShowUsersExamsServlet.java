@@ -22,7 +22,7 @@ public class ShowUsersExamsServlet extends HttpServlet {
 		try {
 			List<ScoreDetailsPojo> sdp=sdd.viewAllScore();
 			req.setAttribute("allscores", sdp);
-			RequestDispatcher rd=req.getRequestDispatcher("ShowUsersExams.jsp");
+			RequestDispatcher rd=req.getRequestDispatcher("showUsersExams.jsp");
 			rd.forward(req, resp);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block

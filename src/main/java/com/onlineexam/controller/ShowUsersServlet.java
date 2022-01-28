@@ -20,7 +20,7 @@ public class ShowUsersServlet extends HttpServlet {
 		RegisterDao rdao=new RegisterDao();
 		List<RegisterPojo> rp=rdao.showUsers();
 		req.setAttribute("users", rp);
-		RequestDispatcher rd=req.getRequestDispatcher("ShowUsers.jsp");
+		RequestDispatcher rd=req.getRequestDispatcher("showUsers.jsp");
 		rd.forward(req, resp);
 	}
 }

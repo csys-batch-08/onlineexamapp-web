@@ -12,7 +12,13 @@ role varchar2(10) default 'student',
 constraint pk_id primary key(id)
 );
 alter table registerPage add profilepicture varchar2(500) default 'iconforuser.png';
+alter table registerPage add reason varchar2(50);
+alter table registerPage add lastactivedate date default sysdate;
 update registerPage set profilepicture='onlineExamReferenceCropped.jpg' where id=22;
+update registerPage set lastactivedate='10-01-22';
+update registerPage set reason='no requests';
+update registerPage set reason='could you please make me active mode' where id=21;
+update registerPage set reason='please make me active mode' where id=101;
 select * from registerPage;
 commit;
 
@@ -43,9 +49,11 @@ examdate date,
 constraint fk_id foreign key(studentId) references registerPage(id),
 constraint fk_id1 foreign key(examId) references examDetails(examId)
 );
-
-select * from scoreDetails;
+insert into scoreDetails values(4,106,'CSS',7,'pass','C','10-01-22');
+delete from scoreDetails where score=18;
 commit;
+rollback;
+delete from scoreDetails where studentId=41;
 --feedbackDetails table
 
 create table feedbackDetails(
@@ -77,3 +85,12 @@ foreign key(email) references registerPage(email)
 
 select * from contactUs;
 commit;
+
+
+--<>--Select Queries--<>--
+
+select * from registerPage;
+select * from examDetails;
+select * from scoreDetails;
+select * from feedbackDetails;
+select * from contactUs;

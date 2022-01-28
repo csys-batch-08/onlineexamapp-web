@@ -23,7 +23,7 @@ public class FilterExamsByPOFServlet extends HttpServlet {
 		try {
 			List<ScoreDetailsPojo> sdp=sdd.filterbyPOF(pof);
 			req.setAttribute("passfail", sdp);
-			RequestDispatcher rd=req.getRequestDispatcher("FilterExamsByPOF.jsp");
+			RequestDispatcher rd=req.getRequestDispatcher("filterExamsByPOF.jsp");
 			rd.forward(req, resp);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block

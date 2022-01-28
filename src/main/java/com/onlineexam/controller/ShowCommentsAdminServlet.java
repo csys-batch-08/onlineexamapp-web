@@ -22,7 +22,7 @@ public class ShowCommentsAdminServlet extends HttpServlet {
 		try {
 			List<ContactUsPojo> cup=cud.showCommentsAdmin();
 			req.setAttribute("contactlist", cup);
-			RequestDispatcher rd=req.getRequestDispatcher("ShowCommentsAdmin.jsp");
+			RequestDispatcher rd=req.getRequestDispatcher("showCommentsAdmin.jsp");
 			rd.forward(req, resp);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block

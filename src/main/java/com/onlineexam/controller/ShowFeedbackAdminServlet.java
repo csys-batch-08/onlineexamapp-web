@@ -22,7 +22,7 @@ public class ShowFeedbackAdminServlet extends HttpServlet {
 		try {
 			List<FeedbackDetailsPojo> fdp=fdd.showFeedbacksAdmin();
 			req.setAttribute("showfeedback", fdp);
-			RequestDispatcher rd=req.getRequestDispatcher("ShowFeedbackAdmin.jsp");
+			RequestDispatcher rd=req.getRequestDispatcher("showFeedbackAdmin.jsp");
 			rd.forward(req, resp);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
