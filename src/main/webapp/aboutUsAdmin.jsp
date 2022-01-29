@@ -10,7 +10,7 @@ body{
 }
 .home{
 	float:right;
-	margin-top:-30px;
+	margin-top:-45px;
 	margin-right:15px;
 	font-size:x-large;
 	color:black;

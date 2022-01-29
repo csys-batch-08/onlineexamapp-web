@@ -1,4 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib uri = "http://java.sun.com/jsp/jstl/functions" prefix = "fn" %>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1" %>
 <!DOCTYPE html>
@@ -39,6 +40,14 @@ background-color: #008CBA;
 .button2:hover {
   box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
 }
+.notyet{
+font-weight:bolder;
+font-size:xx-large;
+}
+.otherwise{
+text-align:center;
+margin-top:80px;
+}
 </style>
 <title>List of exams</title>
 </head>
@@ -46,7 +55,7 @@ background-color: #008CBA;
 <h1><u>All Exams</u></h1>
 		<a id="ExamDetails" href="examDetails.jsp"><h4 style="float: right;margin-right:10px;margin-top:-50px;font-size:x-large;color:black;"><u>Back</u></h4></a>
 	<div style="margin-left:100px;"><form action="FilterExamsByDate" method="post">
-	<h3>Filter by date <input type="date" name="date"></h3>
+	<h3>Filter by date <input type="date" name="date" id="search"></h3>
 	<button type="submit" style="margin-left:75px;" class="buttons button2">Filter</button></form>
 	
 	<div style="margin-left:330px;margin-top:-100px;">
@@ -61,6 +70,8 @@ background-color: #008CBA;
 	
 	<center><a href="ShowUsersExams"><button class="buttons button2">View all</button></a></center><br><br>
 	
+	<c:choose>
+	<c:when test="${fn:length(grades) > 0 }">
 	<table style="width: 80%;margin-left: 100px;font-size:large;">
         <tr>
             <th>Student Id</th>
@@ -83,5 +94,13 @@ background-color: #008CBA;
             </tr>
         </c:forEach>
     </table>
+    </c:when>
+   <c:otherwise><h2 class="notyet"><div class="otherwise">No one got this Grade!..</div></h2>
+   </c:otherwise>
+   </c:choose>
 </body>
+<script type="text/javascript">
+		let today = new Date().toISOString().slice(0, 10);
+		document.getElementById("search").max =today;
+	</script>
 </html>

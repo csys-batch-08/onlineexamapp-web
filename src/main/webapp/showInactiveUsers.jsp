@@ -1,4 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib uri = "http://java.sun.com/jsp/jstl/functions" prefix = "fn" %>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
@@ -42,12 +43,22 @@ body{
   color: white;
   transition: 2ms;
 }
+.notyet{
+font-weight:bolder;
+font-size:xx-large;
+}
+.otherwise{
+text-align:center;
+margin-top:200px;
+}
 </style>
 <title>Inactive Users</title>
 </head>
 <body>
 	<a id="ExamDetails" href="examDetails.jsp"><h4 style="float: right;margin-top:-0.3px;margin-right:10px;font-size:x-large;color:black"><u>Back</u></h4></a>
 	<h2><u>Inactive Users</u></h2>
+	<c:choose>
+	<c:when test="${fn:length(inusers) > 0 }">
 	<table style="width: 80%;margin-left: 100px;font-size:large;">
         <tr>
             <th>User Id</th>
@@ -71,5 +82,10 @@ body{
             </tr>
         </c:forEach>
     </table>
+    </c:when>
+   <c:otherwise><h2 class="notyet"><div class="otherwise">No one exist in this mode!..</div></h2><br><br><br>
+   <a href="ShowUsers"><center><button class="button examButton">Show Active Users</button></center></a>
+   </c:otherwise>
+   </c:choose>
 </body>
 </html>
