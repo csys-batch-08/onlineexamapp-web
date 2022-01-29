@@ -15,7 +15,6 @@ body{
         left: 550px;
         padding: 35px;
         background-color:whitesmoke;
-        /* border: 5px solid rgb(144, 138, 138); */
         border-radius: 30px;
         box-shadow: 0 0 15px black;
     
@@ -27,7 +26,6 @@ body{
 a{
 float:right;
 margin-right:15px;
-margin-top:-535px;
 font-weight:bolder;
 color:black;    	
 }
@@ -58,7 +56,7 @@ background-color: #008CBA;
         let ps1 = document.getElementById("password");
         let ps2 = document.getElementById("cpassword");
         if (ps1.value.trim() != ps2.value.trim()) {
-            document.getElementById("pws").innerHTML = "Passwords must be same";
+            alert("Passwords must be same");
             return false;
         }
         else {
@@ -82,7 +80,5 @@ background-color: #008CBA;
 	
 	</form>
 	</div>
-	<p id="pws" style="color: black;margin-left:540px;margin-top:543px;font-weight:bolder;font-size:x-large;"></p>
-	
 </body>
 </html>

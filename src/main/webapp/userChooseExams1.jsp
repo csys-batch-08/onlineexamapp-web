@@ -46,10 +46,10 @@ body{
 <title>List of Exams</title>
 </head>
 <body>
-	<a href="FilterByDifficulty.html"><h4 style="float: right;margin-right:10px;margin-top:-7px;font-size:x-large;color:black;"><u><b>Back</b></u></h4></a>
+	<a href="filterByDifficulty.jsp"><h4 style="float: right;margin-right:10px;margin-top:-7px;font-size:x-large;color:black;"><u><b>Back</b></u></h4></a>
 	<h2><u>Exams</u></h2>
 	
-	<table style="width: 80%;margin-left: 100px;font-size:large;">
+	<table style="width: 80%;margin-left: 100px;">
         <tr>
             <th>Exam Id</th>
             <th>Exam Name</th>
@@ -58,29 +58,26 @@ body{
             <th>Duration Minutes</th>
             <th>Exam</th>
         </tr>
-        <c:forEach items="${easyexams}" var="easy">
+        <c:forEach items="${hardexams}" var="hard">
             <tr>
-            <c:set var="duration" value="${easy.durationMinutes}" scope="session" />
-                <td>${easy.examId}</td>
-                <td>${easy.examName}</td>
-                <td>${easy.examType}</td>
-                <td>${easy.difficultyLevel}</td>
-                <td>${easy.durationMinutes}</td>
-                <c:if test="${easy.examName=='JAVA'}">
-                <td><a href="JavaExamEasy?examid=${easy.examId}&examName=${easy.examName}"><center><button type="submit" class="button examButton">Take Exam</button></center></a></td>
+            <c:set var="duration" value="${hard.durationMinutes}" scope="session" />
+                <td>${hard.examId}</td>
+                <td>${hard.examName}</td>
+                <td>${hard.examType}</td>
+                <td>${hard.difficultyLevel}</td>
+                <td>${hard.durationMinutes}</td>
+                <c:if test="${hard.examName=='JAVA'}">
+                <td><a href="JavaExamHard?examid=${hard.examId}&examName=${hard.examName}"><center><button type="submit" class="button examButton">Take Exam</button></center></a></td>
                 </c:if>
-                <c:if test="${easy.examName=='HTML'}">
-                <td><a href="HtmlExamEasy?examid=${easy.examId}&examName=${easy.examName}"><center><button type="submit" class="button examButton">Take Exam</button></center></a></td>
+                <c:if test="${hard.examName=='HTML'}">
+                <td><a href="HtmlExamHard?examid=${hard.examId}&examName=${hard.examName}"><center><button type="submit" class="button examButton">Take Exam</button></center></a></td>
                 </c:if>
-                <c:if test="${easy.examName=='CSS'}">
-                <td><a href="CssExamEasy?examid=${easy.examId}&examName=${easy.examName}"><center><button type="submit" class="button examButton">Take Exam</button></center></a></td>
+                <c:if test="${hard.examName=='CSS'}">
+                <td><a href="CssExamHard?examid=${hard.examId}&examName=${hard.examName}"><center><button type="submit" class="button examButton">Take Exam</button></center></a></td>
                 </c:if>
-               
-                 </c:forEach>
-                
                 
             </tr>
-        
+        </c:forEach>
     </table>
 </body>
 </html>

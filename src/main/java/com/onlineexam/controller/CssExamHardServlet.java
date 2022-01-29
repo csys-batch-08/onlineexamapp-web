@@ -23,7 +23,7 @@ public class CssExamHardServlet extends HttpServlet {
 		req.setAttribute("exam_Id", examId);
 		req.setAttribute("exam_Name", examName);
 		req.setAttribute("durationtime", duration);
-		RequestDispatcher rd=req.getRequestDispatcher("CssExamHard.jsp");
+		RequestDispatcher rd=req.getRequestDispatcher("cssExamHard.jsp");
 		rd.forward(req, resp);
 	}
 }

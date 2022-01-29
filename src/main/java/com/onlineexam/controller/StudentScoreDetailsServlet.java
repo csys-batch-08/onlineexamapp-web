@@ -25,7 +25,7 @@ public class StudentScoreDetailsServlet extends HttpServlet {
 		try {
 			List<ScoreDetailsPojo> sdp=sdd.viewScore(userid);
 			req.setAttribute("scorelist", sdp);
-			RequestDispatcher rd=req.getRequestDispatcher("StudentScoreDetails.jsp");
+			RequestDispatcher rd=req.getRequestDispatcher("studentScoreDetails.jsp");
 			rd.forward(req, resp);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block

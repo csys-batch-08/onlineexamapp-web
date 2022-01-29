@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -41,7 +43,7 @@ button{
 <title>Exam Difficulty</title>
 </head>
 <body>
-	<a href="UserMain.jsp" style="float:right;font-weight:bolder;margin-top:10px;margin-right:15px;font-size: x-large;color:black;"><u>Home</u></a>
+	<a href="userMain.jsp" style="float:right;font-weight:bolder;margin-top:10px;margin-right:15px;font-size: x-large;color:black;"><u>Home</u></a>
 <div>
 	<h2><u>Choose Difficulty of Exam</u></h2><br>
 	<a href="UserChooseExams"><button type="submit" class="examButton">Easy</button></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;

@@ -63,7 +63,7 @@ background-color: #008CBA;
 <title>User Profile</title>
 </head>
 <body>
-	<a href="UserMain.jsp">Home</a>
+	<a href="userMain.jsp">Home</a>
 	<div class="container">
 		
 		<img src="./images/${sessionScope.profile.getPhoto()}" style="border-radius:50%;height:250px;width:260px;border-color:black"><br><br>

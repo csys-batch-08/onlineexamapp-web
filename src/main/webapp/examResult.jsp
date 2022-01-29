@@ -52,7 +52,7 @@ margin-right:15px;
 </head>
 <body>
 	<center><h2><u>Score Details</u></h2></center><br><br>
-	<a href="UserMain.jsp" class="homealign">Home</a>
+	<a href="userMain.jsp" class="homealign">Home</a>
 <div class="container">
 Your mark is:  ${score}<br><br>
 Your status is:  ${passfail}<br><br>

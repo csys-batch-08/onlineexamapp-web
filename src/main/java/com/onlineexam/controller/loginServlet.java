@@ -52,7 +52,7 @@ public class loginServlet extends HttpServlet
 					RegisterDao rdao=new RegisterDao();
 					RegisterPojo rpojo=rdao.userprofile(userid);
 					session.setAttribute("profile", rpojo);
-					res.sendRedirect("UserMain.jsp");
+					res.sendRedirect("userMain.jsp");
 				}
 				else if(role.equals("inactive")) {
 					throw new InactiveUserException();
@@ -74,7 +74,7 @@ public class loginServlet extends HttpServlet
 		}catch(InactiveUserException e) {
 			out.println("<script type=\"text/javascript\">");
 			out.println("alert('You are in inactive mode.Request admin to activate');");
-			out.println("location='Request.jsp';");
+			out.println("location='request.jsp';");
 			out.println("</script>");
 		} 
 		catch (Exception e) {

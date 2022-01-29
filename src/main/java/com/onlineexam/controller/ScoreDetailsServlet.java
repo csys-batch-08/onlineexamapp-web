@@ -35,7 +35,7 @@ public class ScoreDetailsServlet extends HttpServlet {
 			req.setAttribute("score", score);
 			req.setAttribute("passfail", passOrFail);
 			req.setAttribute("grade", grade);
-			RequestDispatcher rd=req.getRequestDispatcher("ExamResult.jsp");
+			RequestDispatcher rd=req.getRequestDispatcher("examResult.jsp");
 			rd.forward(req, res);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block

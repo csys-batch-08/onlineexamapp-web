@@ -63,12 +63,11 @@ background-color: #008CBA;
 <title>Contact Us</title>
 </head>
 <body>
-<%int userid= (int)session.getAttribute("userid");%>
-<p class="home"><a href="UserMain.jsp">Home</a></p><br>
+
+<p class="home"><a href="userMain.jsp">Home</a></p><br>
 <form action="contact" method="post">
 <div class="container">
 	<h2 class="h1move" class="login"><u>Contact Admin</u></h2>
-	<input style="visibility: hidden;" type="text" id="studentId" name="uID" value="<%=userid%>"><br>
 	<label for="email" class="usernamealign">Enter your Email:</label><br>
 	<input type="email" pattern="[a-z][a-z0-9]+[@][a-z]+[.][a-z]+" name="email" id="email" placeholder="abc@domain.com" autofocus required><br><br>
 	<label for="comments">Drop your Comments:</label><br>

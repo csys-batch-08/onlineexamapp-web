@@ -30,7 +30,7 @@ public class FeedbackServlet extends HttpServlet {
 			fdd.insertFeedback(fdp);
 			out.println("<script type=\"text/javascript\">");
 			out.println("alert('Your feedback has been sent');");
-			out.println("location='UserMain.jsp';");
+			out.println("location='userMain.jsp';");
 			out.println("</script>");
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block

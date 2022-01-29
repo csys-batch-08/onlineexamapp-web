@@ -5,7 +5,6 @@
 
 <head>
     <meta charset="ISO-8859-1">
-    <!-- <link rel="stylesheet" href="register.css"> -->
     <title>Register page</title>
     
 <style>
@@ -80,7 +79,7 @@ background-color: #008CBA;
         let ps1 = document.getElementById("password");
         let ps2 = document.getElementById("cpassword");
         if (ps1.value.trim() != ps2.value.trim()) {
-            document.getElementById("pws").innerHTML = "Passwords must be same";
+           alert("Passwords must be same");
             return false;
         }
         else {
@@ -120,26 +119,10 @@ background-color: #008CBA;
                     <button type="submit" style="margin-left:-35px;color:white" class="buttons button2">Submit</button>&nbsp;&nbsp;
                 <button type="reset" style="color:white" class="buttons button2">Reset</button><br>
                 
-                
-                
             </div>
             <p id="pws" style="color: black;margin-left:70px;font-weight:bolder;font-size:x-large;"></p>
         </form>
-        <!-- <center><a href="" style="font-size:x-large;margin-left:-24px;margin-top:-7px;color:black;">login</a></center> -->
     </div>
-    
-    <%	String error1=(String)session.getAttribute("phonenumberexist");
-      	if(error1!=null){%>
-      		<h3 style="margin-left:590px;margin-top:590px; size:70%"><%=session.getAttribute("phonenumberexist") %></h3>
-      	<%} %>
-    <% String error=(String)session.getAttribute("emailexist");
-      	if(error!=null){%>
-      		<h3 style="margin-left:590px;margin-top:590px; size:70%"><%=session.getAttribute("emailexist") %></h3>
-      	<%}%>
-       
-
-        <% session.removeAttribute("emailexist");
-           session.removeAttribute("phonenumberexist");%>
     
 </body>
 

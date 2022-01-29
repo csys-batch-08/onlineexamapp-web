@@ -20,7 +20,9 @@ a{
 color:black;
 }
 img {
-  border: 2px solid tomato;
+  width:450px;
+  height:300px;
+  border: 2px solid black;
 }
 </style>
 <title>About Us</title>
@@ -28,7 +30,7 @@ img {
 <body>
 	<h2><u>About our Website</u></h2>
 	<p class="home"><a href="adminMain.jsp">Home</a></p><br>
-	<img alt="onlineExamImage" src="https://us.123rf.com/450wm/pratyaksa/pratyaksa1602/pratyaksa160200039/54531094-studying-flat-design-illustration-of-online-education-or-e-learning-.jpg?ver=6">
+	<img alt="onlineExamImage" src="./images/aboutUs.jpg">
 	<p>We are best in conducting exams and grow knowledge of people</p>
 	<p>We are conducting exams through our website</p>
 	<p>Using our website you can write exam and you can know your status</p>

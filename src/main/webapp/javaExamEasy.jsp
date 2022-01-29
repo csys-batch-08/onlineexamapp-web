@@ -90,11 +90,11 @@ margin-left:630px;
 margin-top:-400px;
 }
 </style>
-<title>CSS Exam</title>
+<title>JAVA Exam</title>
 </head>
 <body>
-	<h2 style="margin-left:50px;" id="css"><u>CSS Exam</u></h2>
-	<a id="home" href="UserChooseExams.jsp"><h4 style="color:black;"><u>Back</u></h4></a>
+	<h2 style="margin-left:50px;" id="css"><u>JAVA Exam</u></h2>
+	<a id="home" href="UserChooseExams"><h4 style="color:black;"><u>Back</u></h4></a>
 	<div id="clock">
     <b id="hour"></b><label> &nbsp;<span id="colon">:</span>&nbsp;</label><b id="min"></b>
 </div>
@@ -102,95 +102,95 @@ margin-top:-400px;
 	
 	<div style="margin-top:-250px;">
 	<div class="questions" id="question1">
-	<p>1)The HTML attribute used to define the inline styles is -<br>
-		<input type="radio" name="answer1"  value="style">style<br>
-		<input type="radio" name="answer1"  value="styles">styles<br>
-		<input type="radio" name="answer1"  value="class">class<br>
-		<input type="radio" name="answer1"  value="None of the above">None of the above<br>
+	<p>1)Which of the following option leads to the portability and security of Java?<br>
+		<input type="radio" name="answer1"  value="Bytecode is executed by JVM">Bytecode is executed by JVM<br>
+		<input type="radio" name="answer1"  value="The applet makes the Java code secure and portable">The applet makes the Java code secure and portable<br>
+		<input type="radio" name="answer1"  value="Use of exception handling">Use of exception handling<br>
+		<input type="radio" name="answer1"  value="Dynamic binding between objects">Dynamic binding between objects<br>
 		
 	</p>
 	</div>
 	<div class="questions" id="question2">
-	<p>2)Which of the following CSS property is used to set the background image of an element?<br>
-		<input type="radio" name="answer2" value="background-attachment">background-attachment<br>
-		<input type="radio" name="answer2" value="background-image">background-image<br>
-		<input type="radio" name="answer2" value="background-color">background-color<br>
-		<input type="radio" name="answer2" value="None of the above">None of the above<br>
+	<p>2) Which of the following is not a Java features?<br>
+		<input type="radio" name="answer2" value="Dynamic">Dynamic<br>
+		<input type="radio" name="answer2" value="Architecture Neutral">Architecture Neutral<br>
+		<input type="radio" name="answer2" value="Use of pointers">Use of pointers<br>
+		<input type="radio" name="answer2" value="Object-oriented">Object-oriented<br>
 	
 	</p>
 	</div>
 	<div class="questions" id="question3">
-	<p>3)Which of the following is the correct syntax to make the background-color of all paragraph elements to yellow?<br>
-		<input type="radio" name="answer3" value="p {background-color : yellow;}">p {background-color : yellow;}<br>
-		<input type="radio" name="answer3" value="p {background-color : #yellow;}">p {background-color : #yellow;}<br>
-		<input type="radio" name="answer3" value="all {background-color : yellow;}">all {background-color : yellow;}<br>
-		<input type="radio" name="answer3" value="all p {background-color : #yellow;}">all p {background-color : #yellow;}<br>
+	<p>3)_____ is used to find and fix bugs in the Java programs.<br>
+		<input type="radio" name="answer3" value="JVM">JVM<br>
+		<input type="radio" name="answer3" value="JRE">JRE<br>
+		<input type="radio" name="answer3" value="JDK">JDK<br>
+		<input type="radio" name="answer3" value="JDB">JDB<br>
 		
 	</p>
 	</div>
 	<div class="questions" id="question4">
-	<p>4)Which of the following is the correct syntax to display the hyperlinks without any underline?<br>
-		<input type="radio" name="answer4" value="a {text-decoration : underline;}">a {text-decoration : underline;}<br>
-		<input type="radio" name="answer4" value="a {decoration : no-underline;}">a {decoration : no-underline;}<br>
-		<input type="radio" name="answer4" value="a {text-decoration : none;}">a {text-decoration : none;}<br>
-		<input type="radio" name="answer4" value="None of the above">None of the above<br>
+	<p>4)In which process, a local variable has the same name as one of the instance variables?<br>
+		<input type="radio" name="answer4" value="Serialization">Serialization<br>
+		<input type="radio" name="answer4" value="Variable Shadowing">Variable Shadowing<br>
+		<input type="radio" name="answer4" value="Abstraction">Abstraction<br>
+		<input type="radio" name="answer4" value="Multi-threading">Multi-threading<br>
 		
 	</p>
 	</div>
 	<div class="questions" id="question5">
-	<p>5)Which of the following property is used as the shorthand property for the padding properties?<br>
-		<input type="radio" name="answer5" value="padding-left">padding-left<br>
-		<input type="radio" name="answer5" value="padding-right">padding-right<br>
-		<input type="radio" name="answer5" value="padding">padding<br>
-		<input type="radio" name="answer5" value="All of the above">All of the above<br>
+	<p>5)What is the return type of the hashCode() method in the Object class?<br>
+		<input type="radio" name="answer5" value="Object">Object<br>
+		<input type="radio" name="answer5" value="int">int<br>
+		<input type="radio" name="answer5" value="long">long<br>
+		<input type="radio" name="answer5" value="void">void<br>
 		
 	</p>
 	</div>
 	<div class="questions" id="question6">
-	<p>6)The CSS property used to make the text bold is -<br>
-		<input type="radio" name="answer6" value="font-weight : bold">font-weight : bold<br>
-		<input type="radio" name="answer6" value="weight: bold">weight: bold<br>
-		<input type="radio" name="answer6" value="font: bold">font: bold<br>
-		<input type="radio" name="answer6" value="style: bold">style: bold<br>
+	<p>6) What does the expression float a = 35 / 0 return?<br>
+		<input type="radio" name="answer6" value="0">0<br>
+		<input type="radio" name="answer6" value="Not a Number">Not a Number<br>
+		<input type="radio" name="answer6" value="Infinity">Infinity<br>
+		<input type="radio" name="answer6" value="Run time exception">Run time exception<br>
 		
 	</p>
 	</div>
 	<div class="questions" id="question7">
-	<p>7)Are the negative values allowed in padding property?<br>
-		<input type="radio" name="answer7" value="Yes">Yes<br>
-		<input type="radio" name="answer7" value="No">No<br>
-		<input type="radio" name="answer7" value="Can't say">Can't say<br>
-		<input type="radio" name="answer7" value="May be">May be<br>
+	<p>7)Evaluate the following Java expression, if x=3, y=5, and z=10:  ++z + y - y + z + x++<br>
+		<input type="radio" name="answer7" value="24">24<br>
+		<input type="radio" name="answer7" value="23">23<br>
+		<input type="radio" name="answer7" value="20">20<br>
+		<input type="radio" name="answer7" value="25">25<br>
 		
 	</p>
 	</div>
 	<div class="questions" id="question8">
-	<p>8)Which of the following property is used as the shorthand property of margin properties?<br>
-		<input type="radio" name="answer8" value="margin-left">margin-left<br>
-		<input type="radio" name="answer8" value="margin-right">margin-right<br>
-		<input type="radio" name="answer8" value="margin">margin<br>
-		<input type="radio" name="answer8" value="None of the above">None of the above<br>
+	<p>8) Which method of the Class.class is used to determine the name of a class represented by the class object as a String?<br>
+		<input type="radio" name="answer8" value="getClass()">getClass()<br>
+		<input type="radio" name="answer8" value="intern()">intern()<br>
+		<input type="radio" name="answer8" value="getName()">getName()<br>
+		<input type="radio" name="answer8" value="toString()">toString()<br>
 	</p>
 	</div>
 	<div class="questions" id="question9">
-	<p>9)The CSS property used to specify the transparency of an element is -<br>
-		<input type="radio" name="answer9" value="opacity">opacity<br>
-		<input type="radio" name="answer9" value="filter">filter<br>
-		<input type="radio" name="answer9" value="visibility">visibility<br>
-		<input type="radio" name="answer9" value="overlay">overlay<br>
+	<p>9) Which package contains the Random class?<br>
+		<input type="radio" name="answer9" value="java.util package">java.util package<br>
+		<input type="radio" name="answer9" value="java.lang package">java.lang package<br>
+		<input type="radio" name="answer9" value="java.awt package">java.awt package<br>
+		<input type="radio" name="answer9" value="java.io package">java.io package<br>
 		
 	</p>
 	</div>
 	<div class="questions" id="question10">
-	<p>10)Which of the following is used to specify the subscript of text using CSS?<br>
-		<input type="radio" name="answer10" value="vertical-align: sub">vertical-align: sub<br>
-		<input type="radio" name="answer10" value="vertical-align: super">vertical-align: super<br>
-		<input type="radio" name="answer10" value="vertical-align: subscript">vertical-align: subscript<br>
-		<input type="radio" name="answer10" value="None of the above">None of the above<br>
+	<p>10) Which of the following for loop declaration is not valid?<br>
+		<input type="radio" name="answer10" value="for ( int i = 99; i >= 0; i / 9 )">for ( int i = 99; i >= 0; i / 9 )<br>
+		<input type="radio" name="answer10" value="for ( int i = 7; i <= 77; i += 7 )">for ( int i = 7; i <= 77; i += 7 )<br>
+		<input type="radio" name="answer10" value="for ( int i = 20; i >= 2; - -i )">for ( int i = 20; i >= 2; - -i )<br>
+		<input type="radio" name="answer10" value="for ( int i = 2; i <= 20; i = 2* i )">for ( int i = 2; i <= 20; i = 2* i )<br>
 		
 	</p>
 	
-	</div>
+</div>
 	
 </div>
 
@@ -249,12 +249,12 @@ function ans(){
      document.getElementById("question10").style.visibility="hidden";
      
 
-		//answer 1
+   //answer 1
 		const rbs=document.querySelectorAll('input[name="answer1"]');
 		for(const rb of rbs){
 			if(rb.checked){
 				//selectedvalue=rb.value;
-				if(rb.value=="style"){
+				if(rb.value=="Bytecode is executed by JVM"){
 					mark++;
 				}
 				break;
@@ -265,7 +265,7 @@ function ans(){
 		const rbs2=document.querySelectorAll('input[name="answer2"]');
 		for(const rb2 of rbs2){
 			if(rb2.checked){
-				if(rb2.value=="background-image"){
+				if(rb2.value=="Use of pointers"){
 					mark++;
 				}
 				break;
@@ -276,7 +276,7 @@ function ans(){
 		const rbs3=document.querySelectorAll('input[name="answer3"]');
 		for(const rb3 of rbs3){
 			if(rb3.checked){
-				if(rb3.value=="p {background-color : yellow;}"){
+				if(rb3.value=="JDB"){
 					mark++;
 				}
 				break;
@@ -287,7 +287,7 @@ function ans(){
 		const rbs4=document.querySelectorAll('input[name="answer4"]');
 		for(const rb4 of rbs4){
 			if(rb4.checked){
-				if(rb4.value=="a {text-decoration : none;}"){
+				if(rb4.value=="Variable Shadowing"){
 					mark++;
 				}
 				break;
@@ -298,7 +298,7 @@ function ans(){
 		const rbs5=document.querySelectorAll('input[name="answer5"]');
 		for(const rb5 of rbs5){
 			if(rb5.checked){
-				if(rb5.value=="padding"){
+				if(rb5.value=="int"){
 					mark++;
 				}
 				break;
@@ -309,7 +309,7 @@ function ans(){
 		const rbs6=document.querySelectorAll('input[name="answer6"]');
 		for(const rb6 of rbs6){
 			if(rb6.checked){
-				if(rb6.value=="font-weight : bold"){
+				if(rb6.value=="Infinity"){
 					mark++;
 				}
 				break;
@@ -320,7 +320,7 @@ function ans(){
 		const rbs7=document.querySelectorAll('input[name="answer7"]');
 		for(const rb7 of rbs7){
 			if(rb7.checked){
-				if(rb7.value=="No"){
+				if(rb7.value=="25"){
 					mark++;
 				}
 				break;
@@ -331,7 +331,7 @@ function ans(){
 		const rbs8=document.querySelectorAll('input[name="answer8"]');
 		for(const rb8 of rbs8){
 			if(rb8.checked){
-				if(rb8.value=="margin"){
+				if(rb8.value=="getName()"){
 					mark++;
 				}
 				break;
@@ -342,7 +342,7 @@ function ans(){
 		const rbs9=document.querySelectorAll('input[name="answer9"]');
 		for(const rb9 of rbs9){
 			if(rb9.checked){
-				if(rb9.value=="opacity"){
+				if(rb9.value=="java.util package"){
 					mark++;
 				}
 				break;
@@ -353,7 +353,7 @@ function ans(){
 		const rbs10=document.querySelectorAll('input[name="answer10"]');
 		for(const rb10 of rbs10){
 			if(rb10.checked){
-				if(rb10.value=="vertical-align: sub"){
+				if(rb10.value=="for ( int i = 99; i >= 0; i / 9 )"){
 					mark++;
 				}
 				break;

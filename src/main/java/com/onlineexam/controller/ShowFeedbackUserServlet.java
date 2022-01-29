@@ -29,7 +29,7 @@ public class ShowFeedbackUserServlet extends HttpServlet {
 			fdpp.setUsername(username);
 			List<FeedbackDetailsPojo> fdp=fdd.showFeedbacks(userid,username);
 			req.setAttribute("feedback", fdp);
-			RequestDispatcher rd=req.getRequestDispatcher("ShowFeedback.jsp");
+			RequestDispatcher rd=req.getRequestDispatcher("showFeedback.jsp");
 			rd.forward(req, resp);
 		} catch (SQLException e) {
 			e.printStackTrace();

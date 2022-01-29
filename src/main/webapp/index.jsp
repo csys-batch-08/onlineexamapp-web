@@ -150,33 +150,12 @@ body {
         
         <center>
         <div class="pagination"> 
-            <a href="UserPasswordUpdateServlet.jsp">Forgot password?</a>  <br>
+            <a href="userPasswordUpdate.jsp">Forgot password?</a>  <br>
             <br>
             
-            <a href="Register.jsp">Sign up</a> </div>
+            <a href="register.jsp">Sign up</a> </div>
     </div> 
-	<% String regres=(String)session.getAttribute("registered");
-      	
-      	if(regres!=null){%>
-      		<h3 style="margin-left:565px;margin-top:563px; size:70%" class="elementToFadeInAndOut"><%=session.getAttribute("registered") %></h3> 
-      	<%} %>
-      	
-      	<%String message=(String)session.getAttribute("changed");
-	if(message!=null){%>
-		<h3 style="margin-left:565px;margin-top:563px; size:70%" class="elementToFadeInAndOut"><%=session.getAttribute("changed") %></h3>
-	<% }
-	%>
 	
-	<%String logout=(String)session.getAttribute("logout");
-	if(logout!=null){%>
-		<h3 style="margin-left:555px;margin-top:20px; size:70%;font-size:x-large;" class="elementToFadeInAndOut"><%=session.getAttribute("logout") %></h3>
-	<% }
-	%>
-	
-		<%session.removeAttribute("logout"); %>
-		<%session.removeAttribute("changed"); %>
-        <% session.removeAttribute("loginResult");%>
-        <% session.removeAttribute("registered");%>
 </span>
 </center>
 </body>

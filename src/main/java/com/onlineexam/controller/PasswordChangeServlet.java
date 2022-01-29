@@ -36,14 +36,14 @@ public class PasswordChangeServlet extends HttpServlet {
 		
 		if(PhoneNumber.equals(adminnum)) {
 			throw new InvalidPhoneNumberException();
-			
-			
 		}
 		else {
 			flag=rd.changepassword(rp);
 			if(flag) {
-				session.setAttribute("changed", "Your password has changed");
-				resp.sendRedirect("index.jsp");
+				out.println("<script type=\"text/javascript\">");
+				out.println("alert('Your password has changed')");
+				out.println("location='index.jsp';");
+				out.println("</script>");
 			}
 			else {
 				throw new InvalidPhoneNumberException();
@@ -52,9 +52,8 @@ public class PasswordChangeServlet extends HttpServlet {
 		}catch(InvalidPhoneNumberException ipn) {
 			out.println("<script type=\"text/javascript\">");
 			out.println("alert('Entered phone number is invalid')");
-			out.println("location='UserPasswordUpdateServlet.jsp';");
+			out.println("location='userPasswordUpdate.jsp';");
 			out.println("</script>");
-			//resp.sendRedirect("errorpage.jsp?message="+ipn.getMessage()+"&url=UserPasswordUpdateServlet.jsp");
 		} 
 		
 	}

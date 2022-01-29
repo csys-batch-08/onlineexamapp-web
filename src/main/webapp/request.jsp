@@ -146,8 +146,6 @@ color:black;
                <div class="form-field d-flex align-items-center"> <span class="fas fa-key"></span> <input type="text" name="reason" id="reason" placeholder="request" required> </div>
                <br>
             
-            
-            
             <button type="submit" class="btn mt-3" style="cursor: pointer;">Submit</button>
             <br>
         </form>

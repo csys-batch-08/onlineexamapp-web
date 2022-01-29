@@ -90,11 +90,11 @@ margin-left:630px;
 margin-top:-400px;
 }
 </style>
-<title>JAVA Exam</title>
+<title>HTML Exam</title>
 </head>
 <body>
-	<h2 style="margin-left:50px;" id="css"><u>JAVA Exam</u></h2>
-	<a id="home" href="UserChooseExams.jsp"><h4 style="color:black;"><u>Back</u></h4></a>
+	<h2 style="margin-left:50px;" id="css"><u>HTML Exam</u></h2>
+	<a id="home" href="UserChooseExams"><h4 style="color:black;"><u>Back</u></h4></a>
 	<div id="clock">
     <b id="hour"></b><label> &nbsp;<span id="colon">:</span>&nbsp;</label><b id="min"></b>
 </div>
@@ -102,95 +102,95 @@ margin-top:-400px;
 	
 	<div style="margin-top:-250px;">
 	<div class="questions" id="question1">
-	<p>1)Which of the following option leads to the portability and security of Java?<br>
-		<input type="radio" name="answer1"  value="Bytecode is executed by JVM">Bytecode is executed by JVM<br>
-		<input type="radio" name="answer1"  value="The applet makes the Java code secure and portable">The applet makes the Java code secure and portable<br>
-		<input type="radio" name="answer1"  value="Use of exception handling">Use of exception handling<br>
-		<input type="radio" name="answer1"  value="Dynamic binding between objects">Dynamic binding between objects<br>
+	<p>1)HTML stands for -<br>
+		<input type="radio" name="answer1"  value="HighText Machine Language">HighText Machine Language<br>
+		<input type="radio" name="answer1"  value="HyperText and links Markup Language">HyperText and links Markup Language<br>
+		<input type="radio" name="answer1"  value="HyperText Markup Language">HyperText Markup Language<br>
+		<input type="radio" name="answer1"  value="None of these">None of these<br>
 		
 	</p>
 	</div>
 	<div class="questions" id="question2">
-	<p>2) Which of the following is not a Java features?<br>
-		<input type="radio" name="answer2" value="Dynamic">Dynamic<br>
-		<input type="radio" name="answer2" value="Architecture Neutral">Architecture Neutral<br>
-		<input type="radio" name="answer2" value="Use of pointers">Use of pointers<br>
-		<input type="radio" name="answer2" value="Object-oriented">Object-oriented<br>
+	<p>2)The correct sequence of HTML tags for starting a webpage is -<br>
+		<input type="radio" name="answer2" value="Head, Title, HTML, body">Head, Title, HTML, body<br>
+		<input type="radio" name="answer2" value="HTML, Body, Title, Head">HTML, Body, Title, Head<br>
+		<input type="radio" name="answer2" value="HTML, Head, Title, Body">HTML, Head, Title, Body<br>
+		<input type="radio" name="answer2" value="Title, Head, Body, HTML">Title, Head, Body, HTML<br>
 	
 	</p>
 	</div>
 	<div class="questions" id="question3">
-	<p>3)_____ is used to find and fix bugs in the Java programs.<br>
-		<input type="radio" name="answer3" value="JVM">JVM<br>
-		<input type="radio" name="answer3" value="JRE">JRE<br>
-		<input type="radio" name="answer3" value="JDK">JDK<br>
-		<input type="radio" name="answer3" value="JDB">JDB<br>
+	<p>3)Which of the following element is responsible for making the text bold in HTML?<br>
+		<input type="radio" name="answer3" value="pre tag">pre tag<br>
+		<input type="radio" name="answer3" value="a tag">a tag<br>
+		<input type="radio" name="answer3" value="b tag">b tag<br>
+		<input type="radio" name="answer3" value="br tag">br tag<br>
 		
 	</p>
 	</div>
 	<div class="questions" id="question4">
-	<p>4)In which process, a local variable has the same name as one of the instance variables?<br>
-		<input type="radio" name="answer4" value="Serialization">Serialization<br>
-		<input type="radio" name="answer4" value="Variable Shadowing">Variable Shadowing<br>
-		<input type="radio" name="answer4" value="Abstraction">Abstraction<br>
-		<input type="radio" name="answer4" value="Multi-threading">Multi-threading<br>
+	<p>4)Which of the following tag is used for inserting the largest heading in HTML?<br>
+		<input type="radio" name="answer4" value="h3 tag">h3 tag<br>
+		<input type="radio" name="answer4" value="h1 tag">h1 tag<br>
+		<input type="radio" name="answer4" value="h5 tag">h5 tag<br>
+		<input type="radio" name="answer4" value="h6 tag">h6 tag<br>
 		
 	</p>
 	</div>
 	<div class="questions" id="question5">
-	<p>5)What is the return type of the hashCode() method in the Object class?<br>
-		<input type="radio" name="answer5" value="Object">Object<br>
-		<input type="radio" name="answer5" value="int">int<br>
-		<input type="radio" name="answer5" value="long">long<br>
-		<input type="radio" name="answer5" value="void">void<br>
+	<p>5)Which of the following tag is used to insert a line-break in HTML?<br>
+		<input type="radio" name="answer5" value="br tag">br tag<br>
+		<input type="radio" name="answer5" value="a tag">a tag<br>
+		<input type="radio" name="answer5" value="pre tag">pre tag<br>
+		<input type="radio" name="answer5" value="b tag">b tag<br>
 		
 	</p>
 	</div>
 	<div class="questions" id="question6">
-	<p>6) What does the expression float a = 35 / 0 return?<br>
-		<input type="radio" name="answer6" value="0">0<br>
-		<input type="radio" name="answer6" value="Not a Number">Not a Number<br>
-		<input type="radio" name="answer6" value="Infinity">Infinity<br>
-		<input type="radio" name="answer6" value="Run time exception">Run time exception<br>
+	<p>6)Which character is used to represent the closing of a tag in HTML?<br>
+		<input type="radio" name="answer6" value="\">\<br>
+		<input type="radio" name="answer6" value="!">!<br>
+		<input type="radio" name="answer6" value="/">/<br>
+		<input type="radio" name="answer6" value=".">.<br>
 		
 	</p>
 	</div>
 	<div class="questions" id="question7">
-	<p>7)Evaluate the following Java expression, if x=3, y=5, and z=10:  ++z + y - y + z + x++<br>
-		<input type="radio" name="answer7" value="24">24<br>
-		<input type="radio" name="answer7" value="23">23<br>
-		<input type="radio" name="answer7" value="20">20<br>
-		<input type="radio" name="answer7" value="25">25<br>
+	<p>7) input tag is -<br>
+		<input type="radio" name="answer7" value="a format tag.">a format tag.<br>
+		<input type="radio" name="answer7" value="an empty tag.">an empty tag.<br>
+		<input type="radio" name="answer7" value="All of the above">All of the above<br>
+		<input type="radio" name="answer7" value="None of the above">None of the above<br>
 		
 	</p>
 	</div>
 	<div class="questions" id="question8">
-	<p>8) Which method of the Class.class is used to determine the name of a class represented by the class object as a String?<br>
-		<input type="radio" name="answer8" value="getClass()">getClass()<br>
-		<input type="radio" name="answer8" value="intern()">intern()<br>
-		<input type="radio" name="answer8" value="getName()">getName()<br>
-		<input type="radio" name="answer8" value="toString()">toString()<br>
+	<p>8)The hr tag in HTML is used for -<br>
+		<input type="radio" name="answer8" value="new line">new line<br>
+		<input type="radio" name="answer8" value="vertical ruler">vertical ruler<br>
+		<input type="radio" name="answer8" value="new paragraph">new paragraph<br>
+		<input type="radio" name="answer8" value="horizontal ruler">horizontal ruler<br>
 	</p>
 	</div>
 	<div class="questions" id="question9">
-	<p>9) Which package contains the Random class?<br>
-		<input type="radio" name="answer9" value="java.util package">java.util package<br>
-		<input type="radio" name="answer9" value="java.lang package">java.lang package<br>
-		<input type="radio" name="answer9" value="java.awt package">java.awt package<br>
-		<input type="radio" name="answer9" value="java.io package">java.io package<br>
+	<p>9)Which of the following attribute is used to provide a unique name to an element?<br>
+		<input type="radio" name="answer9" value="class">class<br>
+		<input type="radio" name="answer9" value="id">id<br>
+		<input type="radio" name="answer9" value="type">type<br>
+		<input type="radio" name="answer9" value="None of the above">None of the above<br>
 		
 	</p>
 	</div>
 	<div class="questions" id="question10">
-	<p>10) Which of the following for loop declaration is not valid?<br>
-		<input type="radio" name="answer10" value="for ( int i = 99; i >= 0; i / 9 )">for ( int i = 99; i >= 0; i / 9 )<br>
-		<input type="radio" name="answer10" value="for ( int i = 7; i <= 77; i += 7 )">for ( int i = 7; i <= 77; i += 7 )<br>
-		<input type="radio" name="answer10" value="for ( int i = 20; i >= 2; - -i )">for ( int i = 20; i >= 2; - -i )<br>
-		<input type="radio" name="answer10" value="for ( int i = 2; i <= 20; i = 2* i )">for ( int i = 2; i <= 20; i = 2* i )<br>
+	<p>10)What are the types of unordered or bulleted list in HTML?<br>
+		<input type="radio" name="answer10" value="disc, square, triangle">disc, square, triangle<br>
+		<input type="radio" name="answer10" value="polygon, triangle, circle">polygon, triangle, circle<br>
+		<input type="radio" name="answer10" value="disc, circle, square">disc, circle, square<br>
+		<input type="radio" name="answer10" value="All of the above">All of the above<br>
 		
 	</p>
 	
-</div>
+	</div>
 	
 </div>
 
@@ -254,7 +254,7 @@ function ans(){
 		for(const rb of rbs){
 			if(rb.checked){
 				//selectedvalue=rb.value;
-				if(rb.value=="Bytecode is executed by JVM"){
+				if(rb.value=="HyperText Markup Language"){
 					mark++;
 				}
 				break;
@@ -265,7 +265,7 @@ function ans(){
 		const rbs2=document.querySelectorAll('input[name="answer2"]');
 		for(const rb2 of rbs2){
 			if(rb2.checked){
-				if(rb2.value=="Use of pointers"){
+				if(rb2.value=="HTML, Head, Title, Body"){
 					mark++;
 				}
 				break;
@@ -276,7 +276,7 @@ function ans(){
 		const rbs3=document.querySelectorAll('input[name="answer3"]');
 		for(const rb3 of rbs3){
 			if(rb3.checked){
-				if(rb3.value=="JDB"){
+				if(rb3.value=="b tag"){
 					mark++;
 				}
 				break;
@@ -287,7 +287,7 @@ function ans(){
 		const rbs4=document.querySelectorAll('input[name="answer4"]');
 		for(const rb4 of rbs4){
 			if(rb4.checked){
-				if(rb4.value=="Variable Shadowing"){
+				if(rb4.value=="h1 tag"){
 					mark++;
 				}
 				break;
@@ -298,7 +298,7 @@ function ans(){
 		const rbs5=document.querySelectorAll('input[name="answer5"]');
 		for(const rb5 of rbs5){
 			if(rb5.checked){
-				if(rb5.value=="int"){
+				if(rb5.value=="br tag"){
 					mark++;
 				}
 				break;
@@ -309,7 +309,7 @@ function ans(){
 		const rbs6=document.querySelectorAll('input[name="answer6"]');
 		for(const rb6 of rbs6){
 			if(rb6.checked){
-				if(rb6.value=="Infinity"){
+				if(rb6.value=="/"){
 					mark++;
 				}
 				break;
@@ -320,7 +320,7 @@ function ans(){
 		const rbs7=document.querySelectorAll('input[name="answer7"]');
 		for(const rb7 of rbs7){
 			if(rb7.checked){
-				if(rb7.value=="25"){
+				if(rb7.value=="an empty tag."){
 					mark++;
 				}
 				break;
@@ -331,7 +331,7 @@ function ans(){
 		const rbs8=document.querySelectorAll('input[name="answer8"]');
 		for(const rb8 of rbs8){
 			if(rb8.checked){
-				if(rb8.value=="getName()"){
+				if(rb8.value=="horizontal ruler"){
 					mark++;
 				}
 				break;
@@ -342,7 +342,7 @@ function ans(){
 		const rbs9=document.querySelectorAll('input[name="answer9"]');
 		for(const rb9 of rbs9){
 			if(rb9.checked){
-				if(rb9.value=="java.util package"){
+				if(rb9.value=="id"){
 					mark++;
 				}
 				break;
@@ -353,7 +353,7 @@ function ans(){
 		const rbs10=document.querySelectorAll('input[name="answer10"]');
 		for(const rb10 of rbs10){
 			if(rb10.checked){
-				if(rb10.value=="for ( int i = 99; i >= 0; i / 9 )"){
+				if(rb10.value=="disc, circle, square"){
 					mark++;
 				}
 				break;

@@ -46,7 +46,7 @@ body{
 <title>Inactive Users</title>
 </head>
 <body>
-	<a id="ExamDetails" href="examDetails.jsp"><h4 style="float: right;margin-right:10px;font-size:x-large;color:black"><u>Back</u></h4></a>
+	<a id="ExamDetails" href="examDetails.jsp"><h4 style="float: right;margin-top:-0.3px;margin-right:10px;font-size:x-large;color:black"><u>Back</u></h4></a>
 	<h2><u>Inactive Users</u></h2>
 	<table style="width: 80%;margin-left: 100px;font-size:large;">
         <tr>

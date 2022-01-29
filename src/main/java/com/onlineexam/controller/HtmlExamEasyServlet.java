@@ -23,7 +23,7 @@ public class HtmlExamEasyServlet extends HttpServlet {
 		req.setAttribute("exam_Id", examId);
 		req.setAttribute("exam_Name", examName);
 		req.setAttribute("durationtime", duration);
-		RequestDispatcher rd=req.getRequestDispatcher("HtmlExamEasy.jsp");
+		RequestDispatcher rd=req.getRequestDispatcher("htmlExamEasy.jsp");
 		rd.forward(req, resp);
 	}
 }

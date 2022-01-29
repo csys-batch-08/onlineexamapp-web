@@ -23,7 +23,7 @@ public class JavaExamHardServlet extends HttpServlet {
 		req.setAttribute("exam_Id", examId);
 		req.setAttribute("exam_Name", examName);
 		req.setAttribute("durationtime", duration);
-		RequestDispatcher rd=req.getRequestDispatcher("JavaExamHard.jsp");
+		RequestDispatcher rd=req.getRequestDispatcher("javaExamHard.jsp");
 		rd.forward(req, resp);
 	}
 }

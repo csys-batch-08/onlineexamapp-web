@@ -1,4 +1,4 @@
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
@@ -90,11 +90,11 @@ margin-left:630px;
 margin-top:-400px;
 }
 </style>
-<title>HTML Exam</title>
+<title>CSS Exam</title>
 </head>
 <body>
-	<h2 style="margin-left:50px;" id="css"><u>HTML Exam</u></h2>
-	<a id="home" href="UserChooseExams.jsp"><h4 style="color:black;"><u>Back</u></h4></a>
+	<h2 style="margin-left:50px;" id="css"><u>CSS Exam</u></h2>
+	<a id="home" href="UserChooseExams"><h4 style="color:black;"><u>Back</u></h4></a>
 	<div id="clock">
     <b id="hour"></b><label> &nbsp;<span id="colon">:</span>&nbsp;</label><b id="min"></b>
 </div>
@@ -102,90 +102,90 @@ margin-top:-400px;
 	
 	<div style="margin-top:-250px;">
 	<div class="questions" id="question1">
-	<p>1)Which of the following HTML attribute is used to define inline styles?<br>
+	<p>1)The HTML attribute used to define the inline styles is -<br>
 		<input type="radio" name="answer1"  value="style">style<br>
-		<input type="radio" name="answer1"  value="type">type<br>
+		<input type="radio" name="answer1"  value="styles">styles<br>
 		<input type="radio" name="answer1"  value="class">class<br>
 		<input type="radio" name="answer1"  value="None of the above">None of the above<br>
 		
 	</p>
 	</div>
 	<div class="questions" id="question2">
-	<p>2)A program in HTML can be rendered and read by -<br>
-		<input type="radio" name="answer2" value="Web browser">Web browser<br>
-		<input type="radio" name="answer2" value="Server">Server<br>
-		<input type="radio" name="answer2" value="Interpreter">Interpreter<br>
+	<p>2)Which of the following CSS property is used to set the background image of an element?<br>
+		<input type="radio" name="answer2" value="background-attachment">background-attachment<br>
+		<input type="radio" name="answer2" value="background-image">background-image<br>
+		<input type="radio" name="answer2" value="background-color">background-color<br>
 		<input type="radio" name="answer2" value="None of the above">None of the above<br>
 	
 	</p>
 	</div>
 	<div class="questions" id="question3">
-	<p>3)The tags in HTML are -<br>
-		<input type="radio" name="answer3" value="case-sensitive">case-sensitive<br>
-		<input type="radio" name="answer3" value="in upper case">in upper case<br>
-		<input type="radio" name="answer3" value="not case sensitive">not case sensitive<br>
-		<input type="radio" name="answer3" value="in lowercase">in lowercase<br>
+	<p>3)Which of the following is the correct syntax to make the background-color of all paragraph elements to yellow?<br>
+		<input type="radio" name="answer3" value="p {background-color : yellow;}">p {background-color : yellow;}<br>
+		<input type="radio" name="answer3" value="p {background-color : #yellow;}">p {background-color : #yellow;}<br>
+		<input type="radio" name="answer3" value="all {background-color : yellow;}">all {background-color : yellow;}<br>
+		<input type="radio" name="answer3" value="all p {background-color : #yellow;}">all p {background-color : #yellow;}<br>
 		
 	</p>
 	</div>
 	<div class="questions" id="question4">
-	<p>4)Which of the following are the attributes of the tag?<br>
-		<input type="radio" name="answer4" value="method">method<br>
-		<input type="radio" name="answer4" value="action">action<br>
-		<input type="radio" name="answer4" value="Both (a) & (b)">Both (a) & (b)<br>
+	<p>4)Which of the following is the correct syntax to display the hyperlinks without any underline?<br>
+		<input type="radio" name="answer4" value="a {text-decoration : underline;}">a {text-decoration : underline;}<br>
+		<input type="radio" name="answer4" value="a {decoration : no-underline;}">a {decoration : no-underline;}<br>
+		<input type="radio" name="answer4" value="a {text-decoration : none;}">a {text-decoration : none;}<br>
 		<input type="radio" name="answer4" value="None of the above">None of the above<br>
 		
 	</p>
 	</div>
 	<div class="questions" id="question5">
-	<p>5)HTML is a subset of ______<br>
-		<input type="radio" name="answer5" value="SGMD">SGMD<br>
-		<input type="radio" name="answer5" value="SGML">SGML<br>
-		<input type="radio" name="answer5" value="SGMH">SGMH<br>
-		<input type="radio" name="answer5" value="None of the above">None of the above<br>
+	<p>5)Which of the following property is used as the shorthand property for the padding properties?<br>
+		<input type="radio" name="answer5" value="padding-left">padding-left<br>
+		<input type="radio" name="answer5" value="padding-right">padding-right<br>
+		<input type="radio" name="answer5" value="padding">padding<br>
+		<input type="radio" name="answer5" value="All of the above">All of the above<br>
 		
 	</p>
 	</div>
 	<div class="questions" id="question6">
-	<p>6)To create HTML page, you need _____<br>
-		<input type="radio" name="answer6" value="Web browser">Web browser<br>
-		<input type="radio" name="answer6" value="text editor">text editor<br>
-		<input type="radio" name="answer6" value="Both [A] and [B]">Both [A] and [B]<br>
-		<input type="radio" name="answer6" value="None of the above">None of the above<br>
+	<p>6)The CSS property used to make the text bold is -<br>
+		<input type="radio" name="answer6" value="font-weight : bold">font-weight : bold<br>
+		<input type="radio" name="answer6" value="weight: bold">weight: bold<br>
+		<input type="radio" name="answer6" value="font: bold">font: bold<br>
+		<input type="radio" name="answer6" value="style: bold">style: bold<br>
 		
 	</p>
 	</div>
 	<div class="questions" id="question7">
-	<p>7)Adding a border to your image helps the visitor to recognize it as what?<br>
-		<input type="radio" name="answer7" value="A frame">A frame<br>
-		<input type="radio" name="answer7" value="A link">A link<br>
-		<input type="radio" name="answer7" value="A picture">A picture<br>
-		<input type="radio" name="answer7" value="None of the above">None of the above<br>
+	<p>7)Are the negative values allowed in padding property?<br>
+		<input type="radio" name="answer7" value="Yes">Yes<br>
+		<input type="radio" name="answer7" value="No">No<br>
+		<input type="radio" name="answer7" value="Can't say">Can't say<br>
+		<input type="radio" name="answer7" value="May be">May be<br>
 		
 	</p>
 	</div>
 	<div class="questions" id="question8">
-	<p>8)Which program do you need to write HTML?<br>
-		<input type="radio" name="answer8" value="A graphics program">A graphics program<br>
-		<input type="radio" name="answer8" value="Any text editor">Any text editor<br>
-		<input type="radio" name="answer8" value="HTML -development suite 4">HTML -development suite 4<br>
-		<input type="radio" name="answer8" value="All of the above">All of the above<br>
+	<p>8)Which of the following property is used as the shorthand property of margin properties?<br>
+		<input type="radio" name="answer8" value="margin-left">margin-left<br>
+		<input type="radio" name="answer8" value="margin-right">margin-right<br>
+		<input type="radio" name="answer8" value="margin">margin<br>
+		<input type="radio" name="answer8" value="None of the above">None of the above<br>
 	</p>
 	</div>
 	<div class="questions" id="question9">
-	<p>9)In HTML, tags that include both on and off tag are called<br>
-		<input type="radio" name="answer9" value="comment tag">comment tag<br>
-		<input type="radio" name="answer9" value="document tag">document tag<br>
-		<input type="radio" name="answer9" value="container tag">container tag<br>
-		<input type="radio" name="answer9" value="None of the above">None of the above<br>
+	<p>9)The CSS property used to specify the transparency of an element is -<br>
+		<input type="radio" name="answer9" value="opacity">opacity<br>
+		<input type="radio" name="answer9" value="filter">filter<br>
+		<input type="radio" name="answer9" value="visibility">visibility<br>
+		<input type="radio" name="answer9" value="overlay">overlay<br>
 		
 	</p>
 	</div>
 	<div class="questions" id="question10">
-	<p>10)When is the content of a table shown?<br>
-		<input type="radio" name="answer10" value="Before the border loads">Before the border loads<br>
-		<input type="radio" name="answer10" value="After the table is loaded">After the table is loaded<br>
-		<input type="radio" name="answer10" value="In pieces as it loads">In pieces as it loads<br>
+	<p>10)Which of the following is used to specify the subscript of text using CSS?<br>
+		<input type="radio" name="answer10" value="vertical-align: sub">vertical-align: sub<br>
+		<input type="radio" name="answer10" value="vertical-align: super">vertical-align: super<br>
+		<input type="radio" name="answer10" value="vertical-align: subscript">vertical-align: subscript<br>
 		<input type="radio" name="answer10" value="None of the above">None of the above<br>
 		
 	</p>
@@ -249,7 +249,7 @@ function ans(){
      document.getElementById("question10").style.visibility="hidden";
      
 
-   //answer 1
+		//answer 1
 		const rbs=document.querySelectorAll('input[name="answer1"]');
 		for(const rb of rbs){
 			if(rb.checked){
@@ -265,7 +265,7 @@ function ans(){
 		const rbs2=document.querySelectorAll('input[name="answer2"]');
 		for(const rb2 of rbs2){
 			if(rb2.checked){
-				if(rb2.value=="Web browser"){
+				if(rb2.value=="background-image"){
 					mark++;
 				}
 				break;
@@ -276,7 +276,7 @@ function ans(){
 		const rbs3=document.querySelectorAll('input[name="answer3"]');
 		for(const rb3 of rbs3){
 			if(rb3.checked){
-				if(rb3.value=="not case sensitive"){
+				if(rb3.value=="p {background-color : yellow;}"){
 					mark++;
 				}
 				break;
@@ -287,7 +287,7 @@ function ans(){
 		const rbs4=document.querySelectorAll('input[name="answer4"]');
 		for(const rb4 of rbs4){
 			if(rb4.checked){
-				if(rb4.value=="Both (a) & (b)"){
+				if(rb4.value=="a {text-decoration : none;}"){
 					mark++;
 				}
 				break;
@@ -298,7 +298,7 @@ function ans(){
 		const rbs5=document.querySelectorAll('input[name="answer5"]');
 		for(const rb5 of rbs5){
 			if(rb5.checked){
-				if(rb5.value=="SGML"){
+				if(rb5.value=="padding"){
 					mark++;
 				}
 				break;
@@ -309,7 +309,7 @@ function ans(){
 		const rbs6=document.querySelectorAll('input[name="answer6"]');
 		for(const rb6 of rbs6){
 			if(rb6.checked){
-				if(rb6.value=="Both [A] and [B]"){
+				if(rb6.value=="font-weight : bold"){
 					mark++;
 				}
 				break;
@@ -320,7 +320,7 @@ function ans(){
 		const rbs7=document.querySelectorAll('input[name="answer7"]');
 		for(const rb7 of rbs7){
 			if(rb7.checked){
-				if(rb7.value=="A link"){
+				if(rb7.value=="No"){
 					mark++;
 				}
 				break;
@@ -331,7 +331,7 @@ function ans(){
 		const rbs8=document.querySelectorAll('input[name="answer8"]');
 		for(const rb8 of rbs8){
 			if(rb8.checked){
-				if(rb8.value=="Any text editor"){
+				if(rb8.value=="margin"){
 					mark++;
 				}
 				break;
@@ -342,7 +342,7 @@ function ans(){
 		const rbs9=document.querySelectorAll('input[name="answer9"]');
 		for(const rb9 of rbs9){
 			if(rb9.checked){
-				if(rb9.value=="container tag"){
+				if(rb9.value=="opacity"){
 					mark++;
 				}
 				break;
@@ -353,7 +353,7 @@ function ans(){
 		const rbs10=document.querySelectorAll('input[name="answer10"]');
 		for(const rb10 of rbs10){
 			if(rb10.checked){
-				if(rb10.value=="After the table is loaded"){
+				if(rb10.value=="vertical-align: sub"){
 					mark++;
 				}
 				break;

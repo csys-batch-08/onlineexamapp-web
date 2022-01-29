@@ -30,7 +30,7 @@ a{
 </head>
 <body>
 	<h2><u>Feedback Details</u></h2>
-	<a href="UserMain.jsp"><b>Home</b></a>
+	<a href="userMain.jsp"><b>Home</b></a>
                
 <table style="width: 80%;margin-left: 100px;font-size:large;">
    <tr>

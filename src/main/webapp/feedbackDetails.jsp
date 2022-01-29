@@ -41,7 +41,7 @@ h2{
 <title>Feedback Details</title>
 </head>
 <body>
-<a href="UserMain.jsp"><h4 style="float:right;margin-right:10px;margin-top:-0.3px;font-size:x-large;color:black;"><u>Home</u></h4></a>
+<a href="userMain.jsp"><h4 style="float:right;margin-right:10px;margin-top:-0.3px;font-size:x-large;color:black;"><u>Home</u></h4></a>
 
 <form action="feedbacks" method="post" style="text-align:center;font-size:large;">
 	<h2 style="margin-left:75px;"><u>Feedback Details</u></h2><br><br><br>
