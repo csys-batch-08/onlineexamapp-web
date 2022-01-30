@@ -27,7 +27,7 @@ img {
 <body>
 	<h2><u>About our Website</u></h2>
 	<p class="home"><a href="userMain.jsp" style="color:black;">Home</a></p><br>
-	<img alt="onlineExamImage" src="./images/aboutUs.jpg">
+	<img alt="onlineExamImage" src="images/aboutUs.jpg">
 	<p>We are best in conducting exams and grow knowledge of people</p>
 	<p>We are conducting exams through our website</p>
 	<p>Using our website you can write exam and you can know your status</p>
