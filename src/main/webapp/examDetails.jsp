@@ -37,7 +37,6 @@
 .addexamalign {
 	text-align: center;
 }
-
 </style>
 <title>Exam Details Page</title>
 <link rel="stylesheet" href="ExamDetails.css">
