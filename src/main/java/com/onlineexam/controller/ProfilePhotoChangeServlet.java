@@ -16,20 +16,19 @@ import com.onlineexam.model.RegisterPojo;
 @WebServlet("/changeprofile")
 public class ProfilePhotoChangeServlet extends HttpServlet {
 	@Override
-	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		HttpSession session=req.getSession();
-		int userid=(int)session.getAttribute("userid");
-		String photo=req.getParameter("avatar");
-		RegisterPojo rp=new RegisterPojo(userid,photo);
-		RegisterDao rd=new RegisterDao();
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException {
+		HttpSession session = req.getSession();
+		int userid = (int) session.getAttribute("userid");
+		String photo = req.getParameter("avatar");
+		RegisterPojo rp = new RegisterPojo(userid, photo);
+		RegisterDao rd = new RegisterDao();
 		try {
 			rd.changephoto(rp);
-			
 			resp.sendRedirect("UserProfile");
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
+		} catch (IOException e1) {
+			e1.printStackTrace();
 		}
 	}
 }

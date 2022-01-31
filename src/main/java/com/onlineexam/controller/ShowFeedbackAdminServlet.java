@@ -17,7 +17,6 @@ import com.onlineexam.model.FeedbackDetailsPojo;
 public class ShowFeedbackAdminServlet extends HttpServlet {
 	@Override
 	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		FeedbackDetailsDao fdd=new FeedbackDetailsDao();
 		try {
 			List<FeedbackDetailsPojo> fdp=fdd.showFeedbacksAdmin();
@@ -25,7 +24,6 @@ public class ShowFeedbackAdminServlet extends HttpServlet {
 			RequestDispatcher rd=req.getRequestDispatcher("showFeedbackAdmin.jsp");
 			rd.forward(req, resp);
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}

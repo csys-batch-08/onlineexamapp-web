@@ -16,23 +16,25 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.onlineexam.impl.ScoreDetailsDao;
 import com.onlineexam.model.ScoreDetailsPojo;
+
 @WebServlet("/FilterExamsByDate")
 public class FilterExamsByDateServlet extends HttpServlet {
 	@Override
-	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		String date=req.getParameter("date");
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp) {
+		String date = req.getParameter("date");
 		try {
-			//Date examdate =new SimpleDateFormat("yyyy-mm-dd").parse(date);
-			ScoreDetailsDao sdd=new ScoreDetailsDao();
-			List<ScoreDetailsPojo> sdp=sdd.filterbydate(date);
+			ScoreDetailsDao sdd = new ScoreDetailsDao();
+			List<ScoreDetailsPojo> sdp = sdd.filterbydate(date);
 			req.setAttribute("dates", sdp);
-			RequestDispatcher rd=req.getRequestDispatcher("filterExamsByDate.jsp");
+			RequestDispatcher rd = req.getRequestDispatcher("filterExamsByDate.jsp");
 			rd.forward(req, resp);
-		}  catch (SQLException e) {
-			// TODO Auto-generated catch block
+		} catch (SQLException e) {
 			e.printStackTrace();
+		} catch (ServletException e1) {
+			e1.printStackTrace();
+		} catch (IOException e2) {
+			e2.printStackTrace();
 		}
 	}
-	
+
 }

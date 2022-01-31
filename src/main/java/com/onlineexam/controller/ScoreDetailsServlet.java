@@ -1,4 +1,5 @@
 package com.onlineexam.controller;
+
 import java.io.IOException;
 import java.sql.SQLException;
 
@@ -17,30 +18,29 @@ import com.onlineexam.model.ScoreDetailsPojo;
 
 @WebServlet("/scoreDetails")
 public class ScoreDetailsServlet extends HttpServlet {
-	public void service(HttpServletRequest req,HttpServletResponse res) throws IOException, ServletException {
-		HttpSession session=req.getSession();
-		int userId=Integer.parseInt(req.getParameter("uID"));
-		int ExamId=Integer.parseInt(req.getParameter("examId"));
-		String ExamName=req.getParameter("examName");
-		int score=Integer.parseInt(req.getParameter("score"));
-		String passOrFail=req.getParameter("passOrFail");
-		String grade=req.getParameter("grade");
-		ScoreDetailsPojo sd=new ScoreDetailsPojo(userId,ExamId,ExamName,score,passOrFail,grade);
-		ScoreDetailsDao sdd=new ScoreDetailsDao();
+	@Override
+	public void service(HttpServletRequest req, HttpServletResponse res) throws IOException, ServletException {
+		int userId = Integer.parseInt(req.getParameter("uID"));
+		int examId = Integer.parseInt(req.getParameter("examId"));
+		String examName = req.getParameter("examName");
+		int score = Integer.parseInt(req.getParameter("score"));
+		String passOrFail = req.getParameter("passOrFail");
+		String grade = req.getParameter("grade");
+		ScoreDetailsPojo sd = new ScoreDetailsPojo(userId, examId, examName, score, passOrFail, grade);
+		ScoreDetailsDao sdd = new ScoreDetailsDao();
 		try {
 			sdd.insertScore(sd);
 			req.setAttribute("userid", userId);
-			req.setAttribute("examid", ExamId);
-			req.setAttribute("examName", ExamName);
+			req.setAttribute("examid", examId);
+			req.setAttribute("examName", examName);
 			req.setAttribute("score", score);
 			req.setAttribute("passfail", passOrFail);
 			req.setAttribute("grade", grade);
-			RequestDispatcher rd=req.getRequestDispatcher("examResult.jsp");
+			RequestDispatcher rd = req.getRequestDispatcher("examResult.jsp");
 			rd.forward(req, res);
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
+
 	}
 }

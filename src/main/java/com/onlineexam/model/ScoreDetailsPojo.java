@@ -65,7 +65,6 @@ public class ScoreDetailsPojo {
 		this.grade = grade;
 	}
 	public ScoreDetailsPojo(Date examdate) {
-		// TODO Auto-generated constructor stub
 		this.examdate=examdate;
 	}
 	

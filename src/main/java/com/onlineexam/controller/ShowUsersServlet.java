@@ -16,7 +16,6 @@ import com.onlineexam.model.RegisterPojo;
 public class ShowUsersServlet extends HttpServlet {
 	@Override
 	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		RegisterDao rdao=new RegisterDao();
 		List<RegisterPojo> rp=rdao.showUsers();
 		req.setAttribute("users", rp);

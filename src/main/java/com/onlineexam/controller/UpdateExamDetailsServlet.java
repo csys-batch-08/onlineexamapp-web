@@ -15,32 +15,32 @@ import com.onlineexam.model.ExamDetailsPojo;
 
 @WebServlet("/updateExamDetails")
 public class UpdateExamDetailsServlet extends HttpServlet {
-	public void doPost(HttpServletRequest req,HttpServletResponse res) throws IOException {
-		PrintWriter out=res.getWriter();
-		HttpSession session1=req.getSession();
-		int examId=Integer.parseInt(req.getParameter("examid").toString());
-		String difficultyLevel=req.getParameter("difficultyLevel");
-		int durationMinutes=Integer.parseInt(req.getParameter("durationMinutes"));
-		
-		ExamDetailsPojo edp=new ExamDetailsPojo(difficultyLevel,durationMinutes,examId);
-		ExamDetailsDao ed=new ExamDetailsDao();
-		HttpSession session=req.getSession();
-		
+	@Override
+	public void doPost(HttpServletRequest req, HttpServletResponse res) {
 		try {
-			boolean flag=ed.updateExam(edp);
-			if(flag) {
+			PrintWriter out = res.getWriter();
+			int examId = Integer.parseInt(req.getParameter("examid"));
+			String difficultyLevel = req.getParameter("difficultyLevel");
+			int durationMinutes = Integer.parseInt(req.getParameter("durationMinutes"));
+			ExamDetailsPojo edp = new ExamDetailsPojo(difficultyLevel, durationMinutes, examId);
+			ExamDetailsDao ed = new ExamDetailsDao();
+			HttpSession session = req.getSession();
+			boolean flag = ed.updateExam(edp);
+			if (flag) {
 				out.println("<script type=\"text/javascript\">");
 				out.println("alert('Exam updated successfully');");
 				out.println("location='ShowExams';");
 				out.println("</script>");
-			}
-			else {
-				session.setAttribute("updateExamResult","Couldn't update exam");
+			} else {
+				session.setAttribute("updateExamResult", "Couldn't update exam");
 				res.sendRedirect("showExams.jsp");
 			}
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
+		} catch (IOException e1) {
+			e1.printStackTrace();
+		} catch (NumberFormatException e2) {
+			e2.printStackTrace();
 		}
 	}
 

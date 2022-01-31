@@ -13,21 +13,24 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.onlineexam.impl.ScoreDetailsDao;
 import com.onlineexam.model.ScoreDetailsPojo;
+
 @WebServlet("/FilterExamsByPOF")
 public class FilterExamsByPOFServlet extends HttpServlet {
 	@Override
-	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		String pof=req.getParameter("pof");
-		ScoreDetailsDao sdd=new ScoreDetailsDao();
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp){
+		String pof = req.getParameter("pof");
+		ScoreDetailsDao sdd = new ScoreDetailsDao();
 		try {
-			List<ScoreDetailsPojo> sdp=sdd.filterbyPOF(pof);
+			List<ScoreDetailsPojo> sdp = sdd.filterbyPOF(pof);
 			req.setAttribute("passfail", sdp);
-			RequestDispatcher rd=req.getRequestDispatcher("filterExamsByPOF.jsp");
+			RequestDispatcher rd = req.getRequestDispatcher("filterExamsByPOF.jsp");
 			rd.forward(req, resp);
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
+		} catch (ServletException e1) {
+			e1.printStackTrace();
+		} catch (IOException e2) {
+			e2.printStackTrace();
 		}
 	}
 }

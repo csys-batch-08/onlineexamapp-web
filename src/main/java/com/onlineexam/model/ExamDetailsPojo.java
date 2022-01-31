@@ -57,7 +57,6 @@ public class ExamDetailsPojo {
 	}
 	//for deleting exam
 	public ExamDetailsPojo(int examId) {
-		// TODO Auto-generated constructor stub
 		this.examId=examId;
 	}
 	@Override

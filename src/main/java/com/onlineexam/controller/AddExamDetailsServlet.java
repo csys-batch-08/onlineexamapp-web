@@ -15,37 +15,39 @@ import javax.servlet.http.HttpSession;
 import com.onlineexam.impl.ExamDetailsDao;
 import com.onlineexam.model.ExamDetailsPojo;
 
-
 @WebServlet("/addExamDetails")
 public class AddExamDetailsServlet extends HttpServlet {
-	//method for adding exam
-	public void doPost(HttpServletRequest req,HttpServletResponse res) throws IOException {
-		PrintWriter out=res.getWriter();
-		String examName=req.getParameter("examName");
-		String examType=req.getParameter("examType");
-		String difficultyLevel=req.getParameter("difficultyLevel");
-		int durationMinutes=Integer.parseInt(req.getParameter("durationMinutes"));
-		
-		ExamDetailsPojo edp=new ExamDetailsPojo(examName,examType,difficultyLevel,durationMinutes);
-		ExamDetailsDao ed=new ExamDetailsDao();
-		HttpSession session=req.getSession();
-		ResultSet rs;
+	// method for adding exam
+	@Override
+	public void doPost(HttpServletRequest req, HttpServletResponse res) {
 		try {
-			ExamDetailsPojo edpojo= ed.showExams();
-			int duration=edpojo.getDurationMinutes();
+			PrintWriter out = res.getWriter();
+			String examName = req.getParameter("examName");
+			String examType = req.getParameter("examType");
+			String difficultyLevel = req.getParameter("difficultyLevel");
+			int durationMinutes = Integer.parseInt(req.getParameter("durationMinutes"));
+			ExamDetailsPojo edp = new ExamDetailsPojo(examName, examType, difficultyLevel, durationMinutes);
+			ExamDetailsDao ed = new ExamDetailsDao();
+			HttpSession session = req.getSession();
+			ResultSet rs;
+			ExamDetailsPojo edpojo = ed.showExams();
+			int duration = edpojo.getDurationMinutes();
 			session.setAttribute("duration", duration);
-			int result=ed.addExam(edp);
-			if(result>0) {
+			int result = ed.addExam(edp);
+			if (result > 0) {
 				out.println("<script type=\"text/javascript\">");
 				out.println("alert('Exam added successfully');");
 				out.println("location='ShowExams';");
 				out.println("</script>");
 			}
-			
+
 		} catch (SQLException e) {
 			e.printStackTrace();
-		} 
+		} catch (IOException e1) {
+			e1.printStackTrace();
+		} catch (NumberFormatException e2) {
+			e2.printStackTrace();
+		}
 	}
-	
 
 }

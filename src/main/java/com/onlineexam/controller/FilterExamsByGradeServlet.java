@@ -16,8 +16,7 @@ import com.onlineexam.model.ScoreDetailsPojo;
 @WebServlet("/FilterExamsByGrade")
 public class FilterExamsByGradeServlet extends HttpServlet {
 	@Override
-	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp){
 		String grade=req.getParameter("grade");
 		ScoreDetailsDao sdd=new ScoreDetailsDao();
 		try {
@@ -26,8 +25,11 @@ public class FilterExamsByGradeServlet extends HttpServlet {
 			RequestDispatcher rd=req.getRequestDispatcher("filterExamsByGrade.jsp");
 			rd.forward(req, resp);
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
+		} catch (ServletException e1) {
+			e1.printStackTrace();
+		} catch (IOException e2) {
+			e2.printStackTrace();
 		}
 	}
 }

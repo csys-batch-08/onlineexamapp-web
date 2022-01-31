@@ -18,17 +18,15 @@ import com.onlineexam.model.RegisterPojo;
 public class UserProfileServlet extends HttpServlet {
 	@Override
 	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		HttpSession session=req.getSession();
 		int userid=(int)session.getAttribute("userid");
 		RegisterDao rdao=new RegisterDao();
 		try {
-			RegisterPojo rp=rdao.userprofile(userid);
-			session.setAttribute("profile", rp);
+			RegisterPojo rpojo=rdao.userprofile(userid);
+			session.setAttribute("profile", rpojo);
 			RequestDispatcher rd=req.getRequestDispatcher("userProfile.jsp");
 			rd.forward(req, resp);
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}

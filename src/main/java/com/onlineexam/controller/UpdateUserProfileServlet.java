@@ -15,28 +15,30 @@ import com.onlineexam.impl.RegisterDao;
 import com.onlineexam.model.RegisterPojo;
 
 @WebServlet("/editprofile")
-public class UpdateUserProfileServlet extends HttpServlet{
+public class UpdateUserProfileServlet extends HttpServlet {
 	@Override
-	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		PrintWriter out=resp.getWriter();
-		HttpSession session=req.getSession();
-		int userid=(int)session.getAttribute("userid");
-		String firstname=req.getParameter("firstname");
-		String lastname=req.getParameter("lastname");
-		String email=req.getParameter("email");
-		Long phone=Long.parseLong(req.getParameter("phone"));
-		RegisterPojo rp=new RegisterPojo(userid,firstname,lastname,email,phone);
-		RegisterDao rd=new RegisterDao();
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException {
 		try {
+			PrintWriter out = resp.getWriter();
+			HttpSession session = req.getSession();
+			int userid = (int) session.getAttribute("userid");
+			String firstname = req.getParameter("firstname");
+			String lastname = req.getParameter("lastname");
+			String email = req.getParameter("email");
+			Long phone = Long.parseLong(req.getParameter("phone"));
+			RegisterPojo rp = new RegisterPojo(userid, firstname, lastname, email, phone);
+			RegisterDao rd = new RegisterDao();
 			rd.editprofile(rp);
 			out.println("<script type=\"text/javascript\">");
 			out.println("alert('Profile updated successfully');");
 			out.println("location='UserProfile';");
 			out.println("</script>");
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
+		} catch (IOException e1) {
+			e1.printStackTrace();
+		} catch (NumberFormatException e2) {
+			e2.printStackTrace();
 		}
 	}
 }

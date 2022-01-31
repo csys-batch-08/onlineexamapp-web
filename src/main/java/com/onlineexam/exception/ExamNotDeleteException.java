@@ -6,7 +6,6 @@ public class ExamNotDeleteException extends SQLIntegrityConstraintViolationExcep
 
 	@Override
 	public String getMessage() {
-		// TODO Auto-generated method stub
 		return "Exam already registered so couldn't delete.";
 	}
 	

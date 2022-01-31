@@ -13,17 +13,18 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.onlineexam.impl.ExamDetailsDao;
 import com.onlineexam.model.ExamDetailsPojo;
+
 @WebServlet("/ShowExams")
 public class ShowExamsServlet extends HttpServlet {
 	@Override
 	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		ExamDetailsDao edd=new ExamDetailsDao();
+		ExamDetailsDao edd = new ExamDetailsDao();
 		List<ExamDetailsPojo> edp;
 		try {
 			edp = edd.showAllExams();
-		req.setAttribute("exams", edp);
-		RequestDispatcher rd=req.getRequestDispatcher("showExams.jsp");
-		rd.forward(req, resp);
+			req.setAttribute("exams", edp);
+			RequestDispatcher rd = req.getRequestDispatcher("showExams.jsp");
+			rd.forward(req, resp);
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}

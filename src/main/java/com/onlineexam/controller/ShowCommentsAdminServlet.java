@@ -13,21 +13,20 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.onlineexam.impl.ContactUsDao;
 import com.onlineexam.model.ContactUsPojo;
+
 @WebServlet("/ShowCommentsAdmin")
 public class ShowCommentsAdminServlet extends HttpServlet {
 	@Override
 	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		ContactUsDao cud=new ContactUsDao();
+		ContactUsDao cud = new ContactUsDao();
 		try {
-			List<ContactUsPojo> cup=cud.showCommentsAdmin();
+			List<ContactUsPojo> cup = cud.showCommentsAdmin();
 			req.setAttribute("contactlist", cup);
-			RequestDispatcher rd=req.getRequestDispatcher("showCommentsAdmin.jsp");
+			RequestDispatcher rd = req.getRequestDispatcher("showCommentsAdmin.jsp");
 			rd.forward(req, resp);
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
+
 	}
 }

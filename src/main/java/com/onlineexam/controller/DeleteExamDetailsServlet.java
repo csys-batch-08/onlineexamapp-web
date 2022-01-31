@@ -16,13 +16,14 @@ import com.onlineexam.model.ExamDetailsPojo;
 
 @WebServlet("/deleteExamServlet")
 public class DeleteExamDetailsServlet extends HttpServlet {
-	public void doPost(HttpServletRequest req,HttpServletResponse res) throws IOException {
-		PrintWriter out=res.getWriter();
-		HttpSession session1=req.getSession();
-		int examId=Integer.parseInt(req.getParameter("examid").toString());
+	@Override
+	public void doPost(HttpServletRequest req,HttpServletResponse res) {
+		PrintWriter out=null;
+		try {
+		out=res.getWriter();
+		int examId=Integer.parseInt(req.getParameter("examid"));
 		ExamDetailsPojo edp=new ExamDetailsPojo(examId);
 		ExamDetailsDao ed=new ExamDetailsDao();
-		try {
 			boolean flag=ed.deleteExam(edp);
 			if(flag) {
 				out.println("<script type=\"text/javascript\">");
@@ -36,7 +37,6 @@ public class DeleteExamDetailsServlet extends HttpServlet {
 		}
 		
 		catch (SQLException e) {
-			// TODO Auto-generated catch block
 			try {
 				throw new ExamNotDeleteException();
 			}
@@ -48,6 +48,10 @@ public class DeleteExamDetailsServlet extends HttpServlet {
 			}
 			
 			e.printStackTrace();
+		}catch(IOException e2) {
+			e2.printStackTrace();
+		}catch(NumberFormatException e3) {
+			e3.printStackTrace();
 		}
 	}
 }

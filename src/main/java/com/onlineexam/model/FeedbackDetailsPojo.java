@@ -80,7 +80,6 @@ public class FeedbackDetailsPojo {
 	}
 
 	public FeedbackDetailsPojo() {
-		// TODO Auto-generated constructor stub
 	}
 
 	@Override

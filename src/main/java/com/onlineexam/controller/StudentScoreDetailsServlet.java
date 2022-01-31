@@ -18,7 +18,6 @@ import com.onlineexam.model.ScoreDetailsPojo;
 public class StudentScoreDetailsServlet extends HttpServlet {
 	@Override
 	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		HttpSession session=req.getSession();
 		int userid=(int)session.getAttribute("userid");
 		ScoreDetailsDao sdd=new ScoreDetailsDao();
@@ -28,7 +27,6 @@ public class StudentScoreDetailsServlet extends HttpServlet {
 			RequestDispatcher rd=req.getRequestDispatcher("studentScoreDetails.jsp");
 			rd.forward(req, resp);
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}

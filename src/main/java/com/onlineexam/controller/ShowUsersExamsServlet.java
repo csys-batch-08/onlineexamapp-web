@@ -17,7 +17,6 @@ import com.onlineexam.model.ScoreDetailsPojo;
 public class ShowUsersExamsServlet extends HttpServlet {
 	@Override
 	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		ScoreDetailsDao sdd=new ScoreDetailsDao();
 		try {
 			List<ScoreDetailsPojo> sdp=sdd.viewAllScore();
@@ -25,7 +24,6 @@ public class ShowUsersExamsServlet extends HttpServlet {
 			RequestDispatcher rd=req.getRequestDispatcher("showUsersExams.jsp");
 			rd.forward(req, resp);
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}

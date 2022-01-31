@@ -16,7 +16,6 @@ import com.onlineexam.model.RegisterPojo;
 public class ShowInactiveUsersServlet extends HttpServlet {
 	@Override
 	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		RegisterDao rdao=new RegisterDao();
 		List<RegisterPojo> rp=rdao.showInactiveUsers();
 		req.setAttribute("inusers", rp);

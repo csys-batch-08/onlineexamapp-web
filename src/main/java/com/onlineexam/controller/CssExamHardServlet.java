@@ -13,7 +13,6 @@ import javax.servlet.http.HttpSession;
 public class CssExamHardServlet extends HttpServlet {
 	@Override
 	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		HttpSession session=req.getSession();
 		int userid= (int)session.getAttribute("userid");
 		int examId=Integer.parseInt(req.getParameter("examid"));

@@ -1,4 +1,5 @@
 package com.onlineexam.controller;
+
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.ResultSet;
@@ -11,59 +12,46 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.onlineexam.exception.*;
-import com.onlineexam.exception.EmailAlreadyExistException;
 import com.onlineexam.impl.RegisterDao;
 import com.onlineexam.model.RegisterPojo;
 
 @WebServlet("/register")
-public class registerServlet extends HttpServlet{
-	
-	public void doPost(HttpServletRequest req,HttpServletResponse res) throws IOException {
-		PrintWriter out=res.getWriter();
-		//HttpSession session=req.getSession();
-		String firstName=req.getParameter("firstName");
-		String lastName=req.getParameter("lastName");
-		String email=req.getParameter("email");
-		String password=req.getParameter("password");
-		String confirm_password=req.getParameter("cpassword");
-		Long phone_number=Long.parseLong(req.getParameter("phone_number"));
-		RegisterPojo rd=new RegisterPojo(firstName, lastName, email, password,confirm_password, phone_number);
-		RegisterDao rdao=new RegisterDao();
+public class registerServlet extends HttpServlet {
+	@Override
+	public void doPost(HttpServletRequest req, HttpServletResponse res) {
+		PrintWriter out = null;
 		try {
-			ResultSet rs=rdao.getEmailDetails(rd);
-			ResultSet rs1=rdao.getPhoneDetails(rd);
-			if(rs.next()){
-				if(email.equals(rs.getString(4))) {
-					throw new EmailAlreadyExistException();
-				}
+			out = res.getWriter();
+			String firstName = req.getParameter("firstName");
+			String lastName = req.getParameter("lastName");
+			String email = req.getParameter("email");
+			String password = req.getParameter("password");
+			String confirmpassword = req.getParameter("cpassword");
+			Long phonenumber = Long.parseLong(req.getParameter("phone_number"));
+			RegisterPojo rd = new RegisterPojo(firstName, lastName, email, password, confirmpassword, phonenumber);
+			RegisterDao rdao = new RegisterDao();
+			ResultSet rs = rdao.getEmailDetails(rd);
+			ResultSet rs1 = rdao.getPhoneDetails(rd);
+			if (rs.next() && email.equals(rs.getString(4))) {
+				throw new EmailAlreadyExistException();
 			}
-			if(rs1.next()) {
-				if(phone_number==(rs1.getLong(7))) {
-					throw new PhoneNumberExistException();
-				}
+			if (rs1.next() && phonenumber == (rs1.getLong(7))) {
+				throw new PhoneNumberExistException();
 			}
 			rdao.fetchregister(rd);
-//			out.println("<script type=\"text/javascript\">");
-//			out.println("alert('You've registered successfully');");
-//			out.println("location='index.jsp';");
-//			out.println("</script>");
 			res.sendRedirect("index.jsp");
-			
-			
-		} catch (ClassNotFoundException e) {
-			// TODO Auto-generated catch block
+		} catch (ClassNotFoundException | SQLException e) {
 			e.printStackTrace();
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} 
-		catch (EmailAlreadyExistException ea) {
+		} catch (IOException e1) {
+			e1.printStackTrace();
+		} catch (NumberFormatException e2) {
+			e2.printStackTrace();
+		} catch (EmailAlreadyExistException ea) {
 			out.println("<script type=\"text/javascript\">");
 			out.println("alert('email already exist');");
 			out.println("location='register.jsp';");
 			out.println("</script>");
-		} 
-		catch (PhoneNumberExistException pn) {
+		} catch (PhoneNumberExistException pn) {
 			out.println("<script type=\"text/javascript\">");
 			out.println("alert('Phone number already exist');");
 			out.println("location='register.jsp';");

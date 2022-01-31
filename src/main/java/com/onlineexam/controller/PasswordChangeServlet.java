@@ -16,45 +16,44 @@ import com.onlineexam.exception.InvalidPhoneNumberException;
 import com.onlineexam.impl.RegisterDao;
 import com.onlineexam.model.RegisterPojo;
 
-
 @WebServlet("/changepassword")
 public class PasswordChangeServlet extends HttpServlet {
 	@Override
-	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		HttpSession session=req.getSession();
-		PrintWriter out=resp.getWriter();
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException {
+		PrintWriter out = null;
 		boolean flag;
-		Long adminnum=8870623149l;
-		Long PhoneNumber=Long.parseLong(req.getParameter("phone_number"));
-		String password=req.getParameter("password");
-		String cpassword=req.getParameter("cpassword");
-		RegisterPojo rp=new RegisterPojo(PhoneNumber, password, cpassword);
-		RegisterDao rd=new RegisterDao();
-		
 		try {
-		
-		if(PhoneNumber.equals(adminnum)) {
-			throw new InvalidPhoneNumberException();
-		}
-		else {
-			flag=rd.changepassword(rp);
-			if(flag) {
-				out.println("<script type=\"text/javascript\">");
-				out.println("alert('Your password has changed')");
-				out.println("location='index.jsp';");
-				out.println("</script>");
-			}
-			else {
+			out = resp.getWriter();
+			Long adminnum = 8870623149l;
+			Long phoneNumber = Long.parseLong(req.getParameter("phone_number"));
+			String password = req.getParameter("password");
+			String cpassword = req.getParameter("cpassword");
+			RegisterPojo rp = new RegisterPojo(phoneNumber, password, cpassword);
+			RegisterDao rd = new RegisterDao();
+
+			if (phoneNumber.equals(adminnum)) {
 				throw new InvalidPhoneNumberException();
+			} else {
+				flag = rd.changepassword(rp);
+				if (flag) {
+					out.println("<script type=\"text/javascript\">");
+					out.println("alert('Your password has changed')");
+					out.println("location='index.jsp';");
+					out.println("</script>");
+				} else {
+					throw new InvalidPhoneNumberException();
+				}
 			}
-		}
-		}catch(InvalidPhoneNumberException ipn) {
+		} catch (InvalidPhoneNumberException ipn) {
 			out.println("<script type=\"text/javascript\">");
 			out.println("alert('Entered phone number is invalid')");
 			out.println("location='userPasswordUpdate.jsp';");
 			out.println("</script>");
-		} 
-		
+		} catch (NumberFormatException e) {
+			e.printStackTrace();
+		} catch (IOException e1) {
+			e1.printStackTrace();
+		}
+
 	}
 }

@@ -19,7 +19,6 @@ import com.onlineexam.model.FeedbackDetailsPojo;
 public class ShowFeedbackUserServlet extends HttpServlet {
 	@Override
 	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		HttpSession session=req.getSession();
 		int userid=(int)session.getAttribute("userid");
 		FeedbackDetailsDao fdd=new FeedbackDetailsDao();
