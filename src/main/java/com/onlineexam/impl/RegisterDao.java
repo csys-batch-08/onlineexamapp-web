@@ -43,7 +43,6 @@ public class RegisterDao implements RegisterDaoInterface {
 			}
 			
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return flag;
@@ -133,7 +132,6 @@ public class RegisterDao implements RegisterDaoInterface {
 				rp.add(rpojo);
 			}
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return rp;
@@ -151,7 +149,6 @@ public class RegisterDao implements RegisterDaoInterface {
 				rp.add(rpojo);
 			}
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return rp;
@@ -177,7 +174,6 @@ public class RegisterDao implements RegisterDaoInterface {
 		return rs;
 	}
 	public RegisterPojo userprofile(int userid) throws SQLException {
-		//List<RegisterPojo> rp=new ArrayList<RegisterPojo>();
 		RegisterPojo rpp=null;
 		Connection con=ConnectionPage.connection();
 		String que="select first_name,last_name,email,phone_number,profilepicture from registerPage where id=?";
@@ -186,7 +182,6 @@ public class RegisterDao implements RegisterDaoInterface {
 		ResultSet rs=pstmt.executeQuery();
 		while(rs.next()) {
 			rpp=new RegisterPojo(rs.getString(1),rs.getString(2),rs.getString(3),rs.getLong(4),rs.getString(5));
-			//rp.add(rpp);
 		}
 		return rpp;
 	}

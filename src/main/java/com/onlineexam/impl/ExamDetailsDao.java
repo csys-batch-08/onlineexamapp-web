@@ -16,7 +16,6 @@ public class ExamDetailsDao implements ExamDetailsDaoInterface{
 		Connection con=ConnectionPage.connection();
 		String query="insert into examDetails(examName,examType,difficultyLevel,durationMinutes) values(?,?,?,?)";
 			PreparedStatement pstmt=con.prepareStatement(query);
-			//pstmt.setInt(1, edp.getExamId());
 			pstmt.setString(1, edp.getExamName());
 			pstmt.setString(2, edp.getExamType());
 			pstmt.setString(3, edp.getDifficultyLevel());
@@ -62,10 +61,9 @@ public class ExamDetailsDao implements ExamDetailsDaoInterface{
 		String query="select examId,examName,examType,difficultyLevel,durationMinutes from examDetails";
 		ResultSet rs=null;
 		try {
-			Statement st=con.createStatement();
-			rs=st.executeQuery(query);
+			PreparedStatement pstmt=con.prepareStatement(query);
+			rs=pstmt.executeQuery();
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return rs;
@@ -83,7 +81,6 @@ public class ExamDetailsDao implements ExamDetailsDaoInterface{
 				edp.add(edpp);
 			}
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return edp;
@@ -101,7 +98,6 @@ public class ExamDetailsDao implements ExamDetailsDaoInterface{
 				edp.add(edpp);
 			}
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return edp;
@@ -119,7 +115,6 @@ public class ExamDetailsDao implements ExamDetailsDaoInterface{
 				edp.add(edpp);
 			}
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return edp;
@@ -133,7 +128,6 @@ public class ExamDetailsDao implements ExamDetailsDaoInterface{
 			pstmt.setInt(1, edp.getExamId());
 			rs=pstmt.executeQuery();
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return rs;

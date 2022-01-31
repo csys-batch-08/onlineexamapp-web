@@ -31,7 +31,6 @@ public class FeedbackDetailsDao implements FeedbackDetailsDaoInterface{
 		Connection con=ConnectionPage.connection();
 		String query="select examid,feedback,feedbackdate from feedbackDetails where userid=? order by feedbackdate desc";
 		PreparedStatement pstmt=con.prepareStatement(query);
-		//Statement stmt=con.createStatement();
 		pstmt.setInt(1, userid);
 		ResultSet rs=pstmt.executeQuery();
 		while(rs.next()) {
