@@ -2,7 +2,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="ISO-8859-1">
 <style>
@@ -47,18 +47,24 @@ color:black;
 margin-top:-75px;
 margin-right:15px;
 }
+h2{
+	text-align:center;
+}
+.feedback{
+margin: auto;
+}
 </style>
 <title>Exam Result</title>
 </head>
 <body>
-	<center><h2><u>Score Details</u></h2></center><br><br>
+	<h2><u>Score Details</u></h2><br><br>
 	<a href="userMain.jsp" class="homealign">Home</a>
 <div class="container">
 Your mark is:  ${score}<br><br>
 Your status is:  ${passfail}<br><br>
 Your grade is:  ${grade}<br><br><br>
 </div>
-<center><a href="feedbackDetails?userid=${userid}&examid=${examid}&examname=${examName}"><button type="submit" class="button examButton">Send Feedback</button></a></center>
+<a href="feedbackDetails?userid=${userid}&examid=${examid}&examname=${examName}" class="feedback"><button type="submit" class="button examButton">Send Feedback</button></a>
 	
 </body>
 </html>

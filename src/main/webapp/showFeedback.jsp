@@ -3,7 +3,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="ISO-8859-1">
 <style>
@@ -60,15 +60,19 @@ margin-top:200px;
 font-weight:bolder;
 font-size:xx-large;
 }
+.exam{
+margin-left:-740px;
+}
 </style>
 <title>Feedback Details</title>
 </head>
 <body>
 	<h2><u>Feedback Details</u></h2>
-	<a href="userMain.jsp"><b>Home</b></a>
+	<a href="userMain.jsp"><strong>Home</strong></a>
     <c:choose>
 	<c:when test="${fn:length(feedback) > 0 }">
 	<table style="width: 80%;margin-left: 100px;font-size:large;">
+	<caption>Feedbacks</caption>
    	<tr>
       <th>User name</th>
             <th>Exam Id</th>
@@ -90,7 +94,7 @@ font-size:xx-large;
    
    </c:when>
    <c:otherwise><h2 class="notyet"><div class="otherwise">You haven't send any feedbacks yet!..</h2><br><br><br>
-   <a href="filterByDifficulty.jsp"><center><button class="button examButton">Take Exam</button></center></a>
+   <a href="filterByDifficulty.jsp"><button class="button examButton exam">Take Exam</button></a>
    </div></c:otherwise>
    </c:choose>
 

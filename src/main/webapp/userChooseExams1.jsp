@@ -2,7 +2,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="ISO-8859-1">
 <style>
@@ -46,10 +46,11 @@ body{
 <title>List of Exams</title>
 </head>
 <body>
-	<a href="filterByDifficulty.jsp"><h4 style="float: right;margin-right:10px;margin-top:-7px;font-size:x-large;color:black;"><u><b>Back</b></u></h4></a>
+	<a href="filterByDifficulty.jsp"><h4 style="float: right;margin-right:10px;margin-top:-7px;font-size:x-large;color:black;"><u><strong>Back</strong></u></h4></a>
 	<h2><u>Exams</u></h2>
 	
 	<table style="width: 80%;margin-left: 100px;">
+	<caption>Hard Exams</caption>
         <tr>
             <th>Exam Id</th>
             <th>Exam Name</th>
@@ -67,13 +68,13 @@ body{
                 <td>${hard.difficultyLevel}</td>
                 <td>${hard.durationMinutes}</td>
                 <c:if test="${hard.examName=='JAVA'}">
-                <td><a href="JavaExamHard?examid=${hard.examId}&examName=${hard.examName}"><center><button type="submit" class="button examButton">Take Exam</button></center></a></td>
+                <td><a href="JavaExamHard?examid=${hard.examId}&examName=${hard.examName}"><button type="submit" class="button examButton">Take Exam</button></a></td>
                 </c:if>
                 <c:if test="${hard.examName=='HTML'}">
-                <td><a href="HtmlExamHard?examid=${hard.examId}&examName=${hard.examName}"><center><button type="submit" class="button examButton">Take Exam</button></center></a></td>
+                <td><a href="HtmlExamHard?examid=${hard.examId}&examName=${hard.examName}"><button type="submit" class="button examButton">Take Exam</button></a></td>
                 </c:if>
                 <c:if test="${hard.examName=='CSS'}">
-                <td><a href="CssExamHard?examid=${hard.examId}&examName=${hard.examName}"><center><button type="submit" class="button examButton">Take Exam</button></center></a></td>
+                <td><a href="CssExamHard?examid=${hard.examId}&examName=${hard.examName}"><button type="submit" class="button examButton">Take Exam</button></a></td>
                 </c:if>
                 
             </tr>

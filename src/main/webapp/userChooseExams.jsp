@@ -2,7 +2,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="ISO-8859-1">
 <style>
@@ -46,10 +46,11 @@ body{
 <title>List of Exams</title>
 </head>
 <body>
-	<a href="filterByDifficulty.jsp"><h4 style="float: right;margin-right:10px;margin-top:-7px;font-size:x-large;color:black;"><u><b>Back</b></u></h4></a>
+	<a href="filterByDifficulty.jsp"><h4 style="float: right;margin-right:10px;margin-top:-7px;font-size:x-large;color:black;"><u><strong>Back</strong></u></h4></a>
 	<h2><u>Exams</u></h2>
 	
 	<table style="width: 80%;margin-left: 100px;font-size:large;">
+	<caption>Easy Exams</caption>
         <tr>
             <th>Exam Id</th>
             <th>Exam Name</th>
@@ -67,13 +68,13 @@ body{
                 <td>${easy.difficultyLevel}</td>
                 <td>${easy.durationMinutes}</td>
                 <c:if test="${easy.examName=='JAVA'}">
-                <td><a href="JavaExamEasy?examid=${easy.examId}&examName=${easy.examName}"><center><button type="submit" class="button examButton">Take Exam</button></center></a></td>
+                <td><a href="JavaExamEasy?examid=${easy.examId}&examName=${easy.examName}"><button type="submit" class="button examButton">Take Exam</button></a></td>
                 </c:if>
                 <c:if test="${easy.examName=='HTML'}">
-                <td><a href="HtmlExamEasy?examid=${easy.examId}&examName=${easy.examName}"><center><button type="submit" class="button examButton">Take Exam</button></center></a></td>
+                <td><a href="HtmlExamEasy?examid=${easy.examId}&examName=${easy.examName}"><button type="submit" class="button examButton">Take Exam</button></a></td>
                 </c:if>
                 <c:if test="${easy.examName=='CSS'}">
-                <td><a href="CssExamEasy?examid=${easy.examId}&examName=${easy.examName}"><center><button type="submit" class="button examButton">Take Exam</button></center></a></td>
+                <td><a href="CssExamEasy?examid=${easy.examId}&examName=${easy.examName}"><button type="submit" class="button examButton">Take Exam</button></a></td>
                 </c:if>
                
                  </c:forEach>

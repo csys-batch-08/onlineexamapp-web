@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="UserMain.css">
 </head>
 <body>
-    <a href="UserProfile"><img class="imgalign" src="./images/${sessionScope.profile.getPhoto()}" height="50px" width="55px" style="float:right;border-radius: 50%;margin-right:10px;margin-top:-3px;border:1px groove black;" title="My Profile"></a>
+    <a href="UserProfile"><img class="imgalign" src="./images/${sessionScope.profile.getPhoto()}" height="50px" width="55px" style="float:right;border-radius: 50%;margin-right:10px;margin-top:-3px;border:1px groove black;" title="My Profile" alt="My Profile"></a>
     <ul class="nav">
         <li><a class="a1" href="index.jsp" onclick="logout()">Logout</a></li>
         <li><a class="a1" href="contactUs.jsp">Contact us</a></li>
@@ -22,7 +22,7 @@
         <li><a class="a1" href="StudentScoreDetails">MyExams</a></li>
         
     </ul>
-    <img src="images/onlineExamIcon.png" class="imgIcon">
+    <img src="images/onlineExamIcon.png" class="imgIcon" alt="online Exam Icon">
     <div class="h1">
       <h1>Explore the Exam</h1>
       <h1 style="margin-left: 70px;">Exclusively</h1>
@@ -30,7 +30,7 @@
       
       	<h4><a href="filterByDifficulty.jsp"><button style="margin-left: 80px; margin-right: 60px;" class="button examButton">Take Exam</button></a><a href="studyMaterials.jsp"><button style="margin-right: 70px;" class="button studyButton">Study</button></a></h4>
     </div>
-    <img src="images/onlineExamReferenceRemovedBackground.png" class="image">
+    <img src="images/onlineExamReferenceRemovedBackground.png" class="image" alt="online Exam Reference Background">
     
 </body>
 <script type="text/javascript">

@@ -2,7 +2,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="ISO-8859-1">
 <style>
@@ -30,9 +30,10 @@ a{
 </head>
 <body>
 	<h2><u>Users Comments Details</u></h2>
-	<a href="adminMain.jsp"><b>Home</b></a>
+	<a href="adminMain.jsp"><strong>Home</strong></a>
 <div >
 <table style="width: 80%;margin-left: 100px;font-size:large;">
+<caption>Users comments</caption>
         <tr>
             <th>User Id</th>
             <th>Email</th>

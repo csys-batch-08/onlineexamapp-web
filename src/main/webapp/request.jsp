@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="ISO-8859-1">
 <title>Request Page</title>
@@ -129,6 +129,9 @@ font-weight:bolder;
 font-size:x-large;
 color:black;
 }
+.request{
+text-align:center;
+}
     </style>
     
 </head>
@@ -136,7 +139,7 @@ color:black;
 <h3><a href="index.jsp">Back</a></h3>
     <span class="border border-dark">
     <div class="wrapper">
-        <center><div class="text-center mt-4 name"> Request </div></center>
+        <div class="text-center mt-4 name request"> Request </div>
         <br>
         <form action="request" method="post" class="p-3 mt-3">
             <div class="input box">

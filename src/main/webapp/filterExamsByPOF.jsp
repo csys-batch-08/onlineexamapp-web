@@ -3,7 +3,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1" %>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="ISO-8859-1">
 <style>
@@ -48,6 +48,9 @@ font-size:xx-large;
 text-align:center;
 margin-top:80px;
 }
+.view{
+margin-left:630px;
+}
 </style>
 <title>List of exams</title>
 </head>
@@ -68,11 +71,12 @@ margin-top:80px;
 	<h3>Filter by Grade <input type="text" name="grade"></h3>
 	<button type="submit" style="margin-left:120px;" class="buttons button2">Filter</button></form></div></div><br><br>
 	
-	<center><a href="ShowUsersExams"><button class="buttons button2">View all</button></a></center><br><br>
+	<a href="ShowUsersExams"><button class="buttons button2 view">View all</button></a><br><br>
 	
 	<c:choose>
 	<c:when test="${fn:length(passfail) > 0 }">
 	<table style="width: 80%;margin-left: 100px;font-size:large;">
+	<caption>Scores depends on Status</caption>
         <tr>
             <th>Student Id</th>
             <th>Exam Id</th>

@@ -3,7 +3,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="ISO-8859-1">
 <style>
@@ -63,15 +63,19 @@ margin-top:200px;
 .moreexam{
 text-align:center;
 }
+.exam{
+margin-left:-738px;
+}
 </style>
 <title>Score Details</title>
 </head>
 <body>
 	<h2><u>Score Details</u></h2>
-	<a href="userMain.jsp"><b>Home</b></a>
+	<a href="userMain.jsp"><strong>Home</strong></a>
 	<c:choose>
 	<c:when test="${fn:length(scorelist) > 0 }">
 	<table style="width: 80%;margin-left: 100px;font-size:large;">
+	<caption>Score details</caption>
         <tr>
             <th>Student name</th>
             <th>Exam Name</th>
@@ -92,11 +96,11 @@ text-align:center;
                 </c:forEach>
                </table><br><br><br><br><br>
                 <div class="moreexam">
-                <a href="filterByDifficulty.jsp"><center><button class="button examButton" style="margin-top:-65px;">Write More Exams</button></center></a>
+                <a href="filterByDifficulty.jsp"><button class="button examButton" style="margin-top:-65px;">Write More Exams</button></a>
                 </div>
                </c:when>
                <c:otherwise><h2 class="notyet"><div class="otherwise">You haven't write any exams yet!..</h2><br><br><br>
-               <a href="filterByDifficulty.jsp"><center><button class="button examButton">Take Exam</button></center></a></div></c:otherwise>
+               <a href="filterByDifficulty.jsp"><button class="button examButton exam">Take Exam</button></a></div></c:otherwise>
                </c:choose>
      
 </body>

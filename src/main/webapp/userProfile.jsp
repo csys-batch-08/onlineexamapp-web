@@ -2,7 +2,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="ISO-8859-1">
 <style>
@@ -59,6 +59,9 @@ background-color: #008CBA;
 .button2:hover {
   box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
 }
+.change{
+margin-left:615px;
+}
 </style>
 <title>User Profile</title>
 </head>
@@ -66,9 +69,9 @@ background-color: #008CBA;
 	<a href="userMain.jsp">Home</a>
 	<div class="container">
 		
-		<img src="./images/${sessionScope.profile.getPhoto()}" style="border-radius:50%;height:250px;width:260px;border-color:black"><br><br>
+		<img src="./images/${sessionScope.profile.getPhoto()}" style="border-radius:50%;height:250px;width:260px;border-color:black" alt="profile picture"><br><br>
 		
-		<center><button id="photo" onclick="photochange()" style="display: block;" class="buttons button2">Change photo</button></center>
+		<button id="photo" onclick="photochange()" style="display: block;" class="buttons button2 change">Change photo</button>
 		<div id="photochange" style="display: none;">
 		<form action="changeprofile" method="post">
 		<input type="file" id="avatar" name="avatar" class="choosefile buttons button2"><br><br>

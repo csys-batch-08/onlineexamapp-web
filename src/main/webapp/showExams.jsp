@@ -2,7 +2,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="ISO-8859-1">
 <style>
@@ -69,6 +69,9 @@ button {
   70%,100% { opacity: 0; }
   50% { opacity: 1; }
 }
+.update{
+margin-left:65px;
+}
 </style>
 <title>List of Exams</title>
 </head>
@@ -113,6 +116,7 @@ button {
 	</form>
 	
 	<table style="width: 80%; margin-left: 100px;font-size:large;">
+	<caption>All Exams</caption>
 		<tr>
 			<th>Exam Id</th>
 			<th>Exam Name</th>
@@ -146,8 +150,8 @@ button {
 							type="text" name="durationMinutes" id="durationMinutes" required></li>
 					</ul>
 					
-						<center><button type="submit" style="text-align: center;"
-							class="button examButton">Update Exam</button></center>
+						<button type="submit" style="text-align: center;"
+							class="button examButton update">Update Exam</button>
 				</form> 
 			</td>
 			<td>

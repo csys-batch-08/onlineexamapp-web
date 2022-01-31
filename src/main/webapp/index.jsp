@@ -122,13 +122,19 @@ body {
 .input box  input focus{
     border-color: darkgoldenrod;
 } 
+.login{
+text-align:center;
+}
+.forgotpassword{
+text-align:center;
+}
     </style>
     
 </head>
 <body>
     <span class="border border-dark">
     <div class="wrapper">
-        <center><div class="text-center mt-4 name"> Login </div></center>
+        <div class="text-center mt-4 name login"> Login </div>
         <br>
         <form action="loginserv" method="post" class="p-3 mt-3">
             <div class="input box">
@@ -148,8 +154,8 @@ body {
         <br>
        
         
-        <center>
-        <div class="pagination"> 
+        
+        <div class="pagination forgotpassword"> 
             <a href="userPasswordUpdate.jsp">Forgot password?</a>  <br>
             <br>
             
@@ -157,7 +163,7 @@ body {
     </div> 
 	
 </span>
-</center>
+
 </body>
 <script>
 function myFunction() {
