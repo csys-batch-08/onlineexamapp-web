@@ -2,7 +2,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="ISO-8859-1">
 <style>
@@ -85,9 +85,13 @@ margin-left:630px;
 	font-size:xx-large;
 	font-weight:bolder;
 	margin-top:170px;
+	margin-left:635px;
 }
 .form{
 margin-top:-400px;
+}
+#next,#submit,#sendfeedback{
+margin-left:635px;
 }
 </style>
 <title>CSS Exam</title>
@@ -96,7 +100,7 @@ margin-top:-400px;
 	<h2 style="margin-left:50px;" id="css"><u>CSS Exam</u></h2>
 	<a id="home" href="UserChooseExams"><h4 style="color:black;"><u>Back</u></h4></a>
 	<div id="clock">
-    <b id="hour"></b><label> &nbsp;<span id="colon">:</span>&nbsp;</label><b id="min"></b>
+    <strong id="hour"></strong><label> &nbsp;<span id="colon">:</span>&nbsp;</label><strong id="min"></strong>
 </div>
 <br> <button id="startButton" onclick="clcok();play()" class="button examButton start">Start</button>
 	
@@ -198,10 +202,10 @@ margin-top:-400px;
 <p id="passFail"></p>
 <p id="studentGrade"></p>
 <div id="timeup" class="timeupalign">
-<center><p>Your time is up!....</p></center>
-<center><p>You have to submit exam</p></center></div>
+<p>Your time is up!....</p>
+<p>You have to submit exam</p></div>
 <div id="feed">
-<a href="feedbackDetails?examid=${exam_Id}&userid=${user_id}"><center><button class="button examButton" style="margin-top:100px;">Send feedback</button></center>&nbsp;&nbsp;</a>
+<a href="feedbackDetails?examid=${exam_Id}&userid=${user_id}"><button id="sendfeedback" class="button examButton" style="margin-top:100px;">Send feedback</button>&nbsp;&nbsp;</a>
 </div>
 <audio src="musics/exam_music.mp3" id="music"></audio>
 <div id="buttons" class="form">
@@ -212,10 +216,10 @@ margin-top:-400px;
 <input style="visibility:hidden;" type="text" id="score" name="score">
 <input style="visibility:hidden;" type="text" id="passOrFail" name="passOrFail">
 <input style="visibility:hidden;" type="text" id="grade" name="grade">
-<center><button id="submit" onclick="ans();pause()" style="text-align:center;margin-top:270px;" class="button examButton">Submit</button></center>
+<button id="submit" onclick="ans();pause()" style="text-align:center;margin-top:270px;" class="button examButton">Submit</button>
 </form></div>
 <div>
-<center><button id="next" onclick="qu()" style="text-align:center;margin-top:-290px;" class="button examButton">Next</button></center>
+<button id="next" onclick="qu()" style="text-align:center;margin-top:-290px;" class="button examButton">Next</button>
 
 </div>
 

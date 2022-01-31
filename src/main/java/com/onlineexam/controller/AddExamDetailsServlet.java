@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.List;
 
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -28,13 +29,13 @@ public class AddExamDetailsServlet extends HttpServlet {
 		ExamDetailsPojo edp=new ExamDetailsPojo(examName,examType,difficultyLevel,durationMinutes);
 		ExamDetailsDao ed=new ExamDetailsDao();
 		HttpSession session=req.getSession();
-		ResultSet rs=ed.showExams();
+		ResultSet rs;
 		try {
-			rs.next();
-			int duration=rs.getInt(5);
+			ExamDetailsPojo edpojo= ed.showExams();
+			int duration=edpojo.getDurationMinutes();
 			session.setAttribute("duration", duration);
-			boolean flag=ed.addExam(edp);
-			if(flag) {
+			int result=ed.addExam(edp);
+			if(result>0) {
 				out.println("<script type=\"text/javascript\">");
 				out.println("alert('Exam added successfully');");
 				out.println("location='ShowExams';");
@@ -42,7 +43,6 @@ public class AddExamDetailsServlet extends HttpServlet {
 			}
 			
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} 
 	}

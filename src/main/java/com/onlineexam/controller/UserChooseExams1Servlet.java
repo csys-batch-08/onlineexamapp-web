@@ -1,6 +1,7 @@
 package com.onlineexam.controller;
 
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.List;
 
 import javax.servlet.RequestDispatcher;
@@ -16,11 +17,15 @@ import com.onlineexam.model.ExamDetailsPojo;
 public class UserChooseExams1Servlet extends HttpServlet {
 	@Override
 	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		ExamDetailsDao edd=new ExamDetailsDao();
-		List<ExamDetailsPojo> edp=edd.showExamsHard();
+		List<ExamDetailsPojo> edp;
+		try {
+			edp = edd.showExamsHard();
 		req.setAttribute("hardexams", edp);
 		RequestDispatcher rd=req.getRequestDispatcher("userChooseExams1.jsp");
 		rd.forward(req, resp);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 	}
 }
