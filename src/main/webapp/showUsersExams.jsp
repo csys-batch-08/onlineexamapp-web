@@ -1,8 +1,9 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1" %>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="ISO-8859-1">
 <style>
@@ -62,6 +63,7 @@ background-color: #008CBA;
 	
 	<br><br>
 	<table style="width: 80%;margin-left: 100px;font-size:large;">
+	<caption>list of users exams</caption>
         <tr>
             <th>Student Id</th>
             <th>Exam Id</th>
@@ -72,6 +74,8 @@ background-color: #008CBA;
             <th>Exam Date</th>
         </tr>
         <c:forEach items="${allscores}" var="score">
+        <fmt:parseDate pattern="yyyy-MM-dd" value="${score.examdate}"
+				var="parsedExamDate" />
             <tr>
                 <td>${score.studentId}</td>
                 <td>${score.examId}</td>
@@ -79,7 +83,7 @@ background-color: #008CBA;
                 <td>${score.score}</td>
                 <td>${score.passOrFail}</td>
                 <td>${score.grade}</td>
-                <td>${score.examdate}</td>
+                <td><fmt:formatDate pattern="dd-MM-yyyy" value="${parsedExamDate}" /></td>
             </tr>
         </c:forEach>
     </table>

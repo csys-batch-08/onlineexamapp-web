@@ -21,6 +21,6 @@ public interface RegisterDaoInterface {
 	public  List<RegisterPojo> showUsers();
 	public  List<RegisterPojo> showInactiveUsers();
 	public ResultSet fetchlogin(RegisterPojo rp) throws SQLException, ClassNotFoundException;
-	public  ResultSet validUser(String email,String password) throws ClassNotFoundException, SQLException;
+	public  RegisterPojo validUser(String email,String password) throws ClassNotFoundException, SQLException;
 	public RegisterPojo userprofile(int userid) throws SQLException;
 }

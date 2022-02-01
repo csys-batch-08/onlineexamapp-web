@@ -1,8 +1,9 @@
 <%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="ISO-8859-1">
 <style>
@@ -30,9 +31,10 @@ a{
 </head>
 <body>
 	<h2><u>Feedback Details</u></h2>
-	<a href="adminMain.jsp"><b>Home</b></a>
+	<a href="adminMain.jsp"><strong>Home</strong></a>
 
 <table style="width: 80%;margin-left: 100px;font-size:large;">
+<caption>Feedbacks of users</caption>
         <tr>
             <th>Feedback Id</th>
             <th>User Id</th>
@@ -41,12 +43,14 @@ a{
             <th>Feedback Date</th>
         </tr>
         <c:forEach items="${showfeedback}" var="feedback">
+        <fmt:parseDate pattern="yyyy-MM-dd" value="${feedback.feedbackdate}"
+				var="parsedFeedbackDate" />
         	<tr>
                 <td>${feedback.feedbackid}</td>
                 <td>${feedback.userid}</td>
                 <td>${feedback.examid}</td>
                 <td>${feedback.feedback}</td>
-                <td>${feedback.feedbackdate}</td>
+                <td><fmt:formatDate pattern="dd-MM-yyyy" value="${parsedFeedbackDate}" /></td>
                 
                </tr>
                </c:forEach>

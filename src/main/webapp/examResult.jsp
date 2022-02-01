@@ -51,7 +51,7 @@ h2{
 	text-align:center;
 }
 .feedback{
-margin: auto;
+margin-left:573px;
 }
 </style>
 <title>Exam Result</title>

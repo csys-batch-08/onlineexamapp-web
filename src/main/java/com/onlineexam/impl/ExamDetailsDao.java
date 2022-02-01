@@ -222,30 +222,4 @@ public class ExamDetailsDao implements ExamDetailsDaoInterface {
 		}
 		return edp;
 	}
-
-//	public ResultSet showExamsDetails(ExamDetailsPojo edp) throws SQLException {
-//		Connection con = null;
-//		PreparedStatement pstmt = null;
-//		ResultSet rs = null;
-//		try {
-//			con = ConnectionPage.connection();
-//			String query = "select examId,examName,examType,difficultyLevel,durationMinutes from examDetails where examId=?";
-//			pstmt = con.prepareStatement(query);
-//			pstmt.setInt(1, edp.getExamId());
-//			rs = pstmt.executeQuery();
-//		} catch (SQLException e) {
-//			e.printStackTrace();
-//		} finally {
-//			if (pstmt != null) {
-//				pstmt.close();
-//			}
-//			if (con != null) {
-//				con.close();
-//			}
-//			if (rs != null) {
-//				rs.close();
-//			}
-//		}
-//		return rs;
-//	}
 }

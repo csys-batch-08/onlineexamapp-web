@@ -1,4 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ taglib uri = "http://java.sun.com/jsp/jstl/functions" prefix = "fn" %>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
@@ -85,13 +86,15 @@ margin-left:-738px;
             <th>Exam Date</th>
         </tr>
         <c:forEach items="${scorelist}" var="scores">
+        <fmt:parseDate pattern="yyyy-MM-dd" value="${scores.examdate}"
+				var="parsedExamDate" />
         	<tr>
                 <td>${sessionScope.username}</td>
                 <td>${scores.examName}</td>
                 <td>${scores.score}</td>
                 <td>${scores.passOrFail}</td>
                 <td>${scores.grade}</td>
-                <td>${scores.examdate}</td>
+                <td><fmt:formatDate pattern="dd-MM-yyyy" value="${parsedExamDate}" /></td>
                 </tr>
                 </c:forEach>
                </table><br><br><br><br><br>

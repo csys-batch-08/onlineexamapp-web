@@ -3,7 +3,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="ISO-8859-1">
 <style>
@@ -60,6 +60,7 @@ margin-top:200px;
 	<c:choose>
 	<c:when test="${fn:length(inusers) > 0 }">
 	<table style="width: 80%;margin-left: 100px;font-size:large;">
+	<caption>List of Inactive users</caption>
         <tr>
             <th>User Id</th>
             <th>First Name</th>

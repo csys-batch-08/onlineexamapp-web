@@ -120,15 +120,17 @@ public class RegisterDao implements RegisterDaoInterface {
 		pstmt.executeUpdate();
 	}
 	public  List<RegisterPojo> showUsers() {
-		List<RegisterPojo> rp=new ArrayList<RegisterPojo>();
-		Connection con=ConnectionPage.connection();
+		List<RegisterPojo> rp=new ArrayList<>();
+		PreparedStatement pstmt=null;
+		Connection con=null;
 		String query="select id,first_name,last_name,email,phone_number,lastactivedate from registerPage where role='student'";
 		ResultSet rs=null;
 		try {
-			PreparedStatement pstmt=con.prepareStatement(query);
+			con=ConnectionPage.connection();
+			pstmt=con.prepareStatement(query);
 			rs=pstmt.executeQuery();
 			while(rs.next()) {
-				RegisterPojo rpojo=new RegisterPojo(rs.getInt(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getLong(5),rs.getString(6));
+				RegisterPojo rpojo=new RegisterPojo(rs.getInt("id"),rs.getString("first_name"),rs.getString("last_name"),rs.getString("email"),rs.getLong("phone_number"),rs.getDate("lastactivedate"));
 				rp.add(rpojo);
 			}
 		} catch (SQLException e) {
@@ -163,15 +165,35 @@ public class RegisterDao implements RegisterDaoInterface {
 		return rs;
 		
 	}
-	public  ResultSet validUser(String email,String password) throws ClassNotFoundException, SQLException {
-		Connection con=ConnectionPage.connection();
-		String que="select * from registerPage where email=? and password=?";
-		PreparedStatement pst=con.prepareStatement(que);
-		pst.setString(1, email);
-		pst.setString(2, password);
-		ResultSet rs=pst.executeQuery();
-
-		return rs;
+	public  RegisterPojo validUser(String email,String password) throws ClassNotFoundException, SQLException{
+		Connection con=null;
+		PreparedStatement pstmt=null;
+		ResultSet rs=null;
+		RegisterPojo rpojo=null;
+		try {
+			con=ConnectionPage.connection();
+			String que="select id,first_name,last_name,email,phone_number,role from registerPage where email=? and password=?";
+			pstmt=con.prepareStatement(que);
+			pstmt.setString(1, email);
+			pstmt.setString(2, password);
+			rs=pstmt.executeQuery();
+			while(rs.next()) {
+				rpojo=new RegisterPojo(rs.getInt("id"),rs.getString("first_name"),rs.getString("last_name"),rs.getString("email"),rs.getString("role"),rs.getLong("phone_number"));
+			}
+		}catch(SQLException e) {
+			e.printStackTrace();
+		}finally {
+			if(con!=null) {
+				con.close();
+			}
+			if(pstmt!=null) {
+				pstmt.close();
+			}
+			if(rs!=null) {
+				rs.close();
+			}
+		}
+		return rpojo;
 	}
 	public RegisterPojo userprofile(int userid) throws SQLException {
 		RegisterPojo rpp=null;

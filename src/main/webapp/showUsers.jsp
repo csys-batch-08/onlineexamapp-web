@@ -1,8 +1,9 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="ISO-8859-1">
 <style>
@@ -50,6 +51,7 @@ body{
 	<h2><u>Users</u></h2>
 	
 	<table style="width: 80%;margin-left: 100px;font-size:large;">
+	<caption>Active users</caption>
         <tr>
             <th>User Id</th>
             <th>First Name</th>
@@ -60,13 +62,15 @@ body{
             <th>Status</th>
         </tr>
         <c:forEach items="${users}" var="active">
+        <fmt:parseDate pattern="yyyy-MM-dd" value="${active.lastActiveDate}"
+				var="parsedActiveDate" />
             <tr>
                 <td>${active.userid}</td>
                 <td>${active.first_name}</td>
                 <td>${active.last_name}</td>
                 <td>${active.email}</td>
                 <td>${active.phone_number}</td>
-                <td>${active.reason}</td>
+                <td><fmt:formatDate pattern="dd-MM-yyyy" value="${parsedActiveDate}" /></td>
                 <form action="userstatus?userid=${active.userid}" method="post">
                 <td><center><button type="submit" class="button examButton">Make Inactive</button></center></td></form>
             </tr>

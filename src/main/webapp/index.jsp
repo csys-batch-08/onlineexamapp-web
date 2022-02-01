@@ -136,7 +136,7 @@ text-align:center;
     <div class="wrapper">
         <div class="text-center mt-4 name login"> Login </div>
         <br>
-        <form action="loginserv" method="post" class="p-3 mt-3">
+        <form action="loginservlet" method="post" class="p-3 mt-3">
             <div class="input box">
                 <div class="form-field d-flex align-items-center"> <span class="far fa-user"></span> <input type="email" name="email" id="email" placeholder="email" pattern="[a-z0-9]+[@][a-zA-Z]+[.][a-z]+"
                   title="You have to insert @ and . in the username ex.abc@gmail.com" required autofocus> </div>

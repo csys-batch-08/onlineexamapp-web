@@ -1,5 +1,7 @@
 package com.onlineexam.model;
 
+import java.util.Date;
+
 public class RegisterPojo {
 	@Override
 	public String toString() {
@@ -16,6 +18,8 @@ public class RegisterPojo {
 	private long phone_number;
 	private String photo;
 	private String reason;
+	private Date lastActiveDate;
+	private String role;
 	
 	
 	
@@ -142,6 +146,38 @@ public class RegisterPojo {
 		this.phone_number = phone_number;
 		this.reason = reason;
 	}
+	public Date getLastActiveDate() {
+		return lastActiveDate;
+	}
+	public void setLastActiveDate(Date lastActiveDate) {
+		this.lastActiveDate = lastActiveDate;
+	}
+	public RegisterPojo(int userid, String first_name, String last_name, String email, long phone_number,
+			Date lastActiveDate) {
+		super();
+		this.userid = userid;
+		this.first_name = first_name;
+		this.last_name = last_name;
+		this.email = email;
+		this.phone_number = phone_number;
+		this.lastActiveDate = lastActiveDate;
+	}
+	public String getRole() {
+		return role;
+	}
+	public void setRole(String role) {
+		this.role = role;
+	}
+	public RegisterPojo(int userid, String first_name, String last_name, String email, String role, long phone_number) {
+		super();
+		this.userid = userid;
+		this.first_name = first_name;
+		this.last_name = last_name;
+		this.email = email;
+		this.phone_number = phone_number;
+		this.role = role;
+	}
+	
 	
 	
 }

@@ -19,7 +19,7 @@ import com.onlineexam.exception.InvalidUserException;
 import com.onlineexam.impl.RegisterDao;
 import com.onlineexam.model.RegisterPojo;
 
-@WebServlet("/loginserv")
+@WebServlet("/loginservlet")
 public class loginServlet extends HttpServlet {
 	@Override
 	public void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException {
@@ -35,24 +35,22 @@ public class loginServlet extends HttpServlet {
 			String username;
 			ResultSet result = rd.fetchlogin(rp);
 			if (result.next()) {
-				ResultSet rs = rd.validUser(email, password);
-				rs.next();
-
-				userid = rs.getInt(1);
-				username = rs.getString(2);
+				RegisterPojo rpojo = rd.validUser(email, password);
+				userid = rpojo.getUserid();
+				username = rpojo.getFirst_name();
 				HttpSession ses = req.getSession();
 				ses.setAttribute("userid", userid);
 				ses.setAttribute("username", username);
 
-				String role = rs.getString(8);
+				String role = rpojo.getRole();
 				if (role.equals("admin")) {
 					res.sendRedirect("adminMain.jsp");
 				} else if (role.equals("student")) {
 					RegisterPojo rp1 = new RegisterPojo(userid);
 					rd.updateactivedate(rp1);
 					RegisterDao rdao = new RegisterDao();
-					RegisterPojo rpojo = rdao.userprofile(userid);
-					session.setAttribute("profile", rpojo);
+					RegisterPojo regpojo = rdao.userprofile(userid);
+					session.setAttribute("profile", regpojo);
 					res.sendRedirect("userMain.jsp");
 				} else if (role.equals("inactive")) {
 					throw new InactiveUserException();

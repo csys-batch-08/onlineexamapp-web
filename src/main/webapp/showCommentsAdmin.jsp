@@ -1,4 +1,5 @@
 <%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
@@ -41,11 +42,13 @@ a{
             <th>Comment Date</th>
         </tr>
         <c:forEach items="${contactlist}" var="contact">
+        <fmt:parseDate pattern="yyyy-MM-dd" value="${contact.commentdate}"
+				var="parsedCommentDate" />
         	<tr>
                 <td>${contact.userid}</td>
                 <td>${contact.email}</td>
                 <td>${contact.comments}</td>
-                <td>${contact.commentdate}</td>
+                <td><fmt:formatDate pattern="dd-MM-yyyy" value="${parsedCommentDate}" /></td>
                 
                </tr>
                </c:forEach>

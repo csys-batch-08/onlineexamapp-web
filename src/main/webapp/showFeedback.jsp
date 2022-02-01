@@ -1,4 +1,5 @@
 <%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ taglib uri = "http://java.sun.com/jsp/jstl/functions" prefix = "fn" %>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
@@ -82,11 +83,13 @@ margin-left:-740px;
    </tr>
 
    <c:forEach items="${feedback}" var="list">
+   <fmt:parseDate pattern="yyyy-MM-dd" value="${list.feedbackdate}"
+				var="parsedFeedbackDate" />
      <tr>
      	 <td>${list.username}</td>
          <td>${list.examid}</td>
          <td>${list.feedback}</td>
-         <td>${list.feedbackdate}</td>
+         <td><fmt:formatDate pattern="dd-MM-yyyy" value="${parsedFeedbackDate}" /></td>
         
      </tr>
      </c:forEach>
