@@ -52,6 +52,15 @@ img:hover{
 	transform: scale(1.1);
 	box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
 }
+.py{
+width:320px;
+height:180px;
+}
+table {
+    border-collapse: separate;
+    border-spacing: 35px;
+}
+
 </style>
 <title>Study Materials</title>
 </head>
@@ -59,13 +68,14 @@ img:hover{
 <div>
 	<h3><u>Here you can learn more</u></h3>
 	<p class="home"><a href="userMain.jsp" style="color:black;">Home</a></p><br><br>
+	<table>
+	<caption><u>Study Materials</u></caption><th></th>
+	<tbody><tr>
+	<td><a href="studyMaterials/javaMcqQuestions.pdf"><img alt="java image" src="./images/javaPdfImage.jpg"></a></td>
+	<td><a href="studyMaterials/htmlMcqQuestions.pdf"><img alt="html image" src="./images/htmlPdfImage.jpg"></a></td>
+	<td><a href="studyMaterials/cssMcqQuestions.pdf"><img alt="css image" src="./images/cssPdfImage.png"></a></td></tr>
+	<tr><td><a href="studyMaterials/pythonMcqQuestions.pdf"><img alt="python image" src="./images/pythonPdfImage.png" class="py"></a></td>
+	</tr></tbody></table>
 	
-	<div class="pdf">
-		<a href="javaMcqQuestions.pdf"><img alt="java image" src="./images/javaPdfImage.jpg"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-		<a href="htmlMcqQuestions.pdf"><img alt="html image" src="./images/htmlPdfImage.jpg"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-		<a href="cssMcqQuestions.pdf"><img alt="css image" src="./images/cssPdfImage.png"></a><br>
-		<div class="java">Java  PDF</div><div class="html">Html  PDF</div><div class="css">Css  PDF</div>
-		</div>
-	</div>
 </body>
 </html>

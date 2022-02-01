@@ -76,6 +76,9 @@ body{
                 <c:if test="${easy.examName=='CSS'}">
                 <td><a href="CssExamEasy?examid=${easy.examId}&examName=${easy.examName}"><button type="submit" class="button examButton">Take Exam</button></a></td>
                 </c:if>
+                <c:if test="${easy.examName=='PYTHON'}">
+                <td><a href="PythonExamEasy?examid=${easy.examId}&examName=${easy.examName}"><button type="submit" class="button examButton">Take Exam</button></a></td>
+                </c:if>
                
                  </c:forEach>
                 

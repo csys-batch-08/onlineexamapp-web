@@ -197,14 +197,32 @@ public class RegisterDao implements RegisterDaoInterface {
 	}
 	public RegisterPojo userprofile(int userid) throws SQLException {
 		RegisterPojo rpp=null;
-		Connection con=ConnectionPage.connection();
-		String que="select first_name,last_name,email,phone_number,profilepicture from registerPage where id=?";
-		PreparedStatement pstmt=con.prepareStatement(que);
-		pstmt.setInt(1, userid);
-		ResultSet rs=pstmt.executeQuery();
-		while(rs.next()) {
-			rpp=new RegisterPojo(rs.getString(1),rs.getString(2),rs.getString(3),rs.getLong(4),rs.getString(5));
+		Connection con=null;
+		PreparedStatement pstmt=null;
+		ResultSet rs=null;
+		try {
+			con=ConnectionPage.connection();
+			String que="select first_name,last_name,email,phone_number,profilepicture from registerPage where id=?";
+			pstmt=con.prepareStatement(que);
+			pstmt.setInt(1, userid);
+			rs=pstmt.executeQuery();
+			while(rs.next()) {
+				rpp=new RegisterPojo(rs.getString(1),rs.getString(2),rs.getString(3),rs.getLong(4),rs.getString(5));
+			}
+		}catch(SQLException e) {
+			e.printStackTrace();
+		}finally {
+			if(con!=null) {
+				con.close();
+			}
+			if(pstmt!=null) {
+				pstmt.close();
+			}
+			if(rs!=null) {
+				rs.close();
+			}
 		}
+		
 		return rpp;
 	}
 }

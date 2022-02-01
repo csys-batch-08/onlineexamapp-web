@@ -76,7 +76,9 @@ body{
                 <c:if test="${hard.examName=='CSS'}">
                 <td><a href="CssExamHard?examid=${hard.examId}&examName=${hard.examName}"><button type="submit" class="button examButton">Take Exam</button></a></td>
                 </c:if>
-                
+                <c:if test="${hard.examName=='PYTHON'}">
+                <td><a href="PythonExamHard?examid=${hard.examId}&examName=${hard.examName}"><button type="submit" class="button examButton">Take Exam</button></a></td>
+                </c:if>
             </tr>
         </c:forEach>
     </table>

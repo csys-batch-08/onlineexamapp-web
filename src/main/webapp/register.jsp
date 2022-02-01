@@ -5,6 +5,7 @@
 
 <head>
     <meta charset="ISO-8859-1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <title>Register page</title>
     
 <style>
@@ -21,13 +22,14 @@ body{
 }
 .registerform{
     background-color: whitesmoke;
-    height: 530px;
+    height: 515px;
     width: 400px;
     position: absolute;
     left: 480px;
-    top: 70px;
+    top: 50px;
     border-radius: 10px;
     box-shadow: 0 0 10px black;
+    margin-top:25px;
 }
 .registerform .registerformcontent{
     position: relative;
@@ -45,13 +47,13 @@ body{
 }
 .registerform .registerformcontent input{
    width: 250px;
-   height: 20px;
+   height: 30px;
    border-radius: 2px;
 }
 .registerform .registerformcontent h1{
     position: relative;
-    left: 45px;
-    top: 20px;
+    left: 25px;
+    top: 40px;
  }
  .buttons {
   background-color: #4CAF50; /* Green */
@@ -89,32 +91,26 @@ background-color: #008CBA;
 </script>
 
 <body>
-<a href="index.jsp"><h3><u>Back</u></h3></a>
+<a href="index.jsp"><h3>Back</h3></a>
     <div class="registerform">
 
-        <form action="register" onsubmit="return match()" method="post">
+        <form action="register" class="was-validated" onsubmit="return match()" method="post">
             <div class="registerformcontent">
-                <h1>Registration</h1><br>
-                <label for="firstName">First name :</label><br>
-                <input type="text" pattern="[A-Za-z]{3,}" name="firstName" id="firstName" autofocus required
-                    title="minimum 3 characters should be there."><br><br>
-                <label for="lastName">Last name :</label><br>
-                <input type="text" pattern="[A-Za-z]+" name="lastName" id="lastName" required><br><br>
-                <label for="email">Email Id:</label><br>
+                <h1>Registration</h1><br><br><br>
+                <input type="text" pattern="[A-Za-z]{3,}" name="firstName" id="firstName" placeholder="first name" autofocus required
+                    title="minimum 3 characters should be there." autofocus autocomplete="off" class="form-control"><br>
+                <input type="text" pattern="[A-Za-z]+" name="lastName" id="lastName" placeholder="last name" required autofocus autocomplete="off" class="form-control"><br>
                 <input type="email" pattern="[a-z0-9]+[@][a-zA-Z]+[.][a-z]+"
                     title="You have to insert @ and . in the username ex.abc@gmail.com" name="email" id="email" required
-                    placeholder="abc@domain.com"><br><br>
-                <label for="password">Password :</label><br>
+                    placeholder="email" autofocus autocomplete="off" class="form-control"><br>
                 <input type="password" pattern="^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#&?/*$^]).{8,16}$"
                     title="Minimum 8 characters should be there.There should be atleast one numeric,special character,capital letter and small letter."
-                    name="password" id="password" required minlength="8" maxlength="16"><br><br>
-                <label for="cpassword">Confirm password :</label><br>
+                    name="password" id="password" required minlength="8" maxlength="16" autofocus autocomplete="off" class="form-control" placeholder="password"><br>
                 <input type="password" pattern="^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#&?/*$^]).{8,16}$"
                     title="confirm password must be same as password" name="cpassword" id="cpassword" required
-                    minlength="8" maxlength="16"><br><br>
-                <label for="phone_number">Phone number :</label><br>
+                    minlength="8" maxlength="16" autofocus autocomplete="off" class="form-control" placeholder="confirm password"><br>
                 <input type="text" pattern="[6-9]{1}[0-9]{9}" name="phone_number" id="phone_number" required
-                    minlength="10" maxlength="10"><br><br><br><br>
+                    minlength="10" maxlength="10" autofocus autocomplete="off" class="form-control" placeholder="phone number"><br><br><br>
                     
                     <button type="submit" style="margin-left:-35px;color:white" class="buttons button2">Submit</button>&nbsp;&nbsp;
                 <button type="reset" style="color:white" class="buttons button2">Reset</button><br>
