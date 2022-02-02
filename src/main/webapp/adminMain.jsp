@@ -9,15 +9,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Main page</title>
     <link rel="stylesheet" href="UserMain.css">
+    <style>
+    .a1{
+	background-color:white;
+	font-color:black;
+}
+    </style>
 </head>
 <body>
     
     <ul class="nav">
-        <li><a class="a1 big" href="index.jsp">Logout</a></li>
-        <li><a class="a1 big" href="ShowCommentsAdmin">Contact us</a></li>
-        <li><a class="a1 big" href="aboutUsAdmin.jsp">About us</a></li>
-        <li><a class="a1 big" href="ShowFeedbackAdmin">Feedbacks</a></li>
-        <li><a class="a1 big" href="examDetails.jsp">Admin Actions</a></li>
+    	<li><a class="a1" href="adminMain.jsp">Home</a></li>
+        <li><a class="a2" href="index.jsp">Logout</a></li>
+        <li><a class="a3" href="ShowCommentsAdmin">Contact us</a></li>
+        <li><a class="a4" href="aboutUsAdmin.jsp">About us</a></li>
+        <li><a class="a5" href="ShowFeedbackAdmin">Feedbacks</a></li>
+        <li><a class="a6" href="examDetails.jsp">Admin Actions</a></li>
     </ul>
     <img src="images/onlineExamIcon.png" class="imgIcon" alt="onlineexamicon">
     <div class="h1">

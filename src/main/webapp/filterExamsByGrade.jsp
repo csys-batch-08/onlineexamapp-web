@@ -64,21 +64,39 @@ margin-left:630px;
 	
 	<div style="margin-left:330px;margin-top:-100px;">
 	<form action="FilterExamsByPOF" method="post">
-	<h3>Filter by pass or fail <input type="text" name="pof"></h3>
+	<h3>Filter by pass or fail 
+	<input list="passfail" name="pof" id="pof">
+  <datalist id="passfail">
+    <option value="pass">
+    <option value="fail">
+  </datalist>
+	</h3>
 	<button type="submit" style="margin-left:140px;" class="buttons button2">Filter</button></form></div>
 	
 	<div style="margin-left:750px;margin-top:-100px;">
 	<form action="FilterExamsByGrade" method="post">
-	<h3>Filter by Grade <input type="text" name="grade"></h3>
+	<h3>Filter by Grade 
+	<input list="grades" name="grade" id="grade">
+  <datalist id="grades">
+    <option value="O">
+    <option value="A">
+    <option value="B">
+    <option value="C">
+    <option value="D">
+    <option value="E">
+    <option value="RA">
+  </datalist>
+	</h3>
 	<button type="submit" style="margin-left:120px;" class="buttons button2">Filter</button></form></div></div><br><br>
 	
 	<a href="ShowUsersExams"><button class="buttons button2 view">View all</button></a><br><br>
-	
+	<c:set var="count" value="1" />
 	<c:choose>
 	<c:when test="${fn:length(grades) > 0 }">
-	<table style="width: 80%;margin-left: 100px;font-size:large;">
+	<table style="width: 90%;margin-left: 75px;font-size:large;">
 	<caption>Scores depends on Grade</caption>
         <tr>
+        	<th>S.no.</th>
             <th>Student Id</th>
             <th>Exam Id</th>
             <th>Exam Name</th>
@@ -91,6 +109,7 @@ margin-left:630px;
         <fmt:parseDate pattern="yyyy-MM-dd" value="${grade.examdate}"
 				var="parsedExamDate" />
             <tr>
+            	<td>${count}</td>
                 <td>${grade.studentId}</td>
                 <td>${grade.examId}</td>
                 <td>${grade.examName}</td>
@@ -99,6 +118,7 @@ margin-left:630px;
                 <td>${grade.grade}</td>
                 <td><fmt:formatDate pattern="dd-MM-yyyy" value="${parsedExamDate}" /></td>
             </tr>
+            <c:set var="count" value="${count+1}" />
         </c:forEach>
     </table>
     </c:when>

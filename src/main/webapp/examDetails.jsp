@@ -4,6 +4,7 @@
 <html lang="en">
 <head>
 <meta charset="ISO-8859-1">
+<link rel="stylesheet" href="navigationBar.css">
 <style>
 .button {
   background-color: #4CAF50; /* Green */
@@ -37,15 +38,26 @@
 .addexamalign {
 	text-align: center;
 }
+.a6{
+	background-color:white;
+	font-color:black;
+}
 </style>
 <title>Exam Details Page</title>
 <link rel="stylesheet" href="ExamDetails.css">
 </head>
 <body>
-	<a href="adminMain.jsp"><p style="float: right;margin-right: 20px;font-size: 20px;color: black;font-size:x-large;" class="homeDesign"><strong><u>Home</u></strong></p></a><br>
+	<ul class="nav">
+    	<li><a class="a1" href="adminMain.jsp">Home</a></li>
+        <li><a class="a2" href="index.jsp">Logout</a></li>
+        <li><a class="a3" href="ShowCommentsAdmin">Contact us</a></li>
+        <li><a class="a4" href="aboutUsAdmin.jsp">About us</a></li>
+        <li><a class="a5" href="ShowFeedbackAdmin">Feedbacks</a></li>
+        <li><a class="a6" href="examDetails.jsp">Admin Actions</a></li>
+    </ul>
     <div class="container">
 
-	<h2 style="margin-left: 80px;"><u>List of Exams</u></h2>
+	<h2><u>List of Exams</u></h2>
    <a href="ShowExams"><button type="submit" class="button examButton">Show Exams</button></a><br>
    <h2><u>List of Exams report</u></h2>
    <a href="ShowUsersExams"><button type="submit" class="button examButton">Show Exams report</button></a><br>

@@ -57,11 +57,13 @@ margin-top:200px;
 <body>
 	<a id="ExamDetails" href="examDetails.jsp"><h4 style="float: right;margin-top:-0.3px;margin-right:10px;font-size:x-large;color:black"><u>Back</u></h4></a>
 	<h2><u>Inactive Users</u></h2>
+	<c:set var="count" value="1" />
 	<c:choose>
 	<c:when test="${fn:length(inusers) > 0 }">
-	<table style="width: 80%;margin-left: 100px;font-size:large;">
+	<table style="width: 90%;margin-left: 75px;font-size:large;">
 	<caption>List of Inactive users</caption>
         <tr>
+        	<th>S.no.</th>
             <th>User Id</th>
             <th>First Name</th>
             <th>Last Name</th>
@@ -72,6 +74,7 @@ margin-top:200px;
         </tr>
         <c:forEach items="${inusers}" var="in">
             <tr>
+            	<td>${count}</td>
                 <td>${in.userid}</td>
                 <td>${in.first_name}</td>
                 <td>${in.last_name}</td>
@@ -79,8 +82,9 @@ margin-top:200px;
                 <td>${in.phone_number}</td>
                 <td>${in.reason}</td>
                 <form action="active?userid=${in.userid}" method="post">
-                <td><center><button type="submit" class="button examButton">Make Active</button></center></td></form>
+                <td><center><button type="submit" class="button examButton" onclick="makeactive()">Make Active</button></center></td></form>
             </tr>
+            <c:set var="count" value="${count+1}" />
         </c:forEach>
     </table>
     </c:when>
@@ -89,4 +93,12 @@ margin-top:200px;
    </c:otherwise>
    </c:choose>
 </body>
+<script type="text/javascript">
+function makeactive() {
+	var result = confirm("Are you sure want to make active?");
+	if (result == false) {
+		event.preventDefault();
+	}
+}
+</script>
 </html>

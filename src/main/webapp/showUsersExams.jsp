@@ -53,18 +53,37 @@ background-color: #008CBA;
 	
 	<div style="margin-left:330px;margin-top:-100px;">
 	<form action="FilterExamsByPOF" method="post">
-	<h3>Filter by pass or fail <input type="text" name="pof"></h3>
+	<h3>Filter by pass or fail 
+<input list="passfail" name="pof" id="pof">
+  <datalist id="passfail">
+    <option value="pass">
+    <option value="fail">
+  </datalist>
+	</h3>
 	<button type="submit" style="margin-left:140px;" class="buttons button2">Filter</button></form></div>
 	
 	<div style="margin-left:750px;margin-top:-100px;">
 	<form action="FilterExamsByGrade" method="post">
-	<h3>Filter by Grade <input type="text" name="grade"></h3>
+	<h3>Filter by Grade 
+	<input list="grades" name="grade" id="grade">
+  <datalist id="grades">
+    <option value="O">
+    <option value="A">
+    <option value="B">
+    <option value="C">
+    <option value="D">
+    <option value="E">
+    <option value="RA">
+  </datalist>
+	</h3>
 	<button type="submit" style="margin-left:120px;" class="buttons button2">Filter</button></form></div></div>
 	
 	<br><br>
-	<table style="width: 80%;margin-left: 100px;font-size:large;">
+	<c:set var="count" value="1" />
+	<table style="width: 90%;margin-left: 75px;font-size:large;">
 	<caption>list of users exams</caption>
         <tr>
+        	<th>S.no.</th>
             <th>Student Id</th>
             <th>Exam Id</th>
             <th>Exam Name</th>
@@ -77,6 +96,7 @@ background-color: #008CBA;
         <fmt:parseDate pattern="yyyy-MM-dd" value="${score.examdate}"
 				var="parsedExamDate" />
             <tr>
+            	<td>${count}</td>
                 <td>${score.studentId}</td>
                 <td>${score.examId}</td>
                 <td>${score.examName}</td>
@@ -85,6 +105,7 @@ background-color: #008CBA;
                 <td>${score.grade}</td>
                 <td><fmt:formatDate pattern="dd-MM-yyyy" value="${parsedExamDate}" /></td>
             </tr>
+            <c:set var="count" value="${count+1}" />
         </c:forEach>
     </table>
 </body>

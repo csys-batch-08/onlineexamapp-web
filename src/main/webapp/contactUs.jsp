@@ -4,6 +4,7 @@
 <html lang="en">
 <head>
 <meta charset="ISO-8859-1">
+<link rel="stylesheet" href="navigationBar.css">
 <style>
 body{
   background: linear-gradient(to right, springgreen, rgb(253, 253, 53));
@@ -36,9 +37,6 @@ body{
 .container input{
 outline: none;
 height: 20px;
-} 
-a{
-color:black;
 }
 .buttons {
   background-color: #4CAF50; /* Green */
@@ -59,12 +57,25 @@ background-color: #008CBA;
 .button2:hover {
   box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
 }
+.a3{
+	background-color:white;
+	font-color:black;
+}
 </style>
 <title>Contact Us</title>
 </head>
 <body>
-
-<p class="home"><a href="userMain.jsp">Home</a></p><br>
+<a href="UserProfile"><img class="imgalign" src="./images/${sessionScope.profile.getPhoto()}" height="50px" width="55px" style="float:right;border-radius: 50%;margin-right:10px;margin-top:-3px;border:1px groove black;" title="My Profile" alt="My Profile"></a>
+    <ul class="nav">
+    	<li><a class="a1" href="userMain.jsp">Home</a></li>
+        <li><a class="a2" href="index.jsp" onclick="logout()">Logout</a></li>
+        <li><a class="a3" href="contactUs.jsp">Contact us</a></li>
+        <li><a class="a4" href="aboutUs.jsp" class="a1">About us</a></li>
+        <li><a class="a5" href="showfeedback">My Feedbacks</a></li>
+        <li><a class="a6" href="StudentScoreDetails">MyExams</a></li>
+        
+    </ul>
+<!-- <p class="home"><a href="userMain.jsp">Home</a></p><br> -->
 <form action="contact" method="post">
 <div class="container">
 	<h2 class="h1move" class="login"><u>Contact Admin</u></h2>

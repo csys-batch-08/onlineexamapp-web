@@ -5,6 +5,7 @@
 <html lang="en">
 <head>
 <meta charset="ISO-8859-1">
+<link rel="stylesheet" href="navigationBar.css">
 <style>
 table,th,td{
     border: 1px solid black;
@@ -46,12 +47,22 @@ body{
 <title>List of Exams</title>
 </head>
 <body>
-	<a href="filterByDifficulty.jsp"><h4 style="float: right;margin-right:10px;margin-top:-7px;font-size:x-large;color:black;"><u><strong>Back</strong></u></h4></a>
+<a href="UserProfile"><img class="imgalign" src="./images/${sessionScope.profile.getPhoto()}" height="50px" width="55px" style="float:right;border-radius: 50%;margin-right:10px;margin-top:-3px;border:1px groove black;" title="My Profile" alt="My Profile"></a>
+    <ul class="nav">
+    	<li><a class="a1" href="userMain.jsp">Home</a></li>
+        <li><a class="a2" href="index.jsp" onclick="logout()">Logout</a></li>
+        <li><a class="a3" href="contactUs.jsp">Contact us</a></li>
+        <li><a class="a4" href="aboutUs.jsp" class="a1">About us</a></li>
+        <li><a class="a5" href="showfeedback">My Feedbacks</a></li>
+        <li><a class="a6" href="StudentScoreDetails">MyExams</a></li>
+    </ul>
+	<a href="filterByDifficulty.jsp"><h4 style="float: right;margin-top:25px;margin-right:15px;font-size:x-large;color:black;"><u><strong>Back</strong></u></h4></a>
 	<h2><u>Exams</u></h2>
-	
-	<table style="width: 80%;margin-left: 100px;">
-	<caption>Hard Exams</caption>
+	<c:set var="count" value="1" />
+	<table style="width: 90%;margin-left: 60px;font-size:large;">
+	<caption></caption>
         <tr>
+        	<th>S.no.</th>
             <th>Exam Id</th>
             <th>Exam Name</th>
             <th>Exam Type</th>
@@ -62,6 +73,7 @@ body{
         <c:forEach items="${hardexams}" var="hard">
             <tr>
             <c:set var="duration" value="${hard.durationMinutes}" scope="session" />
+            	<td>${count}</td>
                 <td>${hard.examId}</td>
                 <td>${hard.examName}</td>
                 <td>${hard.examType}</td>
@@ -80,6 +92,7 @@ body{
                 <td><a href="PythonExamHard?examid=${hard.examId}&examName=${hard.examName}"><button type="submit" class="button examButton">Take Exam</button></a></td>
                 </c:if>
             </tr>
+            <c:set var="count" value="${count+1}" />
         </c:forEach>
     </table>
 </body>

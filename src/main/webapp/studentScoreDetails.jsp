@@ -7,6 +7,7 @@
 <html lang="en">
 <head>
 <meta charset="ISO-8859-1">
+<link rel="stylesheet" href="navigationBar.css">
 <style>
 body{
     background: linear-gradient(to right, springgreen, rgb(253, 253, 53));
@@ -18,14 +19,6 @@ table,th,td{
 }
 h2{
 	text-align:center;
-}
-a{
-	float:right;
-	margin-right:15px;
-	margin-top:-40px;
-	font-weight:bolder;
-	font-size:x-large;
-	color:black;
 }
 .notyet{
 font-weight:bolder;
@@ -43,7 +36,7 @@ font-size:xx-large;
   margin: 4px 2px;
   transition-duration: 0.4s;
   cursor: pointer;
-  margin-left:-1325px;
+  margin-top:-105px;
 }
 .examButton{
   background-color: rgb(171, 255, 36);  
@@ -67,17 +60,32 @@ text-align:center;
 .exam{
 margin-left:-738px;
 }
+.a6{
+	background-color:white;
+	font-color:black;
+}
 </style>
 <title>Score Details</title>
 </head>
 <body>
+<a href="UserProfile"><img class="imgalign" src="./images/${sessionScope.profile.getPhoto()}" height="50px" width="55px" style="float:right;border-radius: 50%;margin-right:10px;margin-top:-3px;border:1px groove black;" title="My Profile" alt="My Profile"></a>
+    <ul class="nav">
+    	<li><a class="a1" href="userMain.jsp">Home</a></li>
+        <li><a class="a2" href="index.jsp" onclick="logout()">Logout</a></li>
+        <li><a class="a3" href="contactUs.jsp">Contact us</a></li>
+        <li><a class="a4" href="aboutUs.jsp" class="a1">About us</a></li>
+        <li><a class="a5" href="showfeedback">My Feedbacks</a></li>
+        <li><a class="a6" href="StudentScoreDetails">MyExams</a></li>
+        
+    </ul>
 	<h2><u>Score Details</u></h2>
-	<a href="userMain.jsp"><strong>Home</strong></a>
+	<c:set var="count" value="1" />
 	<c:choose>
 	<c:when test="${fn:length(scorelist) > 0 }">
-	<table style="width: 80%;margin-left: 100px;font-size:large;">
+	<table style="width: 90%;margin-left: 60px;font-size:large;">
 	<caption>Score details</caption>
         <tr>
+        	<th>S.no.</th>
             <th>Student name</th>
             <th>Exam Name</th>
             <th>Score</th>
@@ -89,6 +97,7 @@ margin-left:-738px;
         <fmt:parseDate pattern="yyyy-MM-dd" value="${scores.examdate}"
 				var="parsedExamDate" />
         	<tr>
+            	<td>${count}</td>
                 <td>${sessionScope.username}</td>
                 <td>${scores.examName}</td>
                 <td>${scores.score}</td>
@@ -96,10 +105,11 @@ margin-left:-738px;
                 <td>${scores.grade}</td>
                 <td><fmt:formatDate pattern="dd-MM-yyyy" value="${parsedExamDate}" /></td>
                 </tr>
+            <c:set var="count" value="${count+1}" />
                 </c:forEach>
-               </table><br><br><br><br><br>
+               </table><br><br><br>
                 <div class="moreexam">
-                <a href="filterByDifficulty.jsp"><button class="button examButton" style="margin-top:-65px;">Write More Exams</button></a>
+                <a href="filterByDifficulty.jsp"><button class="button examButton">Write More Exams</button></a>
                 </div>
                </c:when>
                <c:otherwise><h2 class="notyet"><div class="otherwise">You haven't write any exams yet!..</h2><br><br><br>

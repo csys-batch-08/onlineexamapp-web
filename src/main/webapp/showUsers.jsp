@@ -49,10 +49,11 @@ body{
 <body>
 	<a id="ExamDetails" href="examDetails.jsp"><h4 style="float: right;margin-top:-0.3px;margin-right:10px;font-size:x-large;color:black"><u>Back</u></h4></a>
 	<h2><u>Users</u></h2>
-	
-	<table style="width: 80%;margin-left: 100px;font-size:large;">
+	<c:set var="count" value="1" />
+	<table style="width: 90%;margin-left: 75px;font-size:large;">
 	<caption>Active users</caption>
         <tr>
+        	<th>S.no.</th>
             <th>User Id</th>
             <th>First Name</th>
             <th>Last Name</th>
@@ -65,6 +66,7 @@ body{
         <fmt:parseDate pattern="yyyy-MM-dd" value="${active.lastActiveDate}"
 				var="parsedActiveDate" />
             <tr>
+            	<td>${count}</td>
                 <td>${active.userid}</td>
                 <td>${active.first_name}</td>
                 <td>${active.last_name}</td>
@@ -72,9 +74,18 @@ body{
                 <td>${active.phone_number}</td>
                 <td><fmt:formatDate pattern="dd-MM-yyyy" value="${parsedActiveDate}" /></td>
                 <form action="userstatus?userid=${active.userid}" method="post">
-                <td><center><button type="submit" class="button examButton">Make Inactive</button></center></td></form>
+                <td><center><button type="submit" class="button examButton" onclick="makeinactive()">Make Inactive</button></center></td></form>
             </tr>
+            <c:set var="count" value="${count+1}" />
         </c:forEach>
     </table>
 </body>
+<script type="text/javascript">
+function makeinactive() {
+	var result = confirm("Are you sure want to make inactive?");
+	if (result == false) {
+		event.preventDefault();
+	}
+}
+</script>
 </html>

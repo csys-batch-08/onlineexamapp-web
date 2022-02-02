@@ -6,6 +6,7 @@
 <html lang="en">
 <head>
 <meta charset="ISO-8859-1">
+<link rel="stylesheet" href="navigationBar.css">
 <style>
 body{
     background: linear-gradient(to right, springgreen, rgb(253, 253, 53));
@@ -18,24 +19,29 @@ table,th,td{
 h2{
 	text-align:center;
 }
-a{
-	float:right;
-	margin-right:15px;
-	margin-top:-40px;
-	font-weight:bolder;
-	font-size:x-large;
-	color:black;
+.a3{
+	background-color:white;
+	font-color:black;
 }
 </style>
 <title>Users Comments</title>
 </head>
 <body>
+<ul class="nav">
+    	<li><a class="a1" href="adminMain.jsp">Home</a></li>
+        <li><a class="a2" href="index.jsp">Logout</a></li>
+        <li><a class="a3" href="ShowCommentsAdmin">Contact us</a></li>
+        <li><a class="a4" href="aboutUsAdmin.jsp">About us</a></li>
+        <li><a class="a5" href="ShowFeedbackAdmin">Feedbacks</a></li>
+        <li><a class="a6" href="examDetails.jsp">Admin Actions</a></li>
+    </ul>
 	<h2><u>Users Comments Details</u></h2>
-	<a href="adminMain.jsp"><strong>Home</strong></a>
 <div >
-<table style="width: 80%;margin-left: 100px;font-size:large;">
+<c:set var="count" value="1" />
+<table style="width: 90%;margin-left: 70px;font-size:large;">
 <caption>Users comments</caption>
         <tr>
+        	<th>S.no.</th>
             <th>User Id</th>
             <th>Email</th>
             <th>Comments</th>
@@ -45,12 +51,13 @@ a{
         <fmt:parseDate pattern="yyyy-MM-dd" value="${contact.commentdate}"
 				var="parsedCommentDate" />
         	<tr>
+            	<td>${count}</td>
                 <td>${contact.userid}</td>
                 <td>${contact.email}</td>
                 <td>${contact.comments}</td>
                 <td><fmt:formatDate pattern="dd-MM-yyyy" value="${parsedCommentDate}" /></td>
-                
                </tr>
+            <c:set var="count" value="${count+1}" />
                </c:forEach>
                </table> 
                </div>

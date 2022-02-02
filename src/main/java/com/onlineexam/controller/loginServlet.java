@@ -41,7 +41,7 @@ public class loginServlet extends HttpServlet {
 				HttpSession ses = req.getSession();
 				ses.setAttribute("userid", userid);
 				ses.setAttribute("username", username);
-
+				ses.setAttribute("mailid", rpojo.getEmail());
 				String role = rpojo.getRole();
 				if (role.equals("admin")) {
 					res.sendRedirect("adminMain.jsp");

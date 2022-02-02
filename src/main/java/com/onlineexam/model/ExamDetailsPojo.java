@@ -72,6 +72,12 @@ public class ExamDetailsPojo {
 		this.difficultyLevel = difficultyLevel;
 		this.durationMinutes = durationMinutes;
 	}
+	public ExamDetailsPojo(String examName, String examType, String difficultyLevel) {
+		super();
+		this.examName = examName;
+		this.examType = examType;
+		this.difficultyLevel = difficultyLevel;
+	}
 	
 	
 }

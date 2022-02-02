@@ -4,6 +4,7 @@
 <html lang="en">
 <head>
 <meta charset="ISO-8859-1">
+<link rel="stylesheet" href="navigationBar.css">
 <style>
 div{
 	text-align:center;
@@ -43,7 +44,15 @@ button{
 <title>Exam Difficulty</title>
 </head>
 <body>
-	<a href="userMain.jsp" style="float:right;font-weight:bolder;margin-top:10px;margin-right:15px;font-size: x-large;color:black;"><u>Home</u></a>
+	<a href="UserProfile"><img class="imgalign" src="./images/${sessionScope.profile.getPhoto()}" height="50px" width="55px" style="float:right;border-radius: 50%;margin-right:10px;margin-top:-3px;border:1px groove black;" title="My Profile" alt="My Profile"></a>
+    <ul class="nav">
+    	<li><a class="a1" href="userMain.jsp">Home</a></li>
+        <li><a class="a2" href="index.jsp" onclick="logout()">Logout</a></li>
+        <li><a class="a3" href="contactUs.jsp">Contact us</a></li>
+        <li><a class="a4" href="aboutUs.jsp" class="a1">About us</a></li>
+        <li><a class="a5" href="showfeedback">My Feedbacks</a></li>
+        <li><a class="a6" href="StudentScoreDetails">MyExams</a></li>
+    </ul>
 <div>
 	<h2><u>Choose Difficulty of Exam</u></h2><br>
 	<a href="UserChooseExams"><button type="submit" class="examButton">Easy</button></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;

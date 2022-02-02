@@ -164,14 +164,16 @@ public class ScoreDetailsDao implements ScoreDetailsDaoInterface{
 			sdp.add(sdpp);
 		}
 		}finally {
-			if(con!=null) {
-				con.close();
+			
+			
+			if(rs!=null) {
+				rs.close();
 			}
 			if(pstmt!=null) {
 				pstmt.close();
 			}
-			if(rs!=null) {
-				rs.close();
+			if(con!=null) {
+				con.close();
 			}
 		}
 		return sdp;

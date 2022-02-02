@@ -4,6 +4,7 @@
 <html lang="en">
 <head>
 <meta charset="ISO-8859-1">
+<link rel="stylesheet" href="navigationBar.css">
 <style>
 body{
   background: linear-gradient(to right, springgreen, rgb(253, 253, 53));
@@ -16,18 +17,31 @@ body{
 	color:black;
 	font-weight:bolder;
 }
-img {
+.imgalignment {
   width:450px;
   height:300px;
   border: 2px solid black;
+}
+.a4{
+	background-color:white;
+	font-color:black;
 }
 </style>
 <title>About Us</title>
 </head>
 <body>
+<a href="UserProfile"><img class="imgalign" src="./images/${sessionScope.profile.getPhoto()}" height="50px" width="55px" style="float:right;border-radius: 50%;margin-right:10px;margin-top:-3px;border:1px groove black;" title="My Profile" alt="My Profile"></a>
+    <ul class="nav">
+    	<li><a class="a1" href="userMain.jsp">Home</a></li>
+        <li><a class="a2" href="index.jsp" onclick="logout()">Logout</a></li>
+        <li><a class="a3" href="contactUs.jsp">Contact us</a></li>
+        <li><a class="a4" href="aboutUs.jsp">About us</a></li>
+        <li><a class="a5" href="showfeedback">My Feedbacks</a></li>
+        <li><a class="a6" href="StudentScoreDetails">MyExams</a></li>
+        
+    </ul>
 	<h2><u>About our Website</u></h2>
-	<p class="home"><a href="userMain.jsp" style="color:black;">Home</a></p><br>
-	<img alt="onlineExamImage" src="images/aboutUs.jpg">
+	<img alt="onlineExamImage" src="images/aboutUs.jpg" class="imgalignment">
 	<p>We are best in conducting exams and grow knowledge of people</p>
 	<p>We are conducting exams through our website</p>
 	<p>Using our website you can write exam and you can know your status</p>

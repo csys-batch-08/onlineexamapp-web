@@ -76,9 +76,8 @@ margin-left:65px;
 <title>List of Exams</title>
 </head>
 <body>
-
 	<a id="ExamDetails" href="examDetails.jsp"><h4
-			style="float: right; margin-right: 10px;margin-top:-0.8px; font-size: x-large; color: black;">
+			style="float: right; margin-right: 50px;margin-top:10px; font-size: x-large; color: black;">
 			<u>Back</u>
 		</h4></a>
 	<h2 style="margin-left: 40px;">
@@ -104,7 +103,7 @@ margin-left:65px;
 				<br> </div>
 				<div class="examdetails">
 				<label for="durationHours" style="margin-left:-20px;">Duration Minutes</label> <input
-					type="text" name="durationMinutes" id="durationMinutes" required><br>
+					type="number" name="durationMinutes" id="durationMinutes" min="1" required><br>
 				<br></div>
 
 				</div>
@@ -114,10 +113,11 @@ margin-left:65px;
 	</div>
 
 	</form>
-	
-	<table style="width: 80%; margin-left: 100px;font-size:large;">
-	<caption>All Exams</caption>
+	<c:set var="count" value="1" />
+	<table style="width: 90%; margin-left: 75px;font-size:large;">
+	<caption></caption>
 		<tr>
+			<th>S.no.</th>
 			<th>Exam Id</th>
 			<th>Exam Name</th>
 			<th>Exam Type</th>
@@ -129,6 +129,7 @@ margin-left:65px;
 		<c:forEach items="${exams}" var="exam">
 		
 		<tr>
+			<td>${count}</td>
 			<td>${exam.examId}</td>
 			<td>${exam.examName}</td>
 			<td>${exam.examType}</td>
@@ -142,12 +143,12 @@ margin-left:65px;
 						<u>Update Exam</u>
 					</h2>
 
-					<ul>
+					<ul class="text">
 						<li><label for="difficultyLevel">Difficulty Level</label> <input
 							type="text" name="difficultyLevel" id="difficultyLevel" required></li>
 						<br>
 						<li><label for="durationMinutes">Duration Minutes</label> <input
-							type="text" name="durationMinutes" id="durationMinutes" required></li>
+							type="number" name="durationMinutes" id="durationMinutes" min="1" required></li>
 					</ul>
 					
 						<button type="submit" style="text-align: center;"
@@ -158,12 +159,13 @@ margin-left:65px;
 			<form action="deleteExamServlet?examid=${exam.examId}"
 					method="post">
 					
-					<button type="submit" class="button examButton">Delete
+					<button type="submit" class="button examButton" onclick="deleteexam()">Delete
 						Exam</button>
 
 				</form>
 			</td>
 		</tr>
+            <c:set var="count" value="${count+1}" />
 		</c:forEach>
 
 	</table>
@@ -180,6 +182,12 @@ function hideadd(){
 	add.style.display="block";
 	var addexam=document.getElementById("add");
 	addexam.style.display="none";
+}
+function deleteexam() {
+	var result = confirm("Are you sure want to delete?");
+	if (result == false) {
+		event.preventDefault();
+	}
 }
 </script>
 

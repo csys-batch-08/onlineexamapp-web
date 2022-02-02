@@ -20,10 +20,10 @@ body {
 }
 .container{
 text-align:center;
-margin-top:45px;
+margin-top:-15px;
 }
 a{
-margin-top:-20px;
+margin-top:20px;
 font-size:x-large;
 font-weight:bolder;
 }
@@ -37,7 +37,7 @@ margin-left:25px;
 margin-left:-30px;
 }
 img{
-margin-left:90px;
+margin-left:80px;
 border:3px groove black;
 }
 .buttons {
@@ -62,13 +62,16 @@ background-color: #008CBA;
 .change{
 margin-left:615px;
 }
+h2{
+margin-left:80px;
+}
 </style>
 <title>User Profile</title>
 </head>
 <body>
 	<a href="userMain.jsp">Home</a>
 	<div class="container">
-		
+		<h2><u>My profile</u></h2>
 		<img src="./images/${sessionScope.profile.getPhoto()}" style="border-radius:50%;height:250px;width:260px;border-color:black" alt="profile picture"><br><br>
 		
 		<button id="photo" onclick="photochange()" style="display: block;" class="buttons button2 change">Change photo</button>
@@ -81,7 +84,7 @@ margin-left:615px;
 		<form action="editprofile" method="post">
 		<label for="firstname">Firstname : </label><input type="text" name="firstname" id="firstname" value="${sessionScope.profile.getFirst_name()}"><br><br>
 		<label for="lastname">Lastname : </label><input type="text" name="lastname" id="lastname" value="${sessionScope.profile.getLast_name()}"><br><br>
-		<label for="email" class="emailalign">Email : </label><input type="email" name="email" id="email" value="${sessionScope.profile.getEmail()}" readonly><br><br>
+		<label for="email" class="emailalign">Email : </label><input type="email" name="email" id="email" value="${sessionScope.profile.getEmail()}"><br><br>
 		<label for="phone" class="phonealign">Phone number : </label><input type="text" name="phone" id="phone" value="${sessionScope.profile.getPhone_number()}"><br><br>
 		<button type="submit" class="buttons button2">Edit Profile</button>
 		</form></div>

@@ -4,6 +4,7 @@
 <html lang="en">
 <head>
 <meta charset="ISO-8859-1">
+<link rel="stylesheet" href="navigationBar.css">
 <style>
 body{
   background: linear-gradient(to right, springgreen, rgb(253, 253, 53));
@@ -24,12 +25,23 @@ img {
   height:300px;
   border: 2px solid black;
 }
+.a4{
+	background-color:white;
+	font-color:black;
+}
 </style>
 <title>About Us</title>
 </head>
 <body>
+<ul class="nav">
+    	<li><a class="a1" href="adminMain.jsp">Home</a></li>
+        <li><a class="a2" href="index.jsp">Logout</a></li>
+        <li><a class="a3" href="ShowCommentsAdmin">Contact us</a></li>
+        <li><a class="a4" href="aboutUsAdmin.jsp">About us</a></li>
+        <li><a class="a5" href="ShowFeedbackAdmin">Feedbacks</a></li>
+        <li><a class="a6" href="examDetails.jsp">Admin Actions</a></li>
+    </ul>
 	<h2><u>About our Website</u></h2>
-	<p class="home"><a href="adminMain.jsp">Home</a></p><br>
 	<img alt="onlineExamImage" src="images/aboutUs.jpg">
 	<p>We are best in conducting exams and grow knowledge of people</p>
 	<p>We are conducting exams through our website</p>

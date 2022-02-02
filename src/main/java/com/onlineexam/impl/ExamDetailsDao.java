@@ -222,4 +222,37 @@ public class ExamDetailsDao implements ExamDetailsDaoInterface {
 		}
 		return edp;
 	}
+	public List<ExamDetailsPojo> showExistExams(String examName,String examType,String difficultyLevel) throws SQLException {
+		List<ExamDetailsPojo> edp = new ArrayList<>();
+		PreparedStatement pstmt = null;
+		Connection con = null;
+		ResultSet rs = null;
+		String query = "select examName,examType,difficultyLevel from examDetails where examName=? and examType=? and difficultyLevel=?";
+		try {
+			con = ConnectionPage.connection();
+			pstmt = con.prepareStatement(query);
+			pstmt.setString(1, examName);
+			pstmt.setString(2, examType);
+			pstmt.setString(3, difficultyLevel);
+			rs = pstmt.executeQuery();
+			while (rs.next()) {
+				ExamDetailsPojo edpp = new ExamDetailsPojo(rs.getString(1), rs.getString(2),
+						rs.getString(3));
+				edp.add(edpp);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			if (pstmt != null) {
+				pstmt.close();
+			}
+			if (con != null) {
+				con.close();
+			}
+			if (rs != null) {
+				rs.close();
+			}
+		}
+		return edp;
+	}
 }
