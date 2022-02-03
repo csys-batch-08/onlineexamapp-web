@@ -21,9 +21,11 @@ public class InactiveUsersServlet extends HttpServlet {
 		try {
 		PrintWriter out=resp.getWriter();
 		int userid=Integer.parseInt(req.getParameter("userid"));
+		
 		RegisterPojo rp=new RegisterPojo(userid);
 		RegisterDao rd=new RegisterDao();
 			rd.makeactive(rp);
+			
 			out.println("<script type=\"text/javascript\">");
 			out.println("alert('Made user as active');");
 			out.println("location='ShowUsers';");

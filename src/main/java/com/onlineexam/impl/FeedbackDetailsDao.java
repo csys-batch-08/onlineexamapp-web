@@ -45,7 +45,7 @@ public class FeedbackDetailsDao implements FeedbackDetailsDaoInterface{
 		pstmt.setInt(1, userid);
 		ResultSet rs=pstmt.executeQuery();
 		while(rs.next()) {
-			FeedbackDetailsPojo fdp1=new FeedbackDetailsPojo(rs.getInt(1), rs.getString(2), rs.getDate(3),username);
+			FeedbackDetailsPojo fdp1=new FeedbackDetailsPojo(rs.getInt("examid"), rs.getString("feedback"), rs.getDate("feedbackdate"),username);
 			fdp.add(fdp1);
 		}}catch(SQLException e) {
 			e.printStackTrace();

@@ -1,5 +1,6 @@
 package com.onlineexam.model;
 
+import java.time.LocalDateTime;
 import java.util.Date;
 
 public class ScoreDetailsPojo {
@@ -9,14 +10,14 @@ public class ScoreDetailsPojo {
 	private int score;
 	private String passOrFail;
 	private String grade;
-	private Date examdate;
+	private LocalDateTime examdate;
 	
 	
 	
-	public Date getExamdate() {
+	public LocalDateTime getExamdate() {
 		return examdate;
 	}
-	public void setExamdate(Date examdate) {
+	public void setExamdate(LocalDateTime examdate) {
 		this.examdate = examdate;
 	}
 	public int getStudentId() {
@@ -64,7 +65,7 @@ public class ScoreDetailsPojo {
 		this.passOrFail = passOrFail;
 		this.grade = grade;
 	}
-	public ScoreDetailsPojo(Date examdate) {
+	public ScoreDetailsPojo(LocalDateTime examdate) {
 		this.examdate=examdate;
 	}
 	
@@ -89,7 +90,7 @@ public class ScoreDetailsPojo {
 		this.studentId = studentId;
 	}
 	public ScoreDetailsPojo(int studentId, int examId, String examName, int score, String passOrFail, String grade,
-			Date examdate) {
+			LocalDateTime examdate) {
 		super();
 		this.studentId = studentId;
 		this.examId = examId;
@@ -99,6 +100,4 @@ public class ScoreDetailsPojo {
 		this.grade = grade;
 		this.examdate = examdate;
 	}
-	
-	
 }

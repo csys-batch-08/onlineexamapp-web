@@ -49,11 +49,10 @@ public class PasswordChangeServlet extends HttpServlet {
 			out.println("alert('Entered phone number is invalid')");
 			out.println("location='userPasswordUpdate.jsp';");
 			out.println("</script>");
-		} catch (NumberFormatException e) {
+		} catch (NumberFormatException | SQLException e) {
 			e.printStackTrace();
 		} catch (IOException e1) {
 			e1.printStackTrace();
-		}
-
+		} 
 	}
 }

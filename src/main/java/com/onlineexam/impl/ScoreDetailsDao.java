@@ -28,11 +28,11 @@ public class ScoreDetailsDao implements ScoreDetailsDaoInterface{
 			pstmt.setString(6, sd.getGrade());
 			pstmt.executeUpdate();
 		}finally {
-			if(con!=null) {
-				con.close();
-			}
 			if(pstmt!=null) {
 				pstmt.close();
+			}
+			if(con!=null) {
+				con.close();
 			}
 		}
 	}
@@ -48,15 +48,15 @@ public class ScoreDetailsDao implements ScoreDetailsDaoInterface{
 			pstmt.setInt(1, studentId);
 			rs=pstmt.executeQuery();
 			while(rs.next()) {
-				ScoreDetailsPojo sdpp=new ScoreDetailsPojo(rs.getInt(1), rs.getInt(2), rs.getString(3), rs.getInt(4), rs.getString(5), rs.getString(6),rs.getDate(7));
+				ScoreDetailsPojo sdpp=new ScoreDetailsPojo(rs.getInt("studentid"), rs.getInt("examid"), rs.getString("examname"), rs.getInt("score"), rs.getString("passorfail"), rs.getString("grade"),rs.getTimestamp("examdate").toLocalDateTime());
 				sdp.add(sdpp);
 			}
 		}finally {
-			if(con!=null) {
-				con.close();
-			}
 			if(pstmt!=null) {
 				pstmt.close();
+			}
+			if(con!=null) {
+				con.close();
 			}
 			if(rs!=null) {
 				rs.close();
@@ -76,15 +76,15 @@ public class ScoreDetailsDao implements ScoreDetailsDaoInterface{
 		pstmt.setString(1, date);
 		rs=pstmt.executeQuery();
 		while(rs.next()) {
-			ScoreDetailsPojo sdpp=new ScoreDetailsPojo(rs.getInt(1), rs.getInt(2), rs.getString(3), rs.getInt(4), rs.getString(5), rs.getString(6),rs.getDate(7));
+			ScoreDetailsPojo sdpp=new ScoreDetailsPojo(rs.getInt("studentid"), rs.getInt("examid"), rs.getString("examname"), rs.getInt("score"), rs.getString("passorfail"), rs.getString("grade"),rs.getTimestamp("examdate").toLocalDateTime());
 			sdp.add(sdpp);
 		}
 	}finally {
-		if(con!=null) {
-			con.close();
-		}
 		if(pstmt!=null) {
 			pstmt.close();
+		}
+		if(con!=null) {
+			con.close();
 		}
 		if(rs!=null) {
 			rs.close();
@@ -105,15 +105,15 @@ public class ScoreDetailsDao implements ScoreDetailsDaoInterface{
 		pstmt.setString(1, pof);
 		rs=pstmt.executeQuery();
 		while(rs.next()) {
-			ScoreDetailsPojo sdpp=new ScoreDetailsPojo(rs.getInt(1), rs.getInt(2), rs.getString(3), rs.getInt(4), rs.getString(5), rs.getString(6),rs.getDate(7));
+			ScoreDetailsPojo sdpp=new ScoreDetailsPojo(rs.getInt("studentid"), rs.getInt("examid"), rs.getString("examname"), rs.getInt("score"), rs.getString("passorfail"), rs.getString("grade"),rs.getTimestamp("examdate").toLocalDateTime());
 			sdp.add(sdpp);
 		}
 		}finally {
-			if(con!=null) {
-				con.close();
-			}
 			if(pstmt!=null) {
 				pstmt.close();
+			}
+			if(con!=null) {
+				con.close();
 			}
 			if(rs!=null) {
 				rs.close();
@@ -133,15 +133,15 @@ public class ScoreDetailsDao implements ScoreDetailsDaoInterface{
 		pstmt.setString(1, grade);
 		rs=pstmt.executeQuery();
 		while(rs.next()) {
-			ScoreDetailsPojo sdpp=new ScoreDetailsPojo(rs.getInt(1), rs.getInt(2), rs.getString(3), rs.getInt(4), rs.getString(5), rs.getString(6),rs.getDate(7));
+			ScoreDetailsPojo sdpp=new ScoreDetailsPojo(rs.getInt("studentid"), rs.getInt("examid"), rs.getString("examname"), rs.getInt("score"), rs.getString("passorfail"), rs.getString("grade"),rs.getTimestamp("examdate").toLocalDateTime());
 			sdp.add(sdpp);
 		}
 		}finally {
-			if(con!=null) {
-				con.close();
-			}
 			if(pstmt!=null) {
 				pstmt.close();
+			}
+			if(con!=null) {
+				con.close();
 			}
 			if(rs!=null) {
 				rs.close();
@@ -160,18 +160,20 @@ public class ScoreDetailsDao implements ScoreDetailsDaoInterface{
 		pstmt=con.prepareStatement(query);
 		rs=pstmt.executeQuery();
 		while(rs.next()) {
-			ScoreDetailsPojo sdpp=new ScoreDetailsPojo(rs.getInt(1), rs.getInt(2), rs.getString(3), rs.getInt(4), rs.getString(5), rs.getString(6),rs.getDate(7));
+			ScoreDetailsPojo sdpp=new ScoreDetailsPojo(rs.getInt("studentid"), rs.getInt("examid"), rs.getString("examname"), rs.getInt("score"), rs.getString("passorfail"), rs.getString("grade"),rs.getTimestamp("examdate").toLocalDateTime());
 			sdp.add(sdpp);
 		}
+		}catch(SQLException e) {
+			e.printStackTrace();
 		}finally {
-			if(rs!=null) {
-				rs.close();
-			}
 			if(pstmt!=null) {
 				pstmt.close();
 			}
 			if(con!=null) {
 				con.close();
+			}
+			if(rs!=null) {
+				rs.close();
 			}
 		}
 		return sdp;

@@ -8,7 +8,7 @@ import com.onlineexam.model.RegisterPojo;
 
 public interface RegisterDaoInterface {
 	public  void fetchregister(RegisterPojo rd) throws ClassNotFoundException, SQLException;
-	public boolean changepassword(RegisterPojo rp);
+	public boolean changepassword(RegisterPojo rp) throws SQLException;
 	public ResultSet getEmailDetails(RegisterPojo rp) throws SQLException;
 	public ResultSet getPhoneDetails(RegisterPojo rp) throws SQLException;
 	public void updatestatus(RegisterPojo rp) throws SQLException;
@@ -18,8 +18,8 @@ public interface RegisterDaoInterface {
 	public void userrequest(RegisterPojo rp) throws SQLException;
 	public void updatelastdate(RegisterPojo rp) throws SQLException;
 	public void updateactivedate(RegisterPojo rp) throws SQLException;
-	public  List<RegisterPojo> showUsers();
-	public  List<RegisterPojo> showInactiveUsers();
+	public  List<RegisterPojo> showUsers() throws SQLException;
+	public  List<RegisterPojo> showInactiveUsers() throws SQLException;
 	public ResultSet fetchlogin(RegisterPojo rp) throws SQLException, ClassNotFoundException;
 	public  RegisterPojo validUser(String email,String password) throws ClassNotFoundException, SQLException;
 	public RegisterPojo userprofile(int userid) throws SQLException;

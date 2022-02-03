@@ -47,7 +47,7 @@ public class ContactUsDao implements ContactUsInterface {
 			pstmt = con.prepareStatement(query);
 			rs = pstmt.executeQuery();
 			while(rs.next()) {
-				ContactUsPojo cup=new ContactUsPojo(rs.getInt(1),rs.getString(2),rs.getString(3),rs.getDate(4));
+				ContactUsPojo cup=new ContactUsPojo(rs.getInt("userid"),rs.getString("email"),rs.getString("comments"),rs.getDate("commentdate"));
 				contactlist.add(cup);
 		}} catch (SQLException e) {
 			e.printStackTrace();

@@ -111,8 +111,8 @@ public class ExamDetailsDao implements ExamDetailsDaoInterface {
 			pstmt = con.prepareStatement(query);
 			rs = pstmt.executeQuery();
 			while(rs.next()) {
-				edpojo=new ExamDetailsPojo(rs.getInt(1), rs.getString(2), rs.getString(3),
-						rs.getString(4), rs.getInt(5));
+				edpojo=new ExamDetailsPojo(rs.getInt("examId"), rs.getString("examName"), rs.getString("examType"),
+						rs.getString("difficultyLevel"), rs.getInt("durationMinutes"));
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -141,8 +141,8 @@ public class ExamDetailsDao implements ExamDetailsDaoInterface {
 			pstmt = con.prepareStatement(query);
 			rs = pstmt.executeQuery();
 			while (rs.next()) {
-				ExamDetailsPojo edpp = new ExamDetailsPojo(rs.getInt(1), rs.getString(2), rs.getString(3),
-						rs.getString(4), rs.getInt(5));
+				ExamDetailsPojo edpp = new ExamDetailsPojo(rs.getInt("examId"), rs.getString("examName"), rs.getString("examType"),
+						rs.getString("difficultyLevel"), rs.getInt("durationMinutes"));
 				edp.add(edpp);
 			}
 		} catch (SQLException e) {
@@ -172,8 +172,8 @@ public class ExamDetailsDao implements ExamDetailsDaoInterface {
 			pstmt = con.prepareStatement(query);
 			rs = pstmt.executeQuery();
 			while (rs.next()) {
-				ExamDetailsPojo edpp = new ExamDetailsPojo(rs.getInt(1), rs.getString(2), rs.getString(3),
-						rs.getString(4), rs.getInt(5));
+				ExamDetailsPojo edpp = new ExamDetailsPojo(rs.getInt("examId"), rs.getString("examName"), rs.getString("examType"),
+						rs.getString("difficultyLevel"), rs.getInt("durationMinutes"));
 				edp.add(edpp);
 			}
 		} catch (SQLException e) {
@@ -203,8 +203,8 @@ public class ExamDetailsDao implements ExamDetailsDaoInterface {
 			pstmt = con.prepareStatement(query);
 			rs = pstmt.executeQuery();
 			while (rs.next()) {
-				ExamDetailsPojo edpp = new ExamDetailsPojo(rs.getInt(1), rs.getString(2), rs.getString(3),
-						rs.getString(4), rs.getInt(5));
+				ExamDetailsPojo edpp = new ExamDetailsPojo(rs.getInt("examId"), rs.getString("examName"), rs.getString("examType"),
+						rs.getString("difficultyLevel"), rs.getInt("durationMinutes"));
 				edp.add(edpp);
 			}
 		} catch (SQLException e) {
@@ -236,8 +236,8 @@ public class ExamDetailsDao implements ExamDetailsDaoInterface {
 			pstmt.setString(3, difficultyLevel);
 			rs = pstmt.executeQuery();
 			while (rs.next()) {
-				ExamDetailsPojo edpp = new ExamDetailsPojo(rs.getString(1), rs.getString(2),
-						rs.getString(3));
+				ExamDetailsPojo edpp = new ExamDetailsPojo(rs.getString("examName"), rs.getString("examType"),
+						rs.getString("difficultyLevel"));
 				edp.add(edpp);
 			}
 		} catch (SQLException e) {

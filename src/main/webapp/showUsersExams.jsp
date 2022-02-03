@@ -94,7 +94,7 @@ background-color: #008CBA;
         </tr>
         <c:forEach items="${allscores}" var="score">
         <fmt:parseDate pattern="yyyy-MM-dd" value="${score.examdate}"
-				var="parsedExamDate" />
+				var="parsedExamDate"/>
             <tr>
             	<td>${count}</td>
                 <td>${score.studentId}</td>
