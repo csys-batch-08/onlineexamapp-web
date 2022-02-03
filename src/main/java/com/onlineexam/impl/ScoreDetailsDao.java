@@ -164,8 +164,6 @@ public class ScoreDetailsDao implements ScoreDetailsDaoInterface{
 			sdp.add(sdpp);
 		}
 		}finally {
-			
-			
 			if(rs!=null) {
 				rs.close();
 			}
