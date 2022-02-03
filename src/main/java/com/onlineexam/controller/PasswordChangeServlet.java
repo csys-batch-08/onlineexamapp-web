@@ -13,8 +13,8 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.onlineexam.exception.InvalidPhoneNumberException;
-import com.onlineexam.impl.RegisterDao;
-import com.onlineexam.model.RegisterPojo;
+import com.onlineexam.impl.RegisterDaoImpl;
+import com.onlineexam.model.Register;
 
 @WebServlet("/changepassword")
 public class PasswordChangeServlet extends HttpServlet {
@@ -28,8 +28,8 @@ public class PasswordChangeServlet extends HttpServlet {
 			Long phoneNumber = Long.parseLong(req.getParameter("phone_number"));
 			String password = req.getParameter("password");
 			String cpassword = req.getParameter("cpassword");
-			RegisterPojo rp = new RegisterPojo(phoneNumber, password, cpassword);
-			RegisterDao rd = new RegisterDao();
+			Register rp = new Register(phoneNumber, password, cpassword);
+			RegisterDaoImpl rd = new RegisterDaoImpl();
 
 			if (phoneNumber.equals(adminnum)) {
 				throw new InvalidPhoneNumberException();
@@ -53,6 +53,6 @@ public class PasswordChangeServlet extends HttpServlet {
 			e.printStackTrace();
 		} catch (IOException e1) {
 			e1.printStackTrace();
-		} 
+		}
 	}
 }

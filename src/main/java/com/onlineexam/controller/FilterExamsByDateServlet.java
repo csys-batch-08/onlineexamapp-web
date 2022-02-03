@@ -14,8 +14,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.onlineexam.impl.ScoreDetailsDao;
-import com.onlineexam.model.ScoreDetailsPojo;
+import com.onlineexam.impl.ScoreDetailsDaoImpl;
+import com.onlineexam.model.ScoreDetails;
 
 @WebServlet("/FilterExamsByDate")
 public class FilterExamsByDateServlet extends HttpServlet {
@@ -23,8 +23,8 @@ public class FilterExamsByDateServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) {
 		String date = req.getParameter("date");
 		try {
-			ScoreDetailsDao sdd = new ScoreDetailsDao();
-			List<ScoreDetailsPojo> sdp = sdd.filterbydate(date);
+			ScoreDetailsDaoImpl sdd = new ScoreDetailsDaoImpl();
+			List<ScoreDetails> sdp = sdd.filterbydate(date);
 			req.setAttribute("dates", sdp);
 			RequestDispatcher rd = req.getRequestDispatcher("filterExamsByDate.jsp");
 			rd.forward(req, resp);

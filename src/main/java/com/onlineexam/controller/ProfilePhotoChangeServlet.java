@@ -10,8 +10,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.onlineexam.impl.RegisterDao;
-import com.onlineexam.model.RegisterPojo;
+import com.onlineexam.impl.RegisterDaoImpl;
+import com.onlineexam.model.Register;
 
 @WebServlet("/changeprofile")
 public class ProfilePhotoChangeServlet extends HttpServlet {
@@ -20,8 +20,8 @@ public class ProfilePhotoChangeServlet extends HttpServlet {
 		HttpSession session = req.getSession();
 		int userid = (int) session.getAttribute("userid");
 		String photo = req.getParameter("avatar");
-		RegisterPojo rp = new RegisterPojo(userid, photo);
-		RegisterDao rd = new RegisterDao();
+		Register rp = new Register(userid, photo);
+		RegisterDaoImpl rd = new RegisterDaoImpl();
 		try {
 			rd.changephoto(rp);
 			resp.sendRedirect("UserProfile");

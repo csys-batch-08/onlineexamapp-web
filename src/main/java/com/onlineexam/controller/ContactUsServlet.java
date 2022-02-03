@@ -2,7 +2,6 @@ package com.onlineexam.controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.sql.SQLException;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -11,8 +10,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.onlineexam.impl.ContactUsDao;
-import com.onlineexam.model.ContactUsPojo;
+import com.onlineexam.impl.ContactUsDaoImpl;
+import com.onlineexam.model.ContactUs;
 
 @WebServlet("/contact")
 public class ContactUsServlet extends HttpServlet {
@@ -24,15 +23,13 @@ public class ContactUsServlet extends HttpServlet {
 			int userid = (int) session.getAttribute("userid");
 			String email = req.getParameter("email");
 			String comments = req.getParameter("comments");
-			ContactUsPojo cup = new ContactUsPojo(userid, email, comments);
-			ContactUsDao cud = new ContactUsDao();
+			ContactUs cup = new ContactUs(userid, email, comments);
+			ContactUsDaoImpl cud = new ContactUsDaoImpl();
 			cud.insertcomments(cup);
 			out.println("<script type=\"text/javascript\">");
 			out.println("alert('Your comment has been sent.');");
 			out.println("location='userMain.jsp';");
 			out.println("</script>");
-		} catch (SQLException e) {
-			e.printStackTrace();
 		} catch (IOException e1) {
 			e1.printStackTrace();
 		}

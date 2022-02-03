@@ -12,20 +12,21 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.onlineexam.impl.RegisterDao;
-import com.onlineexam.model.RegisterPojo;
+import com.onlineexam.impl.RegisterDaoImpl;
+import com.onlineexam.model.Register;
+
 @WebServlet("/ShowInactiveUsers")
 public class ShowInactiveUsersServlet extends HttpServlet {
 	@Override
 	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		HttpSession session=req.getSession();
-		RegisterDao rdao=new RegisterDao();
-		List<RegisterPojo> rp;
+		HttpSession session = req.getSession();
+		RegisterDaoImpl rdao = new RegisterDaoImpl();
+		List<Register> rp;
 		try {
 			rp = rdao.showInactiveUsers();
-		req.setAttribute("inusers", rp);
-		RequestDispatcher rd=req.getRequestDispatcher("showInactiveUsers.jsp");
-		rd.forward(req, resp);
+			req.setAttribute("inusers", rp);
+			RequestDispatcher rd = req.getRequestDispatcher("showInactiveUsers.jsp");
+			rd.forward(req, resp);
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}

@@ -11,17 +11,17 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.onlineexam.impl.ScoreDetailsDao;
-import com.onlineexam.model.ScoreDetailsPojo;
+import com.onlineexam.impl.ScoreDetailsDaoImpl;
+import com.onlineexam.model.ScoreDetails;
 
 @WebServlet("/FilterExamsByPOF")
 public class FilterExamsByPOFServlet extends HttpServlet {
 	@Override
-	protected void doPost(HttpServletRequest req, HttpServletResponse resp){
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp) {
 		String pof = req.getParameter("pof");
-		ScoreDetailsDao sdd = new ScoreDetailsDao();
+		ScoreDetailsDaoImpl sdd = new ScoreDetailsDaoImpl();
 		try {
-			List<ScoreDetailsPojo> sdp = sdd.filterbyPOF(pof);
+			List<ScoreDetails> sdp = sdd.filterbyPOF(pof);
 			req.setAttribute("passfail", sdp);
 			RequestDispatcher rd = req.getRequestDispatcher("filterExamsByPOF.jsp");
 			rd.forward(req, resp);

@@ -16,8 +16,8 @@ import javax.servlet.http.HttpSession;
 
 import com.onlineexam.exception.InactiveUserException;
 import com.onlineexam.exception.InvalidUserException;
-import com.onlineexam.impl.RegisterDao;
-import com.onlineexam.model.RegisterPojo;
+import com.onlineexam.impl.RegisterDaoImpl;
+import com.onlineexam.model.Register;
 
 @WebServlet("/loginservlet")
 public class loginServlet extends HttpServlet {
@@ -29,13 +29,13 @@ public class loginServlet extends HttpServlet {
 			out = res.getWriter();
 			String email = req.getParameter("email");
 			String password = req.getParameter("password");
-			RegisterPojo rp = new RegisterPojo(0, email, password);
-			RegisterDao rd = new RegisterDao();
+			Register rp = new Register(0, email, password);
+			RegisterDaoImpl rd = new RegisterDaoImpl();
 			int userid;
 			String username;
 			ResultSet result = rd.fetchlogin(rp);
 			if (result.next()) {
-				RegisterPojo rpojo = rd.validUser(email, password);
+				Register rpojo = rd.validUser(email, password);
 				userid = rpojo.getUserid();
 				username = rpojo.getFirst_name();
 				HttpSession ses = req.getSession();
@@ -46,10 +46,10 @@ public class loginServlet extends HttpServlet {
 				if (role.equals("admin")) {
 					res.sendRedirect("adminMain.jsp");
 				} else if (role.equals("student")) {
-					RegisterPojo rp1 = new RegisterPojo(userid);
+					Register rp1 = new Register(userid);
 					rd.updateactivedate(rp1);
-					RegisterDao rdao = new RegisterDao();
-					RegisterPojo regpojo = rdao.userprofile(userid);
+					RegisterDaoImpl rdao = new RegisterDaoImpl();
+					Register regpojo = rdao.userprofile(userid);
 					session.setAttribute("profile", regpojo);
 					res.sendRedirect("userMain.jsp");
 				} else if (role.equals("inactive")) {

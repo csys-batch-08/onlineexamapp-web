@@ -8,12 +8,12 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.onlineexam.dao.ExamDetailsDaoInterface;
-import com.onlineexam.model.ExamDetailsPojo;
+import com.onlineexam.dao.ExamDetailsDao;
+import com.onlineexam.model.ExamDetails;
 import com.onlineexam.util.ConnectionPage;
 
-public class ExamDetailsDao implements ExamDetailsDaoInterface {
-	public int addExam(ExamDetailsPojo edp) throws SQLException {
+public class ExamDetailsDaoImpl implements ExamDetailsDao {
+	public int addExam(ExamDetails edp) throws SQLException {
 		Connection con = null;
 		PreparedStatement pstmt = null;
 		String query = "insert into examDetails(examName,examType,difficultyLevel,durationMinutes) values(?,?,?,?)";
@@ -40,7 +40,7 @@ public class ExamDetailsDao implements ExamDetailsDaoInterface {
 
 	}
 
-	public boolean updateExam(ExamDetailsPojo edp) throws SQLException {
+	public boolean updateExam(ExamDetails edp) throws SQLException {
 		Connection con = null;
 		PreparedStatement pstmt = null;
 		boolean flag = false;
@@ -71,7 +71,7 @@ public class ExamDetailsDao implements ExamDetailsDaoInterface {
 		return flag;
 	}
 
-	public boolean deleteExam(ExamDetailsPojo edp) throws SQLException {
+	public boolean deleteExam(ExamDetails edp) throws SQLException {
 		Connection con = null;
 		PreparedStatement pstmt = null;
 		boolean flag = false;
@@ -100,18 +100,18 @@ public class ExamDetailsDao implements ExamDetailsDaoInterface {
 		return flag;
 	}
 
-	public ExamDetailsPojo showExams() throws SQLException {
+	public ExamDetails showExams() throws SQLException {
 		Connection con = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
-		ExamDetailsPojo edpojo=null;
+		ExamDetails edpojo = null;
 		try {
 			con = ConnectionPage.connection();
 			String query = "select examId,examName,examType,difficultyLevel,durationMinutes from examDetails";
 			pstmt = con.prepareStatement(query);
 			rs = pstmt.executeQuery();
-			while(rs.next()) {
-				edpojo=new ExamDetailsPojo(rs.getInt("examId"), rs.getString("examName"), rs.getString("examType"),
+			while (rs.next()) {
+				edpojo = new ExamDetails(rs.getInt("examId"), rs.getString("examName"), rs.getString("examType"),
 						rs.getString("difficultyLevel"), rs.getInt("durationMinutes"));
 			}
 		} catch (SQLException e) {
@@ -130,8 +130,8 @@ public class ExamDetailsDao implements ExamDetailsDaoInterface {
 		return edpojo;
 	}
 
-	public List<ExamDetailsPojo> showAllExams() throws SQLException {
-		List<ExamDetailsPojo> edp = new ArrayList<>();
+	public List<ExamDetails> showAllExams() throws SQLException {
+		List<ExamDetails> edp = new ArrayList<>();
 		Connection con = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
@@ -141,8 +141,8 @@ public class ExamDetailsDao implements ExamDetailsDaoInterface {
 			pstmt = con.prepareStatement(query);
 			rs = pstmt.executeQuery();
 			while (rs.next()) {
-				ExamDetailsPojo edpp = new ExamDetailsPojo(rs.getInt("examId"), rs.getString("examName"), rs.getString("examType"),
-						rs.getString("difficultyLevel"), rs.getInt("durationMinutes"));
+				ExamDetails edpp = new ExamDetails(rs.getInt("examId"), rs.getString("examName"),
+						rs.getString("examType"), rs.getString("difficultyLevel"), rs.getInt("durationMinutes"));
 				edp.add(edpp);
 			}
 		} catch (SQLException e) {
@@ -161,8 +161,8 @@ public class ExamDetailsDao implements ExamDetailsDaoInterface {
 		return edp;
 	}
 
-	public List<ExamDetailsPojo> showExamsEasy() throws SQLException {
-		List<ExamDetailsPojo> edp = new ArrayList<>();
+	public List<ExamDetails> showExamsEasy() throws SQLException {
+		List<ExamDetails> edp = new ArrayList<>();
 		PreparedStatement pstmt = null;
 		Connection con = null;
 		String query = "select examId,examName,examType,difficultyLevel,durationMinutes from examDetails where difficultyLevel='Easy'";
@@ -172,8 +172,8 @@ public class ExamDetailsDao implements ExamDetailsDaoInterface {
 			pstmt = con.prepareStatement(query);
 			rs = pstmt.executeQuery();
 			while (rs.next()) {
-				ExamDetailsPojo edpp = new ExamDetailsPojo(rs.getInt("examId"), rs.getString("examName"), rs.getString("examType"),
-						rs.getString("difficultyLevel"), rs.getInt("durationMinutes"));
+				ExamDetails edpp = new ExamDetails(rs.getInt("examId"), rs.getString("examName"),
+						rs.getString("examType"), rs.getString("difficultyLevel"), rs.getInt("durationMinutes"));
 				edp.add(edpp);
 			}
 		} catch (SQLException e) {
@@ -192,8 +192,8 @@ public class ExamDetailsDao implements ExamDetailsDaoInterface {
 		return edp;
 	}
 
-	public List<ExamDetailsPojo> showExamsHard() throws SQLException {
-		List<ExamDetailsPojo> edp = new ArrayList<>();
+	public List<ExamDetails> showExamsHard() throws SQLException {
+		List<ExamDetails> edp = new ArrayList<>();
 		PreparedStatement pstmt = null;
 		Connection con = null;
 		String query = "select examId,examName,examType,difficultyLevel,durationMinutes from examDetails where difficultyLevel='Hard'";
@@ -203,8 +203,8 @@ public class ExamDetailsDao implements ExamDetailsDaoInterface {
 			pstmt = con.prepareStatement(query);
 			rs = pstmt.executeQuery();
 			while (rs.next()) {
-				ExamDetailsPojo edpp = new ExamDetailsPojo(rs.getInt("examId"), rs.getString("examName"), rs.getString("examType"),
-						rs.getString("difficultyLevel"), rs.getInt("durationMinutes"));
+				ExamDetails edpp = new ExamDetails(rs.getInt("examId"), rs.getString("examName"),
+						rs.getString("examType"), rs.getString("difficultyLevel"), rs.getInt("durationMinutes"));
 				edp.add(edpp);
 			}
 		} catch (SQLException e) {
@@ -222,8 +222,10 @@ public class ExamDetailsDao implements ExamDetailsDaoInterface {
 		}
 		return edp;
 	}
-	public List<ExamDetailsPojo> showExistExams(String examName,String examType,String difficultyLevel) throws SQLException {
-		List<ExamDetailsPojo> edp = new ArrayList<>();
+
+	public List<ExamDetails> showExistExams(String examName, String examType, String difficultyLevel)
+			throws SQLException {
+		List<ExamDetails> edp = new ArrayList<>();
 		PreparedStatement pstmt = null;
 		Connection con = null;
 		ResultSet rs = null;
@@ -236,7 +238,7 @@ public class ExamDetailsDao implements ExamDetailsDaoInterface {
 			pstmt.setString(3, difficultyLevel);
 			rs = pstmt.executeQuery();
 			while (rs.next()) {
-				ExamDetailsPojo edpp = new ExamDetailsPojo(rs.getString("examName"), rs.getString("examType"),
+				ExamDetails edpp = new ExamDetails(rs.getString("examName"), rs.getString("examType"),
 						rs.getString("difficultyLevel"));
 				edp.add(edpp);
 			}

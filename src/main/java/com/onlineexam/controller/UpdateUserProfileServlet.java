@@ -11,8 +11,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.onlineexam.impl.RegisterDao;
-import com.onlineexam.model.RegisterPojo;
+import com.onlineexam.impl.RegisterDaoImpl;
+import com.onlineexam.model.Register;
 
 @WebServlet("/editprofile")
 public class UpdateUserProfileServlet extends HttpServlet {
@@ -26,8 +26,8 @@ public class UpdateUserProfileServlet extends HttpServlet {
 			String lastname = req.getParameter("lastname");
 			String email = req.getParameter("email");
 			Long phone = Long.parseLong(req.getParameter("phone"));
-			RegisterPojo rp = new RegisterPojo(userid, firstname, lastname, email, phone);
-			RegisterDao rd = new RegisterDao();
+			Register rp = new Register(userid, firstname, lastname, email, phone);
+			RegisterDaoImpl rd = new RegisterDaoImpl();
 			rd.editprofile(rp);
 			out.println("<script type=\"text/javascript\">");
 			out.println("alert('Profile updated successfully');");

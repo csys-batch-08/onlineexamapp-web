@@ -10,8 +10,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.onlineexam.impl.RegisterDao;
-import com.onlineexam.model.RegisterPojo;
+import com.onlineexam.impl.RegisterDaoImpl;
+import com.onlineexam.model.Register;
 
 @WebServlet("/request")
 public class InactiveUserRequestServlet extends HttpServlet {
@@ -21,8 +21,8 @@ public class InactiveUserRequestServlet extends HttpServlet {
 			PrintWriter out = resp.getWriter();
 			String email = req.getParameter("email");
 			String reason = req.getParameter("reason");
-			RegisterPojo rp = new RegisterPojo(email, reason);
-			RegisterDao rd = new RegisterDao();
+			Register rp = new Register(email, reason);
+			RegisterDaoImpl rd = new RegisterDaoImpl();
 			rd.userrequest(rp);
 			out.println("<script type=\"text/javascript\">");
 			out.println("alert('Your request has been sent');");

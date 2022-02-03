@@ -11,17 +11,18 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.onlineexam.impl.FeedbackDetailsDao;
-import com.onlineexam.model.FeedbackDetailsPojo;
+import com.onlineexam.impl.FeedbackDetailsDaoImpl;
+import com.onlineexam.model.FeedbackDetails;
+
 @WebServlet("/ShowFeedbackAdmin")
 public class ShowFeedbackAdminServlet extends HttpServlet {
 	@Override
 	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		FeedbackDetailsDao fdd=new FeedbackDetailsDao();
+		FeedbackDetailsDaoImpl fdd = new FeedbackDetailsDaoImpl();
 		try {
-			List<FeedbackDetailsPojo> fdp=fdd.showFeedbacksAdmin();
+			List<FeedbackDetails> fdp = fdd.showFeedbacksAdmin();
 			req.setAttribute("showfeedback", fdp);
-			RequestDispatcher rd=req.getRequestDispatcher("showFeedbackAdmin.jsp");
+			RequestDispatcher rd = req.getRequestDispatcher("showFeedbackAdmin.jsp");
 			rd.forward(req, resp);
 		} catch (SQLException e) {
 			e.printStackTrace();

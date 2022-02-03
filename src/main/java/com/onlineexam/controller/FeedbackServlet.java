@@ -11,21 +11,21 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.onlineexam.impl.FeedbackDetailsDao;
-import com.onlineexam.model.FeedbackDetailsPojo;
+import com.onlineexam.impl.FeedbackDetailsDaoImpl;
+import com.onlineexam.model.FeedbackDetails;
 
 @WebServlet("/feedbacks")
 public class FeedbackServlet extends HttpServlet {
 	@Override
-	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException{
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException {
 		try {
-		PrintWriter out=resp.getWriter();
-		HttpSession session=req.getSession();
-		int userId= (int)session.getAttribute("userid");
-		int examId=Integer.parseInt(req.getParameter("examId"));
-		String feedback=req.getParameter("feedback");
-		FeedbackDetailsPojo fdp=new FeedbackDetailsPojo(userId,examId,feedback);
-		FeedbackDetailsDao fdd=new FeedbackDetailsDao();
+			PrintWriter out = resp.getWriter();
+			HttpSession session = req.getSession();
+			int userId = (int) session.getAttribute("userid");
+			int examId = Integer.parseInt(req.getParameter("examId"));
+			String feedback = req.getParameter("feedback");
+			FeedbackDetails fdp = new FeedbackDetails(userId, examId, feedback);
+			FeedbackDetailsDaoImpl fdd = new FeedbackDetailsDaoImpl();
 			fdd.insertFeedback(fdp);
 			out.println("<script type=\"text/javascript\">");
 			out.println("alert('Your feedback has been sent');");

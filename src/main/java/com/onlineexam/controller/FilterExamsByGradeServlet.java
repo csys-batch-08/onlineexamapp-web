@@ -11,18 +11,19 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.onlineexam.impl.ScoreDetailsDao;
-import com.onlineexam.model.ScoreDetailsPojo;
+import com.onlineexam.impl.ScoreDetailsDaoImpl;
+import com.onlineexam.model.ScoreDetails;
+
 @WebServlet("/FilterExamsByGrade")
 public class FilterExamsByGradeServlet extends HttpServlet {
 	@Override
-	protected void doPost(HttpServletRequest req, HttpServletResponse resp){
-		String grade=req.getParameter("grade");
-		ScoreDetailsDao sdd=new ScoreDetailsDao();
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp) {
+		String grade = req.getParameter("grade");
+		ScoreDetailsDaoImpl sdd = new ScoreDetailsDaoImpl();
 		try {
-			List<ScoreDetailsPojo> sdp=sdd.filterbygrade(grade);
+			List<ScoreDetails> sdp = sdd.filterbygrade(grade);
 			req.setAttribute("grades", sdp);
-			RequestDispatcher rd=req.getRequestDispatcher("filterExamsByGrade.jsp");
+			RequestDispatcher rd = req.getRequestDispatcher("filterExamsByGrade.jsp");
 			rd.forward(req, resp);
 		} catch (SQLException e) {
 			e.printStackTrace();

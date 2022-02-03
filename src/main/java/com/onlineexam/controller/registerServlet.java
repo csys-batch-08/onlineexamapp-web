@@ -12,8 +12,8 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.onlineexam.exception.*;
-import com.onlineexam.impl.RegisterDao;
-import com.onlineexam.model.RegisterPojo;
+import com.onlineexam.impl.RegisterDaoImpl;
+import com.onlineexam.model.Register;
 
 @WebServlet("/register")
 public class registerServlet extends HttpServlet {
@@ -28,8 +28,8 @@ public class registerServlet extends HttpServlet {
 			String password = req.getParameter("password");
 			String confirmpassword = req.getParameter("cpassword");
 			Long phonenumber = Long.parseLong(req.getParameter("phone_number"));
-			RegisterPojo rd = new RegisterPojo(firstName, lastName, email, password, confirmpassword, phonenumber);
-			RegisterDao rdao = new RegisterDao();
+			Register rd = new Register(firstName, lastName, email, password, confirmpassword, phonenumber);
+			RegisterDaoImpl rdao = new RegisterDaoImpl();
 			ResultSet rs = rdao.getEmailDetails(rd);
 			ResultSet rs1 = rdao.getPhoneDetails(rd);
 			if (rs.next() && email.equals(rs.getString(4))) {

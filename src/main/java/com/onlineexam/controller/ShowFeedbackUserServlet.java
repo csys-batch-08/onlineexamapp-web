@@ -13,22 +13,23 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.onlineexam.impl.FeedbackDetailsDao;
-import com.onlineexam.model.FeedbackDetailsPojo;
+import com.onlineexam.impl.FeedbackDetailsDaoImpl;
+import com.onlineexam.model.FeedbackDetails;
+
 @WebServlet("/showfeedback")
 public class ShowFeedbackUserServlet extends HttpServlet {
 	@Override
 	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		HttpSession session=req.getSession();
-		int userid=(int)session.getAttribute("userid");
-		FeedbackDetailsDao fdd=new FeedbackDetailsDao();
-		FeedbackDetailsPojo fdpp=new FeedbackDetailsPojo();
-		String username=(String)session.getAttribute("username");
+		HttpSession session = req.getSession();
+		int userid = (int) session.getAttribute("userid");
+		FeedbackDetailsDaoImpl fdd = new FeedbackDetailsDaoImpl();
+		FeedbackDetails fdpp = new FeedbackDetails();
+		String username = (String) session.getAttribute("username");
 		try {
 			fdpp.setUsername(username);
-			List<FeedbackDetailsPojo> fdp=fdd.showFeedbacks(userid,username);
+			List<FeedbackDetails> fdp = fdd.showFeedbacks(userid, username);
 			req.setAttribute("feedback", fdp);
-			RequestDispatcher rd=req.getRequestDispatcher("showFeedback.jsp");
+			RequestDispatcher rd = req.getRequestDispatcher("showFeedback.jsp");
 			rd.forward(req, resp);
 		} catch (SQLException e) {
 			e.printStackTrace();

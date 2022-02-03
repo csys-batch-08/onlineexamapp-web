@@ -11,19 +11,19 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.onlineexam.impl.ExamDetailsDao;
-import com.onlineexam.model.ExamDetailsPojo;
+import com.onlineexam.impl.ExamDetailsDaoImpl;
+import com.onlineexam.model.ExamDetails;
 
-@WebServlet("/UserChooseExams")
-public class UserChooseExamsServlet extends HttpServlet {
+@WebServlet("/UserChooseExams1")
+public class UserChooseHardExamsServlet extends HttpServlet {
 	@Override
 	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		ExamDetailsDao edd = new ExamDetailsDao();
-		List<ExamDetailsPojo> edp;
+		ExamDetailsDaoImpl edd = new ExamDetailsDaoImpl();
+		List<ExamDetails> edp;
 		try {
-			edp = edd.showExamsEasy();
-			req.setAttribute("easyexams", edp);
-			RequestDispatcher rd = req.getRequestDispatcher("userChooseExams.jsp");
+			edp = edd.showExamsHard();
+			req.setAttribute("hardexams", edp);
+			RequestDispatcher rd = req.getRequestDispatcher("userChooseExams1.jsp");
 			rd.forward(req, resp);
 		} catch (SQLException e) {
 			e.printStackTrace();

@@ -11,15 +11,15 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.onlineexam.impl.RegisterDao;
-import com.onlineexam.model.RegisterPojo;
+import com.onlineexam.impl.RegisterDaoImpl;
+import com.onlineexam.model.Register;
 
 @WebServlet("/ShowUsers")
 public class ShowUsersServlet extends HttpServlet {
 	@Override
 	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		RegisterDao rdao = new RegisterDao();
-		List<RegisterPojo> rp;
+		RegisterDaoImpl rdao = new RegisterDaoImpl();
+		List<Register> rp;
 		try {
 			rp = rdao.showUsers();
 			req.setAttribute("users", rp);

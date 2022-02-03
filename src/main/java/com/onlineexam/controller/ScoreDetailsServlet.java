@@ -11,10 +11,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.onlineexam.impl.RegisterDao;
-import com.onlineexam.impl.ScoreDetailsDao;
-import com.onlineexam.model.RegisterPojo;
-import com.onlineexam.model.ScoreDetailsPojo;
+import com.onlineexam.impl.RegisterDaoImpl;
+import com.onlineexam.impl.ScoreDetailsDaoImpl;
+import com.onlineexam.model.Register;
+import com.onlineexam.model.ScoreDetails;
 
 @WebServlet("/scoreDetails")
 public class ScoreDetailsServlet extends HttpServlet {
@@ -26,8 +26,8 @@ public class ScoreDetailsServlet extends HttpServlet {
 		int score = Integer.parseInt(req.getParameter("score"));
 		String passOrFail = req.getParameter("passOrFail");
 		String grade = req.getParameter("grade");
-		ScoreDetailsPojo sd = new ScoreDetailsPojo(userId, examId, examName, score, passOrFail, grade);
-		ScoreDetailsDao sdd = new ScoreDetailsDao();
+		ScoreDetails sd = new ScoreDetails(userId, examId, examName, score, passOrFail, grade);
+		ScoreDetailsDaoImpl sdd = new ScoreDetailsDaoImpl();
 		try {
 			sdd.insertScore(sd);
 			req.setAttribute("userid", userId);

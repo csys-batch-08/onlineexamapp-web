@@ -2,16 +2,14 @@ package com.onlineexam.model;
 
 import java.util.Date;
 
-public class FeedbackDetailsPojo {
+public class FeedbackDetails {
 	private int feedbackid;
 	private int userid;
 	private String username;
 	private int examid;
 	private String feedback;
 	private Date feedbackdate;
-	
-	
-	
+
 	public int getFeedbackid() {
 		return feedbackid;
 	}
@@ -36,8 +34,6 @@ public class FeedbackDetailsPojo {
 		this.examid = examid;
 	}
 
-	
-
 	public Date getFeedbackdate() {
 		return feedbackdate;
 	}
@@ -53,8 +49,6 @@ public class FeedbackDetailsPojo {
 	public void setFeedback(String feedback) {
 		this.feedback = feedback;
 	}
-	
-	
 
 	public String getUsername() {
 		return username;
@@ -64,22 +58,22 @@ public class FeedbackDetailsPojo {
 		this.username = username;
 	}
 
-	public FeedbackDetailsPojo(int userid, int examid, String feedback) {
+	public FeedbackDetails(int userid, int examid, String feedback) {
 		super();
 		this.userid = userid;
 		this.examid = examid;
 		this.feedback = feedback;
 	}
 
-	public FeedbackDetailsPojo(int examid, String feedback, Date feedbackdate, String username) {
+	public FeedbackDetails(int examid, String feedback, Date feedbackdate, String username) {
 		super();
 		this.examid = examid;
 		this.feedback = feedback;
 		this.feedbackdate = feedbackdate;
-		this.username=username;
+		this.username = username;
 	}
 
-	public FeedbackDetailsPojo() {
+	public FeedbackDetails() {
 	}
 
 	@Override
@@ -88,7 +82,7 @@ public class FeedbackDetailsPojo {
 				+ "]";
 	}
 
-	public FeedbackDetailsPojo(int feedbackid, int userid, int examid, String feedback, Date feedbackdate) {
+	public FeedbackDetails(int feedbackid, int userid, int examid, String feedback, Date feedbackdate) {
 		super();
 		this.feedbackid = feedbackid;
 		this.userid = userid;
@@ -96,6 +90,5 @@ public class FeedbackDetailsPojo {
 		this.feedback = feedback;
 		this.feedbackdate = feedbackdate;
 	}
-
 
 }

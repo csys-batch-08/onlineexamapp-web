@@ -11,15 +11,15 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.onlineexam.impl.ExamDetailsDao;
-import com.onlineexam.model.ExamDetailsPojo;
+import com.onlineexam.impl.ExamDetailsDaoImpl;
+import com.onlineexam.model.ExamDetails;
 
 @WebServlet("/ShowExams")
 public class ShowExamsServlet extends HttpServlet {
 	@Override
 	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		ExamDetailsDao edd = new ExamDetailsDao();
-		List<ExamDetailsPojo> edp;
+		ExamDetailsDaoImpl edd = new ExamDetailsDaoImpl();
+		List<ExamDetails> edp;
 		try {
 			edp = edd.showAllExams();
 			req.setAttribute("exams", edp);
