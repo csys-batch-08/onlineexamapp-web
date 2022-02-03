@@ -1,7 +1,6 @@
 package com.onlineexam.controller;
 
 import java.io.IOException;
-import java.sql.SQLException;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -25,8 +24,6 @@ public class ProfilePhotoChangeServlet extends HttpServlet {
 		try {
 			rd.changephoto(rp);
 			resp.sendRedirect("UserProfile");
-		} catch (SQLException e) {
-			e.printStackTrace();
 		} catch (IOException e1) {
 			e1.printStackTrace();
 		}

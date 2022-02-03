@@ -1,7 +1,6 @@
 package com.onlineexam.controller;
 
 import java.io.IOException;
-import java.sql.SQLException;
 import java.util.List;
 
 import javax.servlet.RequestDispatcher;
@@ -19,13 +18,9 @@ public class ShowFeedbackAdminServlet extends HttpServlet {
 	@Override
 	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		FeedbackDetailsDaoImpl fdd = new FeedbackDetailsDaoImpl();
-		try {
-			List<FeedbackDetails> fdp = fdd.showFeedbacksAdmin();
-			req.setAttribute("showfeedback", fdp);
-			RequestDispatcher rd = req.getRequestDispatcher("showFeedbackAdmin.jsp");
-			rd.forward(req, resp);
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
+		List<FeedbackDetails> fdp = fdd.showFeedbacksAdmin();
+		req.setAttribute("showfeedback", fdp);
+		RequestDispatcher rd = req.getRequestDispatcher("showFeedbackAdmin.jsp");
+		rd.forward(req, resp);
 	}
 }

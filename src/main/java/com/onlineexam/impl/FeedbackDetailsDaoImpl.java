@@ -12,7 +12,8 @@ import com.onlineexam.model.FeedbackDetails;
 import com.onlineexam.util.ConnectionPage;
 
 public class FeedbackDetailsDaoImpl implements FeedbackDetailsDao {
-	public void insertFeedback(FeedbackDetails fdp) throws SQLException {
+	@Override
+	public void insertFeedback(FeedbackDetails fdp) {
 		Connection con = null;
 		PreparedStatement pstmt = null;
 		try {
@@ -26,25 +27,31 @@ public class FeedbackDetailsDaoImpl implements FeedbackDetailsDao {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
-			if (pstmt != null) {
-				pstmt.close();
-			}
-			if (con != null) {
-				con.close();
+			try {
+				if (pstmt != null) {
+					pstmt.close();
+				}
+				if (con != null) {
+					con.close();
+				}
+			} catch (SQLException e) {
+				e.printStackTrace();
 			}
 		}
 	}
 
-	public List<FeedbackDetails> showFeedbacks(int userid, String username) throws SQLException {
+	@Override
+	public List<FeedbackDetails> showFeedbacks(int userid, String username) {
 		List<FeedbackDetails> fdp = new ArrayList<>();
 		Connection con = null;
 		PreparedStatement pstmt = null;
+		ResultSet rs = null;
 		try {
 			con = ConnectionPage.connection();
 			String query = "select examid,feedback,feedbackdate from feedbackDetails where userid=? order by feedbackdate desc";
 			pstmt = con.prepareStatement(query);
 			pstmt.setInt(1, userid);
-			ResultSet rs = pstmt.executeQuery();
+			rs = pstmt.executeQuery();
 			while (rs.next()) {
 				FeedbackDetails fdp1 = new FeedbackDetails(rs.getInt("examid"), rs.getString("feedback"),
 						rs.getDate("feedbackdate"), username);
@@ -53,26 +60,35 @@ public class FeedbackDetailsDaoImpl implements FeedbackDetailsDao {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
-			if (pstmt != null) {
-				pstmt.close();
-			}
-			if (con != null) {
-				con.close();
+			try {
+				if (pstmt != null) {
+					pstmt.close();
+				}
+				if (con != null) {
+					con.close();
+				}
+				if (rs != null) {
+					rs.close();
+				}
+			} catch (SQLException e) {
+				e.printStackTrace();
 			}
 		}
 
 		return fdp;
 	}
 
-	public List<FeedbackDetails> showFeedbacksAdmin() throws SQLException {
+	@Override
+	public List<FeedbackDetails> showFeedbacksAdmin() {
 		List<FeedbackDetails> fdp = new ArrayList<>();
 		Connection con = null;
 		PreparedStatement pstmt = null;
+		ResultSet rs = null;
 		try {
 			con = ConnectionPage.connection();
 			String query = "select feedbackid,userid,examid,feedback,feedbackdate from feedbackDetails order by feedbackdate desc";
 			pstmt = con.prepareStatement(query);
-			ResultSet rs = pstmt.executeQuery();
+			rs = pstmt.executeQuery();
 			while (rs.next()) {
 				FeedbackDetails fdp1 = new FeedbackDetails(rs.getInt("feedbackid"), rs.getInt("userid"),
 						rs.getInt("examid"), rs.getString("feedback"), rs.getDate("feedbackdate"));
@@ -81,11 +97,18 @@ public class FeedbackDetailsDaoImpl implements FeedbackDetailsDao {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
-			if (pstmt != null) {
-				pstmt.close();
-			}
-			if (con != null) {
-				con.close();
+			try {
+				if (pstmt != null) {
+					pstmt.close();
+				}
+				if (con != null) {
+					con.close();
+				}
+				if (rs != null) {
+					rs.close();
+				}
+			} catch (SQLException e) {
+				e.printStackTrace();
 			}
 		}
 		return fdp;

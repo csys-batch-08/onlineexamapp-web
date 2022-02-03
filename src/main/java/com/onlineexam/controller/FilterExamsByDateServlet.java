@@ -1,10 +1,6 @@
 package com.onlineexam.controller;
 
 import java.io.IOException;
-import java.sql.SQLException;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.List;
 
 import javax.servlet.RequestDispatcher;
@@ -28,8 +24,6 @@ public class FilterExamsByDateServlet extends HttpServlet {
 			req.setAttribute("dates", sdp);
 			RequestDispatcher rd = req.getRequestDispatcher("filterExamsByDate.jsp");
 			rd.forward(req, resp);
-		} catch (SQLException e) {
-			e.printStackTrace();
 		} catch (ServletException e1) {
 			e1.printStackTrace();
 		} catch (IOException e2) {

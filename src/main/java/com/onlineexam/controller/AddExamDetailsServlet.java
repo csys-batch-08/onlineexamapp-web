@@ -2,7 +2,6 @@ package com.onlineexam.controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.sql.SQLException;
 import java.util.List;
 
 import javax.servlet.annotation.WebServlet;
@@ -33,7 +32,6 @@ public class AddExamDetailsServlet extends HttpServlet {
 			ExamDetails edpojo = ed.showExams();
 			int duration = edpojo.getDurationMinutes();
 			session.setAttribute("duration", duration);
-			ExamDetails epojo = new ExamDetails(examName, examType, difficultyLevel);
 			List<ExamDetails> edplist = ed.showExistExams(examName, examType, difficultyLevel);
 
 			if (edplist.isEmpty()) {
@@ -48,8 +46,6 @@ public class AddExamDetailsServlet extends HttpServlet {
 				throw new ExamAlreadyExistException();
 			}
 
-		} catch (SQLException e) {
-			e.printStackTrace();
 		} catch (IOException e1) {
 			e1.printStackTrace();
 		} catch (NumberFormatException e2) {

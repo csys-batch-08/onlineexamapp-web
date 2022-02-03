@@ -2,7 +2,6 @@ package com.onlineexam.controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.sql.SQLException;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -33,8 +32,6 @@ public class UpdateUserProfileServlet extends HttpServlet {
 			out.println("alert('Profile updated successfully');");
 			out.println("location='UserProfile';");
 			out.println("</script>");
-		} catch (SQLException e) {
-			e.printStackTrace();
 		} catch (IOException e1) {
 			e1.printStackTrace();
 		} catch (NumberFormatException e2) {

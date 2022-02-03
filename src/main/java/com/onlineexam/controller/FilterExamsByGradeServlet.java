@@ -1,7 +1,6 @@
 package com.onlineexam.controller;
 
 import java.io.IOException;
-import java.sql.SQLException;
 import java.util.List;
 
 import javax.servlet.RequestDispatcher;
@@ -25,8 +24,6 @@ public class FilterExamsByGradeServlet extends HttpServlet {
 			req.setAttribute("grades", sdp);
 			RequestDispatcher rd = req.getRequestDispatcher("filterExamsByGrade.jsp");
 			rd.forward(req, resp);
-		} catch (SQLException e) {
-			e.printStackTrace();
 		} catch (ServletException e1) {
 			e1.printStackTrace();
 		} catch (IOException e2) {

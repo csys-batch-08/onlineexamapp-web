@@ -2,15 +2,12 @@ package com.onlineexam.controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.sql.ResultSet;
-import java.sql.SQLException;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import com.onlineexam.exception.InvalidPhoneNumberException;
 import com.onlineexam.impl.RegisterDaoImpl;
@@ -49,7 +46,7 @@ public class PasswordChangeServlet extends HttpServlet {
 			out.println("alert('Entered phone number is invalid')");
 			out.println("location='userPasswordUpdate.jsp';");
 			out.println("</script>");
-		} catch (NumberFormatException | SQLException e) {
+		} catch (NumberFormatException e) {
 			e.printStackTrace();
 		} catch (IOException e1) {
 			e1.printStackTrace();

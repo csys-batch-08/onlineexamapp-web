@@ -1,8 +1,6 @@
 package com.onlineexam.controller;
 
 import java.io.IOException;
-import java.sql.SQLException;
-import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -22,13 +20,9 @@ public class UserProfileServlet extends HttpServlet {
 		HttpSession session = req.getSession();
 		int userid = (int) session.getAttribute("userid");
 		RegisterDaoImpl rdao = new RegisterDaoImpl();
-		try {
-			Register rpojo = rdao.userprofile(userid);
-			session.setAttribute("profile", rpojo);
-			RequestDispatcher rd = req.getRequestDispatcher("userProfile.jsp");
-			rd.forward(req, resp);
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
+		Register rpojo = rdao.userprofile(userid);
+		session.setAttribute("profile", rpojo);
+		RequestDispatcher rd = req.getRequestDispatcher("userProfile.jsp");
+		rd.forward(req, resp);
 	}
 }

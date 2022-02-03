@@ -1,7 +1,6 @@
 package com.onlineexam.controller;
 
 import java.io.IOException;
-import java.sql.SQLException;
 import java.util.List;
 
 import javax.servlet.RequestDispatcher;
@@ -25,8 +24,6 @@ public class FilterExamsByPOFServlet extends HttpServlet {
 			req.setAttribute("passfail", sdp);
 			RequestDispatcher rd = req.getRequestDispatcher("filterExamsByPOF.jsp");
 			rd.forward(req, resp);
-		} catch (SQLException e) {
-			e.printStackTrace();
 		} catch (ServletException e1) {
 			e1.printStackTrace();
 		} catch (IOException e2) {

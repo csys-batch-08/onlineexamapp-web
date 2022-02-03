@@ -2,7 +2,6 @@ package com.onlineexam.controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.sql.SQLException;
 
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -35,8 +34,6 @@ public class UpdateExamDetailsServlet extends HttpServlet {
 				session.setAttribute("updateExamResult", "Couldn't update exam");
 				res.sendRedirect("showExams.jsp");
 			}
-		} catch (SQLException e) {
-			e.printStackTrace();
 		} catch (IOException e1) {
 			e1.printStackTrace();
 		} catch (NumberFormatException e2) {

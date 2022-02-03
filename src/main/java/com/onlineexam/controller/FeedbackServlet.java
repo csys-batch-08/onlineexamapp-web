@@ -2,7 +2,6 @@ package com.onlineexam.controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.sql.SQLException;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -31,8 +30,10 @@ public class FeedbackServlet extends HttpServlet {
 			out.println("alert('Your feedback has been sent');");
 			out.println("location='userMain.jsp';");
 			out.println("</script>");
-		} catch (SQLException | IOException e) {
+		} catch (IOException e) {
 			e.printStackTrace();
+		} catch (NumberFormatException e1) {
+			e1.printStackTrace();
 		}
 	}
 }

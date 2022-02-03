@@ -9,9 +9,9 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
-import com.onlineexam.exception.*;
+import com.onlineexam.exception.EmailAlreadyExistException;
+import com.onlineexam.exception.PhoneNumberExistException;
 import com.onlineexam.impl.RegisterDaoImpl;
 import com.onlineexam.model.Register;
 
@@ -40,7 +40,7 @@ public class registerServlet extends HttpServlet {
 			}
 			rdao.fetchregister(rd);
 			res.sendRedirect("index.jsp");
-		} catch (ClassNotFoundException | SQLException e) {
+		} catch (SQLException e) {
 			e.printStackTrace();
 		} catch (IOException e1) {
 			e1.printStackTrace();

@@ -4,7 +4,6 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,7 +12,8 @@ import com.onlineexam.model.ExamDetails;
 import com.onlineexam.util.ConnectionPage;
 
 public class ExamDetailsDaoImpl implements ExamDetailsDao {
-	public int addExam(ExamDetails edp) throws SQLException {
+	@Override
+	public int addExam(ExamDetails edp) {
 		Connection con = null;
 		PreparedStatement pstmt = null;
 		String query = "insert into examDetails(examName,examType,difficultyLevel,durationMinutes) values(?,?,?,?)";
@@ -29,18 +29,23 @@ public class ExamDetailsDaoImpl implements ExamDetailsDao {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
-			if (pstmt != null) {
-				pstmt.close();
-			}
-			if (con != null) {
-				con.close();
+			try {
+				if (pstmt != null) {
+					pstmt.close();
+				}
+				if (con != null) {
+					con.close();
+				}
+			} catch (SQLException e) {
+				e.printStackTrace();
 			}
 		}
 		return i;
 
 	}
 
-	public boolean updateExam(ExamDetails edp) throws SQLException {
+	@Override
+	public boolean updateExam(ExamDetails edp) {
 		Connection con = null;
 		PreparedStatement pstmt = null;
 		boolean flag = false;
@@ -61,17 +66,22 @@ public class ExamDetailsDaoImpl implements ExamDetailsDao {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
-			if (pstmt != null) {
-				pstmt.close();
-			}
-			if (con != null) {
-				con.close();
+			try {
+				if (pstmt != null) {
+					pstmt.close();
+				}
+				if (con != null) {
+					con.close();
+				}
+			} catch (SQLException e) {
+				e.printStackTrace();
 			}
 		}
 		return flag;
 	}
 
-	public boolean deleteExam(ExamDetails edp) throws SQLException {
+	@Override
+	public boolean deleteExam(ExamDetails edp) {
 		Connection con = null;
 		PreparedStatement pstmt = null;
 		boolean flag = false;
@@ -90,17 +100,22 @@ public class ExamDetailsDaoImpl implements ExamDetailsDao {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
-			if (pstmt != null) {
-				pstmt.close();
-			}
-			if (con != null) {
-				con.close();
+			try {
+				if (pstmt != null) {
+					pstmt.close();
+				}
+				if (con != null) {
+					con.close();
+				}
+			} catch (SQLException e) {
+				e.printStackTrace();
 			}
 		}
 		return flag;
 	}
 
-	public ExamDetails showExams() throws SQLException {
+	@Override
+	public ExamDetails showExams() {
 		Connection con = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
@@ -117,20 +132,25 @@ public class ExamDetailsDaoImpl implements ExamDetailsDao {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
-			if (pstmt != null) {
-				pstmt.close();
-			}
-			if (con != null) {
-				con.close();
-			}
-			if (rs != null) {
-				rs.close();
+			try {
+				if (pstmt != null) {
+					pstmt.close();
+				}
+				if (con != null) {
+					con.close();
+				}
+				if (rs != null) {
+					rs.close();
+				}
+			} catch (SQLException e) {
+				e.printStackTrace();
 			}
 		}
 		return edpojo;
 	}
 
-	public List<ExamDetails> showAllExams() throws SQLException {
+	@Override
+	public List<ExamDetails> showAllExams() {
 		List<ExamDetails> edp = new ArrayList<>();
 		Connection con = null;
 		PreparedStatement pstmt = null;
@@ -148,20 +168,25 @@ public class ExamDetailsDaoImpl implements ExamDetailsDao {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
-			if (pstmt != null) {
-				pstmt.close();
-			}
-			if (con != null) {
-				con.close();
-			}
-			if (rs != null) {
-				rs.close();
+			try {
+				if (pstmt != null) {
+					pstmt.close();
+				}
+				if (con != null) {
+					con.close();
+				}
+				if (rs != null) {
+					rs.close();
+				}
+			} catch (SQLException e) {
+				e.printStackTrace();
 			}
 		}
 		return edp;
 	}
 
-	public List<ExamDetails> showExamsEasy() throws SQLException {
+	@Override
+	public List<ExamDetails> showExamsEasy() {
 		List<ExamDetails> edp = new ArrayList<>();
 		PreparedStatement pstmt = null;
 		Connection con = null;
@@ -179,20 +204,25 @@ public class ExamDetailsDaoImpl implements ExamDetailsDao {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
-			if (pstmt != null) {
-				pstmt.close();
-			}
-			if (con != null) {
-				con.close();
-			}
-			if (rs != null) {
-				rs.close();
+			try {
+				if (pstmt != null) {
+					pstmt.close();
+				}
+				if (con != null) {
+					con.close();
+				}
+				if (rs != null) {
+					rs.close();
+				}
+			} catch (SQLException e) {
+				e.printStackTrace();
 			}
 		}
 		return edp;
 	}
 
-	public List<ExamDetails> showExamsHard() throws SQLException {
+	@Override
+	public List<ExamDetails> showExamsHard() {
 		List<ExamDetails> edp = new ArrayList<>();
 		PreparedStatement pstmt = null;
 		Connection con = null;
@@ -210,21 +240,24 @@ public class ExamDetailsDaoImpl implements ExamDetailsDao {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
-			if (pstmt != null) {
-				pstmt.close();
-			}
-			if (con != null) {
-				con.close();
-			}
-			if (rs != null) {
-				rs.close();
+			try {
+				if (pstmt != null) {
+					pstmt.close();
+				}
+				if (con != null) {
+					con.close();
+				}
+				if (rs != null) {
+					rs.close();
+				}
+			} catch (SQLException e) {
+				e.printStackTrace();
 			}
 		}
 		return edp;
 	}
 
-	public List<ExamDetails> showExistExams(String examName, String examType, String difficultyLevel)
-			throws SQLException {
+	public List<ExamDetails> showExistExams(String examName, String examType, String difficultyLevel) {
 		List<ExamDetails> edp = new ArrayList<>();
 		PreparedStatement pstmt = null;
 		Connection con = null;
@@ -245,14 +278,18 @@ public class ExamDetailsDaoImpl implements ExamDetailsDao {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
-			if (pstmt != null) {
-				pstmt.close();
-			}
-			if (con != null) {
-				con.close();
-			}
-			if (rs != null) {
-				rs.close();
+			try {
+				if (pstmt != null) {
+					pstmt.close();
+				}
+				if (con != null) {
+					con.close();
+				}
+				if (rs != null) {
+					rs.close();
+				}
+			} catch (SQLException e) {
+				e.printStackTrace();
 			}
 		}
 		return edp;

@@ -1,7 +1,6 @@
 package com.onlineexam.controller;
 
 import java.io.IOException;
-import java.sql.SQLException;
 import java.util.List;
 
 import javax.servlet.RequestDispatcher;
@@ -20,13 +19,9 @@ public class ShowExamsServlet extends HttpServlet {
 	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		ExamDetailsDaoImpl edd = new ExamDetailsDaoImpl();
 		List<ExamDetails> edp;
-		try {
-			edp = edd.showAllExams();
-			req.setAttribute("exams", edp);
-			RequestDispatcher rd = req.getRequestDispatcher("showExams.jsp");
-			rd.forward(req, resp);
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
+		edp = edd.showAllExams();
+		req.setAttribute("exams", edp);
+		RequestDispatcher rd = req.getRequestDispatcher("showExams.jsp");
+		rd.forward(req, resp);
 	}
 }

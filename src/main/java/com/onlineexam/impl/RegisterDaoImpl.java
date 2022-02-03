@@ -1,19 +1,19 @@
 package com.onlineexam.impl;
 
-import com.onlineexam.dao.*;
-import com.onlineexam.model.Register;
-import com.onlineexam.util.ConnectionPage;
-
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.onlineexam.dao.RegisterDao;
+import com.onlineexam.model.Register;
+import com.onlineexam.util.ConnectionPage;
+
 public class RegisterDaoImpl implements RegisterDao {
-	public void fetchregister(Register rd) throws ClassNotFoundException, SQLException {
+	@Override
+	public void fetchregister(Register rd) {
 		Connection con = null;
 		PreparedStatement pstmt = null;
 		try {
@@ -27,17 +27,24 @@ public class RegisterDaoImpl implements RegisterDao {
 			pstmt.setString(5, rd.getConfirm_password());
 			pstmt.setLong(6, rd.getPhone_number());
 			pstmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
 		} finally {
-			if (pstmt != null) {
-				pstmt.close();
-			}
-			if (con != null) {
-				con.close();
+			try {
+				if (pstmt != null) {
+					pstmt.close();
+				}
+				if (con != null) {
+					con.close();
+				}
+			} catch (SQLException e) {
+				e.printStackTrace();
 			}
 		}
 	}
 
-	public boolean changepassword(Register rp) throws SQLException {
+	@Override
+	public boolean changepassword(Register rp) {
 		Connection con = null;
 		PreparedStatement pstmt = null;
 		boolean flag = false;
@@ -56,18 +63,25 @@ public class RegisterDaoImpl implements RegisterDao {
 				flag = false;
 			}
 
+		} catch (SQLException e) {
+			e.printStackTrace();
 		} finally {
-			if (pstmt != null) {
-				pstmt.close();
-			}
-			if (con != null) {
-				con.close();
+			try {
+				if (pstmt != null) {
+					pstmt.close();
+				}
+				if (con != null) {
+					con.close();
+				}
+			} catch (SQLException e) {
+				e.printStackTrace();
 			}
 		}
 		return flag;
 	}
 
-	public ResultSet getEmailDetails(Register rp) throws SQLException {
+	@Override
+	public ResultSet getEmailDetails(Register rp) {
 		Connection con = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
@@ -77,21 +91,28 @@ public class RegisterDaoImpl implements RegisterDao {
 			pstmt = con.prepareStatement(query);
 			pstmt.setString(1, rp.getEmail());
 			rs = pstmt.executeQuery();
+		} catch (SQLException e) {
+			e.printStackTrace();
 		} finally {
-			if (pstmt != null) {
-				pstmt.close();
-			}
-			if (con != null) {
-				con.close();
-			}
-			if (rs != null) {
-				rs.close();
+			try {
+				if (pstmt != null) {
+					pstmt.close();
+				}
+				if (con != null) {
+					con.close();
+				}
+				if (rs != null) {
+					rs.close();
+				}
+			} catch (SQLException e) {
+				e.printStackTrace();
 			}
 		}
 		return rs;
 	}
 
-	public ResultSet getPhoneDetails(Register rp) throws SQLException {
+	@Override
+	public ResultSet getPhoneDetails(Register rp) {
 		Connection con = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
@@ -101,21 +122,28 @@ public class RegisterDaoImpl implements RegisterDao {
 			pstmt = con.prepareStatement(query);
 			pstmt.setLong(1, rp.getPhone_number());
 			rs = pstmt.executeQuery();
+		} catch (SQLException e) {
+			e.printStackTrace();
 		} finally {
-			if (pstmt != null) {
-				pstmt.close();
-			}
-			if (con != null) {
-				con.close();
-			}
-			if (rs != null) {
-				rs.close();
+			try {
+				if (pstmt != null) {
+					pstmt.close();
+				}
+				if (con != null) {
+					con.close();
+				}
+				if (rs != null) {
+					rs.close();
+				}
+			} catch (SQLException e) {
+				e.printStackTrace();
 			}
 		}
 		return rs;
 	}
 
-	public void updatestatus(Register rp) throws SQLException {
+	@Override
+	public void updatestatus(Register rp) {
 		Connection con = null;
 		PreparedStatement pstmt = null;
 		try {
@@ -124,17 +152,24 @@ public class RegisterDaoImpl implements RegisterDao {
 			pstmt = con.prepareStatement(query);
 			pstmt.setInt(1, rp.getUserid());
 			pstmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
 		} finally {
-			if (pstmt != null) {
-				pstmt.close();
-			}
-			if (con != null) {
-				con.close();
+			try {
+				if (pstmt != null) {
+					pstmt.close();
+				}
+				if (con != null) {
+					con.close();
+				}
+			} catch (SQLException e) {
+				e.printStackTrace();
 			}
 		}
 	}
 
-	public void makeactive(Register rp) throws SQLException {
+	@Override
+	public void makeactive(Register rp) {
 		Connection con = null;
 		PreparedStatement pstmt = null;
 		try {
@@ -143,17 +178,24 @@ public class RegisterDaoImpl implements RegisterDao {
 			pstmt = con.prepareStatement(query);
 			pstmt.setInt(1, rp.getUserid());
 			pstmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
 		} finally {
-			if (pstmt != null) {
-				pstmt.close();
-			}
-			if (con != null) {
-				con.close();
+			try {
+				if (pstmt != null) {
+					pstmt.close();
+				}
+				if (con != null) {
+					con.close();
+				}
+			} catch (SQLException e) {
+				e.printStackTrace();
 			}
 		}
 	}
 
-	public void changephoto(Register rp) throws SQLException {
+	@Override
+	public void changephoto(Register rp) {
 		Connection con = null;
 		PreparedStatement pstmt = null;
 		try {
@@ -163,17 +205,24 @@ public class RegisterDaoImpl implements RegisterDao {
 			pstmt.setString(1, rp.getPhoto());
 			pstmt.setInt(2, rp.getUserid());
 			pstmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
 		} finally {
-			if (pstmt != null) {
-				pstmt.close();
-			}
-			if (con != null) {
-				con.close();
+			try {
+				if (pstmt != null) {
+					pstmt.close();
+				}
+				if (con != null) {
+					con.close();
+				}
+			} catch (SQLException e) {
+				e.printStackTrace();
 			}
 		}
 	}
 
-	public void editprofile(Register rp) throws SQLException {
+	@Override
+	public void editprofile(Register rp) {
 		Connection con = null;
 		PreparedStatement pstmt = null;
 		try {
@@ -186,17 +235,24 @@ public class RegisterDaoImpl implements RegisterDao {
 			pstmt.setLong(4, rp.getPhone_number());
 			pstmt.setInt(5, rp.getUserid());
 			pstmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
 		} finally {
-			if (pstmt != null) {
-				pstmt.close();
-			}
-			if (con != null) {
-				con.close();
+			try {
+				if (pstmt != null) {
+					pstmt.close();
+				}
+				if (con != null) {
+					con.close();
+				}
+			} catch (SQLException e) {
+				e.printStackTrace();
 			}
 		}
 	}
 
-	public void userrequest(Register rp) throws SQLException {
+	@Override
+	public void userrequest(Register rp) {
 		Connection con = null;
 		PreparedStatement pstmt = null;
 		try {
@@ -206,17 +262,24 @@ public class RegisterDaoImpl implements RegisterDao {
 			pstmt.setString(1, rp.getReason());
 			pstmt.setString(2, rp.getEmail());
 			pstmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
 		} finally {
-			if (pstmt != null) {
-				pstmt.close();
-			}
-			if (con != null) {
-				con.close();
+			try {
+				if (pstmt != null) {
+					pstmt.close();
+				}
+				if (con != null) {
+					con.close();
+				}
+			} catch (SQLException e) {
+				e.printStackTrace();
 			}
 		}
 	}
 
-	public void updatelastdate(Register rp) throws SQLException {
+	@Override
+	public void updatelastdate(Register rp) {
 		Connection con = null;
 		PreparedStatement pstmt = null;
 		try {
@@ -226,17 +289,24 @@ public class RegisterDaoImpl implements RegisterDao {
 			pstmt.setInt(1, rp.getUserid());
 			pstmt.setInt(2, rp.getUserid());
 			pstmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
 		} finally {
-			if (pstmt != null) {
-				pstmt.close();
-			}
-			if (con != null) {
-				con.close();
+			try {
+				if (pstmt != null) {
+					pstmt.close();
+				}
+				if (con != null) {
+					con.close();
+				}
+			} catch (SQLException e) {
+				e.printStackTrace();
 			}
 		}
 	}
 
-	public void updateactivedate(Register rp) throws SQLException {
+	@Override
+	public void updateactivedate(Register rp) {
 		Connection con = null;
 		PreparedStatement pstmt = null;
 		try {
@@ -245,17 +315,24 @@ public class RegisterDaoImpl implements RegisterDao {
 			pstmt = con.prepareStatement(query);
 			pstmt.setInt(1, rp.getUserid());
 			pstmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
 		} finally {
-			if (pstmt != null) {
-				pstmt.close();
-			}
-			if (con != null) {
-				con.close();
+			try {
+				if (pstmt != null) {
+					pstmt.close();
+				}
+				if (con != null) {
+					con.close();
+				}
+			} catch (SQLException e) {
+				e.printStackTrace();
 			}
 		}
 	}
 
-	public List<Register> showUsers() throws SQLException {
+	@Override
+	public List<Register> showUsers() {
 		List<Register> rp = new ArrayList<>();
 		PreparedStatement pstmt = null;
 		Connection con = null;
@@ -266,26 +343,32 @@ public class RegisterDaoImpl implements RegisterDao {
 			pstmt = con.prepareStatement(query);
 			rs = pstmt.executeQuery();
 			while (rs.next()) {
-				Register rpojo = new Register(rs.getInt("id"), rs.getString("first_name"),
-						rs.getString("last_name"), rs.getString("email"), rs.getLong("phone_number"),
-						rs.getDate("lastactivedate"));
+				Register rpojo = new Register(rs.getInt("id"), rs.getString("first_name"), rs.getString("last_name"),
+						rs.getString("email"), rs.getLong("phone_number"), rs.getDate("lastactivedate"));
 				rp.add(rpojo);
 			}
+		} catch (SQLException e) {
+			e.printStackTrace();
 		} finally {
-			if (pstmt != null) {
-				pstmt.close();
-			}
-			if (con != null) {
-				con.close();
-			}
-			if (rs != null) {
-				rs.close();
+			try {
+				if (pstmt != null) {
+					pstmt.close();
+				}
+				if (con != null) {
+					con.close();
+				}
+				if (rs != null) {
+					rs.close();
+				}
+			} catch (SQLException e) {
+				e.printStackTrace();
 			}
 		}
 		return rp;
 	}
 
-	public List<Register> showInactiveUsers() throws SQLException {
+	@Override
+	public List<Register> showInactiveUsers() {
 		List<Register> rp = new ArrayList<>();
 		Connection con = null;
 		String query = "select id,first_name,last_name,email,phone_number,reason from registerPage where role='inactive'";
@@ -296,26 +379,32 @@ public class RegisterDaoImpl implements RegisterDao {
 			pstmt = con.prepareStatement(query);
 			rs = pstmt.executeQuery();
 			while (rs.next()) {
-				Register rpojo = new Register(rs.getInt("id"), rs.getString("first_name"),
-						rs.getString("last_name"), rs.getString("email"), rs.getLong("phone_number"),
-						rs.getString("reason"));
+				Register rpojo = new Register(rs.getInt("id"), rs.getString("first_name"), rs.getString("last_name"),
+						rs.getString("email"), rs.getLong("phone_number"), rs.getString("reason"));
 				rp.add(rpojo);
 			}
+		} catch (SQLException e) {
+			e.printStackTrace();
 		} finally {
-			if (pstmt != null) {
-				pstmt.close();
-			}
-			if (con != null) {
-				con.close();
-			}
-			if (rs != null) {
-				rs.close();
+			try {
+				if (pstmt != null) {
+					pstmt.close();
+				}
+				if (con != null) {
+					con.close();
+				}
+				if (rs != null) {
+					rs.close();
+				}
+			} catch (SQLException e) {
+				e.printStackTrace();
 			}
 		}
 		return rp;
 	}
 
-	public ResultSet fetchlogin(Register rp) throws SQLException, ClassNotFoundException {
+	@Override
+	public ResultSet fetchlogin(Register rp) {
 		PreparedStatement pstmt = null;
 		Connection con = null;
 		ResultSet rs = null;
@@ -326,22 +415,29 @@ public class RegisterDaoImpl implements RegisterDao {
 			pstmt.setString(1, rp.getEmail());
 			pstmt.setString(2, rp.getPassword());
 			rs = pstmt.executeQuery();
+		} catch (SQLException e) {
+			e.printStackTrace();
 		} finally {
-			if (pstmt != null) {
-				pstmt.close();
-			}
-			if (con != null) {
-				con.close();
-			}
-			if (rs != null) {
-				rs.close();
+			try {
+				if (pstmt != null) {
+					pstmt.close();
+				}
+				if (con != null) {
+					con.close();
+				}
+				if (rs != null) {
+					rs.close();
+				}
+			} catch (SQLException e) {
+				e.printStackTrace();
 			}
 		}
 		return rs;
 
 	}
 
-	public Register validUser(String email, String password) throws ClassNotFoundException, SQLException {
+	@Override
+	public Register validUser(String email, String password) {
 		Connection con = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
@@ -360,20 +456,25 @@ public class RegisterDaoImpl implements RegisterDao {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
-			if (pstmt != null) {
-				pstmt.close();
-			}
-			if (con != null) {
-				con.close();
-			}
-			if (rs != null) {
-				rs.close();
+			try {
+				if (pstmt != null) {
+					pstmt.close();
+				}
+				if (con != null) {
+					con.close();
+				}
+				if (rs != null) {
+					rs.close();
+				}
+			} catch (SQLException e) {
+				e.printStackTrace();
 			}
 		}
 		return rpojo;
 	}
 
-	public Register userprofile(int userid) throws SQLException {
+	@Override
+	public Register userprofile(int userid) {
 		Register rpp = null;
 		Connection con = null;
 		PreparedStatement pstmt = null;
@@ -391,17 +492,20 @@ public class RegisterDaoImpl implements RegisterDao {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
-			if (pstmt != null) {
-				pstmt.close();
-			}
-			if (con != null) {
-				con.close();
-			}
-			if (rs != null) {
-				rs.close();
+			try {
+				if (pstmt != null) {
+					pstmt.close();
+				}
+				if (con != null) {
+					con.close();
+				}
+				if (rs != null) {
+					rs.close();
+				}
+			} catch (SQLException e) {
+				e.printStackTrace();
 			}
 		}
-
 		return rpp;
 	}
 }

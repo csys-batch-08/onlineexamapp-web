@@ -1,20 +1,19 @@
 package com.onlineexam.impl;
 
 import java.sql.Connection;
-import java.util.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.onlineexam.dao.*;
+import com.onlineexam.dao.ScoreDetailsDao;
 import com.onlineexam.model.ScoreDetails;
 import com.onlineexam.util.ConnectionPage;
 
 public class ScoreDetailsDaoImpl implements ScoreDetailsDao {
-	public void insertScore(ScoreDetails sd) throws SQLException {
+	@Override
+	public void insertScore(ScoreDetails sd) {
 		Connection con = null;
 		PreparedStatement pstmt = null;
 		try {
@@ -28,17 +27,24 @@ public class ScoreDetailsDaoImpl implements ScoreDetailsDao {
 			pstmt.setString(5, sd.getPassOrFail());
 			pstmt.setString(6, sd.getGrade());
 			pstmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
 		} finally {
-			if (pstmt != null) {
-				pstmt.close();
-			}
-			if (con != null) {
-				con.close();
+			try {
+				if (pstmt != null) {
+					pstmt.close();
+				}
+				if (con != null) {
+					con.close();
+				}
+			} catch (SQLException e) {
+				e.printStackTrace();
 			}
 		}
 	}
 
-	public List<ScoreDetails> viewScore(int studentId) throws SQLException {
+	@Override
+	public List<ScoreDetails> viewScore(int studentId) {
 		List<ScoreDetails> sdp = new ArrayList<>();
 		Connection con = null;
 		PreparedStatement pstmt = null;
@@ -55,21 +61,28 @@ public class ScoreDetailsDaoImpl implements ScoreDetailsDao {
 						rs.getTimestamp("examdate").toLocalDateTime());
 				sdp.add(sdpp);
 			}
+		} catch (SQLException e) {
+			e.printStackTrace();
 		} finally {
-			if (pstmt != null) {
-				pstmt.close();
-			}
-			if (con != null) {
-				con.close();
-			}
-			if (rs != null) {
-				rs.close();
+			try {
+				if (pstmt != null) {
+					pstmt.close();
+				}
+				if (con != null) {
+					con.close();
+				}
+				if (rs != null) {
+					rs.close();
+				}
+			} catch (SQLException e) {
+				e.printStackTrace();
 			}
 		}
 		return sdp;
 	}
 
-	public List<ScoreDetails> filterbydate(String date) throws SQLException {
+	@Override
+	public List<ScoreDetails> filterbydate(String date) {
 		List<ScoreDetails> sdp = new ArrayList<>();
 		Connection con = null;
 		PreparedStatement pstmt = null;
@@ -86,22 +99,29 @@ public class ScoreDetailsDaoImpl implements ScoreDetailsDao {
 						rs.getTimestamp("examdate").toLocalDateTime());
 				sdp.add(sdpp);
 			}
+		} catch (SQLException e) {
+			e.printStackTrace();
 		} finally {
-			if (pstmt != null) {
-				pstmt.close();
-			}
-			if (con != null) {
-				con.close();
-			}
-			if (rs != null) {
-				rs.close();
+			try {
+				if (pstmt != null) {
+					pstmt.close();
+				}
+				if (con != null) {
+					con.close();
+				}
+				if (rs != null) {
+					rs.close();
+				}
+			} catch (SQLException e) {
+				e.printStackTrace();
 			}
 		}
 		return sdp;
 
 	}
 
-	public List<ScoreDetails> filterbyPOF(String pof) throws SQLException {
+	@Override
+	public List<ScoreDetails> filterbyPOF(String pof) {
 		List<ScoreDetails> sdp = new ArrayList<>();
 		Connection con = null;
 		PreparedStatement pstmt = null;
@@ -118,21 +138,28 @@ public class ScoreDetailsDaoImpl implements ScoreDetailsDao {
 						rs.getTimestamp("examdate").toLocalDateTime());
 				sdp.add(sdpp);
 			}
+		} catch (SQLException e) {
+			e.printStackTrace();
 		} finally {
-			if (pstmt != null) {
-				pstmt.close();
-			}
-			if (con != null) {
-				con.close();
-			}
-			if (rs != null) {
-				rs.close();
+			try {
+				if (pstmt != null) {
+					pstmt.close();
+				}
+				if (con != null) {
+					con.close();
+				}
+				if (rs != null) {
+					rs.close();
+				}
+			} catch (SQLException e) {
+				e.printStackTrace();
 			}
 		}
 		return sdp;
 	}
 
-	public List<ScoreDetails> filterbygrade(String grade) throws SQLException {
+	@Override
+	public List<ScoreDetails> filterbygrade(String grade) {
 		List<ScoreDetails> sdp = new ArrayList<>();
 		Connection con = null;
 		PreparedStatement pstmt = null;
@@ -149,21 +176,28 @@ public class ScoreDetailsDaoImpl implements ScoreDetailsDao {
 						rs.getTimestamp("examdate").toLocalDateTime());
 				sdp.add(sdpp);
 			}
+		} catch (SQLException e) {
+			e.printStackTrace();
 		} finally {
-			if (pstmt != null) {
-				pstmt.close();
-			}
-			if (con != null) {
-				con.close();
-			}
-			if (rs != null) {
-				rs.close();
+			try {
+				if (pstmt != null) {
+					pstmt.close();
+				}
+				if (con != null) {
+					con.close();
+				}
+				if (rs != null) {
+					rs.close();
+				}
+			} catch (SQLException e) {
+				e.printStackTrace();
 			}
 		}
 		return sdp;
 	}
 
-	public List<ScoreDetails> viewAllScore() throws SQLException {
+	@Override
+	public List<ScoreDetails> viewAllScore() {
 		List<ScoreDetails> sdp = new ArrayList<>();
 		Connection con = null;
 		PreparedStatement pstmt = null;
@@ -182,14 +216,18 @@ public class ScoreDetailsDaoImpl implements ScoreDetailsDao {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
-			if (pstmt != null) {
-				pstmt.close();
-			}
-			if (con != null) {
-				con.close();
-			}
-			if (rs != null) {
-				rs.close();
+			try {
+				if (pstmt != null) {
+					pstmt.close();
+				}
+				if (con != null) {
+					con.close();
+				}
+				if (rs != null) {
+					rs.close();
+				}
+			} catch (SQLException e) {
+				e.printStackTrace();
 			}
 		}
 		return sdp;

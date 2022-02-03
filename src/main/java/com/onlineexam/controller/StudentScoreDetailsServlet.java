@@ -1,7 +1,6 @@
 package com.onlineexam.controller;
 
 import java.io.IOException;
-import java.sql.SQLException;
 import java.util.List;
 
 import javax.servlet.RequestDispatcher;
@@ -22,13 +21,9 @@ public class StudentScoreDetailsServlet extends HttpServlet {
 		HttpSession session = req.getSession();
 		int userid = (int) session.getAttribute("userid");
 		ScoreDetailsDaoImpl sdd = new ScoreDetailsDaoImpl();
-		try {
-			List<ScoreDetails> sdp = sdd.viewScore(userid);
-			req.setAttribute("scorelist", sdp);
-			RequestDispatcher rd = req.getRequestDispatcher("studentScoreDetails.jsp");
-			rd.forward(req, resp);
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
+		List<ScoreDetails> sdp = sdd.viewScore(userid);
+		req.setAttribute("scorelist", sdp);
+		RequestDispatcher rd = req.getRequestDispatcher("studentScoreDetails.jsp");
+		rd.forward(req, resp);
 	}
 }

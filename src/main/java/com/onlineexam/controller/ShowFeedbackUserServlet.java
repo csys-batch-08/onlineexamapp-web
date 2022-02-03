@@ -1,8 +1,6 @@
 package com.onlineexam.controller;
 
 import java.io.IOException;
-import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.RequestDispatcher;
@@ -25,14 +23,10 @@ public class ShowFeedbackUserServlet extends HttpServlet {
 		FeedbackDetailsDaoImpl fdd = new FeedbackDetailsDaoImpl();
 		FeedbackDetails fdpp = new FeedbackDetails();
 		String username = (String) session.getAttribute("username");
-		try {
-			fdpp.setUsername(username);
-			List<FeedbackDetails> fdp = fdd.showFeedbacks(userid, username);
-			req.setAttribute("feedback", fdp);
-			RequestDispatcher rd = req.getRequestDispatcher("showFeedback.jsp");
-			rd.forward(req, resp);
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
+		fdpp.setUsername(username);
+		List<FeedbackDetails> fdp = fdd.showFeedbacks(userid, username);
+		req.setAttribute("feedback", fdp);
+		RequestDispatcher rd = req.getRequestDispatcher("showFeedback.jsp");
+		rd.forward(req, resp);
 	}
 }
