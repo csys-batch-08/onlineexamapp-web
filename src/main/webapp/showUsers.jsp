@@ -63,16 +63,16 @@ body{
             <th>Status</th>
         </tr>
         <c:forEach items="${users}" var="active">
-        <fmt:parseDate pattern="yyyy-MM-dd" value="${active.lastActiveDate}"
-				var="parsedActiveDate" />
             <tr>
             	<td>${count}</td>
                 <td>${active.userid}</td>
-                <td>${active.first_name}</td>
-                <td>${active.last_name}</td>
+                <td>${active.firstName}</td>
+                <td>${active.lastName}</td>
                 <td>${active.email}</td>
-                <td>${active.phone_number}</td>
-                <td><fmt:formatDate pattern="dd-MM-yyyy" value="${parsedActiveDate}" /></td>
+                <td>${active.phoneNumber}</td>
+         <td><fmt:parseDate value="${active.lastActiveDate}"
+							pattern="yyyy-MM-dd'T'HH:mm" var="parsedExamDate" type="both" /> <fmt:formatDate
+							pattern="dd-MM-yyyy HH:mm" value="${parsedExamDate}" /></td>
                 <form action="userstatus?userid=${active.userid}" method="post">
                 <td><center><button type="submit" class="button examButton" onclick="makeinactive()">Make Inactive</button></center></td></form>
             </tr>

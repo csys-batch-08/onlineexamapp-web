@@ -2,8 +2,6 @@ package com.onlineexam.controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.sql.ResultSet;
-import java.sql.SQLException;
 
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -30,18 +28,21 @@ public class registerServlet extends HttpServlet {
 			Long phonenumber = Long.parseLong(req.getParameter("phone_number"));
 			Register rd = new Register(firstName, lastName, email, password, confirmpassword, phonenumber);
 			RegisterDaoImpl rdao = new RegisterDaoImpl();
-			ResultSet rs = rdao.getEmailDetails(rd);
-			ResultSet rs1 = rdao.getPhoneDetails(rd);
-			if (rs.next() && email.equals(rs.getString(4))) {
+			Register rs = rdao.getEmailDetails(rd);
+			Register rs1 = rdao.getPhoneDetails(rd);
+			if (rs != null && email.equals(rs.getEmail())) {
 				throw new EmailAlreadyExistException();
 			}
-			if (rs1.next() && phonenumber == (rs1.getLong(7))) {
+			if (rs1 != null && phonenumber == (rs1.getPhoneNumber())) {
 				throw new PhoneNumberExistException();
 			}
-			rdao.fetchregister(rd);
-			res.sendRedirect("index.jsp");
-		} catch (SQLException e) {
-			e.printStackTrace();
+			int i = rdao.fetchregister(rd);
+			if (i > 0) {
+				out.println("<script type=\"text/javascript\">");
+				out.println("alert('You have registered successfully');");
+				out.println("location='index.jsp';");
+				out.println("</script>");
+			}
 		} catch (IOException e1) {
 			e1.printStackTrace();
 		} catch (NumberFormatException e2) {

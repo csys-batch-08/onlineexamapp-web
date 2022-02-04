@@ -93,8 +93,6 @@ background-color: #008CBA;
             <th>Exam Date</th>
         </tr>
         <c:forEach items="${allscores}" var="score">
-        <fmt:parseDate pattern="yyyy-MM-dd" value="${score.examdate}"
-				var="parsedExamDate"/>
             <tr>
             	<td>${count}</td>
                 <td>${score.studentId}</td>
@@ -103,7 +101,9 @@ background-color: #008CBA;
                 <td>${score.score}</td>
                 <td>${score.passOrFail}</td>
                 <td>${score.grade}</td>
-                <td><fmt:formatDate pattern="dd-MM-yyyy" value="${parsedExamDate}" /></td>
+                <td><fmt:parseDate value="${score.examdate}"
+							pattern="yyyy-MM-dd'T'HH:mm" var="parsedExamDate" type="both" /> <fmt:formatDate
+							pattern="dd-MM-yyyy HH:mm" value="${parsedExamDate}" /></td>
             </tr>
             <c:set var="count" value="${count+1}" />
         </c:forEach>

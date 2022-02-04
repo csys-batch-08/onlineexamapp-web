@@ -106,8 +106,6 @@ margin-left:630px;
             <th>Exam Date</th>
         </tr>
         <c:forEach items="${grades}" var="grade">
-        <fmt:parseDate pattern="yyyy-MM-dd" value="${grade.examdate}"
-				var="parsedExamDate" />
             <tr>
             	<td>${count}</td>
                 <td>${grade.studentId}</td>
@@ -116,7 +114,9 @@ margin-left:630px;
                 <td>${grade.score}</td>
                 <td>${grade.passOrFail}</td>
                 <td>${grade.grade}</td>
-                <td><fmt:formatDate pattern="dd-MM-yyyy" value="${parsedExamDate}" /></td>
+                <td><fmt:parseDate value="${grade.examdate}"
+							pattern="yyyy-MM-dd'T'HH:mm" var="parsedExamDate" type="both" /> <fmt:formatDate
+							pattern="dd-MM-yyyy HH:mm" value="${parsedExamDate}" /></td>
             </tr>
             <c:set var="count" value="${count+1}" />
         </c:forEach>

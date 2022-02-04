@@ -16,9 +16,9 @@ import com.onlineexam.model.Register;
 @WebServlet("/editprofile")
 public class UpdateUserProfileServlet extends HttpServlet {
 	@Override
-	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException {
+	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException {
 		try {
-			PrintWriter out = resp.getWriter();
+			PrintWriter write = resp.getWriter();
 			HttpSession session = req.getSession();
 			int userid = (int) session.getAttribute("userid");
 			String firstname = req.getParameter("firstname");
@@ -27,11 +27,10 @@ public class UpdateUserProfileServlet extends HttpServlet {
 			Long phone = Long.parseLong(req.getParameter("phone"));
 			Register rp = new Register(userid, firstname, lastname, email, phone);
 			RegisterDaoImpl rd = new RegisterDaoImpl();
-			rd.editprofile(rp);
-			out.println("<script type=\"text/javascript\">");
-			out.println("alert('Profile updated successfully');");
-			out.println("location='UserProfile';");
-			out.println("</script>");
+			int i = rd.editprofile(rp);
+			if (i > 0) {
+				write.print("Profile updated successfully!");
+			}
 		} catch (IOException e1) {
 			e1.printStackTrace();
 		} catch (NumberFormatException e2) {

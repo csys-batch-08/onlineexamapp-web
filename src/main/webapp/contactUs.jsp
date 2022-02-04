@@ -26,8 +26,10 @@ body{
         text-align: center;
         position: absolute;
         top: 150px;
-        left: 550px;
+        left: 520px;
         padding: 35px;
+        width:20%;
+        height:45%;
         background-color:whitesmoke;
         /* border: 5px solid rgb(144, 138, 138); */
         border-radius: 30px;
@@ -61,6 +63,51 @@ background-color: #008CBA;
 	background-color:white;
 	font-color:black;
 }
+textarea{
+width:270px;
+height:150px;
+}
+#snackbar {
+  visibility: hidden;
+  min-width: 250px;
+  margin-left: -125px;
+  background-color: green;
+  color: white;
+  text-align: center;
+  border-radius: 2px;
+  padding: 16px;
+  position: fixed;
+  z-index: 1;
+  left: 50%;
+  top: 30px;
+  font-size: 17px;
+}
+
+#snackbar.show {
+  visibility: visible;
+  -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+  animation: fadein 0.5s, fadeout 0.5s 2.5s;
+}
+
+@-webkit-keyframes fadein {
+  from {top: 0; opacity: 0;} 
+  to {top: 30px; opacity: 1;}
+}
+
+@keyframes fadein {
+  from {top: 0; opacity: 0;}
+  to {top: 30px; opacity: 1;}
+}
+
+@-webkit-keyframes fadeout {
+  from {top: 30px; opacity: 1;} 
+  to {top: 0; opacity: 0;}
+}
+
+@keyframes fadeout {
+  from {top: 30px; opacity: 1;}
+  to {top: 0; opacity: 0;}
+}
 </style>
 <title>Contact Us</title>
 </head>
@@ -75,15 +122,42 @@ background-color: #008CBA;
         <li><a class="a6" href="StudentScoreDetails">MyExams</a></li>
         
     </ul>
-<!-- <p class="home"><a href="userMain.jsp">Home</a></p><br> -->
-<form action="contact" method="post">
 <div class="container">
 	<h2 class="h1move" class="login"><u>Contact Admin</u></h2>
-	<label for="email" class="usernamealign">Enter your Email:</label><br>
-	<input type="email" pattern="[a-z][a-z0-9]+[@][a-z]+[.][a-z]+" name="email" id="email" placeholder="abc@domain.com" autofocus required><br><br>
 	<label for="comments">Drop your Comments:</label><br>
-	<textarea name="comments" id="comments" required></textarea><br><br>
-	<button type="submit" class="buttons button2">Submit</button>
-	</form>
+	<textarea name="comments" id="comments" required autofocus></textarea><br><br>
+	<button type="submit" class="buttons button2" onclick="contact()">Submit</button>
+	<div id="snackbar">Profile updated successfully!</div>
 </body>
+<script type="text/javascript">
+function contact(){
+	let comment=document.getElementById("comments").value;
+	var url="contact?comments="+comment;
+	if(window.XMLHttpRequest){  
+		request=new XMLHttpRequest();  
+		}  
+		else if(window.ActiveXObject){  
+		request=new ActiveXObject("Microsoft.XMLHTTP");  
+		}  
+	try  
+	{  
+	request.onreadystatechange=getInfo;  
+	request.open("POST",url,true);  
+	request.send();  
+	}  
+	catch(e)  
+	{  
+	alert("Unable to connect to server");  
+	}
+} 
+function getInfo(){  
+	if(request.readyState==4){  
+	var val=request.responseText;
+	document.getElementById("snackbar").innerHTML=val;
+	var x =document.getElementById("snackbar");
+	x.className = "show";
+	setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
+	}   
+} 
+</script>
 </html>

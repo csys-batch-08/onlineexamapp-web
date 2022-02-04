@@ -54,7 +54,7 @@ public class FeedbackDetailsDaoImpl implements FeedbackDetailsDao {
 			rs = pstmt.executeQuery();
 			while (rs.next()) {
 				FeedbackDetails fdp1 = new FeedbackDetails(rs.getInt("examid"), rs.getString("feedback"),
-						rs.getDate("feedbackdate"), username);
+						rs.getTimestamp("feedbackdate").toLocalDateTime(), username);
 				fdp.add(fdp1);
 			}
 		} catch (SQLException e) {
@@ -91,7 +91,8 @@ public class FeedbackDetailsDaoImpl implements FeedbackDetailsDao {
 			rs = pstmt.executeQuery();
 			while (rs.next()) {
 				FeedbackDetails fdp1 = new FeedbackDetails(rs.getInt("feedbackid"), rs.getInt("userid"),
-						rs.getInt("examid"), rs.getString("feedback"), rs.getDate("feedbackdate"));
+						rs.getInt("examid"), rs.getString("feedback"),
+						rs.getTimestamp("feedbackdate").toLocalDateTime());
 				fdp.add(fdp1);
 			}
 		} catch (SQLException e) {

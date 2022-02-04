@@ -14,9 +14,10 @@ import com.onlineexam.util.ConnectionPage;
 public class ContactUsDaoImpl implements ContactUsDao {
 
 	@Override
-	public void insertcomments(ContactUs cup) {
+	public int insertcomments(ContactUs cup) {
 		PreparedStatement pstmt = null;
 		Connection con = null;
+		int i = 0;
 		try {
 			con = ConnectionPage.connection();
 			String query = "insert into contactUs(userid,email,comments,commentdate) values(?,?,?,sysdate)";
@@ -24,7 +25,7 @@ public class ContactUsDaoImpl implements ContactUsDao {
 			pstmt.setInt(1, cup.getUserid());
 			pstmt.setString(2, cup.getEmail());
 			pstmt.setString(3, cup.getComments());
-			pstmt.executeQuery();
+			i = pstmt.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
@@ -39,7 +40,7 @@ public class ContactUsDaoImpl implements ContactUsDao {
 				e.printStackTrace();
 			}
 		}
-
+		return i;
 	}
 
 	@Override
@@ -54,8 +55,8 @@ public class ContactUsDaoImpl implements ContactUsDao {
 			pstmt = con.prepareStatement(query);
 			rs = pstmt.executeQuery();
 			while (rs.next()) {
-				ContactUs cup = new ContactUs(rs.getInt("userid"), rs.getString("email"),
-						rs.getString("comments"), rs.getDate("commentdate"));
+				ContactUs cup = new ContactUs(rs.getInt("userid"), rs.getString("email"), rs.getString("comments"),
+						rs.getTimestamp("commentdate").toLocalDateTime());
 				contactlist.add(cup);
 			}
 		} catch (SQLException e) {

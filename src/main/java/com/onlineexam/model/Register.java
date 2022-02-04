@@ -1,30 +1,30 @@
 package com.onlineexam.model;
 
-import java.util.Date;
+import java.time.LocalDateTime;
 
 public class Register {
 	@Override
 	public String toString() {
-		return "RegisterPojo [userid=" + userid + ", first_name=" + first_name + ", last_name=" + last_name + ", email="
-				+ email + ", password=" + password + ", confirm_password=" + confirm_password + ", phone_number="
-				+ phone_number + ", photo=" + photo + ", reason=" + reason + "]";
+		return "RegisterPojo [userid=" + userId + ", first_name=" + firstName + ", last_name=" + lastName + ", email="
+				+ email + ", password=" + password + ", confirm_password=" + confirmPassword + ", phone_number="
+				+ phoneNumber + ", photo=" + photo + ", reason=" + reason + "]";
 	}
 
-	private int userid;
-	private String first_name;
-	private String last_name;
+	private int userId;
+	private String firstName;
+	private String lastName;
 	private String email;
 	private String password;
-	private String confirm_password;
-	private long phone_number;
+	private String confirmPassword;
+	private long phoneNumber;
+	private String role;
 	private String photo;
 	private String reason;
-	private Date lastActiveDate;
-	private String role;
+	private LocalDateTime lastActiveDate;
 
 	public Register(int userid, String email, String password) {
 		super();
-		this.userid = userid;
+		this.userId = userid;
 		this.email = email;
 		this.password = password;
 	}
@@ -35,22 +35,22 @@ public class Register {
 		this.reason = reason;
 	}
 
-	public Register(long phone_number, String password, String confirm_password) {
+	public Register(long phoneNumber, String password, String confirmPassword) {
 		super();
-		this.phone_number = phone_number;
+		this.phoneNumber = phoneNumber;
 		this.password = password;
-		this.confirm_password = confirm_password;
+		this.confirmPassword = confirmPassword;
 	}
 
-	public Register(String first_name, String last_name, String email, String password, String confirm_password,
-			long phone_number) {
+	public Register(String firstName, String lastName, String email, String password, String confirmPassword,
+			long phoneNumber) {
 		super();
-		this.first_name = first_name;
-		this.last_name = last_name;
+		this.firstName = firstName;
+		this.lastName = lastName;
 		this.email = email;
 		this.password = password;
-		this.confirm_password = confirm_password;
-		this.phone_number = phone_number;
+		this.confirmPassword = confirmPassword;
+		this.phoneNumber = phoneNumber;
 	}
 
 	public String getReason() {
@@ -71,63 +71,63 @@ public class Register {
 
 	public Register(int userid) {
 		super();
-		this.userid = userid;
+		this.userId = userid;
 	}
 
 	public Register(int userid, String photo) {
 		super();
-		this.userid = userid;
+		this.userId = userid;
 		this.photo = photo;
 	}
 
-	public Register(String first_name, String last_name, String email, long phone_number, String photo) {
+	public Register(String firstName, String lastName, String email, long phoneNumber, String photo) {
 		super();
-		this.first_name = first_name;
-		this.last_name = last_name;
+		this.firstName = firstName;
+		this.lastName = lastName;
 		this.email = email;
-		this.phone_number = phone_number;
+		this.phoneNumber = phoneNumber;
 		this.photo = photo;
 	}
 
-	public Register(int userid, String first_name, String last_name, String email, long phone_number) {
+	public Register(int userid, String firstName, String lastName, String email, long phoneNumber) {
 		super();
-		this.userid = userid;
-		this.first_name = first_name;
-		this.last_name = last_name;
+		this.userId = userid;
+		this.firstName = firstName;
+		this.lastName = lastName;
 		this.email = email;
-		this.phone_number = phone_number;
+		this.phoneNumber = phoneNumber;
 	}
 
-	public String getConfirm_password() {
-		return confirm_password;
+	public String getConfirmPassword() {
+		return confirmPassword;
 	}
 
-	public void setConfirm_password(String confirm_password) {
-		this.confirm_password = confirm_password;
+	public void setConfirmPassword(String confirmPassword) {
+		this.confirmPassword = confirmPassword;
 	}
 
 	public int getUserid() {
-		return userid;
+		return userId;
 	}
 
 	public void setUserid(int userid) {
-		this.userid = userid;
+		this.userId = userid;
 	}
 
-	public String getFirst_name() {
-		return first_name;
+	public String getFirstName() {
+		return firstName;
 	}
 
-	public void setFirst_name(String first_name) {
-		this.first_name = first_name;
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
 	}
 
-	public String getLast_name() {
-		return last_name;
+	public String getLastName() {
+		return lastName;
 	}
 
-	public void setLast_name(String last_name) {
-		this.last_name = last_name;
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
 	}
 
 	public String getEmail() {
@@ -146,41 +146,40 @@ public class Register {
 		this.password = password;
 	}
 
-	public long getPhone_number() {
-		return phone_number;
+	public long getPhoneNumber() {
+		return phoneNumber;
 	}
 
-	public void setPhone_number(long phone_number) {
-		this.phone_number = phone_number;
+	public void setPhoneNumber(long phoneNumber) {
+		this.phoneNumber = phoneNumber;
 	}
 
-	public Register(int userid, String first_name, String last_name, String email, long phone_number,
-			String reason) {
+	public Register(int userid, String firstName, String lastName, String email, long phoneNumber, String reason) {
 		super();
-		this.userid = userid;
-		this.first_name = first_name;
-		this.last_name = last_name;
+		this.userId = userid;
+		this.firstName = firstName;
+		this.lastName = lastName;
 		this.email = email;
-		this.phone_number = phone_number;
+		this.phoneNumber = phoneNumber;
 		this.reason = reason;
 	}
 
-	public Date getLastActiveDate() {
+	public LocalDateTime getLastActiveDate() {
 		return lastActiveDate;
 	}
 
-	public void setLastActiveDate(Date lastActiveDate) {
+	public void setLastActiveDate(LocalDateTime lastActiveDate) {
 		this.lastActiveDate = lastActiveDate;
 	}
 
-	public Register(int userid, String first_name, String last_name, String email, long phone_number,
-			Date lastActiveDate) {
+	public Register(int userid, String firstName, String lastName, String email, long phoneNumber,
+			LocalDateTime lastActiveDate) {
 		super();
-		this.userid = userid;
-		this.first_name = first_name;
-		this.last_name = last_name;
+		this.userId = userid;
+		this.firstName = firstName;
+		this.lastName = lastName;
 		this.email = email;
-		this.phone_number = phone_number;
+		this.phoneNumber = phoneNumber;
 		this.lastActiveDate = lastActiveDate;
 	}
 
@@ -192,14 +191,31 @@ public class Register {
 		this.role = role;
 	}
 
-	public Register(int userid, String first_name, String last_name, String email, String role, long phone_number) {
+	public Register(int userid, String firstName, String lastName, String email, String role, long phoneNumber) {
 		super();
-		this.userid = userid;
-		this.first_name = first_name;
-		this.last_name = last_name;
+		this.userId = userid;
+		this.firstName = firstName;
+		this.lastName = lastName;
 		this.email = email;
-		this.phone_number = phone_number;
+		this.phoneNumber = phoneNumber;
 		this.role = role;
+	}
+
+	public Register(int userId, String firstName, String lastName, String email, String password,
+			String confirmPassword, long phoneNumber, String role, String photo, String reason,
+			LocalDateTime lastActiveDate) {
+		super();
+		this.userId = userId;
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.email = email;
+		this.password = password;
+		this.confirmPassword = confirmPassword;
+		this.phoneNumber = phoneNumber;
+		this.role = role;
+		this.photo = photo;
+		this.reason = reason;
+		this.lastActiveDate = lastActiveDate;
 	}
 
 }

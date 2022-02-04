@@ -1,18 +1,17 @@
 package com.onlineexam.dao;
 
-import java.sql.ResultSet;
 import java.util.List;
 
 import com.onlineexam.model.Register;
 
 public interface RegisterDao {
-	public void fetchregister(Register rd);
+	public int fetchregister(Register rd);
 
 	public boolean changepassword(Register rp);
 
-	public ResultSet getEmailDetails(Register rp);
+	public Register getEmailDetails(Register rp);
 
-	public ResultSet getPhoneDetails(Register rp);
+	public Register getPhoneDetails(Register rp);
 
 	public void updatestatus(Register rp);
 
@@ -20,7 +19,7 @@ public interface RegisterDao {
 
 	public void changephoto(Register rp);
 
-	public void editprofile(Register rp);
+	public int editprofile(Register rp);
 
 	public void userrequest(Register rp);
 
@@ -32,7 +31,7 @@ public interface RegisterDao {
 
 	public List<Register> showInactiveUsers();
 
-	public ResultSet fetchlogin(Register rp);
+	public Register fetchlogin(Register rp);
 
 	public Register validUser(String email, String password);
 

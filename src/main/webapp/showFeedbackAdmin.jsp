@@ -48,15 +48,15 @@ h2{
             <th>Feedback Date</th>
         </tr>
         <c:forEach items="${showfeedback}" var="feedback">
-        <fmt:parseDate pattern="yyyy-MM-dd" value="${feedback.feedbackdate}"
-				var="parsedFeedbackDate" />
         	<tr>
             	<td>${count}</td>
                 <td>${feedback.feedbackid}</td>
                 <td>${feedback.userid}</td>
                 <td>${feedback.examid}</td>
                 <td>${feedback.feedback}</td>
-                <td><fmt:formatDate pattern="dd-MM-yyyy" value="${parsedFeedbackDate}" /></td>
+         <td><fmt:parseDate value="${feedback.feedbackdate}"
+							pattern="yyyy-MM-dd'T'HH:mm" var="parsedExamDate" type="both" /> <fmt:formatDate
+							pattern="dd-MM-yyyy HH:mm" value="${parsedExamDate}" /></td>
                </tr>
             <c:set var="count" value="${count+1}" />
                </c:forEach>

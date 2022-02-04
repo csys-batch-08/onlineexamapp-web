@@ -76,10 +76,10 @@ margin-top:200px;
             <tr>
             	<td>${count}</td>
                 <td>${in.userid}</td>
-                <td>${in.first_name}</td>
-                <td>${in.last_name}</td>
+                <td>${in.firstName}</td>
+                <td>${in.lastName}</td>
                 <td>${in.email}</td>
-                <td>${in.phone_number}</td>
+                <td>${in.phoneNumber}</td>
                 <td>${in.reason}</td>
                 <form action="active?userid=${in.userid}" method="post">
                 <td><center><button type="submit" class="button examButton" onclick="makeactive()">Make Active</button></center></td></form>

@@ -1,27 +1,27 @@
 package com.onlineexam.model;
 
-import java.util.Date;
+import java.time.LocalDateTime;
 
 public class ContactUs {
-	private int userid;
+	private int userId;
 	private String email;
 	private String comments;
-	private Date commentdate;
+	private LocalDateTime commentDate;
 
-	public Date getCommentdate() {
-		return commentdate;
+	public LocalDateTime getCommentdate() {
+		return commentDate;
 	}
 
-	public void setCommentdate(Date commentdate) {
-		this.commentdate = commentdate;
+	public void setCommentdate(LocalDateTime commentdate) {
+		this.commentDate = commentdate;
 	}
 
 	public int getUserid() {
-		return userid;
+		return userId;
 	}
 
 	public void setUserid(int userid) {
-		this.userid = userid;
+		this.userId = userid;
 	}
 
 	public String getEmail() {
@@ -42,17 +42,17 @@ public class ContactUs {
 
 	public ContactUs(int userid, String email, String comments) {
 		super();
-		this.userid = userid;
+		this.userId = userid;
 		this.email = email;
 		this.comments = comments;
 	}
 
-	public ContactUs(int userid, String email, String comments, Date commentdate) {
+	public ContactUs(int userid, String email, String comments, LocalDateTime commentdate) {
 		super();
-		this.userid = userid;
+		this.userId = userid;
 		this.email = email;
 		this.comments = comments;
-		this.commentdate = commentdate;
+		this.commentDate = commentdate;
 	}
 
 }

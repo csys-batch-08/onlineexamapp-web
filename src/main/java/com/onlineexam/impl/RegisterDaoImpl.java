@@ -13,20 +13,21 @@ import com.onlineexam.util.ConnectionPage;
 
 public class RegisterDaoImpl implements RegisterDao {
 	@Override
-	public void fetchregister(Register rd) {
+	public int fetchregister(Register rd) {
 		Connection con = null;
 		PreparedStatement pstmt = null;
+		int i = 0;
 		try {
 			con = ConnectionPage.connection();
 			String query = "insert into registerPage(first_name,last_name,email,password,confirm_password,phone_number,lastactivedate) values(?,?,?,?,?,?,sysdate)";
 			pstmt = con.prepareStatement(query);
-			pstmt.setString(1, rd.getFirst_name());
-			pstmt.setString(2, rd.getLast_name());
+			pstmt.setString(1, rd.getFirstName());
+			pstmt.setString(2, rd.getLastName());
 			pstmt.setString(3, rd.getEmail());
 			pstmt.setString(4, rd.getPassword());
-			pstmt.setString(5, rd.getConfirm_password());
-			pstmt.setLong(6, rd.getPhone_number());
-			pstmt.executeUpdate();
+			pstmt.setString(5, rd.getConfirmPassword());
+			pstmt.setLong(6, rd.getPhoneNumber());
+			i = pstmt.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
@@ -41,6 +42,7 @@ public class RegisterDaoImpl implements RegisterDao {
 				e.printStackTrace();
 			}
 		}
+		return i;
 	}
 
 	@Override
@@ -54,8 +56,8 @@ public class RegisterDaoImpl implements RegisterDao {
 			con = ConnectionPage.connection();
 			pstmt = con.prepareStatement(query);
 			pstmt.setString(1, rp.getPassword());
-			pstmt.setString(2, rp.getConfirm_password());
-			pstmt.setLong(3, rp.getPhone_number());
+			pstmt.setString(2, rp.getConfirmPassword());
+			pstmt.setLong(3, rp.getPhoneNumber());
 			i = pstmt.executeUpdate();
 			if (i > 0) {
 				flag = true;
@@ -81,7 +83,8 @@ public class RegisterDaoImpl implements RegisterDao {
 	}
 
 	@Override
-	public ResultSet getEmailDetails(Register rp) {
+	public Register getEmailDetails(Register rp) {
+		Register register = null;
 		Connection con = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
@@ -91,6 +94,12 @@ public class RegisterDaoImpl implements RegisterDao {
 			pstmt = con.prepareStatement(query);
 			pstmt.setString(1, rp.getEmail());
 			rs = pstmt.executeQuery();
+			if (rs.next()) {
+				register = new Register(rs.getInt("id"), rs.getString("first_name"), rs.getString("last_name"),
+						rs.getString("email"), rs.getString("password"), rs.getString("confirm_password"),
+						rs.getLong("phone_number"), rs.getString("role"), rs.getString("profilepicture"),
+						rs.getString("reason"), rs.getTimestamp("lastactivedate").toLocalDateTime());
+			}
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
@@ -108,11 +117,12 @@ public class RegisterDaoImpl implements RegisterDao {
 				e.printStackTrace();
 			}
 		}
-		return rs;
+		return register;
 	}
 
 	@Override
-	public ResultSet getPhoneDetails(Register rp) {
+	public Register getPhoneDetails(Register rp) {
+		Register register = null;
 		Connection con = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
@@ -120,8 +130,14 @@ public class RegisterDaoImpl implements RegisterDao {
 			con = ConnectionPage.connection();
 			String query = "select id,first_name,last_name,email,password,confirm_password,phone_number,role,profilepicture,reason,lastactivedate from registerPage where phone_number=?";
 			pstmt = con.prepareStatement(query);
-			pstmt.setLong(1, rp.getPhone_number());
+			pstmt.setLong(1, rp.getPhoneNumber());
 			rs = pstmt.executeQuery();
+			if (rs.next()) {
+				register = new Register(rs.getInt("id"), rs.getString("first_name"), rs.getString("last_name"),
+						rs.getString("email"), rs.getString("password"), rs.getString("confirm_password"),
+						rs.getLong("phone_number"), rs.getString("role"), rs.getString("profilepicture"),
+						rs.getString("reason"), rs.getTimestamp("lastactivedate").toLocalDateTime());
+			}
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
@@ -139,7 +155,7 @@ public class RegisterDaoImpl implements RegisterDao {
 				e.printStackTrace();
 			}
 		}
-		return rs;
+		return register;
 	}
 
 	@Override
@@ -222,19 +238,20 @@ public class RegisterDaoImpl implements RegisterDao {
 	}
 
 	@Override
-	public void editprofile(Register rp) {
+	public int editprofile(Register rp) {
 		Connection con = null;
 		PreparedStatement pstmt = null;
+		int i = 0;
 		try {
 			con = ConnectionPage.connection();
 			String query = "update registerPage set first_name=?,last_name=?,email=?,phone_number=? where id=?";
 			pstmt = con.prepareStatement(query);
-			pstmt.setString(1, rp.getFirst_name());
-			pstmt.setString(2, rp.getLast_name());
+			pstmt.setString(1, rp.getFirstName());
+			pstmt.setString(2, rp.getLastName());
 			pstmt.setString(3, rp.getEmail());
-			pstmt.setLong(4, rp.getPhone_number());
+			pstmt.setLong(4, rp.getPhoneNumber());
 			pstmt.setInt(5, rp.getUserid());
-			pstmt.executeUpdate();
+			i = pstmt.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
@@ -249,6 +266,7 @@ public class RegisterDaoImpl implements RegisterDao {
 				e.printStackTrace();
 			}
 		}
+		return i;
 	}
 
 	@Override
@@ -344,7 +362,8 @@ public class RegisterDaoImpl implements RegisterDao {
 			rs = pstmt.executeQuery();
 			while (rs.next()) {
 				Register rpojo = new Register(rs.getInt("id"), rs.getString("first_name"), rs.getString("last_name"),
-						rs.getString("email"), rs.getLong("phone_number"), rs.getDate("lastactivedate"));
+						rs.getString("email"), rs.getLong("phone_number"),
+						rs.getTimestamp("lastactivedate").toLocalDateTime());
 				rp.add(rpojo);
 			}
 		} catch (SQLException e) {
@@ -404,7 +423,8 @@ public class RegisterDaoImpl implements RegisterDao {
 	}
 
 	@Override
-	public ResultSet fetchlogin(Register rp) {
+	public Register fetchlogin(Register rp) {
+		Register register = null;
 		PreparedStatement pstmt = null;
 		Connection con = null;
 		ResultSet rs = null;
@@ -415,6 +435,13 @@ public class RegisterDaoImpl implements RegisterDao {
 			pstmt.setString(1, rp.getEmail());
 			pstmt.setString(2, rp.getPassword());
 			rs = pstmt.executeQuery();
+			if (rs.next()) {
+				register = new Register(rs.getInt("id"), rs.getString("first_name"), rs.getString("last_name"),
+						rs.getString("email"), rs.getString("password"), rs.getString("confirm_password"),
+						rs.getLong("phone_number"), rs.getString("role"), rs.getString("profilepicture"),
+						rs.getString("reason"), rs.getTimestamp("lastactivedate").toLocalDateTime());
+			}
+
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
@@ -432,8 +459,7 @@ public class RegisterDaoImpl implements RegisterDao {
 				e.printStackTrace();
 			}
 		}
-		return rs;
-
+		return register;
 	}
 
 	@Override

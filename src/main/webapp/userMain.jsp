@@ -43,16 +43,8 @@
 		<br>
 
 		<h4>
-			<a href="filterByDifficulty.jsp">
-			<button style="margin-left: 80px; margin-right: 60px;" class="button examButton">
-			Take Exam
-			</button>
-			</a>
-			<a href="studyMaterials.jsp">
-			<button style="margin-right: 70px;" class="button studyButton">
-			Study
-			</button>
-			</a>
+			<a href="filterByDifficulty.jsp"><button style="margin-left: 80px; margin-right: 60px;" class="button examButton">Take Exam</button></a>
+			<a href="studyMaterials.jsp"><button style="margin-right: 70px;" class="button studyButton">Study</button></a>
 		</h4>
 	</div>
 	<img src="images/onlineExamReferenceRemovedBackground.png"

@@ -1,45 +1,45 @@
 package com.onlineexam.model;
 
-import java.util.Date;
+import java.time.LocalDateTime;
 
 public class FeedbackDetails {
-	private int feedbackid;
-	private int userid;
-	private String username;
-	private int examid;
+	private int feedbackId;
+	private int userId;
+	private String userName;
+	private int examId;
 	private String feedback;
-	private Date feedbackdate;
+	private LocalDateTime feedbackDate;
 
 	public int getFeedbackid() {
-		return feedbackid;
+		return feedbackId;
 	}
 
 	public void setFeedbackid(int feedbackid) {
-		this.feedbackid = feedbackid;
+		this.feedbackId = feedbackid;
 	}
 
 	public int getUserid() {
-		return userid;
+		return userId;
 	}
 
 	public void setUserid(int userid) {
-		this.userid = userid;
+		this.userId = userid;
 	}
 
 	public int getExamid() {
-		return examid;
+		return examId;
 	}
 
 	public void setExamid(int examid) {
-		this.examid = examid;
+		this.examId = examid;
 	}
 
-	public Date getFeedbackdate() {
-		return feedbackdate;
+	public LocalDateTime getFeedbackdate() {
+		return feedbackDate;
 	}
 
-	public void setFeedbackdate(Date feedbackdate) {
-		this.feedbackdate = feedbackdate;
+	public void setFeedbackdate(LocalDateTime feedbackdate) {
+		this.feedbackDate = feedbackdate;
 	}
 
 	public String getFeedback() {
@@ -51,26 +51,26 @@ public class FeedbackDetails {
 	}
 
 	public String getUsername() {
-		return username;
+		return userName;
 	}
 
 	public void setUsername(String username) {
-		this.username = username;
+		this.userName = username;
 	}
 
 	public FeedbackDetails(int userid, int examid, String feedback) {
 		super();
-		this.userid = userid;
-		this.examid = examid;
+		this.userId = userid;
+		this.examId = examid;
 		this.feedback = feedback;
 	}
 
-	public FeedbackDetails(int examid, String feedback, Date feedbackdate, String username) {
+	public FeedbackDetails(int examid, String feedback, LocalDateTime feedbackdate, String username) {
 		super();
-		this.examid = examid;
+		this.examId = examid;
 		this.feedback = feedback;
-		this.feedbackdate = feedbackdate;
-		this.username = username;
+		this.feedbackDate = feedbackdate;
+		this.userName = username;
 	}
 
 	public FeedbackDetails() {
@@ -78,17 +78,17 @@ public class FeedbackDetails {
 
 	@Override
 	public String toString() {
-		return "FeedbackDetailsPojo [examid=" + examid + ", feedback=" + feedback + ", feedbackdate=" + feedbackdate
+		return "FeedbackDetailsPojo [examid=" + examId + ", feedback=" + feedback + ", feedbackdate=" + feedbackDate
 				+ "]";
 	}
 
-	public FeedbackDetails(int feedbackid, int userid, int examid, String feedback, Date feedbackdate) {
+	public FeedbackDetails(int feedbackid, int userid, int examid, String feedback, LocalDateTime feedbackdate) {
 		super();
-		this.feedbackid = feedbackid;
-		this.userid = userid;
-		this.examid = examid;
+		this.feedbackId = feedbackid;
+		this.userId = userid;
+		this.examId = examid;
 		this.feedback = feedback;
-		this.feedbackdate = feedbackdate;
+		this.feedbackDate = feedbackdate;
 	}
 
 }

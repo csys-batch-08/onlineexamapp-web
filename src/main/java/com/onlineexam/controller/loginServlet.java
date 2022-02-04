@@ -2,8 +2,6 @@ package com.onlineexam.controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.sql.ResultSet;
-import java.sql.SQLException;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -31,11 +29,11 @@ public class loginServlet extends HttpServlet {
 			RegisterDaoImpl rd = new RegisterDaoImpl();
 			int userid;
 			String username;
-			ResultSet result = rd.fetchlogin(rp);
-			if (result.next()) {
+			Register register = rd.fetchlogin(rp);
+			if (register != null) {
 				Register rpojo = rd.validUser(email, password);
 				userid = rpojo.getUserid();
-				username = rpojo.getFirst_name();
+				username = rpojo.getFirstName();
 				HttpSession ses = req.getSession();
 				ses.setAttribute("userid", userid);
 				ses.setAttribute("username", username);
@@ -72,8 +70,6 @@ public class loginServlet extends HttpServlet {
 			e1.printStackTrace();
 		} catch (NumberFormatException e2) {
 			e2.printStackTrace();
-		} catch (SQLException e) {
-			e.printStackTrace();
 		}
 	}
 

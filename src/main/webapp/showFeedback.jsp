@@ -91,14 +91,14 @@ margin-left:-740px;
    </tr>
 
    <c:forEach items="${feedback}" var="list">
-   <fmt:parseDate pattern="yyyy-MM-dd" value="${list.feedbackdate}"
-				var="parsedFeedbackDate" />
      <tr>
          <td>${count}</td>
      	 <td>${list.username}</td>
          <td>${list.examid}</td>
          <td>${list.feedback}</td>
-         <td><fmt:formatDate pattern="dd-MM-yyyy" value="${parsedFeedbackDate}" /></td>
+         <td><fmt:parseDate value="${list.feedbackdate}"
+							pattern="yyyy-MM-dd'T'HH:mm" var="parsedExamDate" type="both" /> <fmt:formatDate
+							pattern="dd-MM-yyyy HH:mm" value="${parsedExamDate}" /></td>
      </tr>
             <c:set var="count" value="${count+1}" />
      </c:forEach>

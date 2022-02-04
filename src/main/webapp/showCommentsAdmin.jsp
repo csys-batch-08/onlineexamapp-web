@@ -48,14 +48,14 @@ h2{
             <th>Comment Date</th>
         </tr>
         <c:forEach items="${contactlist}" var="contact">
-        <fmt:parseDate pattern="yyyy-MM-dd" value="${contact.commentdate}"
-				var="parsedCommentDate" />
         	<tr>
             	<td>${count}</td>
                 <td>${contact.userid}</td>
                 <td>${contact.email}</td>
                 <td>${contact.comments}</td>
-                <td><fmt:formatDate pattern="dd-MM-yyyy" value="${parsedCommentDate}" /></td>
+                <td><fmt:parseDate value="${contact.commentdate}"
+							pattern="yyyy-MM-dd'T'HH:mm" var="parsedExamDate" type="both" /> <fmt:formatDate
+							pattern="dd-MM-yyyy HH:mm" value="${parsedExamDate}" /></td>
                </tr>
             <c:set var="count" value="${count+1}" />
                </c:forEach>

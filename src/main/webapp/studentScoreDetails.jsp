@@ -103,7 +103,9 @@ margin-left:-738px;
                 <td>${scores.score}</td>
                 <td>${scores.passOrFail}</td>
                 <td>${scores.grade}</td>
-                <td><fmt:formatDate pattern="dd-MM-yyyy" value="${parsedExamDate}" /></td>
+                <td><fmt:parseDate value="${scores.examdate}"
+							pattern="yyyy-MM-dd'T'HH:mm" var="parsedExamDate" type="both" /> <fmt:formatDate
+							pattern="dd-MM-yyyy HH:mm" value="${parsedExamDate}" /></td>
                 </tr>
             <c:set var="count" value="${count+1}" />
                 </c:forEach>

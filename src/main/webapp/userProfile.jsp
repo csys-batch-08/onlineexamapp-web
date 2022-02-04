@@ -65,6 +65,47 @@ margin-left:615px;
 h2{
 margin-left:80px;
 }
+#snackbar {
+  visibility: hidden;
+  min-width: 250px;
+  margin-left: -125px;
+  background-color: green;
+  color: white;
+  text-align: center;
+  border-radius: 2px;
+  padding: 16px;
+  position: fixed;
+  z-index: 1;
+  left: 50%;
+  top: 30px;
+  font-size: 17px;
+}
+
+#snackbar.show {
+  visibility: visible;
+  -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+  animation: fadein 0.5s, fadeout 0.5s 2.5s;
+}
+
+@-webkit-keyframes fadein {
+  from {top: 0; opacity: 0;} 
+  to {top: 30px; opacity: 1;}
+}
+
+@keyframes fadein {
+  from {top: 0; opacity: 0;}
+  to {top: 30px; opacity: 1;}
+}
+
+@-webkit-keyframes fadeout {
+  from {top: 30px; opacity: 1;} 
+  to {top: 0; opacity: 0;}
+}
+
+@keyframes fadeout {
+  from {top: 30px; opacity: 1;}
+  to {top: 0; opacity: 0;}
+}
 </style>
 <title>User Profile</title>
 </head>
@@ -81,14 +122,14 @@ margin-left:80px;
 		<button type="submit" class="buttons button2">Change photo</button>&nbsp;&nbsp;<button type="button" class="buttons button2" onclick="hidechange()">Cancel</button>
 		</form></div>
 		<br>
-		<form action="editprofile" method="post">
-		<label for="firstname">Firstname : </label><input type="text" name="firstname" id="firstname" value="${sessionScope.profile.getFirst_name()}"><br><br>
-		<label for="lastname">Lastname : </label><input type="text" name="lastname" id="lastname" value="${sessionScope.profile.getLast_name()}"><br><br>
-		<label for="email" class="emailalign">Email : </label><input type="email" name="email" id="email" value="${sessionScope.profile.getEmail()}"><br><br>
-		<label for="phone" class="phonealign">Phone number : </label><input type="text" name="phone" id="phone" value="${sessionScope.profile.getPhone_number()}"><br><br>
-		<button type="submit" class="buttons button2">Edit Profile</button>
-		</form></div>
 		
+		<label for="firstname">Firstname : </label><input type="text" name="firstname" id="firstname" value="${sessionScope.profile.getFirstName()}"><br><br>
+		<label for="lastname">Lastname : </label><input type="text" name="lastname" id="lastname" value="${sessionScope.profile.getLastName()}"><br><br>
+		<label for="email" class="emailalign">Email : </label><input type="email" name="email" id="email" value="${sessionScope.profile.getEmail()}"><br><br>
+		<label for="phone" class="phonealign">Phone number : </label><input type="text" name="phone" id="phone" value="${sessionScope.profile.getPhoneNumber()}"><br><br>
+		<button type="submit" class="buttons button2" onclick="profileupdated()">Edit Profile</button>
+		</div>
+		<div id="snackbar">Profile updated successfully!</div>
 		
 </body>
 <script>
@@ -104,5 +145,44 @@ function hidechange(){
 	var addexam=document.getElementById("photochange");
 	addexam.style.display="none";
 }
+function profileupdated(){
+	let firstName=document.getElementById("firstname").value;
+	let lastName=document.getElementById("lastname").value;
+	let Email=document.getElementById("email").value;
+	let phoneNumber=document.getElementById("phone").value;
+	var url="editprofile?firstname="+firstName+
+			"&lastname="+lastName+
+			"&email="+Email+
+			"&phone="+phoneNumber;
+	if(window.XMLHttpRequest){  
+		request=new XMLHttpRequest();  
+		}  
+		else if(window.ActiveXObject){  
+		request=new ActiveXObject("Microsoft.XMLHTTP");  
+		}  
+	try  
+	{  
+	request.onreadystatechange=getInfo;  
+	request.open("GET",url,true);  
+	request.send();  
+	}  
+	catch(e)  
+	{  
+	alert("Unable to connect to server");  
+	}
+    
+  
+} 
+
+function getInfo(){  
+	if(request.readyState==4){  
+	var val=request.responseText;
+	document.getElementById("snackbar").innerHTML=val;
+	//alert(val);
+	var x =document.getElementById("snackbar");
+	x.className = "show";
+	setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
+	}   
+}  
 </script>
 </html>

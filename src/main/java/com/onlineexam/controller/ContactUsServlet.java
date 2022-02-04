@@ -21,15 +21,14 @@ public class ContactUsServlet extends HttpServlet {
 			HttpSession session = req.getSession();
 			PrintWriter out = resp.getWriter();
 			int userid = (int) session.getAttribute("userid");
-			String email = req.getParameter("email");
+			String email = (String) session.getAttribute("mailid");
 			String comments = req.getParameter("comments");
 			ContactUs cup = new ContactUs(userid, email, comments);
 			ContactUsDaoImpl cud = new ContactUsDaoImpl();
-			cud.insertcomments(cup);
-			out.println("<script type=\"text/javascript\">");
-			out.println("alert('Your comment has been sent.');");
-			out.println("location='userMain.jsp';");
-			out.println("</script>");
+			int i = cud.insertcomments(cup);
+			if (i > 0) {
+				out.write("Your comment has been sent.");
+			}
 		} catch (IOException e1) {
 			e1.printStackTrace();
 		}
