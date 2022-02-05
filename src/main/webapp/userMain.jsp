@@ -4,13 +4,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<style>
-</style>
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>User Main page</title>
-<link rel="stylesheet" href="UserMain.css">
+<link rel="stylesheet" href="index.css">
 <style type="text/css">
 .a1 {
 	background-color: white;
@@ -30,19 +28,19 @@
 		<li><a class="a3" href="contactUs.jsp">Contact us</a></li>
 		<li><a class="a4" href="aboutUs.jsp" class="a1">About us</a></li>
 		<li><a class="a5" href="showfeedback">My Feedbacks</a></li>
-		<li><a class="a6" href="StudentScoreDetails">MyExams</a></li>
+		<li><a class="a6" href="StudentScoreDetails">My Exams</a></li>
 
 	</ul>
 	<img src="images/onlineExamIcon.png" class="imgIcon"
 		alt="online Exam Icon">
 	<div class="h1">
 		<h1>Explore the Exam</h1>
-		<h1 style="margin-left: 70px;">Exclusively</h1>
-		<h1 style="margin-left: 40px;">made for you</h1>
+		<h1 style="margin-left: 70px;margin-top:-30px;">Exclusively</h1>
+		<h1 style="margin-left: 40px;margin-top:-30px;">made for you</h1>
 		<br>
 		<br>
 
-		<h4>
+		<h4 class="buttonsalignment">
 			<a href="filterByDifficulty.jsp"><button style="margin-left: 80px; margin-right: 60px;" class="button examButton">Take Exam</button></a>
 			<a href="studyMaterials.jsp"><button style="margin-right: 70px;" class="button studyButton">Study</button></a>
 		</h4>
@@ -52,8 +50,11 @@
 
 </body>
 <script type="text/javascript">
-	function logout() {
-		alert("logged out successfully");
+function logout() {
+	var result = confirm("Do you want to logout?");
+	if (result == false) {
+		event.preventDefault();
 	}
+}
 </script>
 </html>

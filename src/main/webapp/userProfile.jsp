@@ -178,7 +178,6 @@ function getInfo(){
 	if(request.readyState==4){  
 	var val=request.responseText;
 	document.getElementById("snackbar").innerHTML=val;
-	//alert(val);
 	var x =document.getElementById("snackbar");
 	x.className = "show";
 	setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);

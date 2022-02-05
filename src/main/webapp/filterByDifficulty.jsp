@@ -59,4 +59,12 @@ button{
 	<a href="UserChooseExams1"><button type="submit" class="examButton">Hard</button></a>
 	</div>
 </body>
+<script type="text/javascript">
+function logout() {
+	var result = confirm("Do you want to logout?");
+	if (result == false) {
+		event.preventDefault();
+	}
+}
+</script>
 </html>

@@ -40,7 +40,7 @@ public class registerServlet extends HttpServlet {
 			if (i > 0) {
 				out.println("<script type=\"text/javascript\">");
 				out.println("alert('You have registered successfully');");
-				out.println("location='index.jsp';");
+				out.println("location='login.jsp';");
 				out.println("</script>");
 			}
 		} catch (IOException e1) {

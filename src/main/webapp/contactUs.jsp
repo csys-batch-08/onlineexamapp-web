@@ -159,5 +159,12 @@ function getInfo(){
 	setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
 	}   
 } 
+
+function logout() {
+	var result = confirm("Do you want to logout?");
+	if (result == false) {
+		event.preventDefault();
+	}
+}
 </script>
 </html>

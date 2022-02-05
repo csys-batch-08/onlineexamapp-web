@@ -35,7 +35,7 @@ img {
 <body>
 <ul class="nav">
     	<li><a class="a1" href="adminMain.jsp">Home</a></li>
-        <li><a class="a2" href="index.jsp">Logout</a></li>
+        <li><a class="a2" href="index.jsp" onclick="logout()">Logout</a></li>
         <li><a class="a3" href="ShowCommentsAdmin">Contact us</a></li>
         <li><a class="a4" href="aboutUsAdmin.jsp">About us</a></li>
         <li><a class="a5" href="ShowFeedbackAdmin">Feedbacks</a></li>
@@ -48,4 +48,12 @@ img {
 	<p>Using our website you can write exam and you can know your status</p>
 	<p>We are sure that you will learn something new from our website</p>
 </body>
+<script type="text/javascript">
+function logout() {
+	var result = confirm("Do you want to logout?");
+	if (result == false) {
+		event.preventDefault();
+	}
+}
+</script>
 </html>

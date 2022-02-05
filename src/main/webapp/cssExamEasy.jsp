@@ -102,7 +102,7 @@ margin-left:635px;
 	<div id="clock">
     <strong id="hour"></strong><label> &nbsp;<span id="colon">:</span>&nbsp;</label><strong id="min"></strong>
 </div>
-<br> <button id="startButton" onclick="clcok();play()" class="button examButton start">Start</button>
+<br> <button id="startButton" onclick="clcok()" class="button examButton start">Start</button>
 	
 	<div style="margin-top:-250px;">
 	<div class="questions" id="question1">
@@ -207,7 +207,6 @@ margin-left:635px;
 <div id="feed">
 <a href="feedbackDetails?examid=${exam_Id}&userid=${user_id}"><button id="sendfeedback" class="button examButton" style="margin-top:100px;">Send feedback</button>&nbsp;&nbsp;</a>
 </div>
-<audio src="musics/exam_music.mp3" id="music"></audio>
 <div id="buttons" class="form">
 <form action="scoreDetails" >
 <input style="visibility:hidden;" type="text" id="examId" name="examId" value="${exam_Id}">
@@ -216,7 +215,7 @@ margin-left:635px;
 <input style="visibility:hidden;" type="text" id="score" name="score">
 <input style="visibility:hidden;" type="text" id="passOrFail" name="passOrFail">
 <input style="visibility:hidden;" type="text" id="grade" name="grade">
-<button id="submit" onclick="ans();pause()" style="text-align:center;margin-top:270px;" class="button examButton">Submit</button>
+<button id="submit" onclick="ans()" style="text-align:center;margin-top:270px;" class="button examButton">Submit</button>
 </form></div>
 <div>
 <button id="next" onclick="qu()" style="text-align:center;margin-top:-290px;" class="button examButton">Next</button>
@@ -646,19 +645,9 @@ if(hour==0 && min==0)  {
 		document.getElementById("css").style.visibility="hidden";
 		document.getElementById("score").value=mark;
 		
-		var audio = document.getElementById("music");
-		  audio.pause();
 		  
 }
 
 }
 
-function play() {
-  var audio = document.getElementById("music");
-  audio.play();
-}
-function pause() {
-	  var audio = document.getElementById("music");
-	  audio.pause();
-	}
 </script>

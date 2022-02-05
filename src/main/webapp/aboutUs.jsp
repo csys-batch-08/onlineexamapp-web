@@ -48,4 +48,12 @@ body{
 	<p>We are sure that you will learn something new from our website</p>
 	<p>If you have any queries--->  <a href="contactUs.jsp" style="font-weight:bolder;font-size:large;">ContactUs</a></p>
 </body>
+<script type="text/javascript">
+function logout() {
+	var result = confirm("Do you want to logout?");
+	if (result == false) {
+		event.preventDefault();
+	}
+}
+</script>
 </html>

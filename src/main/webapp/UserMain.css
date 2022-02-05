@@ -1,4 +1,4 @@
-*{
+/* *{
     margin:0;
     padding:0;
     }
@@ -6,7 +6,7 @@
 body, html {
   height: 100%;
   margin: 0;
-}
+} */
 li {
   float: right;
 }
@@ -62,7 +62,7 @@ li {
   color: white;
   transition: 2ms;
 }
-.h1 .studyButton{
+.studyButton{
   background-color: rgb(171, 255, 36); 
   color: black; 
   font-weight: bold;
