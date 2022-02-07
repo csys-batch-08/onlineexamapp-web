@@ -109,6 +109,13 @@ body {
 #next, #submit, #sendfeedback {
 	margin-left: 635px;
 }
+input[type=radio] {
+    width:25px;
+    height: 25px;
+}
+.clockalign{
+margin-top:-70px;
+}
 </style>
 <title>CSS Exam</title>
 </head>
@@ -119,7 +126,7 @@ body {
 	<a id="home" href="UserChooseExams"><h4 style="color: black;">
 			<u>Back</u>
 		</h4></a>
-	<div id="clock">
+	<div id="clock" class="clockalign">
 		<strong id="hour"></strong><label> &nbsp;<span id="colon">:</span>&nbsp;
 		</label><strong id="min"></strong>
 	</div>
@@ -127,124 +134,124 @@ body {
 	<button id="startButton" onclick="clcok()"
 		class="button examButton start">Start</button>
 
-	<div style="margin-top: -250px;">
+	<div style="margin-top: -390px;margin-left:-40px;">
 		<div class="questions" id="question1">
 			<p>
-				1)The HTML attribute used to define the inline styles is -<br>
-				<input type="radio" name="answer1" value="style">style<br>
-				<input type="radio" name="answer1" value="styles">styles<br>
-				<input type="radio" name="answer1" value="class">class<br>
-				<input type="radio" name="answer1" value="None of the above">None
-				of the above<br>
+				1)The HTML attribute used to define the inline styles is -<br><br>
+				<input type="radio" name="answer1" value="style" id="answer1">style<br><br>
+				<input type="radio" name="answer1" value="styles" id="answer1">styles<br><br>
+				<input type="radio" name="answer1" value="class" id="answer1">class<br><br>
+				<input type="radio" name="answer1" value="None of the above" id="answer1">None
+				of the above<br><br>
 
 			</p>
 		</div>
 		<div class="questions" id="question2">
 			<p>
 				2)Which of the following CSS property is used to set the background
-				image of an element?<br> <input type="radio" name="answer2"
-					value="background-attachment">background-attachment<br>
-				<input type="radio" name="answer2" value="background-image">background-image<br>
-				<input type="radio" name="answer2" value="background-color">background-color<br>
-				<input type="radio" name="answer2" value="None of the above">None
-				of the above<br>
+				image of an element?<br><br> <input type="radio" name="answer2"
+					value="background-attachment" id="answer2">background-attachment<br><br>
+				<input type="radio" name="answer2" value="background-image" id="answer2">background-image<br><br>
+				<input type="radio" name="answer2" value="background-color" id="answer2">background-color<br><br>
+				<input type="radio" name="answer2" value="None of the above" id="answer2">None
+				of the above<br><br>
 
 			</p>
 		</div>
 		<div class="questions" id="question3">
 			<p>
 				3)Which of the following is the correct syntax to make the
-				background-color of all paragraph elements to yellow?<br> <input
-					type="radio" name="answer3" value="p {background-color : yellow;}">p
-				{background-color : yellow;}<br> <input type="radio"
-					name="answer3" value="p {background-color : #yellow;}">p
-				{background-color : #yellow;}<br> <input type="radio"
-					name="answer3" value="all {background-color : yellow;}">all
-				{background-color : yellow;}<br> <input type="radio"
-					name="answer3" value="all p {background-color : #yellow;}">all
-				p {background-color : #yellow;}<br>
+				background-color of all paragraph elements to yellow?<br><br> <input
+					type="radio" name="answer3" value="p {background-color : yellow;}" id="answer3">p
+				{background-color : yellow;}<br><br> <input type="radio"
+					name="answer3" value="p {background-color : #yellow;}" id="answer3">p
+				{background-color : #yellow;}<br><br> <input type="radio"
+					name="answer3" value="all {background-color : yellow;}" id="answer3">all
+				{background-color : yellow;}<br><br> <input type="radio"
+					name="answer3" value="all p {background-color : #yellow;}" id="answer3">all
+				p {background-color : #yellow;}<br><br>
 
 			</p>
 		</div>
 		<div class="questions" id="question4">
 			<p>
 				4)Which of the following is the correct syntax to display the
-				hyperlinks without any underline?<br> <input type="radio"
-					name="answer4" value="a {text-decoration : underline;}">a
-				{text-decoration : underline;}<br> <input type="radio"
-					name="answer4" value="a {decoration : no-underline;}">a
-				{decoration : no-underline;}<br> <input type="radio"
-					name="answer4" value="a {text-decoration : none;}">a
-				{text-decoration : none;}<br> <input type="radio"
-					name="answer4" value="None of the above">None of the above<br>
+				hyperlinks without any underline?<br><br> <input type="radio"
+					name="answer4" value="a {text-decoration : underline;}" id="answer4">a
+				{text-decoration : underline;}<br><br> <input type="radio"
+					name="answer4" value="a {decoration : no-underline;}" id="answer4">a
+				{decoration : no-underline;}<br><br> <input type="radio"
+					name="answer4" value="a {text-decoration : none;}" id="answer4">a
+				{text-decoration : none;}<br><br> <input type="radio"
+					name="answer4" value="None of the above" id="answer4">None of the above<br><br>
 
 			</p>
 		</div>
 		<div class="questions" id="question5">
 			<p>
 				5)Which of the following property is used as the shorthand property
-				for the padding properties?<br> <input type="radio"
-					name="answer5" value="padding-left">padding-left<br> <input
-					type="radio" name="answer5" value="padding-right">padding-right<br>
-				<input type="radio" name="answer5" value="padding">padding<br>
-				<input type="radio" name="answer5" value="All of the above">All
-				of the above<br>
+				for the padding properties?<br><br> <input type="radio"
+					name="answer5" value="padding-left" id="answer5">padding-left<br><br> <input
+					type="radio" name="answer5" value="padding-right" id="answer5">padding-right<br><br>
+				<input type="radio" name="answer5" value="padding" id="answer5">padding<br><br>
+				<input type="radio" name="answer5" value="All of the above" id="answer5">All
+				of the above<br><br>
 
 			</p>
 		</div>
 		<div class="questions" id="question6">
 			<p>
-				6)The CSS property used to make the text bold is -<br> <input
-					type="radio" name="answer6" value="font-weight : bold">font-weight
-				: bold<br> <input type="radio" name="answer6"
-					value="weight: bold">weight: bold<br> <input
-					type="radio" name="answer6" value="font: bold">font: bold<br>
-				<input type="radio" name="answer6" value="style: bold">style:
-				bold<br>
+				6)The CSS property used to make the text bold is -<br><br> <input
+					type="radio" name="answer6" value="font-weight : bold" id="answer6">font-weight
+				: bold<br><br> <input type="radio" name="answer6"
+					value="weight: bold" id="answer6">weight: bold<br><br> <input
+					type="radio" name="answer6" value="font: bold" id="answer6">font: bold<br><br>
+				<input type="radio" name="answer6" value="style: bold" id="answer6">style:
+				bold<br><br>
 
 			</p>
 		</div>
 		<div class="questions" id="question7">
 			<p>
-				7)Are the negative values allowed in padding property?<br> <input
-					type="radio" name="answer7" value="Yes">Yes<br> <input
-					type="radio" name="answer7" value="No">No<br> <input
-					type="radio" name="answer7" value="Can't say">Can't say<br>
-				<input type="radio" name="answer7" value="May be">May be<br>
+				7)Are the negative values allowed in padding property?<br><br> <input
+					type="radio" name="answer7" value="Yes" id="answer7">Yes<br><br> <input
+					type="radio" name="answer7" value="No" id="answer7">No<br><br> <input
+					type="radio" name="answer7" value="Can't say" id="answer7">Can't say<br><br>
+				<input type="radio" name="answer7" value="May be" id="answer7">May be<br><br>
 
 			</p>
 		</div>
 		<div class="questions" id="question8">
 			<p>
 				8)Which of the following property is used as the shorthand property
-				of margin properties?<br> <input type="radio" name="answer8"
-					value="margin-left">margin-left<br> <input
-					type="radio" name="answer8" value="margin-right">margin-right<br>
-				<input type="radio" name="answer8" value="margin">margin<br>
-				<input type="radio" name="answer8" value="None of the above">None
-				of the above<br>
+				of margin properties?<br><br> <input type="radio" name="answer8"
+					value="margin-left" id="answer8">margin-left<br><br> <input
+					type="radio" name="answer8" value="margin-right" id="answer8">margin-right<br><br>
+				<input type="radio" name="answer8" value="margin" id="answer8">margin<br><br>
+				<input type="radio" name="answer8" value="None of the above" id="answer8">None
+				of the above<br><br>
 			</p>
 		</div>
 		<div class="questions" id="question9">
 			<p>
 				9)The CSS property used to specify the transparency of an element is
-				-<br> <input type="radio" name="answer9" value="opacity">opacity<br>
-				<input type="radio" name="answer9" value="filter">filter<br>
-				<input type="radio" name="answer9" value="visibility">visibility<br>
-				<input type="radio" name="answer9" value="overlay">overlay<br>
+				-<br><br> <input type="radio" name="answer9" value="opacity" id="answer9">opacity<br><br>
+				<input type="radio" name="answer9" value="filter" id="answer9">filter<br><br>
+				<input type="radio" name="answer9" value="visibility" id="answer9">visibility<br><br>
+				<input type="radio" name="answer9" value="overlay" id="answer9">overlay<br><br>
 
 			</p>
 		</div>
 		<div class="questions" id="question10">
 			<p>
 				10)Which of the following is used to specify the subscript of text
-				using CSS?<br> <input type="radio" name="answer10"
-					value="vertical-align: sub">vertical-align: sub<br> <input
-					type="radio" name="answer10" value="vertical-align: super">vertical-align:
-				super<br> <input type="radio" name="answer10"
-					value="vertical-align: subscript">vertical-align: subscript<br>
-				<input type="radio" name="answer10" value="None of the above">None
-				of the above<br>
+				using CSS?<br><br> <input type="radio" name="answer10"
+					value="vertical-align: sub" id="answer10">vertical-align: sub<br><br> <input
+					type="radio" name="answer10" value="vertical-align: super" id="answer10">vertical-align:
+				super<br><br> <input type="radio" name="answer10"
+					value="vertical-align: subscript" id="answer10">vertical-align: subscript<br><br>
+				<input type="radio" name="answer10" value="None of the above" id="answer10">None
+				of the above<br><br>
 
 			</p>
 
@@ -267,22 +274,22 @@ body {
 	<div id="buttons" class="form">
 		<form action="scoreDetails">
 			<input style="visibility: hidden;" type="text" id="examId"
-				name="examId" value="${exam_Id}"> <input
+				name="examId" value="${exam_Id}"><label></label> <input
 				style="visibility: hidden;" type="text" id="examName"
-				name="examName" value="${exam_Name}"> <input
+				name="examName" value="${exam_Name}"><label></label> <input
 				style="visibility: hidden;" type="text" id="studentId" name="uID"
-				value="${user_id}" /> <input style="visibility: hidden;" type="text"
-				id="score" name="score"> <input style="visibility: hidden;"
-				type="text" id="passOrFail" name="passOrFail"> <input
-				style="visibility: hidden;" type="text" id="grade" name="grade">
+				value="${user_id}" /><label></label> <input style="visibility: hidden;" type="text"
+				id="score" name="score"><label></label> <input style="visibility: hidden;"
+				type="text" id="passOrFail" name="passOrFail"><label></label> <input
+				style="visibility: hidden;" type="text" id="grade" name="grade"><label></label>
 			<button id="submit" onclick="ans()"
-				style="text-align: center; margin-top: 270px;"
+				style="text-align: center; margin-top: 430px;"
 				class="button examButton">Submit</button>
 		</form>
 	</div>
 	<div>
 		<button id="next" onclick="qu()"
-			style="text-align: center; margin-top: -290px;"
+			style="text-align: center; margin-top: -50px;"
 			class="button examButton">Next</button>
 
 	</div>

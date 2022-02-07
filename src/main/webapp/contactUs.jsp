@@ -164,13 +164,14 @@ to {
 	</ul>
 	<div class="container">
 		<h2 class="h1move" class="login">
-			<u>Contact Admin</u>
+			Contact Admin
 		</h2>
 		<label for="comments">Drop your Comments:</label><br>
 		<textarea name="comments" id="comments" required autofocus></textarea>
 		<br>
 		<br>
 		<button type="submit" class="buttons button2" onclick="contact()">Submit</button>
+		</div>
 		<div id="snackbar">Profile updated successfully!</div>
 </body>
 <script type="text/javascript">
