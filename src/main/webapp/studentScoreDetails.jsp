@@ -67,7 +67,7 @@ h2 {
 }
 
 .exam {
-	margin-left: -738px;
+	margin-left: -8px;
 }
 
 .a6 {
@@ -136,8 +136,9 @@ h2 {
 			</div>
 		</c:when>
 		<c:otherwise>
+			<div class="otherwise">
 			<h2 class="notyet">
-				<div class="otherwise">You haven't write any exams yet!..
+				You haven't write any exams yet!..
 			</h2>
 			<br>
 			<br>

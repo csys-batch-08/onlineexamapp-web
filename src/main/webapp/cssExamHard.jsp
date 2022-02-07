@@ -27,31 +27,31 @@
 		<div class="questions" id="question1">
 			<p>
 				1)Which of the following is a component of CSS style rule?<br><br>
-				<input type="radio" name="answer1" value="Selector" id="answer1">Selector<br><br>
-				<input type="radio" name="answer1" value="Property" id="answer1">Property<br><br>
-				<input type="radio" name="answer1" value="Value" id="answer1">Value<br><br>
-				<input type="radio" name="answer1" value="All of the above." id="answer1">All
-				of the above.<br><br>
+				<input type="radio" name="answer1" value="Selector" id="option1"><label for="option1">Selector</label><br><br>
+				<input type="radio" name="answer1" value="Property" id="option2"><label for="option2">Property</label><br><br>
+				<input type="radio" name="answer1" value="Value" id="option3"><label for="option3">Value</label><br><br>
+				<input type="radio" name="answer1" value="All of the above." id="option4"><label for="option4">All
+				of the above.</label><br><br>
 
 			</p>
 		</div>
 		<div class="questions" id="question2">
 			<p>
 				2)Which of the following defines a measurement relative to a font's
-				x-height?<br><br> <input type="radio" name="answer2" value="%" id="answer2">%<br><br>
-				<input type="radio" name="answer2" value="cm" id="answer2">cm<br><br> <input
-					type="radio" name="answer2" value="em" id="answer2">em<br><br> <input
-					type="radio" name="answer2" value="ex" id="answer2">ex<br><br>
+				x-height?<br><br> <input type="radio" name="answer2" value="%" id="2option1"><label for="2option1">%</label><br><br>
+				<input type="radio" name="answer2" value="cm" id="2option2"><label for="2option2">cm</label><br><br> <input
+					type="radio" name="answer2" value="em" id="2option3"><label for="2option3">em</label><br><br> <input
+					type="radio" name="answer2" value="ex" id="2option4"><label for="2option4">ex</label><br><br>
 
 			</p>
 		</div>
 		<div class="questions" id="question3">
 			<p>
 				3)Which of the following defines 1% of viewport height?<br><br> <input
-					type="radio" name="answer3" value="px" id="answer3">px<br><br> <input
-					type="radio" name="answer3" value="vh" id="answer3">vh<br><br> <input
-					type="radio" name="answer3" value="vw" id="answer3">vw<br><br> <input
-					type="radio" name="answer3" value="vmin" id="answer3">vmin<br><br>
+					type="radio" name="answer3" value="px" id="3option1"><label for="3option1">px</label><br><br> <input
+					type="radio" name="answer3" value="vh" id="3option2"><label for="3option2">vh</label><br><br> <input
+					type="radio" name="answer3" value="vw" id="3option3"><label for="3option3">vw</label><br><br> <input
+					type="radio" name="answer3" value="vmin" id="3option4"><label for="3option4">vmin</label><br><br>
 
 			</p>
 		</div>
@@ -59,10 +59,10 @@
 			<p>
 				4)Which of the following property is used to control the position of
 				an image in the background?<br><br> <input type="radio"
-					name="answer4" value="background-color" id="answer4">background-color<br><br>
-				<input type="radio" name="answer4" value="background-image" id="answer4">background-image<br><br>
-				<input type="radio" name="answer4" value="background-repeat" id="answer4">background-repeat<br><br>
-				<input type="radio" name="answer4" value="background-position" id="answer4">background-position<br><br>
+					name="answer4" value="background-color" id="4option1"><label for="4option1">background-color</label><br><br>
+				<input type="radio" name="answer4" value="background-image" id="4option2"><label for="4option2">background-image</label><br><br>
+				<input type="radio" name="answer4" value="background-repeat" id="4option3"><label for="4option3">background-repeat</label><br><br>
+				<input type="radio" name="answer4" value="background-position" id="4option4"><label for="4option4">background-position</label><br><br>
 
 			</p>
 		</div>
@@ -70,10 +70,10 @@
 			<p>
 				5) Which of the following property is used to align the text of a
 				document?<br><br> <input type="radio" name="answer5"
-					value="text-indent" id="answer5">text-indent<br><br> <input
-					type="radio" name="answer5" value="text-align" id="answer5">text-align<br><br>
-				<input type="radio" name="answer5" value="text-decoration" id="answer5">text-decoration<br><br>
-				<input type="radio" name="answer5" value="text-transform" id="answer5">text-transform<br><br>
+					value="text-indent" id="5option1"><label for="5option1">text-indent</label><br><br> <input
+					type="radio" name="answer5" value="text-align" id="5option2"><label for="5option2">text-align</label><br><br>
+				<input type="radio" name="answer5" value="text-decoration" id="5option3"><label for="5option3">text-decoration</label><br><br>
+				<input type="radio" name="answer5" value="text-transform" id="5option4"><label for="5option4">text-transform</label><br><br>
 
 			</p>
 		</div>
@@ -81,40 +81,40 @@
 			<p>
 				6)Which of the following property of a anchor element signifies
 				unvisited hyperlinks?<br><br> <input type="radio" name="answer6"
-					value=":link" id="answer6">:link<br><br> <input type="radio"
-					name="answer6" value=":visited" id="answer6">:visited<br><br> <input
-					type="radio" name="answer6" value=":hover" id="answer6">:hover<br><br>
-				<input type="radio" name="answer6" value=":active" id="answer6">:active<br><br>
+					value=":link" id="6option1"><label for="6option1">:link</label><br><br> <input type="radio"
+					name="answer6" value=":visited" id="6option2"><label for="6option2">:visited</label><br><br> <input
+					type="radio" name="answer6" value=":hover" id="6option3"><label for="6option3">:hover</label><br><br>
+				<input type="radio" name="answer6" value=":active" id="6option4"><label for="6option4">:active</label><br><br>
 
 			</p>
 		</div>
 		<div class="questions" id="question7">
 			<p>
 				7)Which of the following property changes the color of right border?<br><br>
-				<input type="radio" name="answer7" value=":border-top-color" id="answer7">:border-top-color<br><br>
-				<input type="radio" name="answer7" value=":border-left-color" id="answer7">:border-left-color<br><br>
-				<input type="radio" name="answer7" value=":border-right-color" id="answer7">:border-right-color<br><br>
-				<input type="radio" name="answer7" value=":border-bottom-color" id="answer7">:border-bottom-color<br><br>
+				<input type="radio" name="answer7" value=":border-top-color" id="7option1"><label for="7option1">:border-top-color</label><br><br>
+				<input type="radio" name="answer7" value=":border-left-color" id="7option2"><label for="7option2">:border-left-color</label><br><br>
+				<input type="radio" name="answer7" value=":border-right-color" id="7option3"><label for="7option3">:border-right-color</label><br><br>
+				<input type="radio" name="answer7" value=":border-bottom-color" id="7option4"><label for="7option4">:border-bottom-color</label><br><br>
 
 			</p>
 		</div>
 		<div class="questions" id="question8">
 			<p>
 				8)Which of the following property specifies the left margin of an
-				element?<br><br> <input type="radio" name="answer8" value=":margin" id="answer8">:margin<br><br>
-				<input type="radio" name="answer8" value=":margin-bottom" id="answer8">:margin-bottom<br><br>
-				<input type="radio" name="answer8" value=":margin-top" id="answer8">:margin-top<br><br>
-				<input type="radio" name="answer8" value=":margin-left" id="answer8">:margin-left<br><br>
+				element?<br><br> <input type="radio" name="answer8" value=":margin" id="8option1"><label for="8option1">:margin</label><br><br>
+				<input type="radio" name="answer8" value=":margin-bottom" id="8option2"><label for="8option2">:margin-bottom</label><br><br>
+				<input type="radio" name="answer8" value=":margin-top" id="8option3"><label for="8option3">:margin-top</label><br><br>
+				<input type="radio" name="answer8" value=":margin-left" id="8option4"><label for="8option4">:margin-left</label><br><br>
 			</p>
 		</div>
 		<div class="questions" id="question9">
 			<p>
 				9)Which of the following property specifies the bottom padding of an
 				element?<br><br> <input type="radio" name="answer9"
-					value="padding-bottom" id="answer9">padding-bottom<br><br> <input
-					type="radio" name="answer9" value="padding-top" id="answer9">padding-top<br><br>
-				<input type="radio" name="answer9" value="padding-left" id="answer9">padding-left<br><br>
-				<input type="radio" name="answer9" value="padding-right" id="answer9">padding-right<br><br>
+					value="padding-bottom" id="9option1"><label for="9option1">padding-bottom</label><br><br> <input
+					type="radio" name="answer9" value="padding-top" id="9option2"><label for="9option2">padding-top</label><br><br>
+				<input type="radio" name="answer9" value="padding-left" id="9option3"><label for="9option3">padding-left</label><br><br>
+				<input type="radio" name="answer9" value="padding-right" id="9option4"><label for="9option4">padding-right</label><br><br>
 
 			</p>
 		</div>
@@ -122,13 +122,13 @@
 			<p>
 				10)Which of the following is a way to associate styles with your
 				HTML document?<br><br> <input type="radio" name="answer10"
-					value="External CSS - The Element" id="answer10">External CSS - The
-				Element<br><br> <input type="radio" name="answer10"
-					value="Imported CSS - @import Rule" id="answer10">Imported CSS - @import
-				Rule<br><br> <input type="radio" name="answer10"
-					value="Both of the above." id="answer10">Both of the above.<br><br> <input
-					type="radio" name="answer10" value="None of the above." id="answer10">None
-				of the above.<br><br>
+					value="External CSS - The Element" id="10option1"><label for="10option1">External CSS - The
+				Element</label><br><br> <input type="radio" name="answer10"
+					value="Imported CSS - @import Rule" id="10option2"><label for="10option2">Imported CSS - @import
+				Rule</label><br><br> <input type="radio" name="answer10"
+					value="Both of the above." id="10option3"><label for="10option3">Both of the above.</label><br><br> <input
+					type="radio" name="answer10" value="None of the above." id="10option4"><label for="10option4">None
+				of the above.</label><br><br>
 
 			</p>
 

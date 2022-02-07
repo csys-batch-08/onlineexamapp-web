@@ -27,25 +27,25 @@
 		<div class="questions" id="question1">
 			<p>
 				1)HTML stands for -<br><br> <input type="radio" name="answer1"
-					value="HighText Machine Language" id="answer1">HighText Machine Language<br><br>
+					value="HighText Machine Language" id="option1"><label for="option1">HighText Machine Language</label><br><br>
 				<input type="radio" name="answer1"
-					value="HyperText and links Markup Language" id="answer1">HyperText and
-				links Markup Language<br><br> <input type="radio" name="answer1"
-					value="HyperText Markup Language" id="answer1">HyperText Markup Language<br><br>
-				<input type="radio" name="answer1" value="None of these" id="answer1">None
-				of these<br><br>
+					value="HyperText and links Markup Language" id="option2"><label for="option2">HyperText and
+				links Markup Language</label><br><br> <input type="radio" name="answer1"
+					value="HyperText Markup Language" id="option3"><label for="option3">HyperText Markup Language</label><br><br>
+				<input type="radio" name="answer1" value="None of these" id="option4"><label for="option4">None
+				of these</label><br><br>
 
 			</p>
 		</div>
 		<div class="questions" id="question2">
 			<p>
 				2)The correct sequence of HTML tags for starting a webpage is -<br><br>
-				<input type="radio" name="answer2" value="Head, Title, HTML, body" id="answer2">Head,
-				Title, HTML, body<br><br> <input type="radio" name="answer2"
-					value="HTML, Body, Title, Head" id="answer2">HTML, Body, Title, Head<br><br>
-				<input type="radio" name="answer2" value="HTML, Head, Title, Body" id="answer2">HTML,
-				Head, Title, Body<br><br> <input type="radio" name="answer2"
-					value="Title, Head, Body, HTML" id="answer2">Title, Head, Body, HTML<br><br>
+				<input type="radio" name="answer2" value="Head, Title, HTML, body" id="2option1"><label for="2option1">Head,
+				Title, HTML, body</label><br><br> <input type="radio" name="answer2"
+					value="HTML, Body, Title, Head" id="2option2"><label for="2option2">HTML, Body, Title, Head</label><br><br>
+				<input type="radio" name="answer2" value="HTML, Head, Title, Body" id="2option3"><label for="2option3">HTML,
+				Head, Title, Body</label><br><br> <input type="radio" name="answer2"
+					value="Title, Head, Body, HTML" id="2option4"><label for="2option4">Title, Head, Body, HTML</label><br><br>
 
 			</p>
 		</div>
@@ -53,10 +53,10 @@
 			<p>
 				3)Which of the following element is responsible for making the text
 				bold in HTML?<br><br> <input type="radio" name="answer3"
-					value="pre tag" id="answer3">pre tag<br><br> <input type="radio"
-					name="answer3" value="a tag" id="answer3">a tag<br><br> <input
-					type="radio" name="answer3" value="b tag" id="answer3">b tag<br><br> <input
-					type="radio" name="answer3" value="br tag" id="answer3">br tag<br><br>
+					value="pre tag" id="3option1"><label for="3option1">pre tag</label><br><br> <input type="radio"
+					name="answer3" value="a tag" id="3option2"><label for="3option2">a tag</label><br><br> <input
+					type="radio" name="answer3" value="b tag" id="3option3"><label for="3option3">b tag</label><br><br> <input
+					type="radio" name="answer3" value="br tag" id="3option4"><label for="3option4">br tag</label><br><br>
 
 			</p>
 		</div>
@@ -64,77 +64,77 @@
 			<p>
 				4)Which of the following tag is used for inserting the largest
 				heading in HTML?<br><br> <input type="radio" name="answer4"
-					value="h3 tag" id="answer4">h3 tag<br><br> <input type="radio"
-					name="answer4" value="h1 tag" id="answer4">h1 tag<br><br> <input
-					type="radio" name="answer4" value="h5 tag" id="answer4">h5 tag<br><br>
-				<input type="radio" name="answer4" value="h6 tag" id="answer4">h6 tag<br><br>
+					value="h3 tag" id="4option1"><label for="4option1">h3 tag</label><br><br> <input type="radio"
+					name="answer4" value="h1 tag" id="4option2"><label for="4option2">h1 tag</label><br><br> <input
+					type="radio" name="answer4" value="h5 tag" id="4option3"><label for="4option3">h5 tag</label><br><br>
+				<input type="radio" name="answer4" value="h6 tag" id="4option4"><label for="4option4">h6 tag</label><br><br>
 
 			</p>
 		</div>
 		<div class="questions" id="question5">
 			<p>
 				5)Which of the following tag is used to insert a line-break in HTML?<br><br>
-				<input type="radio" name="answer5" value="br tag" id="answer5">br tag<br><br>
-				<input type="radio" name="answer5" value="a tag" id="answer5">a tag<br><br>
-				<input type="radio" name="answer5" value="pre tag" id="answer5">pre tag<br><br>
-				<input type="radio" name="answer5" value="b tag" id="answer5">b tag<br><br>
+				<input type="radio" name="answer5" value="br tag" id="5option1"><label for="5option1">br tag</label><br><br>
+				<input type="radio" name="answer5" value="a tag" id="5option2"><label for="5option2">a tag</label><br><br>
+				<input type="radio" name="answer5" value="pre tag" id="5option3"><label for="5option3">pre tag</label><br><br>
+				<input type="radio" name="answer5" value="b tag" id="5option4"><label for="5option4">b tag</label><br><br>
 
 			</p>
 		</div>
 		<div class="questions" id="question6">
 			<p>
 				6)Which character is used to represent the closing of a tag in HTML?<br><br>
-				<input type="radio" name="answer6" value="\" id="answer6">\<br><br> <input
-					type="radio" name="answer6" value="!" id="answer6">!<br><br> <input
-					type="radio" name="answer6" value="/" id="answer6">/<br><br> <input
-					type="radio" name="answer6" value="." id="answer6">.<br><br>
+				<input type="radio" name="answer6" value="\" id="6option1"><label for="6option1">\</label><br><br> <input
+					type="radio" name="answer6" value="!" id="6option2"><label for="6option2">!</label><br><br> <input
+					type="radio" name="answer6" value="/" id="6option3"><label for="6option3">/</label><br><br> <input
+					type="radio" name="answer6" value="." id="6option4"><label for="6option4">.</label><br><br>
 
 			</p>
 		</div>
 		<div class="questions" id="question7">
 			<p>
 				7) input tag is -<br><br> <input type="radio" name="answer7"
-					value="a format tag." id="answer7">a format tag.<br><br> <input
-					type="radio" name="answer7" value="an empty tag." id="answer7">an empty
-				tag.<br><br> <input type="radio" name="answer7"
-					value="All of the above" id="answer7">All of the above<br><br> <input
-					type="radio" name="answer7" value="None of the above" id="answer7">None
-				of the above<br><br>
+					value="a format tag." id="7option1"><label for="7option1">a format tag.</label><br><br> <input
+					type="radio" name="answer7" value="an empty tag." id="7option2"><label for="7option2">an empty
+				tag.</label><br><br> <input type="radio" name="answer7"
+					value="All of the above" id="7option3"><label for="7option3">All of the above</label><br><br> <input
+					type="radio" name="answer7" value="None of the above" id="7option4"><label for="7option4">None
+				of the above</label><br><br>
 
 			</p>
 		</div>
 		<div class="questions" id="question8">
 			<p>
 				8)The hr tag in HTML is used for -<br><br> <input type="radio"
-					name="answer8" value="new line" id="answer8">new line<br><br> <input
-					type="radio" name="answer8" value="vertical ruler" id="answer8">vertical
-				ruler<br><br> <input type="radio" name="answer8"
-					value="new paragraph" id="answer8">new paragraph<br><br> <input
-					type="radio" name="answer8" value="horizontal ruler" id="answer8">horizontal
-				ruler<br><br>
+					name="answer8" value="new line" id="8option1"><label for="8option1">new line</label><br><br> <input
+					type="radio" name="answer8" value="vertical ruler" id="8option2"><label for="8option2">vertical
+				ruler</label><br><br> <input type="radio" name="answer8"
+					value="new paragraph" id="8option3"><label for="8option3">new paragraph</label><br><br> <input
+					type="radio" name="answer8" value="horizontal ruler" id="8option4"><label for="8option4">horizontal
+				ruler</label><br><br>
 			</p>
 		</div>
 		<div class="questions" id="question9">
 			<p>
 				9)Which of the following attribute is used to provide a unique name
 				to an element?<br><br> <input type="radio" name="answer9"
-					value="class" id="answer9">class<br><br> <input type="radio"
-					name="answer9" value="id" id="answer9">id<br><br> <input type="radio"
-					name="answer9" value="type" id="answer9">type<br><br> <input
-					type="radio" name="answer9" value="None of the above" id="answer9">None
-				of the above<br><br>
+					value="class" id="9option1"><label for="9option1">class</label><br><br> <input type="radio"
+					name="answer9" value="id" id="9option2"><label for="9option2">id</label><br><br> <input type="radio"
+					name="answer9" value="type" id="9option3"><label for="9option3">type</label><br><br> <input
+					type="radio" name="answer9" value="None of the above" id="9option4"><label for="9option4">None
+				of the above</label><br><br>
 
 			</p>
 		</div>
 		<div class="questions" id="question10">
 			<p>
 				10)What are the types of unordered or bulleted list in HTML?<br><br>
-				<input type="radio" name="answer10" value="disc, square, triangle" id="answer10">disc,
-				square, triangle<br><br> <input type="radio" name="answer10"
-					value="polygon, triangle, circle" id="answer10">polygon, triangle, circle<br><br>
-				<input type="radio" name="answer10" value="disc, circle, square" id="answer10">disc,
-				circle, square<br><br> <input type="radio" name="answer10"
-					value="All of the above" id="answer10">All of the above<br><br>
+				<input type="radio" name="answer10" value="disc, square, triangle" id="10option1"><label for="10option1">disc,
+				square, triangle</label><br><br> <input type="radio" name="answer10"
+					value="polygon, triangle, circle" id="10option2"><label for="10option2">polygon, triangle, circle</label><br><br>
+				<input type="radio" name="answer10" value="disc, circle, square" id="10option3"><label for="10option3">disc,
+				circle, square</label><br><br> <input type="radio" name="answer10"
+					value="All of the above" id="10option4"><label for="10option4">All of the above</label><br><br>
 
 			</p>
 

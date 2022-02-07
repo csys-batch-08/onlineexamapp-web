@@ -5,121 +5,17 @@
 <html lang="en">
 <head>
 <meta charset="ISO-8859-1">
-<style>
-b {
-	font-size: xx-large;
-}
-
-#clock {
-	position: absolute;
-	left: 1200px;
-	top: 100px;
-	font-size: xx-large;
-}
-
-h2 {
-	text-align: center;
-}
-
-body {
-	background: linear-gradient(to right, springgreen, rgb(253, 253, 53));
-}
-
-.questions {
-	position: absolute;
-	margin-top: 120px;
-	left: 170px;
-	font-size: 30px;
-}
-
-.button {
-	background-color: #4CAF50; /* Green */
-	border: none;
-	color: white;
-	padding: 16px 32px;
-	text-align: center;
-	text-decoration: none;
-	display: inline-block;
-	font-size: 16px;
-	margin: 4px 2px;
-	transition-duration: 0.4s;
-	cursor: pointer;
-}
-
-.examButton {
-	background-color: rgb(171, 255, 36);
-	color: black;
-	font-weight: bold;
-	font-family: Verdana, Geneva, Tahoma, sans-serif;
-	border: 4px solid black;
-}
-
-.examButton:hover, .examButton :active {
-	background-color: black;
-	color: white;
-	transition: 2ms;
-}
-
-#finish, #feed, #hour, #min, #colon, #next, #music, #complete, #timeup {
-	visibility: hidden;
-}
-
-#result {
-	font-size: large;
-	text-align: center;
-}
-
-#passFail {
-	font-size: large;
-	text-align: center;
-}
-
-#studentGrade {
-	font-size: large;
-	text-align: center;
-}
-
-#buttons {
-	visibility: hidden;
-}
-
-#home {
-	float: right;
-	margin-right: 10px;
-	margin-top: -70px;
-	font-size: x-large;
-}
-
-.start {
-	margin-top: 210px;
-	margin-left: 630px;
-}
-
-.timeupalign {
-	font-size: xx-large;
-	font-weight: bolder;
-	margin-top: 170px;
-	margin-left: 635px;
-}
-
-.form {
-	margin-top: -400px;
-}
-
-#next, #submit, #sendfeedback {
-	margin-left: 635px;
-}
-</style>
+<link rel="stylesheet" href="examPages.css">
 <title>JAVA Exam</title>
 </head>
 <body>
 	<h2 style="margin-left: 50px;" id="css">
-		<u>JAVA Exam</u>
+		JAVA Exam
 	</h2>
-	<a id="home" href="UserChooseExams"><h4 style="color: black;">
-			<u>Back</u>
-		</h4></a>
-	<div id="clock">
+	<h4 style="color:black;"><a id="home" href="UserChooseExams">
+			Back
+		</a></h4>
+	<div id="clock" class="clockalign">
 		<strong id="hour"></strong><label> &nbsp;<span id="colon">:</span>&nbsp;
 		</label><strong id="min"></strong>
 	</div>
@@ -127,121 +23,109 @@ body {
 	<button id="startButton" onclick="clcok()"
 		class="button examButton start">Start</button>
 
-	<div style="margin-top: -250px;">
+	<div style="margin-top: -390px;margin-left:-40px;">
 		<div class="questions" id="question1">
 			<p>
 				1)Which of the following option leads to the portability and
-				security of Java?<br> <input type="radio" name="answer1"
-					value="Bytecode is executed by JVM">Bytecode is executed by
-				JVM<br> <input type="radio" name="answer1"
-					value="The applet makes the Java code secure and portable">The
-				applet makes the Java code secure and portable<br> <input
-					type="radio" name="answer1" value="Use of exception handling">Use
-				of exception handling<br> <input type="radio" name="answer1"
-					value="Dynamic binding between objects">Dynamic binding
-				between objects<br>
+				security of Java?<br><br>
+				<input type="radio" name="answer1" value="Bytecode is executed by JVM" id="option1"><label for="option1">Bytecode is executed by JVM</label><br><br>
+				<input type="radio" name="answer1" value="The applet makes the Java code secure and portable" id="option2"><label for="option2">The applet makes the Java code secure and portable</label><br><br>
+				<input type="radio" name="answer1" value="Use of exception handling" id="option3"><label for="option3">Use of exception handling</label><br><br>
+				<input type="radio" name="answer1" value="Dynamic binding between objects" id="option4"><label for="option4">Dynamic binding between objects</label><br><br>
 
 			</p>
 		</div>
 		<div class="questions" id="question2">
 			<p>
-				2) Which of the following is not a Java features?<br> <input
-					type="radio" name="answer2" value="Dynamic">Dynamic<br>
-				<input type="radio" name="answer2" value="Architecture Neutral">Architecture
-				Neutral<br> <input type="radio" name="answer2"
-					value="Use of pointers">Use of pointers<br> <input
-					type="radio" name="answer2" value="Object-oriented">Object-oriented<br>
+				2)Which of the following is not a Java features?<br><br> <input type="radio" name="answer2"
+					value="Dynamic" id="2option1"><label for="2option1">Dynamic</label><br><br>
+				<input type="radio" name="answer2" value="Architecture Neutral" id="2option2"><label for="2option2">Architecture Neutral</label><br><br>
+				<input type="radio" name="answer2" value="Use of pointers" id="2option3"><label for="2option3">Use of pointers</label><br><br>
+				<input type="radio" name="answer2" value="Object-oriented" id="2option4"><label for="2option4">Object-oriented</label><br><br>
 
 			</p>
 		</div>
 		<div class="questions" id="question3">
 			<p>
-				3)_____ is used to find and fix bugs in the Java programs.<br>
-				<input type="radio" name="answer3" value="JVM">JVM<br>
-				<input type="radio" name="answer3" value="JRE">JRE<br>
-				<input type="radio" name="answer3" value="JDK">JDK<br>
-				<input type="radio" name="answer3" value="JDB">JDB<br>
+				3)_____ is used to find and fix bugs in the Java programs.<br><br> <input
+					type="radio" name="answer3" value="JVM" id="3option1"><label for="3option1">JVM</label><br><br> <input type="radio"
+					name="answer3" value="JRE" id="3option2"><label for="3option2">JRE</label><br><br> <input type="radio"
+					name="answer3" value="JDK" id="3option3"><label for="3option3">JDK</label><br><br> <input type="radio"
+					name="answer3" value="JDB" id="3option4"><label for="3option4">JDB</label><br><br>
 
 			</p>
 		</div>
 		<div class="questions" id="question4">
 			<p>
 				4)In which process, a local variable has the same name as one of the
-				instance variables?<br> <input type="radio" name="answer4"
-					value="Serialization">Serialization<br> <input
-					type="radio" name="answer4" value="Variable Shadowing">Variable
-				Shadowing<br> <input type="radio" name="answer4"
-					value="Abstraction">Abstraction<br> <input
-					type="radio" name="answer4" value="Multi-threading">Multi-threading<br>
+				instance variables?<br><br> <input type="radio"
+					name="answer4" value="Serialization" id="4option1"><label for="4option1">Serialization</label><br><br> <input type="radio"
+					name="answer4" value="Variable Shadowing" id="4option2"><label for="4option2">Variable Shadowing</label><br><br> <input type="radio"
+					name="answer4" value="Abstraction" id="4option3"><label for="4option3">Abstraction</label><br><br> <input type="radio"
+					name="answer4" value="Multi-threading" id="4option4"><label for="4option4">Multi-threading</label><br><br>
 
 			</p>
 		</div>
 		<div class="questions" id="question5">
 			<p>
 				5)What is the return type of the hashCode() method in the Object
-				class?<br> <input type="radio" name="answer5" value="Object">Object<br>
-				<input type="radio" name="answer5" value="int">int<br>
-				<input type="radio" name="answer5" value="long">long<br>
-				<input type="radio" name="answer5" value="void">void<br>
+				class?<br><br> <input type="radio"
+					name="answer5" value="Object" id="5option1"><label for="5option1">Object</label><br><br> <input
+					type="radio" name="answer5" value="int" id="5option2"><label for="5option2">int</label><br><br>
+				<input type="radio" name="answer5" value="long" id="5option3"><label for="5option3">long</label><br><br>
+				<input type="radio" name="answer5" value="void" id="5option4"><label for="5option4">void</label><br><br>
 
 			</p>
 		</div>
 		<div class="questions" id="question6">
 			<p>
-				6) What does the expression float a = 35 / 0 return?<br> <input
-					type="radio" name="answer6" value="0">0<br> <input
-					type="radio" name="answer6" value="Not a Number">Not a
-				Number<br> <input type="radio" name="answer6" value="Infinity">Infinity<br>
-				<input type="radio" name="answer6" value="Run time exception">Run
-				time exception<br>
+				6)What does the expression float a = 35 / 0 return?<br><br> <input
+					type="radio" name="answer6" value="0" id="6option1"><label for="6option1">0</label><br><br> <input type="radio" name="answer6"
+					value="Not a Number" id="6option2"><label for="6option2">Not a Number</label><br><br> <input
+					type="radio" name="answer6" value="Infinity" id="6option3"><label for="6option3">Infinity</label><br><br>
+				<input type="radio" name="answer6" value="Run time exception" id="6option4"><label for="6option4">Run time exception</label><br><br>
 
 			</p>
 		</div>
 		<div class="questions" id="question7">
 			<p>
 				7)Evaluate the following Java expression, if x=3, y=5, and z=10: ++z
-				+ y - y + z + x++<br> <input type="radio" name="answer7"
-					value="24">24<br> <input type="radio" name="answer7"
-					value="23">23<br> <input type="radio" name="answer7"
-					value="20">20<br> <input type="radio" name="answer7"
-					value="25">25<br>
+				+ y - y + z + x++<br><br> <input
+					type="radio" name="answer7" value="20" id="7option1"><label for="7option1">20</label><br><br> <input
+					type="radio" name="answer7" value="23" id="7option2"><label for="7option2">23</label><br><br> <input
+					type="radio" name="answer7" value="24" id="7option3"><label for="7option3">24</label><br><br>
+				<input type="radio" name="answer7" value="25" id="7option4"><label for="7option4">25</label><br><br>
 
 			</p>
 		</div>
 		<div class="questions" id="question8">
 			<p>
-				8) Which method of the Class.class is used to determine the name of
-				a class represented by the class object as a String?<br> <input
-					type="radio" name="answer8" value="getClass()">getClass()<br>
-				<input type="radio" name="answer8" value="intern()">intern()<br>
-				<input type="radio" name="answer8" value="getName()">getName()<br>
-				<input type="radio" name="answer8" value="toString()">toString()<br>
+				8)Which method of the Class.class is used to determine the name of
+				a class represented by the class object as a String?<br><br> <input type="radio" name="answer8"
+					value="getClass()" id="8option1"><label for="8option1">getClass()</label><br><br> <input
+					type="radio" name="answer8" value="intern()" id="8option2"><label for="8option2">intern()</label><br><br>
+				<input type="radio" name="answer8" value="getName()" id="8option3"><label for="8option3">getName()</label><br><br>
+				<input type="radio" name="answer8" value="toString()" id="8option4"><label for="8option4">toString()</label><br><br>
 			</p>
 		</div>
 		<div class="questions" id="question9">
 			<p>
-				9) Which package contains the Random class?<br> <input
-					type="radio" name="answer9" value="java.util package">java.util
-				package<br> <input type="radio" name="answer9"
-					value="java.lang package">java.lang package<br> <input
-					type="radio" name="answer9" value="java.awt package">java.awt
-				package<br> <input type="radio" name="answer9"
-					value="java.io package">java.io package<br>
+				9)Which package contains the Random class?<br><br> 
+				<input type="radio" name="answer9" value="java.util package" id="9option1"><label for="9option1">java.util package</label><br><br>
+				<input type="radio" name="answer9" value="java.lang package" id="9option2"><label for="9option2">java.lang package</label><br><br>
+				<input type="radio" name="answer9" value="java.awt package" id="9option3"><label for="9option3">java.awt package</label><br><br>
+				<input type="radio" name="answer9" value="java.io package" id="9option4"><label for="9option4">java.io package</label><br><br>
 
 			</p>
 		</div>
 		<div class="questions" id="question10">
 			<p>
-				10) Which of the following for loop declaration is not valid?<br>
+				10)Which of the following for loop declaration is not valid?<br><br> 
 				<input type="radio" name="answer10"
-					value="for ( int i = 99; i >= 0; i / 9 )">for ( int i = 99;
-				i >= 0; i / 9 )<br> <input type="radio" name="answer10"
-					value="for ( int i = 7; i <= 77; i += 7 )">for ( int i = 7;
-				i <= 77; i += 7 )<br> <input type="radio" name="answer10"
-					value="for ( int i = 20; i >= 2; - -i )">for ( int i = 20;
-				i >= 2; - -i )<br> <input type="radio" name="answer10"
-					value="for ( int i = 2; i <= 20; i = 2* i )">for ( int i =
-				2; i <= 20; i = 2* i )<br>
+					value="for ( int i = 99; i >= 0; i / 9 )" id="10option1"><label for="10option1">for ( int i = 99; i >= 0; i / 9 )</label><br><br> <input
+					type="radio" name="answer10" value="for ( int i = 7; i <= 77; i += 7 )" id="10option2"><label for="10option2">for ( int i = 7; i <= 77; i += 7 )</label><br><br> <input type="radio" name="answer10"
+					value="for ( int i = 20; i >= 2; - -i )" id="10option3"><label for="10option3">for ( int i = 20; i >= 2; - -i )</label><br><br>
+				<input type="radio" name="answer10" value="for ( int i = 2; i <= 20; i = 2* i )" id="10option4"><label for="10option4">for ( int i = 2; i <= 20; i = 2* i )</label><br><br>
 
 			</p>
 
@@ -264,28 +148,27 @@ body {
 	<div id="buttons" class="form">
 		<form action="scoreDetails">
 			<input style="visibility: hidden;" type="text" id="examId"
-				name="examId" value="${exam_Id}"> <input
+				name="examId" value="${exam_Id}"><label></label> <input
 				style="visibility: hidden;" type="text" id="examName"
-				name="examName" value="${exam_Name}"> <input
+				name="examName" value="${exam_Name}"><label></label> <input
 				style="visibility: hidden;" type="text" id="studentId" name="uID"
-				value="${user_id}" /> <input style="visibility: hidden;" type="text"
-				id="score" name="score"> <input style="visibility: hidden;"
-				type="text" id="passOrFail" name="passOrFail"> <input
-				style="visibility: hidden;" type="text" id="grade" name="grade">
+				value="${user_id}" /><label></label> <input style="visibility: hidden;" type="text"
+				id="score" name="score"><label></label> <input style="visibility: hidden;"
+				type="text" id="passOrFail" name="passOrFail"><label></label> <input
+				style="visibility: hidden;" type="text" id="grade" name="grade"><label></label>
 			<button id="submit" onclick="ans()"
-				style="text-align: center; margin-top: 270px;"
+				style="text-align: center; margin-top: 430px;"
 				class="button examButton">Submit</button>
 		</form>
 	</div>
 	<div>
 		<button id="next" onclick="qu()"
-			style="text-align: center; margin-top: -290px;"
+			style="text-align: center; margin-top: -50px;"
 			class="button examButton">Next</button>
 
 	</div>
 
 </body>
-</html>
 <script>
 var num=1;
 var mark=0;
@@ -314,7 +197,7 @@ function ans(){
      document.getElementById("question10").style.visibility="hidden";
      
 
-   //answer 1
+		//answer 1
 		const rbs=document.querySelectorAll('input[name="answer1"]');
 		for(const rb of rbs){
 			if(rb.checked){
@@ -686,6 +569,7 @@ min--;
 document.getElementById("hour").innerHTML=hour;
 document.getElementById("min").innerHTML=min;
 if(hour==0 && min==0)  {
+	document.getElementById("next").style.visibility="hidden";
 	 document.getElementById("question1").style.visibility="hidden";
      document.getElementById("question2").style.visibility="hidden";
      document.getElementById("question3").style.visibility="hidden";
@@ -704,11 +588,13 @@ if(hour==0 && min==0)  {
 		   clearInterval(inter);
 		
 		document.getElementById("buttons").style.visibility="hidden";
-		document.getElementById("css").style.visibility="hidden";
+		document.getElementById("css").style.visibility="visible";
 		document.getElementById("score").value=mark;
-		
+		document.getElementById("submit").style.visibility="visible";
+		  
 }
 
 }
 
 </script>
+</html>

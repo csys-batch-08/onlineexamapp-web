@@ -5,121 +5,17 @@
 <html lang="en">
 <head>
 <meta charset="ISO-8859-1">
-<style>
-b {
-	font-size: xx-large;
-}
-
-#clock {
-	position: absolute;
-	left: 1200px;
-	top: 100px;
-	font-size: xx-large;
-}
-
-h2 {
-	text-align: center;
-}
-
-body {
-	background: linear-gradient(to right, springgreen, rgb(253, 253, 53));
-}
-
-.questions {
-	position: absolute;
-	margin-top: 120px;
-	left: 170px;
-	font-size: 30px;
-}
-
-.button {
-	background-color: #4CAF50; /* Green */
-	border: none;
-	color: white;
-	padding: 16px 32px;
-	text-align: center;
-	text-decoration: none;
-	display: inline-block;
-	font-size: 16px;
-	margin: 4px 2px;
-	transition-duration: 0.4s;
-	cursor: pointer;
-}
-
-.examButton {
-	background-color: rgb(171, 255, 36);
-	color: black;
-	font-weight: bold;
-	font-family: Verdana, Geneva, Tahoma, sans-serif;
-	border: 4px solid black;
-}
-
-.examButton:hover, .examButton :active {
-	background-color: black;
-	color: white;
-	transition: 2ms;
-}
-
-#finish, #feed, #hour, #min, #colon, #next, #music, #complete, #timeup {
-	visibility: hidden;
-}
-
-#result {
-	font-size: large;
-	text-align: center;
-}
-
-#passFail {
-	font-size: large;
-	text-align: center;
-}
-
-#studentGrade {
-	font-size: large;
-	text-align: center;
-}
-
-#buttons {
-	visibility: hidden;
-}
-
-#home {
-	float: right;
-	margin-right: 10px;
-	margin-top: -70px;
-	font-size: x-large;
-}
-
-.start {
-	margin-top: 210px;
-	margin-left: 630px;
-}
-
-.timeupalign {
-	font-size: xx-large;
-	font-weight: bolder;
-	margin-top: 170px;
-	margin-left: 635px;
-}
-
-.form {
-	margin-top: -400px;
-}
-
-#next, #submit, #sendfeedback {
-	margin-left: 635px;
-}
-</style>
+<link rel="stylesheet" href="examPages.css">
 <title>PYTHON Exam</title>
 </head>
 <body>
 	<h2 style="margin-left: 50px;" id="css">
-		<u>PYTHON Exam</u>
+		PYTHON Exam
 	</h2>
-	<a id="home" href="UserChooseExams"><h4 style="color: black;">
-			<u>Back</u>
-		</h4></a>
-	<div id="clock">
+	<h4 style="color:black;"><a id="home" href="UserChooseExams">
+			Back
+		</a></h4>
+	<div id="clock" class="clockalign">
 		<strong id="hour"></strong><label> &nbsp;<span id="colon">:</span>&nbsp;
 		</label><strong id="min"></strong>
 	</div>
@@ -127,118 +23,111 @@ body {
 	<button id="startButton" onclick="clcok()"
 		class="button examButton start">Start</button>
 
-	<div style="margin-top: -250px;">
+	<div style="margin-top: -390px;margin-left:-40px;">
 		<div class="questions" id="question1">
 			<p>
-				1)Who developed the Python language?<br> <input type="radio"
-					name="answer1" value="Zim Den">Zim Den<br> <input
-					type="radio" name="answer1" value="Guido van Rossum">Guido
-				van Rossum<br> <input type="radio" name="answer1"
-					value="Niene Stom">Niene Stom<br> <input type="radio"
-					name="answer1" value="Wick van Rossum">Wick van Rossum<br>
+				1)Who developed the Python language?<br><br>
+				<input type="radio" name="answer1" value="Zim Den" id="option1"><label for="option1">Zim Den</label><br><br>
+				<input type="radio" name="answer1" value="Guido van Rossum" id="option2"><label for="option2">Guido van Rossum</label><br><br>
+				<input type="radio" name="answer1" value="Niene Stom" id="option3"><label for="option3">Niene Stom</label><br><br>
+				<input type="radio" name="answer1" value="None of the above" id="option4"><label for="option4">None
+				of the above</label><br><br>
 
 			</p>
 		</div>
 		<div class="questions" id="question2">
 			<p>
 				2)Which one of the following is the correct extension of the Python
-				file?<br> <input type="radio" name="answer2" value=".py">.py<br>
-				<input type="radio" name="answer2" value=".python">.python<br>
-				<input type="radio" name="answer2" value=".p">.p<br> <input
-					type="radio" name="answer2" value="None of the above">None
-				of the above<br>
+				file?<br><br> <input type="radio" name="answer2"
+					value=".py" id="2option1"><label for="2option1">.py</label><br><br>
+				<input type="radio" name="answer2" value=".python" id="2option2"><label for="2option2">.python</label><br><br>
+				<input type="radio" name="answer2" value=".p" id="2option3"><label for="2option3">.p</label><br><br>
+				<input type="radio" name="answer2" value="None of the above" id="2option4"><label for="2option4">None
+				of the above</label><br><br>
 
 			</p>
 		</div>
 		<div class="questions" id="question3">
 			<p>
-				3)Which character is used in Python to make a single line comment?<br>
-				<input type="radio" name="answer3" value="/">/<br> <input
-					type="radio" name="answer3" value="//">//<br> <input
-					type="radio" name="answer3" value="#">#<br> <input
-					type="radio" name="answer3" value="!">!<br>
+				3)Which character is used in Python to make a single line comment?<br><br> <input
+					type="radio" name="answer3" value="/" id="3option1"><label for="3option1">/</label><br><br> <input type="radio"
+					name="answer3" value="//" id="3option2"><label for="3option2">//</label><br><br> <input type="radio"
+					name="answer3" value="#" id="3option3"><label for="3option3">#</label><br><br> <input type="radio"
+					name="answer3" value="!" id="3option4"><label for="3option4">!</label><br><br>
 
 			</p>
 		</div>
 		<div class="questions" id="question4">
 			<p>
 				4)Why does the name of local variables start with an underscore
-				discouraged?<br> <input type="radio" name="answer4"
-					value="To identify the variable">To identify the variable<br>
-				<input type="radio" name="answer4"
-					value="It confuses the interpreter">It confuses the
-				interpreter<br> <input type="radio" name="answer4"
-					value="It indicates a private variable of a class">It
-				indicates a private variable of a class<br> <input type="radio"
-					name="answer4" value="None of the above">None of the above<br>
+				discouraged?<br><br> <input type="radio"
+					name="answer4" value="To identify the variable" id="4option1"><label for="4option1">To identify the variable</label><br><br> <input type="radio"
+					name="answer4" value="It confuses the interpreter" id="4option2"><label for="4option2">It confuses the interpreter</label><br><br> <input type="radio"
+					name="answer4" value="It indicates a private variable of a class" id="4option3"><label for="4option3">It indicates a private variable of a class</label><br><br> <input type="radio"
+					name="answer4" value="None of the above" id="4option4"><label for="4option4">None of the above</label><br><br>
 
 			</p>
 		</div>
 		<div class="questions" id="question5">
 			<p>
 				5)Which of the following words cannot be a variable in python
-				language?<br> <input type="radio" name="answer5" value="_val">_val<br>
-				<input type="radio" name="answer5" value="val">val<br>
-				<input type="radio" name="answer5" value="try">try<br>
-				<input type="radio" name="answer5" value="_try_">_try_<br>
+				language?<br><br> <input type="radio"
+					name="answer5" value="_val" id="5option1"><label for="5option1">_val</label><br><br> <input
+					type="radio" name="answer5" value="val" id="5option2"><label for="5option2">val</label><br><br>
+				<input type="radio" name="answer5" value="try" id="5option3"><label for="5option3">try</label><br><br>
+				<input type="radio" name="answer5" value="_try_" id="5option4"><label for="5option4">_try_</label><br><br>
 
 			</p>
 		</div>
 		<div class="questions" id="question6">
 			<p>
-				6)Which one of the following has the same precedence level?<br>
-				<input type="radio" name="answer6"
-					value="Division, Power, Multiplication, Addition and Subtraction">Division,
-				Power, Multiplication, Addition and Subtraction<br> <input
-					type="radio" name="answer6" value="Division and Multiplication">Division
-				and Multiplication<br> <input type="radio" name="answer6"
-					value="Subtraction and Division">Subtraction and Division<br>
-				<input type="radio" name="answer6" value="Power and Division">Power
-				and Division<br>
+				6)Which one of the following has the same precedence level?<br><br> <input
+					type="radio" name="answer6" value="Division, Power, Multiplication, Addition and Subtraction" id="6option1"><label for="6option1">Division, Power, Multiplication, Addition and Subtraction</label><br><br> <input type="radio" name="answer6"
+					value="Division and Multiplication" id="6option2"><label for="6option2">Division and Multiplication</label><br><br> <input
+					type="radio" name="answer6" value="Subtraction and Division" id="6option3"><label for="6option3">Subtraction and Division</label><br><br>
+				<input type="radio" name="answer6" value="Power and Division" id="6option4"><label for="6option4">Power and Division</label><br><br>
 
 			</p>
 		</div>
 		<div class="questions" id="question7">
 			<p>
 				7)Which of the following is correctly evaluated for this function?
-				pow(x,y,z)<br> <input type="radio" name="answer7"
-					value="(x**y) / z">(x**y) / z<br> <input type="radio"
-					name="answer7" value="(x / y) * z">(x / y) * z<br> <input
-					type="radio" name="answer7" value="(x**y) % z">(x**y) % z<br>
-				<input type="radio" name="answer7" value="(x / y) / z">(x /
-				y) / z<br>
+				pow(x,y,z)<br><br> <input
+					type="radio" name="answer7" value="(x**y) / z" id="7option1"><label for="7option1">(x**y) / z</label><br><br> <input
+					type="radio" name="answer7" value="(x / y) * z" id="7option2"><label for="7option2">(x / y) * z</label><br><br> <input
+					type="radio" name="answer7" value="(x**y) % z" id="7option3"><label for="7option3">(x**y) % z</label><br><br>
+				<input type="radio" name="answer7" value="(x / y) / z" id="7option4"><label for="7option4">(x / y) / z</label><br><br>
 
 			</p>
 		</div>
 		<div class="questions" id="question8">
 			<p>
 				8)The output to execute string.ascii_letters can also be obtained
-				from:?<br> <input type="radio" name="answer8" value="character">character<br>
-				<input type="radio" name="answer8"
-					value="ascii_lowercase_string.digits">ascii_lowercase_string.digits<br>
-				<input type="radio" name="answer8" value="lowercase_string.upercase">lowercase_string.upercase<br>
-				<input type="radio" name="answer8"
-					value="string.ascii_lowercase+string.ascii_upercase">string.ascii_lowercase+string.ascii_upercase<br>
+				from:?<br><br> <input type="radio" name="answer8"
+					value="character" id="8option1"><label for="8option1">character</label><br><br> <input
+					type="radio" name="answer8" value="ascii_lowercase_string.digits" id="8option2"><label for="8option2">ascii_lowercase_string.digits</label><br><br>
+				<input type="radio" name="answer8" value="lowercase_string.upercase" id="8option3"><label for="8option3">lowercase_string.upercase</label><br><br>
+				<input type="radio" name="answer8" value="string.ascii_lowercase+string.ascii_upercase" id="8option4"><label for="8option4">string.ascii_lowercase+string.ascii_upercase</label><br><br>
 			</p>
 		</div>
 		<div class="questions" id="question9">
 			<p>
-				9)What happens when '2' == 2 is executed?<br> <input
-					type="radio" name="answer9" value="False">False<br> <input
-					type="radio" name="answer9" value="True">True<br> <input
-					type="radio" name="answer9" value="ValueError occurs">ValueError
-				occurs<br> <input type="radio" name="answer9"
-					value="TypeError occurs">TypeError occurs<br>
+				9)What happens when '2' == 2 is executed?<br><br> 
+				<input type="radio" name="answer9" value="False" id="9option1"><label for="9option1">False</label><br><br>
+				<input type="radio" name="answer9" value="True" id="9option2"><label for="9option2">True</label><br><br>
+				<input type="radio" name="answer9" value="ValueError occurs" id="9option3"><label for="9option3">ValueError occurs</label><br><br>
+				<input type="radio" name="answer9" value="TypeError occurs" id="9option4"><label for="9option4">TypeError occurs</label><br><br>
 
 			</p>
 		</div>
 		<div class="questions" id="question10">
 			<p>
-				10)Which of the following is not a keyword in Python language?<br>
-				<input type="radio" name="answer10" value="val">val<br>
-				<input type="radio" name="answer10" value="raise">raise<br>
-				<input type="radio" name="answer10" value="try">try<br>
-				<input type="radio" name="answer10" value="with">with<br>
+				10)Which of the following is not a keyword in Python language?<br><br> 
+				<input type="radio" name="answer10"
+					value="val" id="10option1"><label for="10option1">val</label><br><br> <input
+					type="radio" name="answer10" value="raise" id="10option2"><label for="10option2">raise</label><br><br> <input type="radio" name="answer10"
+					value="try" id="10option3"><label for="10option3">try</label><br><br>
+				<input type="radio" name="answer10" value="with" id="10option4"><label for="10option4">with</label><br><br>
 
 			</p>
 
@@ -261,28 +150,27 @@ body {
 	<div id="buttons" class="form">
 		<form action="scoreDetails">
 			<input style="visibility: hidden;" type="text" id="examId"
-				name="examId" value="${exam_Id}"> <input
+				name="examId" value="${exam_Id}"><label></label> <input
 				style="visibility: hidden;" type="text" id="examName"
-				name="examName" value="${exam_Name}"> <input
+				name="examName" value="${exam_Name}"><label></label> <input
 				style="visibility: hidden;" type="text" id="studentId" name="uID"
-				value="${user_id}" /> <input style="visibility: hidden;" type="text"
-				id="score" name="score"> <input style="visibility: hidden;"
-				type="text" id="passOrFail" name="passOrFail"> <input
-				style="visibility: hidden;" type="text" id="grade" name="grade">
+				value="${user_id}" /><label></label> <input style="visibility: hidden;" type="text"
+				id="score" name="score"><label></label> <input style="visibility: hidden;"
+				type="text" id="passOrFail" name="passOrFail"><label></label> <input
+				style="visibility: hidden;" type="text" id="grade" name="grade"><label></label>
 			<button id="submit" onclick="ans()"
-				style="text-align: center; margin-top: 270px;"
+				style="text-align: center; margin-top: 430px;"
 				class="button examButton">Submit</button>
 		</form>
 	</div>
 	<div>
 		<button id="next" onclick="qu()"
-			style="text-align: center; margin-top: -290px;"
+			style="text-align: center; margin-top: -50px;"
 			class="button examButton">Next</button>
 
 	</div>
 
 </body>
-</html>
 <script>
 var num=1;
 var mark=0;
@@ -683,6 +571,7 @@ min--;
 document.getElementById("hour").innerHTML=hour;
 document.getElementById("min").innerHTML=min;
 if(hour==0 && min==0)  {
+	document.getElementById("next").style.visibility="hidden";
 	 document.getElementById("question1").style.visibility="hidden";
      document.getElementById("question2").style.visibility="hidden";
      document.getElementById("question3").style.visibility="hidden";
@@ -701,11 +590,13 @@ if(hour==0 && min==0)  {
 		   clearInterval(inter);
 		
 		document.getElementById("buttons").style.visibility="hidden";
-		document.getElementById("css").style.visibility="hidden";
+		document.getElementById("css").style.visibility="visible";
 		document.getElementById("score").value=mark;
-		
+		document.getElementById("submit").style.visibility="visible";
+		  
 }
 
 }
 
 </script>
+</html>

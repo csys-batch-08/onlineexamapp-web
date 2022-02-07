@@ -27,113 +27,113 @@
 		<div class="questions" id="question1">
 			<p>
 				1)Which of the following HTML attribute is used to define inline
-				styles?<br><br> <input type="radio" name="answer1" value="style" id="answer1">style<br><br>
-				<input type="radio" name="answer1" value="type" id="answer1">type<br><br>
-				<input type="radio" name="answer1" value="class" id="answer1">class<br><br>
-				<input type="radio" name="answer1" value="None of the above" id="answer1">None
-				of the above<br><br>
+				styles?<br><br> <input type="radio" name="answer1" value="style" id="option1"><label for="option1">style</label><br><br>
+				<input type="radio" name="answer1" value="type" id="option2"><label for="option2">type</label><br><br>
+				<input type="radio" name="answer1" value="class" id="option3"><label for="option3">class</label><br><br>
+				<input type="radio" name="answer1" value="None of the above" id="option4"><label for="option4">None
+				of the above</label><br><br>
 
 			</p>
 		</div>
 		<div class="questions" id="question2">
 			<p>
 				2)A program in HTML can be rendered and read by -<br><br> <input
-					type="radio" name="answer2" value="Web browser" id="answer2">Web browser<br><br>
-				<input type="radio" name="answer2" value="Server" id="answer2">Server<br><br>
-				<input type="radio" name="answer2" value="Interpreter" id="answer2">Interpreter<br><br>
-				<input type="radio" name="answer2" value="None of the above" id="answer2">None
-				of the above<br><br>
+					type="radio" name="answer2" value="Web browser" id="2option1"><label for="2option1">Web browser</label><br><br>
+				<input type="radio" name="answer2" value="Server" id="2option2"><label for="2option2">Server</label><br><br>
+				<input type="radio" name="answer2" value="Interpreter" id="2option3"><label for="2option3">Interpreter</label><br><br>
+				<input type="radio" name="answer2" value="None of the above" id="2option4"><label for="2option4">None
+				of the above</label><br><br>
 
 			</p>
 		</div>
 		<div class="questions" id="question3">
 			<p>
 				3)The tags in HTML are -<br><br> <input type="radio" name="answer3"
-					value="case-sensitive" id="answer3">case-sensitive<br><br> <input
-					type="radio" name="answer3" value="in upper case" id="answer3">in upper
-				case<br><br> <input type="radio" name="answer3"
-					value="not case sensitive" id="answer3">not case sensitive<br><br> <input
-					type="radio" name="answer3" value="in lowercase" id="answer3">in
-				lowercase<br><br>
+					value="case-sensitive" id="3option1"><label for="3option1">case-sensitive</label><br><br> <input
+					type="radio" name="answer3" value="in upper case" id="3option2"><label for="3option2">in upper
+				case</label><br><br> <input type="radio" name="answer3"
+					value="not case sensitive" id="3option3"><label for="3option3">not case sensitive</label><br><br> <input
+					type="radio" name="answer3" value="in lowercase" id="3option4"><label for="3option4">in
+				lowercase</label><br><br>
 
 			</p>
 		</div>
 		<div class="questions" id="question4">
 			<p>
 				4)Which of the following are the attributes of the tag?<br><br> <input
-					type="radio" name="answer4" value="method" id="answer4">method<br><br>
-				<input type="radio" name="answer4" value="action" id="answer4">action<br><br>
-				<input type="radio" name="answer4" value="Both (a) & (b)" id="answer4">Both
-				(a) & (b)<br><br> <input type="radio" name="answer4"
-					value="None of the above" id="answer4">None of the above<br><br>
+					type="radio" name="answer4" value="method" id="4option1"><label for="4option1">method</label><br><br>
+				<input type="radio" name="answer4" value="action" id="4option2"><label for="4option2">action</label><br><br>
+				<input type="radio" name="answer4" value="Both (a) & (b)" id="4option3"><label for="4option3">Both
+				(a) & (b)</label><br><br> <input type="radio" name="answer4"
+					value="None of the above" id="4option4"><label for="4option4">None of the above</label><br><br>
 
 			</p>
 		</div>
 		<div class="questions" id="question5">
 			<p>
 				5)HTML is a subset of ______<br><br> <input type="radio"
-					name="answer5" value="SGMD" id="answer5">SGMD<br><br> <input
-					type="radio" name="answer5" value="SGML" id="answer5">SGML<br><br> <input
-					type="radio" name="answer5" value="SGMH" id="answer5">SGMH<br><br> <input
-					type="radio" name="answer5" value="None of the above" id="answer5">None
-				of the above<br><br>
+					name="answer5" value="SGMD" id="5option1"><label for="5option1">SGMD</label><br><br> <input
+					type="radio" name="answer5" value="SGML" id="5option2"><label for="5option2">SGML</label><br><br> <input
+					type="radio" name="answer5" value="SGMH" id="5option3"><label for="5option3">SGMH</label><br><br> <input
+					type="radio" name="answer5" value="None of the above" id="5option4"><label for="5option4">None
+				of the above</label><br><br>
 
 			</p>
 		</div>
 		<div class="questions" id="question6">
 			<p>
 				6)To create HTML page, you need _____<br><br> <input type="radio"
-					name="answer6" value="Web browser" id="answer6">Web browser<br><br> <input
-					type="radio" name="answer6" value="text editor" id="answer6">text editor<br><br>
-				<input type="radio" name="answer6" value="Both [A] and [B]" id="answer6">Both
-				[A] and [B]<br><br> <input type="radio" name="answer6"
-					value="None of the above" id="answer6">None of the above<br><br>
+					name="answer6" value="Web browser" id="6option1"><label for="6option1">Web browser</label><br><br> <input
+					type="radio" name="answer6" value="text editor" id="6option2"><label for="6option2">text editor</label><br><br>
+				<input type="radio" name="answer6" value="Both [A] and [B]" id="6option3"><label for="6option3">Both
+				[A] and [B]</label><br><br> <input type="radio" name="answer6"
+					value="None of the above" id="6option4"><label for="6option4">None of the above</label><br><br>
 
 			</p>
 		</div>
 		<div class="questions" id="question7">
 			<p>
 				7)Adding a border to your image helps the visitor to recognize it as
-				what?<br><br> <input type="radio" name="answer7" value="A frame" id="answer7">A
-				frame<br><br> <input type="radio" name="answer7" value="A link" id="answer7">A
-				link<br><br> <input type="radio" name="answer7" value="A picture" id="answer7">A
-				picture<br><br> <input type="radio" name="answer7"
-					value="None of the above" id="answer7">None of the above<br><br>
+				what?<br><br> <input type="radio" name="answer7" value="A frame" id="7option1"><label for="7option1">A
+				frame</label><br><br> <input type="radio" name="answer7" value="A link" id="7option2"><label for="7option2">A
+				link</label><br><br> <input type="radio" name="answer7" value="A picture" id="7option3"><label for="7option3">A
+				picture</label><br><br> <input type="radio" name="answer7"
+					value="None of the above" id="7option4"><label for="7option4">None of the above</label><br><br>
 
 			</p>
 		</div>
 		<div class="questions" id="question8">
 			<p>
 				8)Which program do you need to write HTML?<br><br> <input
-					type="radio" name="answer8" value="A graphics program" id="answer8">A
-				graphics program<br><br> <input type="radio" name="answer8"
-					value="Any text editor" id="answer8">Any text editor<br><br> <input
-					type="radio" name="answer8" value="HTML -development suite 4" id="answer8">HTML
-				-development suite 4<br><br> <input type="radio" name="answer8"
-					value="All of the above" id="answer8">All of the above<br><br>
+					type="radio" name="answer8" value="A graphics program" id="8option1"><label for="8option1">A
+				graphics program</label><br><br> <input type="radio" name="answer8"
+					value="Any text editor" id="8option2"><label for="8option2">Any text editor</label><br><br> <input
+					type="radio" name="answer8" value="HTML -development suite 4" id="8option3"><label for="8option3">HTML
+				-development suite 4</label><br><br> <input type="radio" name="answer8"
+					value="All of the above" id="8option4"><label for="8option4">All of the above</label><br><br>
 			</p>
 		</div>
 		<div class="questions" id="question9">
 			<p>
 				9)In HTML, tags that include both on and off tag are called<br><br>
-				<input type="radio" name="answer9" value="comment tag" id="answer9">comment
-				tag<br><br> <input type="radio" name="answer9" value="document tag" id="answer9">document
-				tag<br><br> <input type="radio" name="answer9"
-					value="container tag" id="answer9">container tag<br><br> <input
-					type="radio" name="answer9" value="None of the above" id="answer9">None
-				of the above<br><br>
+				<input type="radio" name="answer9" value="comment tag" id="9option1"><label for="9option1">comment
+				tag</label><br><br> <input type="radio" name="answer9" value="document tag" id="9option2"><label for="9option2">document
+				tag</label><br><br> <input type="radio" name="answer9"
+					value="container tag" id="9option3"><label for="9option3">container tag</label><br><br> <input
+					type="radio" name="answer9" value="None of the above" id="9option4"><label for="9option4">None
+				of the above</label><br><br>
 
 			</p>
 		</div>
 		<div class="questions" id="question10">
 			<p>
 				10)When is the content of a table shown?<br><br> <input
-					type="radio" name="answer10" value="Before the border loads" id="answer10">Before
-				the border loads<br><br> <input type="radio" name="answer10"
-					value="After the table is loaded" id="answer10">After the table is loaded<br><br>
-				<input type="radio" name="answer10" value="In pieces as it loads" id="answer10">In
-				pieces as it loads<br><br> <input type="radio" name="answer10"
-					value="None of the above" id="answer10">None of the above<br><br>
+					type="radio" name="answer10" value="Before the border loads" id="10option1"><label for="10option1">Before
+				the border loads</label><br><br> <input type="radio" name="answer10"
+					value="After the table is loaded" id="10option2"><label for="10option2">After the table is loaded</label><br><br>
+				<input type="radio" name="answer10" value="In pieces as it loads" id="10option3"><label for="10option3">In
+				pieces as it loads</label><br><br> <input type="radio" name="answer10"
+					value="None of the above" id="10option4"><label for="10option4">None of the above</label><br><br>
 
 			</p>
 
