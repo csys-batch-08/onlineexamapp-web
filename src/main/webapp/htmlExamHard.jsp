@@ -5,121 +5,17 @@
 <html lang="en">
 <head>
 <meta charset="ISO-8859-1">
-<style>
-b {
-	font-size: xx-large;
-}
-
-#clock {
-	position: absolute;
-	left: 1200px;
-	top: 100px;
-	font-size: xx-large;
-}
-
-h2 {
-	text-align: center;
-}
-
-body {
-	background: linear-gradient(to right, springgreen, rgb(253, 253, 53));
-}
-
-.questions {
-	position: absolute;
-	margin-top: 120px;
-	left: 170px;
-	font-size: 30px;
-}
-
-.button {
-	background-color: #4CAF50; /* Green */
-	border: none;
-	color: white;
-	padding: 16px 32px;
-	text-align: center;
-	text-decoration: none;
-	display: inline-block;
-	font-size: 16px;
-	margin: 4px 2px;
-	transition-duration: 0.4s;
-	cursor: pointer;
-}
-
-.examButton {
-	background-color: rgb(171, 255, 36);
-	color: black;
-	font-weight: bold;
-	font-family: Verdana, Geneva, Tahoma, sans-serif;
-	border: 4px solid black;
-}
-
-.examButton:hover, .examButton :active {
-	background-color: black;
-	color: white;
-	transition: 2ms;
-}
-
-#finish, #feed, #hour, #min, #colon, #next, #music, #complete, #timeup {
-	visibility: hidden;
-}
-
-#result {
-	font-size: large;
-	text-align: center;
-}
-
-#passFail {
-	font-size: large;
-	text-align: center;
-}
-
-#studentGrade {
-	font-size: large;
-	text-align: center;
-}
-
-#buttons {
-	visibility: hidden;
-}
-
-#home {
-	float: right;
-	margin-right: 10px;
-	margin-top: -70px;
-	font-size: x-large;
-}
-
-.start {
-	margin-top: 210px;
-	margin-left: 630px;
-}
-
-.timeupalign {
-	font-size: xx-large;
-	font-weight: bolder;
-	margin-top: 170px;
-	margin-left: 635px;
-}
-
-.form {
-	margin-top: -400px;
-}
-
-#next, #submit, #sendfeedback {
-	margin-left: 635px;
-}
-</style>
+<link rel="stylesheet" href="examPages.css">
 <title>HTML Exam</title>
 </head>
 <body>
 	<h2 style="margin-left: 50px;" id="css">
-		<u>HTML Exam</u>
+		HTML Exam
 	</h2>
-	<a id="home" href="UserChooseExams1"><h4 style="color: black;">
-			<u>Back</u>
-		</h4></a>
-	<div id="clock">
+	<h4 style="color: black;"><a id="home" href="UserChooseExams1">
+			Back
+		</a></h4>
+	<div id="clock" class="clockalign">
 		<strong id="hour"></strong><label> &nbsp;<span id="colon">:</span>&nbsp;
 		</label><strong id="min"></strong>
 	</div>
@@ -127,117 +23,117 @@ body {
 	<button id="startButton" onclick="clcok()"
 		class="button examButton start">Start</button>
 
-	<div style="margin-top: -250px;">
+	<div style="margin-top: -390px;margin-left:-40px;">
 		<div class="questions" id="question1">
 			<p>
 				1)Which of the following HTML attribute is used to define inline
-				styles?<br> <input type="radio" name="answer1" value="style">style<br>
-				<input type="radio" name="answer1" value="type">type<br>
-				<input type="radio" name="answer1" value="class">class<br>
-				<input type="radio" name="answer1" value="None of the above">None
-				of the above<br>
+				styles?<br><br> <input type="radio" name="answer1" value="style" id="answer1">style<br><br>
+				<input type="radio" name="answer1" value="type" id="answer1">type<br><br>
+				<input type="radio" name="answer1" value="class" id="answer1">class<br><br>
+				<input type="radio" name="answer1" value="None of the above" id="answer1">None
+				of the above<br><br>
 
 			</p>
 		</div>
 		<div class="questions" id="question2">
 			<p>
-				2)A program in HTML can be rendered and read by -<br> <input
-					type="radio" name="answer2" value="Web browser">Web browser<br>
-				<input type="radio" name="answer2" value="Server">Server<br>
-				<input type="radio" name="answer2" value="Interpreter">Interpreter<br>
-				<input type="radio" name="answer2" value="None of the above">None
-				of the above<br>
+				2)A program in HTML can be rendered and read by -<br><br> <input
+					type="radio" name="answer2" value="Web browser" id="answer2">Web browser<br><br>
+				<input type="radio" name="answer2" value="Server" id="answer2">Server<br><br>
+				<input type="radio" name="answer2" value="Interpreter" id="answer2">Interpreter<br><br>
+				<input type="radio" name="answer2" value="None of the above" id="answer2">None
+				of the above<br><br>
 
 			</p>
 		</div>
 		<div class="questions" id="question3">
 			<p>
-				3)The tags in HTML are -<br> <input type="radio" name="answer3"
-					value="case-sensitive">case-sensitive<br> <input
-					type="radio" name="answer3" value="in upper case">in upper
-				case<br> <input type="radio" name="answer3"
-					value="not case sensitive">not case sensitive<br> <input
-					type="radio" name="answer3" value="in lowercase">in
-				lowercase<br>
+				3)The tags in HTML are -<br><br> <input type="radio" name="answer3"
+					value="case-sensitive" id="answer3">case-sensitive<br><br> <input
+					type="radio" name="answer3" value="in upper case" id="answer3">in upper
+				case<br><br> <input type="radio" name="answer3"
+					value="not case sensitive" id="answer3">not case sensitive<br><br> <input
+					type="radio" name="answer3" value="in lowercase" id="answer3">in
+				lowercase<br><br>
 
 			</p>
 		</div>
 		<div class="questions" id="question4">
 			<p>
-				4)Which of the following are the attributes of the tag?<br> <input
-					type="radio" name="answer4" value="method">method<br>
-				<input type="radio" name="answer4" value="action">action<br>
-				<input type="radio" name="answer4" value="Both (a) & (b)">Both
-				(a) & (b)<br> <input type="radio" name="answer4"
-					value="None of the above">None of the above<br>
+				4)Which of the following are the attributes of the tag?<br><br> <input
+					type="radio" name="answer4" value="method" id="answer4">method<br><br>
+				<input type="radio" name="answer4" value="action" id="answer4">action<br><br>
+				<input type="radio" name="answer4" value="Both (a) & (b)" id="answer4">Both
+				(a) & (b)<br><br> <input type="radio" name="answer4"
+					value="None of the above" id="answer4">None of the above<br><br>
 
 			</p>
 		</div>
 		<div class="questions" id="question5">
 			<p>
-				5)HTML is a subset of ______<br> <input type="radio"
-					name="answer5" value="SGMD">SGMD<br> <input
-					type="radio" name="answer5" value="SGML">SGML<br> <input
-					type="radio" name="answer5" value="SGMH">SGMH<br> <input
-					type="radio" name="answer5" value="None of the above">None
-				of the above<br>
+				5)HTML is a subset of ______<br><br> <input type="radio"
+					name="answer5" value="SGMD" id="answer5">SGMD<br><br> <input
+					type="radio" name="answer5" value="SGML" id="answer5">SGML<br><br> <input
+					type="radio" name="answer5" value="SGMH" id="answer5">SGMH<br><br> <input
+					type="radio" name="answer5" value="None of the above" id="answer5">None
+				of the above<br><br>
 
 			</p>
 		</div>
 		<div class="questions" id="question6">
 			<p>
-				6)To create HTML page, you need _____<br> <input type="radio"
-					name="answer6" value="Web browser">Web browser<br> <input
-					type="radio" name="answer6" value="text editor">text editor<br>
-				<input type="radio" name="answer6" value="Both [A] and [B]">Both
-				[A] and [B]<br> <input type="radio" name="answer6"
-					value="None of the above">None of the above<br>
+				6)To create HTML page, you need _____<br><br> <input type="radio"
+					name="answer6" value="Web browser" id="answer6">Web browser<br><br> <input
+					type="radio" name="answer6" value="text editor" id="answer6">text editor<br><br>
+				<input type="radio" name="answer6" value="Both [A] and [B]" id="answer6">Both
+				[A] and [B]<br><br> <input type="radio" name="answer6"
+					value="None of the above" id="answer6">None of the above<br><br>
 
 			</p>
 		</div>
 		<div class="questions" id="question7">
 			<p>
 				7)Adding a border to your image helps the visitor to recognize it as
-				what?<br> <input type="radio" name="answer7" value="A frame">A
-				frame<br> <input type="radio" name="answer7" value="A link">A
-				link<br> <input type="radio" name="answer7" value="A picture">A
-				picture<br> <input type="radio" name="answer7"
-					value="None of the above">None of the above<br>
+				what?<br><br> <input type="radio" name="answer7" value="A frame" id="answer7">A
+				frame<br><br> <input type="radio" name="answer7" value="A link" id="answer7">A
+				link<br><br> <input type="radio" name="answer7" value="A picture" id="answer7">A
+				picture<br><br> <input type="radio" name="answer7"
+					value="None of the above" id="answer7">None of the above<br><br>
 
 			</p>
 		</div>
 		<div class="questions" id="question8">
 			<p>
-				8)Which program do you need to write HTML?<br> <input
-					type="radio" name="answer8" value="A graphics program">A
-				graphics program<br> <input type="radio" name="answer8"
-					value="Any text editor">Any text editor<br> <input
-					type="radio" name="answer8" value="HTML -development suite 4">HTML
-				-development suite 4<br> <input type="radio" name="answer8"
-					value="All of the above">All of the above<br>
+				8)Which program do you need to write HTML?<br><br> <input
+					type="radio" name="answer8" value="A graphics program" id="answer8">A
+				graphics program<br><br> <input type="radio" name="answer8"
+					value="Any text editor" id="answer8">Any text editor<br><br> <input
+					type="radio" name="answer8" value="HTML -development suite 4" id="answer8">HTML
+				-development suite 4<br><br> <input type="radio" name="answer8"
+					value="All of the above" id="answer8">All of the above<br><br>
 			</p>
 		</div>
 		<div class="questions" id="question9">
 			<p>
-				9)In HTML, tags that include both on and off tag are called<br>
-				<input type="radio" name="answer9" value="comment tag">comment
-				tag<br> <input type="radio" name="answer9" value="document tag">document
-				tag<br> <input type="radio" name="answer9"
-					value="container tag">container tag<br> <input
-					type="radio" name="answer9" value="None of the above">None
-				of the above<br>
+				9)In HTML, tags that include both on and off tag are called<br><br>
+				<input type="radio" name="answer9" value="comment tag" id="answer9">comment
+				tag<br><br> <input type="radio" name="answer9" value="document tag" id="answer9">document
+				tag<br><br> <input type="radio" name="answer9"
+					value="container tag" id="answer9">container tag<br><br> <input
+					type="radio" name="answer9" value="None of the above" id="answer9">None
+				of the above<br><br>
 
 			</p>
 		</div>
 		<div class="questions" id="question10">
 			<p>
-				10)When is the content of a table shown?<br> <input
-					type="radio" name="answer10" value="Before the border loads">Before
-				the border loads<br> <input type="radio" name="answer10"
-					value="After the table is loaded">After the table is loaded<br>
-				<input type="radio" name="answer10" value="In pieces as it loads">In
-				pieces as it loads<br> <input type="radio" name="answer10"
-					value="None of the above">None of the above<br>
+				10)When is the content of a table shown?<br><br> <input
+					type="radio" name="answer10" value="Before the border loads" id="answer10">Before
+				the border loads<br><br> <input type="radio" name="answer10"
+					value="After the table is loaded" id="answer10">After the table is loaded<br><br>
+				<input type="radio" name="answer10" value="In pieces as it loads" id="answer10">In
+				pieces as it loads<br><br> <input type="radio" name="answer10"
+					value="None of the above" id="answer10">None of the above<br><br>
 
 			</p>
 
@@ -260,28 +156,27 @@ body {
 	<div id="buttons" class="form">
 		<form action="scoreDetails">
 			<input style="visibility: hidden;" type="text" id="examId"
-				name="examId" value="${exam_Id}"> <input
+				name="examId" value="${exam_Id}"><label></label> <input
 				style="visibility: hidden;" type="text" id="examName"
-				name="examName" value="${exam_Name}"> <input
+				name="examName" value="${exam_Name}"><label></label> <input
 				style="visibility: hidden;" type="text" id="studentId" name="uID"
-				value="${user_id}" /> <input style="visibility: hidden;" type="text"
-				id="score" name="score"> <input style="visibility: hidden;"
-				type="text" id="passOrFail" name="passOrFail"> <input
-				style="visibility: hidden;" type="text" id="grade" name="grade">
+				value="${user_id}" /><label></label> <input style="visibility: hidden;" type="text"
+				id="score" name="score"><label></label> <input style="visibility: hidden;"
+				type="text" id="passOrFail" name="passOrFail"><label></label> <input
+				style="visibility: hidden;" type="text" id="grade" name="grade"><label></label>
 			<button id="submit" onclick="ans()"
-				style="text-align: center; margin-top: 270px;"
+				style="text-align: center; margin-top: 430px;"
 				class="button examButton">Submit</button>
 		</form>
 	</div>
 	<div>
 		<button id="next" onclick="qu()"
-			style="text-align: center; margin-top: -290px;"
+			style="text-align: center; margin-top: -50px;"
 			class="button examButton">Next</button>
 
 	</div>
 
 </body>
-</html>
 <script>
 var num=1;
 var mark=0;
@@ -682,6 +577,7 @@ min--;
 document.getElementById("hour").innerHTML=hour;
 document.getElementById("min").innerHTML=min;
 if(hour==0 && min==0)  {
+	document.getElementById("next").style.visibility="hidden";
 	 document.getElementById("question1").style.visibility="hidden";
      document.getElementById("question2").style.visibility="hidden";
      document.getElementById("question3").style.visibility="hidden";
@@ -702,9 +598,10 @@ if(hour==0 && min==0)  {
 		document.getElementById("buttons").style.visibility="hidden";
 		document.getElementById("css").style.visibility="hidden";
 		document.getElementById("score").value=mark;
-		
+		document.getElementById("submit").style.visibility="visible";
 }
 
 }
 
 </script>
+</html>

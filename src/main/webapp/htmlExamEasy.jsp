@@ -5,121 +5,17 @@
 <html lang="en">
 <head>
 <meta charset="ISO-8859-1">
-<style>
-b {
-	font-size: xx-large;
-}
-
-#clock {
-	position: absolute;
-	left: 1200px;
-	top: 100px;
-	font-size: xx-large;
-}
-
-h2 {
-	text-align: center;
-}
-
-body {
-	background: linear-gradient(to right, springgreen, rgb(253, 253, 53));
-}
-
-.questions {
-	position: absolute;
-	margin-top: 120px;
-	left: 170px;
-	font-size: 30px;
-}
-
-.button {
-	background-color: #4CAF50; /* Green */
-	border: none;
-	color: white;
-	padding: 16px 32px;
-	text-align: center;
-	text-decoration: none;
-	display: inline-block;
-	font-size: 16px;
-	margin: 4px 2px;
-	transition-duration: 0.4s;
-	cursor: pointer;
-}
-
-.examButton {
-	background-color: rgb(171, 255, 36);
-	color: black;
-	font-weight: bold;
-	font-family: Verdana, Geneva, Tahoma, sans-serif;
-	border: 4px solid black;
-}
-
-.examButton:hover, .examButton :active {
-	background-color: black;
-	color: white;
-	transition: 2ms;
-}
-
-#finish, #feed, #hour, #min, #colon, #next, #music, #complete, #timeup {
-	visibility: hidden;
-}
-
-#result {
-	font-size: large;
-	text-align: center;
-}
-
-#passFail {
-	font-size: large;
-	text-align: center;
-}
-
-#studentGrade {
-	font-size: large;
-	text-align: center;
-}
-
-#buttons {
-	visibility: hidden;
-}
-
-#home {
-	float: right;
-	margin-right: 10px;
-	margin-top: -70px;
-	font-size: x-large;
-}
-
-.start {
-	margin-top: 210px;
-	margin-left: 630px;
-}
-
-.timeupalign {
-	font-size: xx-large;
-	font-weight: bolder;
-	margin-top: 170px;
-	margin-left: 635px;
-}
-
-.form {
-	margin-top: -400px;
-}
-
-#next, #submit, #sendfeedback {
-	margin-left: 635px;
-}
-</style>
+<link rel="stylesheet" href="examPages.css">
 <title>HTML Exam</title>
 </head>
 <body>
 	<h2 style="margin-left: 50px;" id="css">
-		<u>HTML Exam</u>
+		HTML Exam
 	</h2>
-	<a id="home" href="UserChooseExams"><h4 style="color: black;">
-			<u>Back</u>
-		</h4></a>
-	<div id="clock">
+	<h4 style="color: black;"><a id="home" href="UserChooseExams">
+			Back
+		</a></h4>
+	<div id="clock" class="clockalign">
 		<strong id="hour"></strong><label> &nbsp;<span id="colon">:</span>&nbsp;
 		</label><strong id="min"></strong>
 	</div>
@@ -127,118 +23,118 @@ body {
 	<button id="startButton" onclick="clcok()"
 		class="button examButton start">Start</button>
 
-	<div style="margin-top: -250px;">
+	<div style="margin-top: -390px;margin-left:-40px;">
 		<div class="questions" id="question1">
 			<p>
-				1)HTML stands for -<br> <input type="radio" name="answer1"
-					value="HighText Machine Language">HighText Machine Language<br>
+				1)HTML stands for -<br><br> <input type="radio" name="answer1"
+					value="HighText Machine Language" id="answer1">HighText Machine Language<br><br>
 				<input type="radio" name="answer1"
-					value="HyperText and links Markup Language">HyperText and
-				links Markup Language<br> <input type="radio" name="answer1"
-					value="HyperText Markup Language">HyperText Markup Language<br>
-				<input type="radio" name="answer1" value="None of these">None
-				of these<br>
+					value="HyperText and links Markup Language" id="answer1">HyperText and
+				links Markup Language<br><br> <input type="radio" name="answer1"
+					value="HyperText Markup Language" id="answer1">HyperText Markup Language<br><br>
+				<input type="radio" name="answer1" value="None of these" id="answer1">None
+				of these<br><br>
 
 			</p>
 		</div>
 		<div class="questions" id="question2">
 			<p>
-				2)The correct sequence of HTML tags for starting a webpage is -<br>
-				<input type="radio" name="answer2" value="Head, Title, HTML, body">Head,
-				Title, HTML, body<br> <input type="radio" name="answer2"
-					value="HTML, Body, Title, Head">HTML, Body, Title, Head<br>
-				<input type="radio" name="answer2" value="HTML, Head, Title, Body">HTML,
-				Head, Title, Body<br> <input type="radio" name="answer2"
-					value="Title, Head, Body, HTML">Title, Head, Body, HTML<br>
+				2)The correct sequence of HTML tags for starting a webpage is -<br><br>
+				<input type="radio" name="answer2" value="Head, Title, HTML, body" id="answer2">Head,
+				Title, HTML, body<br><br> <input type="radio" name="answer2"
+					value="HTML, Body, Title, Head" id="answer2">HTML, Body, Title, Head<br><br>
+				<input type="radio" name="answer2" value="HTML, Head, Title, Body" id="answer2">HTML,
+				Head, Title, Body<br><br> <input type="radio" name="answer2"
+					value="Title, Head, Body, HTML" id="answer2">Title, Head, Body, HTML<br><br>
 
 			</p>
 		</div>
 		<div class="questions" id="question3">
 			<p>
 				3)Which of the following element is responsible for making the text
-				bold in HTML?<br> <input type="radio" name="answer3"
-					value="pre tag">pre tag<br> <input type="radio"
-					name="answer3" value="a tag">a tag<br> <input
-					type="radio" name="answer3" value="b tag">b tag<br> <input
-					type="radio" name="answer3" value="br tag">br tag<br>
+				bold in HTML?<br><br> <input type="radio" name="answer3"
+					value="pre tag" id="answer3">pre tag<br><br> <input type="radio"
+					name="answer3" value="a tag" id="answer3">a tag<br><br> <input
+					type="radio" name="answer3" value="b tag" id="answer3">b tag<br><br> <input
+					type="radio" name="answer3" value="br tag" id="answer3">br tag<br><br>
 
 			</p>
 		</div>
 		<div class="questions" id="question4">
 			<p>
 				4)Which of the following tag is used for inserting the largest
-				heading in HTML?<br> <input type="radio" name="answer4"
-					value="h3 tag">h3 tag<br> <input type="radio"
-					name="answer4" value="h1 tag">h1 tag<br> <input
-					type="radio" name="answer4" value="h5 tag">h5 tag<br>
-				<input type="radio" name="answer4" value="h6 tag">h6 tag<br>
+				heading in HTML?<br><br> <input type="radio" name="answer4"
+					value="h3 tag" id="answer4">h3 tag<br><br> <input type="radio"
+					name="answer4" value="h1 tag" id="answer4">h1 tag<br><br> <input
+					type="radio" name="answer4" value="h5 tag" id="answer4">h5 tag<br><br>
+				<input type="radio" name="answer4" value="h6 tag" id="answer4">h6 tag<br><br>
 
 			</p>
 		</div>
 		<div class="questions" id="question5">
 			<p>
-				5)Which of the following tag is used to insert a line-break in HTML?<br>
-				<input type="radio" name="answer5" value="br tag">br tag<br>
-				<input type="radio" name="answer5" value="a tag">a tag<br>
-				<input type="radio" name="answer5" value="pre tag">pre tag<br>
-				<input type="radio" name="answer5" value="b tag">b tag<br>
+				5)Which of the following tag is used to insert a line-break in HTML?<br><br>
+				<input type="radio" name="answer5" value="br tag" id="answer5">br tag<br><br>
+				<input type="radio" name="answer5" value="a tag" id="answer5">a tag<br><br>
+				<input type="radio" name="answer5" value="pre tag" id="answer5">pre tag<br><br>
+				<input type="radio" name="answer5" value="b tag" id="answer5">b tag<br><br>
 
 			</p>
 		</div>
 		<div class="questions" id="question6">
 			<p>
-				6)Which character is used to represent the closing of a tag in HTML?<br>
-				<input type="radio" name="answer6" value="\">\<br> <input
-					type="radio" name="answer6" value="!">!<br> <input
-					type="radio" name="answer6" value="/">/<br> <input
-					type="radio" name="answer6" value=".">.<br>
+				6)Which character is used to represent the closing of a tag in HTML?<br><br>
+				<input type="radio" name="answer6" value="\" id="answer6">\<br><br> <input
+					type="radio" name="answer6" value="!" id="answer6">!<br><br> <input
+					type="radio" name="answer6" value="/" id="answer6">/<br><br> <input
+					type="radio" name="answer6" value="." id="answer6">.<br><br>
 
 			</p>
 		</div>
 		<div class="questions" id="question7">
 			<p>
-				7) input tag is -<br> <input type="radio" name="answer7"
-					value="a format tag.">a format tag.<br> <input
-					type="radio" name="answer7" value="an empty tag.">an empty
-				tag.<br> <input type="radio" name="answer7"
-					value="All of the above">All of the above<br> <input
-					type="radio" name="answer7" value="None of the above">None
-				of the above<br>
+				7) input tag is -<br><br> <input type="radio" name="answer7"
+					value="a format tag." id="answer7">a format tag.<br><br> <input
+					type="radio" name="answer7" value="an empty tag." id="answer7">an empty
+				tag.<br><br> <input type="radio" name="answer7"
+					value="All of the above" id="answer7">All of the above<br><br> <input
+					type="radio" name="answer7" value="None of the above" id="answer7">None
+				of the above<br><br>
 
 			</p>
 		</div>
 		<div class="questions" id="question8">
 			<p>
-				8)The hr tag in HTML is used for -<br> <input type="radio"
-					name="answer8" value="new line">new line<br> <input
-					type="radio" name="answer8" value="vertical ruler">vertical
-				ruler<br> <input type="radio" name="answer8"
-					value="new paragraph">new paragraph<br> <input
-					type="radio" name="answer8" value="horizontal ruler">horizontal
-				ruler<br>
+				8)The hr tag in HTML is used for -<br><br> <input type="radio"
+					name="answer8" value="new line" id="answer8">new line<br><br> <input
+					type="radio" name="answer8" value="vertical ruler" id="answer8">vertical
+				ruler<br><br> <input type="radio" name="answer8"
+					value="new paragraph" id="answer8">new paragraph<br><br> <input
+					type="radio" name="answer8" value="horizontal ruler" id="answer8">horizontal
+				ruler<br><br>
 			</p>
 		</div>
 		<div class="questions" id="question9">
 			<p>
 				9)Which of the following attribute is used to provide a unique name
-				to an element?<br> <input type="radio" name="answer9"
-					value="class">class<br> <input type="radio"
-					name="answer9" value="id">id<br> <input type="radio"
-					name="answer9" value="type">type<br> <input
-					type="radio" name="answer9" value="None of the above">None
-				of the above<br>
+				to an element?<br><br> <input type="radio" name="answer9"
+					value="class" id="answer9">class<br><br> <input type="radio"
+					name="answer9" value="id" id="answer9">id<br><br> <input type="radio"
+					name="answer9" value="type" id="answer9">type<br><br> <input
+					type="radio" name="answer9" value="None of the above" id="answer9">None
+				of the above<br><br>
 
 			</p>
 		</div>
 		<div class="questions" id="question10">
 			<p>
-				10)What are the types of unordered or bulleted list in HTML?<br>
-				<input type="radio" name="answer10" value="disc, square, triangle">disc,
-				square, triangle<br> <input type="radio" name="answer10"
-					value="polygon, triangle, circle">polygon, triangle, circle<br>
-				<input type="radio" name="answer10" value="disc, circle, square">disc,
-				circle, square<br> <input type="radio" name="answer10"
-					value="All of the above">All of the above<br>
+				10)What are the types of unordered or bulleted list in HTML?<br><br>
+				<input type="radio" name="answer10" value="disc, square, triangle" id="answer10">disc,
+				square, triangle<br><br> <input type="radio" name="answer10"
+					value="polygon, triangle, circle" id="answer10">polygon, triangle, circle<br><br>
+				<input type="radio" name="answer10" value="disc, circle, square" id="answer10">disc,
+				circle, square<br><br> <input type="radio" name="answer10"
+					value="All of the above" id="answer10">All of the above<br><br>
 
 			</p>
 
@@ -261,28 +157,27 @@ body {
 	<div id="buttons" class="form">
 		<form action="scoreDetails">
 			<input style="visibility: hidden;" type="text" id="examId"
-				name="examId" value="${exam_Id}"> <input
+				name="examId" value="${exam_Id}"><label></label> <input
 				style="visibility: hidden;" type="text" id="examName"
-				name="examName" value="${exam_Name}"> <input
+				name="examName" value="${exam_Name}"><label></label> <input
 				style="visibility: hidden;" type="text" id="studentId" name="uID"
-				value="${user_id}" /> <input style="visibility: hidden;" type="text"
-				id="score" name="score"> <input style="visibility: hidden;"
-				type="text" id="passOrFail" name="passOrFail"> <input
-				style="visibility: hidden;" type="text" id="grade" name="grade">
+				value="${user_id}" /><label></label> <input style="visibility: hidden;" type="text"
+				id="score" name="score"><label></label> <input style="visibility: hidden;"
+				type="text" id="passOrFail" name="passOrFail"><label></label> <input
+				style="visibility: hidden;" type="text" id="grade" name="grade"><label></label>
 			<button id="submit" onclick="ans()"
-				style="text-align: center; margin-top: 270px;"
+				style="text-align: center; margin-top: 430px;"
 				class="button examButton">Submit</button>
 		</form>
 	</div>
 	<div>
 		<button id="next" onclick="qu()"
-			style="text-align: center; margin-top: -290px;"
+			style="text-align: center; margin-top: -50px;"
 			class="button examButton">Next</button>
 
 	</div>
 
 </body>
-</html>
 <script>
 var num=1;
 var mark=0;
@@ -683,6 +578,7 @@ min--;
 document.getElementById("hour").innerHTML=hour;
 document.getElementById("min").innerHTML=min;
 if(hour==0 && min==0)  {
+	document.getElementById("next").style.visibility="hidden";
 	 document.getElementById("question1").style.visibility="hidden";
      document.getElementById("question2").style.visibility="hidden";
      document.getElementById("question3").style.visibility="hidden";
@@ -703,9 +599,10 @@ if(hour==0 && min==0)  {
 		document.getElementById("buttons").style.visibility="hidden";
 		document.getElementById("css").style.visibility="hidden";
 		document.getElementById("score").value=mark;
-		
+		document.getElementById("submit").style.visibility="visible";
 }
 
 }
 
 </script>
+</html>
