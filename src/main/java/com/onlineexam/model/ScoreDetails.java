@@ -1,9 +1,9 @@
 package com.onlineexam.model;
 
+import java.io.Serializable;
 import java.time.LocalDateTime;
-import java.util.Date;
 
-public class ScoreDetails {
+public class ScoreDetails implements Serializable {
 	private int studentId;
 	private int examId;
 	private String examName;

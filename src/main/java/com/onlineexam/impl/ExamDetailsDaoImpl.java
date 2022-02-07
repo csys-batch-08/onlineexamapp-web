@@ -3,15 +3,21 @@ package com.onlineexam.impl;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
 import com.onlineexam.dao.ExamDetailsDao;
+import com.onlineexam.logger.Logger;
 import com.onlineexam.model.ExamDetails;
 import com.onlineexam.util.ConnectionPage;
 
 public class ExamDetailsDaoImpl implements ExamDetailsDao {
+	private static final String DURATION_MINUTES = "durationMinutes";
+	private static final String DIFFICULTY_LEVEL = "difficultyLevel";
+	private static final String EXAM_TYPE = "examType";
+	private static final String EXAM_NAME = "examName";
+	private static final String EXAM_ID = "examId";
+
 	@Override
 	public int addExam(ExamDetails edp) {
 		Connection con = null;
@@ -26,19 +32,14 @@ public class ExamDetailsDaoImpl implements ExamDetailsDao {
 			pstmt.setString(3, edp.getDifficultyLevel());
 			pstmt.setInt(4, edp.getDurationMinutes());
 			i = pstmt.executeUpdate();
-		} catch (SQLException e) {
-			e.printStackTrace();
+		} catch (Exception e) {
+
+			Logger.printStackTrace(e);
+			Logger.runTimeException(e.getMessage());
+
 		} finally {
-			try {
-				if (pstmt != null) {
-					pstmt.close();
-				}
-				if (con != null) {
-					con.close();
-				}
-			} catch (SQLException e) {
-				e.printStackTrace();
-			}
+
+			ConnectionPage.close(null, pstmt, con);
 		}
 		return i;
 
@@ -63,19 +64,14 @@ public class ExamDetailsDaoImpl implements ExamDetailsDao {
 			} else {
 				flag = false;
 			}
-		} catch (SQLException e) {
-			e.printStackTrace();
+		} catch (Exception e) {
+
+			Logger.printStackTrace(e);
+			Logger.runTimeException(e.getMessage());
+
 		} finally {
-			try {
-				if (pstmt != null) {
-					pstmt.close();
-				}
-				if (con != null) {
-					con.close();
-				}
-			} catch (SQLException e) {
-				e.printStackTrace();
-			}
+
+			ConnectionPage.close(null, pstmt, con);
 		}
 		return flag;
 	}
@@ -97,19 +93,14 @@ public class ExamDetailsDaoImpl implements ExamDetailsDao {
 			} else {
 				flag = false;
 			}
-		} catch (SQLException e) {
-			e.printStackTrace();
+		} catch (Exception e) {
+
+			Logger.printStackTrace(e);
+			Logger.runTimeException(e.getMessage());
+
 		} finally {
-			try {
-				if (pstmt != null) {
-					pstmt.close();
-				}
-				if (con != null) {
-					con.close();
-				}
-			} catch (SQLException e) {
-				e.printStackTrace();
-			}
+
+			ConnectionPage.close(null, pstmt, con);
 		}
 		return flag;
 	}
@@ -126,25 +117,17 @@ public class ExamDetailsDaoImpl implements ExamDetailsDao {
 			pstmt = con.prepareStatement(query);
 			rs = pstmt.executeQuery();
 			while (rs.next()) {
-				edpojo = new ExamDetails(rs.getInt("examId"), rs.getString("examName"), rs.getString("examType"),
-						rs.getString("difficultyLevel"), rs.getInt("durationMinutes"));
+				edpojo = new ExamDetails(rs.getInt(EXAM_ID), rs.getString(EXAM_NAME), rs.getString(EXAM_TYPE),
+						rs.getString(DIFFICULTY_LEVEL), rs.getInt(DURATION_MINUTES));
 			}
-		} catch (SQLException e) {
-			e.printStackTrace();
+		} catch (Exception e) {
+
+			Logger.printStackTrace(e);
+			Logger.runTimeException(e.getMessage());
+
 		} finally {
-			try {
-				if (pstmt != null) {
-					pstmt.close();
-				}
-				if (con != null) {
-					con.close();
-				}
-				if (rs != null) {
-					rs.close();
-				}
-			} catch (SQLException e) {
-				e.printStackTrace();
-			}
+
+			ConnectionPage.close(rs, pstmt, con);
 		}
 		return edpojo;
 	}
@@ -161,26 +144,18 @@ public class ExamDetailsDaoImpl implements ExamDetailsDao {
 			pstmt = con.prepareStatement(query);
 			rs = pstmt.executeQuery();
 			while (rs.next()) {
-				ExamDetails edpp = new ExamDetails(rs.getInt("examId"), rs.getString("examName"),
-						rs.getString("examType"), rs.getString("difficultyLevel"), rs.getInt("durationMinutes"));
+				ExamDetails edpp = new ExamDetails(rs.getInt(EXAM_ID), rs.getString(EXAM_NAME),
+						rs.getString(EXAM_TYPE), rs.getString(DIFFICULTY_LEVEL), rs.getInt(DURATION_MINUTES));
 				edp.add(edpp);
 			}
-		} catch (SQLException e) {
-			e.printStackTrace();
+		} catch (Exception e) {
+
+			Logger.printStackTrace(e);
+			Logger.runTimeException(e.getMessage());
+
 		} finally {
-			try {
-				if (pstmt != null) {
-					pstmt.close();
-				}
-				if (con != null) {
-					con.close();
-				}
-				if (rs != null) {
-					rs.close();
-				}
-			} catch (SQLException e) {
-				e.printStackTrace();
-			}
+
+			ConnectionPage.close(rs, pstmt, con);
 		}
 		return edp;
 	}
@@ -197,26 +172,18 @@ public class ExamDetailsDaoImpl implements ExamDetailsDao {
 			pstmt = con.prepareStatement(query);
 			rs = pstmt.executeQuery();
 			while (rs.next()) {
-				ExamDetails edpp = new ExamDetails(rs.getInt("examId"), rs.getString("examName"),
-						rs.getString("examType"), rs.getString("difficultyLevel"), rs.getInt("durationMinutes"));
+				ExamDetails edpp = new ExamDetails(rs.getInt(EXAM_ID), rs.getString(EXAM_NAME),
+						rs.getString(EXAM_TYPE), rs.getString(DIFFICULTY_LEVEL), rs.getInt(DURATION_MINUTES));
 				edp.add(edpp);
 			}
-		} catch (SQLException e) {
-			e.printStackTrace();
+		} catch (Exception e) {
+
+			Logger.printStackTrace(e);
+			Logger.runTimeException(e.getMessage());
+
 		} finally {
-			try {
-				if (pstmt != null) {
-					pstmt.close();
-				}
-				if (con != null) {
-					con.close();
-				}
-				if (rs != null) {
-					rs.close();
-				}
-			} catch (SQLException e) {
-				e.printStackTrace();
-			}
+
+			ConnectionPage.close(rs, pstmt, con);
 		}
 		return edp;
 	}
@@ -233,26 +200,18 @@ public class ExamDetailsDaoImpl implements ExamDetailsDao {
 			pstmt = con.prepareStatement(query);
 			rs = pstmt.executeQuery();
 			while (rs.next()) {
-				ExamDetails edpp = new ExamDetails(rs.getInt("examId"), rs.getString("examName"),
-						rs.getString("examType"), rs.getString("difficultyLevel"), rs.getInt("durationMinutes"));
+				ExamDetails edpp = new ExamDetails(rs.getInt(EXAM_ID), rs.getString(EXAM_NAME),
+						rs.getString(EXAM_TYPE), rs.getString(DIFFICULTY_LEVEL), rs.getInt(DURATION_MINUTES));
 				edp.add(edpp);
 			}
-		} catch (SQLException e) {
-			e.printStackTrace();
+		} catch (Exception e) {
+
+			Logger.printStackTrace(e);
+			Logger.runTimeException(e.getMessage());
+
 		} finally {
-			try {
-				if (pstmt != null) {
-					pstmt.close();
-				}
-				if (con != null) {
-					con.close();
-				}
-				if (rs != null) {
-					rs.close();
-				}
-			} catch (SQLException e) {
-				e.printStackTrace();
-			}
+
+			ConnectionPage.close(rs, pstmt, con);
 		}
 		return edp;
 	}
@@ -271,26 +230,18 @@ public class ExamDetailsDaoImpl implements ExamDetailsDao {
 			pstmt.setString(3, difficultyLevel);
 			rs = pstmt.executeQuery();
 			while (rs.next()) {
-				ExamDetails edpp = new ExamDetails(rs.getString("examName"), rs.getString("examType"),
-						rs.getString("difficultyLevel"));
+				ExamDetails edpp = new ExamDetails(rs.getString(EXAM_NAME), rs.getString(EXAM_TYPE),
+						rs.getString(DIFFICULTY_LEVEL));
 				edp.add(edpp);
 			}
-		} catch (SQLException e) {
-			e.printStackTrace();
+		} catch (Exception e) {
+
+			Logger.printStackTrace(e);
+			Logger.runTimeException(e.getMessage());
+
 		} finally {
-			try {
-				if (pstmt != null) {
-					pstmt.close();
-				}
-				if (con != null) {
-					con.close();
-				}
-				if (rs != null) {
-					rs.close();
-				}
-			} catch (SQLException e) {
-				e.printStackTrace();
-			}
+
+			ConnectionPage.close(rs, pstmt, con);
 		}
 		return edp;
 	}

@@ -1,6 +1,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -27,12 +27,11 @@
 		alt="online Exam Icon">
 	<div class="h1">
 		<h1>Explore the Exam</h1>
-		<h1 style="margin-left: 70px;margin-top:-30px;">Exclusively</h1>
-		<h1 style="margin-left: 40px;margin-top:-30px;">made for you</h1>
-		<br>
-		<br>
-		</div>
-		<img src="images/onlineExamReferenceRemovedBackground.png"
+		<h1 style="margin-left: 70px; margin-top: -30px;">Exclusively</h1>
+		<h1 style="margin-left: 40px; margin-top: -30px;">made for you</h1>
+		<br> <br>
+	</div>
+	<img src="images/onlineExamReferenceRemovedBackground.png"
 		class="image" alt="online Exam Reference Background">
 </body>
 <script type="text/javascript">

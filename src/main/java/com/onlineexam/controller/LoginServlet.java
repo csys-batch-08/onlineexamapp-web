@@ -16,7 +16,7 @@ import com.onlineexam.impl.RegisterDaoImpl;
 import com.onlineexam.model.Register;
 
 @WebServlet("/loginservlet")
-public class loginServlet extends HttpServlet {
+public class LoginServlet extends HttpServlet {
 	@Override
 	public void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException {
 		HttpSession session = req.getSession();

@@ -14,7 +14,10 @@ import com.onlineexam.impl.RegisterDaoImpl;
 import com.onlineexam.model.Register;
 
 @WebServlet("/register")
-public class registerServlet extends HttpServlet {
+public class RegisterServlet extends HttpServlet {
+	private static final String SCRIPT = "</script>";
+	private static final String SCRIPT_TYPE_TEXT_JAVASCRIPT = "<script type=\"text/javascript\">";
+
 	@Override
 	public void doPost(HttpServletRequest req, HttpServletResponse res) {
 		PrintWriter out = null;
@@ -38,25 +41,25 @@ public class registerServlet extends HttpServlet {
 			}
 			int i = rdao.fetchregister(rd);
 			if (i > 0) {
-				out.println("<script type=\"text/javascript\">");
+				out.println(SCRIPT_TYPE_TEXT_JAVASCRIPT);
 				out.println("alert('You have registered successfully');");
 				out.println("location='login.jsp';");
-				out.println("</script>");
+				out.println(SCRIPT);
 			}
 		} catch (IOException e1) {
 			e1.printStackTrace();
 		} catch (NumberFormatException e2) {
 			e2.printStackTrace();
 		} catch (EmailAlreadyExistException ea) {
-			out.println("<script type=\"text/javascript\">");
+			out.println(SCRIPT_TYPE_TEXT_JAVASCRIPT);
 			out.println("alert('email already exist');");
 			out.println("location='register.jsp';");
-			out.println("</script>");
+			out.println(SCRIPT);
 		} catch (PhoneNumberExistException pn) {
-			out.println("<script type=\"text/javascript\">");
+			out.println(SCRIPT_TYPE_TEXT_JAVASCRIPT);
 			out.println("alert('Phone number already exist');");
 			out.println("location='register.jsp';");
-			out.println("</script>");
+			out.println(SCRIPT);
 		}
 	}
 }

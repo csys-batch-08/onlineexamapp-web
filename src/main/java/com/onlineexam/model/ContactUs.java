@@ -1,8 +1,9 @@
 package com.onlineexam.model;
 
+import java.io.Serializable;
 import java.time.LocalDateTime;
 
-public class ContactUs {
+public class ContactUs implements Serializable {
 	private int userId;
 	private String email;
 	private String comments;

@@ -1,8 +1,9 @@
 package com.onlineexam.model;
 
+import java.io.Serializable;
 import java.time.LocalDateTime;
 
-public class Register {
+public class Register implements Serializable {
 	@Override
 	public String toString() {
 		return "RegisterPojo [userid=" + userId + ", first_name=" + firstName + ", last_name=" + lastName + ", email="
@@ -201,21 +202,24 @@ public class Register {
 		this.role = role;
 	}
 
-	public Register(int userId, String firstName, String lastName, String email, String password,
-			String confirmPassword, long phoneNumber, String role, String photo, String reason,
-			LocalDateTime lastActiveDate) {
+	public Register(int userId, String firstName, String lastName, String email) {
 		super();
 		this.userId = userId;
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.email = email;
+	}
+
+	public Register(int userId, String firstName, String email, String password, String confirmPassword,
+			long phoneNumber, String role) {
+		super();
+		this.userId = userId;
+		this.firstName = firstName;
+		this.email = email;
 		this.password = password;
 		this.confirmPassword = confirmPassword;
 		this.phoneNumber = phoneNumber;
 		this.role = role;
-		this.photo = photo;
-		this.reason = reason;
-		this.lastActiveDate = lastActiveDate;
 	}
 
 }

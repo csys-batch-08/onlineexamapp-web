@@ -1,6 +1,8 @@
 package com.onlineexam.model;
 
-public class ExamDetails {
+import java.io.Serializable;
+
+public class ExamDetails implements Serializable {
 	private int examId;
 	private String examName;
 	private String examType;

@@ -1,217 +1,303 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="ISO-8859-1">
 <style>
-b{
-    font-size: xx-large;
-}
-#clock{
-    position: absolute;
-    left: 1200px;
-    top: 100px;
-    font-size: xx-large;
-}
-h2{
-	text-align: center;
-}
-body{
-    background: linear-gradient(to right, springgreen, rgb(253, 253, 53));
-}
-.questions{
-position: absolute;
-margin-top:120px;
-left:170px;
-font-size:30px;
-}
-.button {
-  background-color: #4CAF50; /* Green */
-  border: none;
-  color: white;
-  padding: 16px 32px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  margin: 4px 2px;
-  transition-duration: 0.4s;
-  cursor: pointer;
-}
-.examButton{
-  background-color: rgb(171, 255, 36);  
-  color: black; 
-  font-weight: bold;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
-  border: 4px solid black;
-}
-.examButton:hover,.examButton :active{
-  background-color: black;
-  color: white;
-  transition: 2ms;
-}
-#finish,#feed,#hour,#min,#colon,#next,#music,#complete,#timeup{
-	visibility:hidden;
-}
-#result{
-font-size:large;
-text-align:center;
-}
-#passFail{
-font-size:large;
-text-align:center;
-}
-#studentGrade{
-font-size:large;
-text-align:center;
-}
-#buttons{
-visibility:hidden;
+b {
+	font-size: xx-large;
 }
 
-#home{
-float: right;
-margin-right:10px;
-margin-top:-70px;
-font-size:x-large;
+#clock {
+	position: absolute;
+	left: 1200px;
+	top: 100px;
+	font-size: xx-large;
 }
-.start{
-margin-top:210px;
-margin-left:630px;
+
+h2 {
+	text-align: center;
 }
-.timeupalign{
-	font-size:xx-large;
-	font-weight:bolder;
-	margin-top:170px;
-	margin-left:635px;
+
+body {
+	background: linear-gradient(to right, springgreen, rgb(253, 253, 53));
 }
-.form{
-margin-top:-400px;
+
+.questions {
+	position: absolute;
+	margin-top: 120px;
+	left: 170px;
+	font-size: 30px;
 }
-#next,#submit,#sendfeedback{
-margin-left:635px;
+
+.button {
+	background-color: #4CAF50; /* Green */
+	border: none;
+	color: white;
+	padding: 16px 32px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 16px;
+	margin: 4px 2px;
+	transition-duration: 0.4s;
+	cursor: pointer;
+}
+
+.examButton {
+	background-color: rgb(171, 255, 36);
+	color: black;
+	font-weight: bold;
+	font-family: Verdana, Geneva, Tahoma, sans-serif;
+	border: 4px solid black;
+}
+
+.examButton:hover, .examButton :active {
+	background-color: black;
+	color: white;
+	transition: 2ms;
+}
+
+#finish, #feed, #hour, #min, #colon, #next, #music, #complete, #timeup {
+	visibility: hidden;
+}
+
+#result {
+	font-size: large;
+	text-align: center;
+}
+
+#passFail {
+	font-size: large;
+	text-align: center;
+}
+
+#studentGrade {
+	font-size: large;
+	text-align: center;
+}
+
+#buttons {
+	visibility: hidden;
+}
+
+#home {
+	float: right;
+	margin-right: 10px;
+	margin-top: -70px;
+	font-size: x-large;
+}
+
+.start {
+	margin-top: 210px;
+	margin-left: 630px;
+}
+
+.timeupalign {
+	font-size: xx-large;
+	font-weight: bolder;
+	margin-top: 170px;
+	margin-left: 635px;
+}
+
+.form {
+	margin-top: -400px;
+}
+
+#next, #submit, #sendfeedback {
+	margin-left: 635px;
 }
 </style>
 <title>JAVA Exam</title>
 </head>
 <body>
-	<h2 style="margin-left:50px;" id="css"><u>JAVA Exam</u></h2>
-	<a id="home" href="UserChooseExams1"><h4 style="color:black;"><u>Back</u></h4></a>
+	<h2 style="margin-left: 50px;" id="css">
+		<u>JAVA Exam</u>
+	</h2>
+	<a id="home" href="UserChooseExams1"><h4 style="color: black;">
+			<u>Back</u>
+		</h4></a>
 	<div id="clock">
-    <strong id="hour"></strong><label> &nbsp;<span id="colon">:</span>&nbsp;</label><strong id="min"></strong>
-</div>
-<br> <button id="startButton" onclick="clcok()" class="button examButton start">Start</button>
-	
-	<div style="margin-top:-250px;">
-	<div class="questions" id="question1">
-	<p>1) What do you mean by nameless objects?<br>
-		<input type="radio" name="answer1" value="An object created by using the new keyword.">An object created by using the new keyword.<br>
-		<input type="radio" name="answer1" value="An object of a superclass created in the subclass.">An object of a superclass created in the subclass.<br>
-		<input type="radio" name="answer1" value="An object without having any name but having a reference.">An object without having any name but having a reference.<br>
-		<input type="radio" name="answer1" value="An object that has no reference.">An object that has no reference.<br>
-	</p>
+		<strong id="hour"></strong><label> &nbsp;<span id="colon">:</span>&nbsp;
+		</label><strong id="min"></strong>
 	</div>
-	<div class="questions" id="question2">
-	<p>2)An interface with no fields or methods is known as a ______.<br>
-		<input type="radio" name="answer2" value="Runnable Interface">Runnable Interface<br>
-		<input type="radio" name="answer2" value="Marker Interface">Marker Interface<br>
-		<input type="radio" name="answer2" value="Abstract Interface">Abstract Interface<br>
-		<input type="radio" name="answer2" value="CharSequence Interface">CharSequence Interface<br>
-	</p>
-	</div>
-	<div class="questions" id="question3">
-	<p>3)Which of the following is an immediate subclass of the Panel class?<br>
-		<input type="radio" name="answer3" value="Applet class">Applet class<br>
-		<input type="radio" name="answer3" value="Window class">Window class<br>
-		<input type="radio" name="answer3" value="Frame class">Frame class<br>
-		<input type="radio" name="answer3" value="Dialog class">Dialog class<br>
-	</p>
-	</div>
-	<div class="questions" id="question4">
-	<p>4)Which option is false about the final keyword?<br>
-		<input type="radio" name="answer4" value="A final method cannot be overridden in its subclasses.">A final method cannot be overridden in its subclasses.<br>
-		<input type="radio" name="answer4" value="A final class cannot be extended.">A final class cannot be extended.<br>
-		<input type="radio" name="answer4" value="A final class cannot extend other classes.">A final class cannot extend other classes.<br>
-		<input type="radio" name="answer4" value="A final method can be inherited.">A final method can be inherited.<br>
-	</p>
-	</div>
-	<div class="questions" id="question5">
-	<p>5)Which of these classes are the direct subclasses of the Throwable class?<br>
-		<input type="radio" name="answer5" value="RuntimeException and Error class">RuntimeException and Error class<br>
-		<input type="radio" name="answer5" value="Exception and VirtualMachineError class">Exception and VirtualMachineError class<br>
-		<input type="radio" name="answer5" value="Error and Exception class">Error and Exception class<br>
-		<input type="radio" name="answer5" value="IOException and VirtualMachineError class">IOException and VirtualMachineError class<br>
-	</p>
-	</div>
-	<div class="questions" id="question6">
-	<p>6)What do you mean by chained exceptions in Java?<br>
-		<input type="radio" name="answer6" value="Exceptions occurred by the VirtualMachineError">Exceptions occurred by the VirtualMachineError<br>
-		<input type="radio" name="answer6" value="An exception caused by other exceptions">An exception caused by other exceptions<br>
-		<input type="radio" name="answer6" value="Exceptions occur in chains with discarding the debugging information">Exceptions occur in chains with discarding the debugging information<br>
-		<input type="radio" name="answer6" value="None of the above">None of the above<br>
-	</p>
-	</div>
-	<div class="questions" id="question7">
-	<p>7)In which memory a String is stored, when we create a string using new operator?<br>
-		<input type="radio" name="answer7" value="Stack">Stack<br>
-		<input type="radio" name="answer7" value="String memory">String memory<br>
-		<input type="radio" name="answer7" value="Heap memory">Heap memory<br>
-		<input type="radio" name="answer7" value="Random storage space">Random storage space<br>
-	</p>
-	</div>
-	<div class="questions" id="question8">
-	<p>8)What is the use of the intern() method?<br>
-		<input type="radio" name="answer8" value="It returns the existing string from memory">It returns the existing string from memory<br>
-		<input type="radio" name="answer8" value="It creates a new string in the database">It creates a new string in the database<br>
-		<input type="radio" name="answer8" value="It modifies the existing string in the database">It modifies the existing string in the database<br>
-		<input type="radio" name="answer8" value="None of the above">None of the above<br>
-	</p>
-	</div>
-	<div class="questions" id="question9">
-	<p>9)Which of the following is a marker interface?<br>
-		<input type="radio" name="answer9" value="Runnable interface">Runnable interface<br>
-		<input type="radio" name="answer9" value="Remote interface">Remote interface<br>
-		<input type="radio" name="answer9" value="Readable interface">Readable interface<br>
-		<input type="radio" name="answer9" value="Result interface">Result interface<br>
-	</p>
-	</div>
-	<div class="questions" id="question10">
-	<p>10)In java, jar stands for_____.<br>
-		<input type="radio" name="answer10" value="Java Archive Runner">Java Archive Runner<br>
-		<input type="radio" name="answer10" value="Java Application Resource">Java Application Resource<br>
-		<input type="radio" name="answer10" value="Java Application Runner">Java Application Runner<br>
-		<input type="radio" name="answer10" value="None of the above">None of the above<br>
-	</p>
-	
-	</div>
-	
-</div>
+	<br>
+	<button id="startButton" onclick="clcok()"
+		class="button examButton start">Start</button>
 
-<p id="result"></p>
-<p id="passFail"></p>
-<p id="studentGrade"></p>
-<div id="timeup" class="timeupalign">
-<p>Your time is up!....</p>
-<p>You have to submit exam</p></div>
-<div id="feed">
-<a href="feedbackDetails?examid=${exam_Id}&userid=${user_id}"><button id="sendfeedback" class="button examButton" style="margin-top:100px;">Send feedback</button>&nbsp;&nbsp;</a>
-</div>
-<div id="buttons" class="form">
-<form action="scoreDetails" >
-<input style="visibility:hidden;" type="text" id="examId" name="examId" value="${exam_Id}">
-<input style="visibility:hidden;" type="text" id="examName" name="examName" value="${exam_Name}">
-<input style="visibility:hidden;" type="text" id="studentId" name="uID" value="${user_id}"/>
-<input style="visibility:hidden;" type="text" id="score" name="score">
-<input style="visibility:hidden;" type="text" id="passOrFail" name="passOrFail">
-<input style="visibility:hidden;" type="text" id="grade" name="grade">
-<button id="submit" onclick="ans()" style="text-align:center;margin-top:270px;" class="button examButton">Submit</button>
-</form></div>
-<div>
-<button id="next" onclick="qu()" style="text-align:center;margin-top:-290px;" class="button examButton">Next</button>
+	<div style="margin-top: -250px;">
+		<div class="questions" id="question1">
+			<p>
+				1) What do you mean by nameless objects?<br> <input
+					type="radio" name="answer1"
+					value="An object created by using the new keyword.">An
+				object created by using the new keyword.<br> <input
+					type="radio" name="answer1"
+					value="An object of a superclass created in the subclass.">An
+				object of a superclass created in the subclass.<br> <input
+					type="radio" name="answer1"
+					value="An object without having any name but having a reference.">An
+				object without having any name but having a reference.<br> <input
+					type="radio" name="answer1"
+					value="An object that has no reference.">An object that has
+				no reference.<br>
+			</p>
+		</div>
+		<div class="questions" id="question2">
+			<p>
+				2)An interface with no fields or methods is known as a ______.<br>
+				<input type="radio" name="answer2" value="Runnable Interface">Runnable
+				Interface<br> <input type="radio" name="answer2"
+					value="Marker Interface">Marker Interface<br> <input
+					type="radio" name="answer2" value="Abstract Interface">Abstract
+				Interface<br> <input type="radio" name="answer2"
+					value="CharSequence Interface">CharSequence Interface<br>
+			</p>
+		</div>
+		<div class="questions" id="question3">
+			<p>
+				3)Which of the following is an immediate subclass of the Panel
+				class?<br> <input type="radio" name="answer3"
+					value="Applet class">Applet class<br> <input
+					type="radio" name="answer3" value="Window class">Window
+				class<br> <input type="radio" name="answer3"
+					value="Frame class">Frame class<br> <input
+					type="radio" name="answer3" value="Dialog class">Dialog
+				class<br>
+			</p>
+		</div>
+		<div class="questions" id="question4">
+			<p>
+				4)Which option is false about the final keyword?<br> <input
+					type="radio" name="answer4"
+					value="A final method cannot be overridden in its subclasses.">A
+				final method cannot be overridden in its subclasses.<br> <input
+					type="radio" name="answer4"
+					value="A final class cannot be extended.">A final class
+				cannot be extended.<br> <input type="radio" name="answer4"
+					value="A final class cannot extend other classes.">A final
+				class cannot extend other classes.<br> <input type="radio"
+					name="answer4" value="A final method can be inherited.">A
+				final method can be inherited.<br>
+			</p>
+		</div>
+		<div class="questions" id="question5">
+			<p>
+				5)Which of these classes are the direct subclasses of the Throwable
+				class?<br> <input type="radio" name="answer5"
+					value="RuntimeException and Error class">RuntimeException
+				and Error class<br> <input type="radio" name="answer5"
+					value="Exception and VirtualMachineError class">Exception
+				and VirtualMachineError class<br> <input type="radio"
+					name="answer5" value="Error and Exception class">Error and
+				Exception class<br> <input type="radio" name="answer5"
+					value="IOException and VirtualMachineError class">IOException
+				and VirtualMachineError class<br>
+			</p>
+		</div>
+		<div class="questions" id="question6">
+			<p>
+				6)What do you mean by chained exceptions in Java?<br> <input
+					type="radio" name="answer6"
+					value="Exceptions occurred by the VirtualMachineError">Exceptions
+				occurred by the VirtualMachineError<br> <input type="radio"
+					name="answer6" value="An exception caused by other exceptions">An
+				exception caused by other exceptions<br> <input type="radio"
+					name="answer6"
+					value="Exceptions occur in chains with discarding the debugging information">Exceptions
+				occur in chains with discarding the debugging information<br> <input
+					type="radio" name="answer6" value="None of the above">None
+				of the above<br>
+			</p>
+		</div>
+		<div class="questions" id="question7">
+			<p>
+				7)In which memory a String is stored, when we create a string using
+				new operator?<br> <input type="radio" name="answer7"
+					value="Stack">Stack<br> <input type="radio"
+					name="answer7" value="String memory">String memory<br>
+				<input type="radio" name="answer7" value="Heap memory">Heap
+				memory<br> <input type="radio" name="answer7"
+					value="Random storage space">Random storage space<br>
+			</p>
+		</div>
+		<div class="questions" id="question8">
+			<p>
+				8)What is the use of the intern() method?<br> <input
+					type="radio" name="answer8"
+					value="It returns the existing string from memory">It
+				returns the existing string from memory<br> <input type="radio"
+					name="answer8" value="It creates a new string in the database">It
+				creates a new string in the database<br> <input type="radio"
+					name="answer8"
+					value="It modifies the existing string in the database">It
+				modifies the existing string in the database<br> <input
+					type="radio" name="answer8" value="None of the above">None
+				of the above<br>
+			</p>
+		</div>
+		<div class="questions" id="question9">
+			<p>
+				9)Which of the following is a marker interface?<br> <input
+					type="radio" name="answer9" value="Runnable interface">Runnable
+				interface<br> <input type="radio" name="answer9"
+					value="Remote interface">Remote interface<br> <input
+					type="radio" name="answer9" value="Readable interface">Readable
+				interface<br> <input type="radio" name="answer9"
+					value="Result interface">Result interface<br>
+			</p>
+		</div>
+		<div class="questions" id="question10">
+			<p>
+				10)In java, jar stands for_____.<br> <input type="radio"
+					name="answer10" value="Java Archive Runner">Java Archive
+				Runner<br> <input type="radio" name="answer10"
+					value="Java Application Resource">Java Application Resource<br>
+				<input type="radio" name="answer10" value="Java Application Runner">Java
+				Application Runner<br> <input type="radio" name="answer10"
+					value="None of the above">None of the above<br>
+			</p>
 
-</div>
+		</div>
+
+	</div>
+
+	<p id="result"></p>
+	<p id="passFail"></p>
+	<p id="studentGrade"></p>
+	<div id="timeup" class="timeupalign">
+		<p>Your time is up!....</p>
+		<p>You have to submit exam</p>
+	</div>
+	<div id="feed">
+		<a href="feedbackDetails?examid=${exam_Id}&userid=${user_id}"><button
+				id="sendfeedback" class="button examButton"
+				style="margin-top: 100px;">Send feedback</button>&nbsp;&nbsp;</a>
+	</div>
+	<div id="buttons" class="form">
+		<form action="scoreDetails">
+			<input style="visibility: hidden;" type="text" id="examId"
+				name="examId" value="${exam_Id}"> <input
+				style="visibility: hidden;" type="text" id="examName"
+				name="examName" value="${exam_Name}"> <input
+				style="visibility: hidden;" type="text" id="studentId" name="uID"
+				value="${user_id}" /> <input style="visibility: hidden;" type="text"
+				id="score" name="score"> <input style="visibility: hidden;"
+				type="text" id="passOrFail" name="passOrFail"> <input
+				style="visibility: hidden;" type="text" id="grade" name="grade">
+			<button id="submit" onclick="ans()"
+				style="text-align: center; margin-top: 270px;"
+				class="button examButton">Submit</button>
+		</form>
+	</div>
+	<div>
+		<button id="next" onclick="qu()"
+			style="text-align: center; margin-top: -290px;"
+			class="button examButton">Next</button>
+
+	</div>
 
 </body>
 </html>

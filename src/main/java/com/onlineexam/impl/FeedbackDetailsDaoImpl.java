@@ -3,11 +3,11 @@ package com.onlineexam.impl;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
 import com.onlineexam.dao.FeedbackDetailsDao;
+import com.onlineexam.logger.Logger;
 import com.onlineexam.model.FeedbackDetails;
 import com.onlineexam.util.ConnectionPage;
 
@@ -24,19 +24,14 @@ public class FeedbackDetailsDaoImpl implements FeedbackDetailsDao {
 			pstmt.setInt(2, fdp.getExamid());
 			pstmt.setString(3, fdp.getFeedback());
 			pstmt.executeQuery();
-		} catch (SQLException e) {
-			e.printStackTrace();
+		} catch (Exception e) {
+
+			Logger.printStackTrace(e);
+			Logger.runTimeException(e.getMessage());
+
 		} finally {
-			try {
-				if (pstmt != null) {
-					pstmt.close();
-				}
-				if (con != null) {
-					con.close();
-				}
-			} catch (SQLException e) {
-				e.printStackTrace();
-			}
+
+			ConnectionPage.close(null, pstmt, con);
 		}
 	}
 
@@ -57,24 +52,15 @@ public class FeedbackDetailsDaoImpl implements FeedbackDetailsDao {
 						rs.getTimestamp("feedbackdate").toLocalDateTime(), username);
 				fdp.add(fdp1);
 			}
-		} catch (SQLException e) {
-			e.printStackTrace();
-		} finally {
-			try {
-				if (pstmt != null) {
-					pstmt.close();
-				}
-				if (con != null) {
-					con.close();
-				}
-				if (rs != null) {
-					rs.close();
-				}
-			} catch (SQLException e) {
-				e.printStackTrace();
-			}
-		}
+		} catch (Exception e) {
 
+			Logger.printStackTrace(e);
+			Logger.runTimeException(e.getMessage());
+
+		} finally {
+
+			ConnectionPage.close(rs, pstmt, con);
+		}
 		return fdp;
 	}
 
@@ -95,22 +81,14 @@ public class FeedbackDetailsDaoImpl implements FeedbackDetailsDao {
 						rs.getTimestamp("feedbackdate").toLocalDateTime());
 				fdp.add(fdp1);
 			}
-		} catch (SQLException e) {
-			e.printStackTrace();
+		} catch (Exception e) {
+
+			Logger.printStackTrace(e);
+			Logger.runTimeException(e.getMessage());
+
 		} finally {
-			try {
-				if (pstmt != null) {
-					pstmt.close();
-				}
-				if (con != null) {
-					con.close();
-				}
-				if (rs != null) {
-					rs.close();
-				}
-			} catch (SQLException e) {
-				e.printStackTrace();
-			}
+
+			ConnectionPage.close(rs, pstmt, con);
 		}
 		return fdp;
 	}

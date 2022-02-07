@@ -1,8 +1,6 @@
 package com.onlineexam.exception;
 
-import java.sql.SQLIntegrityConstraintViolationException;
-
-public class ExamNotDeleteException extends SQLIntegrityConstraintViolationException {
+public class ExamNotDeleteException extends Exception {
 
 	@Override
 	public String getMessage() {

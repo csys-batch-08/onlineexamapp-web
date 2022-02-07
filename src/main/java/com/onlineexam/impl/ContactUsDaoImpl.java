@@ -3,11 +3,11 @@ package com.onlineexam.impl;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
 import com.onlineexam.dao.ContactUsDao;
+import com.onlineexam.logger.Logger;
 import com.onlineexam.model.ContactUs;
 import com.onlineexam.util.ConnectionPage;
 
@@ -26,19 +26,14 @@ public class ContactUsDaoImpl implements ContactUsDao {
 			pstmt.setString(2, cup.getEmail());
 			pstmt.setString(3, cup.getComments());
 			i = pstmt.executeUpdate();
-		} catch (SQLException e) {
-			e.printStackTrace();
+		} catch (Exception e) {
+
+			Logger.printStackTrace(e);
+			Logger.runTimeException(e.getMessage());
+
 		} finally {
-			try {
-				if (pstmt != null) {
-					pstmt.close();
-				}
-				if (con != null) {
-					con.close();
-				}
-			} catch (SQLException e) {
-				e.printStackTrace();
-			}
+
+			ConnectionPage.close(null, pstmt, con);
 		}
 		return i;
 	}
@@ -59,22 +54,14 @@ public class ContactUsDaoImpl implements ContactUsDao {
 						rs.getTimestamp("commentdate").toLocalDateTime());
 				contactlist.add(cup);
 			}
-		} catch (SQLException e) {
-			e.printStackTrace();
+		} catch (Exception e) {
+
+			Logger.printStackTrace(e);
+			Logger.runTimeException(e.getMessage());
+
 		} finally {
-			try {
-				if (pstmt != null) {
-					pstmt.close();
-				}
-				if (con != null) {
-					con.close();
-				}
-				if (rs != null) {
-					rs.close();
-				}
-			} catch (SQLException e) {
-				e.printStackTrace();
-			}
+
+			ConnectionPage.close(rs, pstmt, con);
 		}
 		return contactlist;
 	}

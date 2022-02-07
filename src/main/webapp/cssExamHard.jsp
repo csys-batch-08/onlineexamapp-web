@@ -1,226 +1,279 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="ISO-8859-1">
 <style>
-b{
-    font-size: xx-large;
-}
-#clock{
-    position: absolute;
-    left: 1200px;
-    top: 100px;
-    font-size: xx-large;
-}
-h2{
-	text-align: center;
-}
-body{
-    background: linear-gradient(to right, springgreen, rgb(253, 253, 53));
-}
-.questions{
-position: absolute;
-margin-top:120px;
-left:170px;
-font-size:30px;
-}
-.button {
-  background-color: #4CAF50; /* Green */
-  border: none;
-  color: white;
-  padding: 16px 32px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  margin: 4px 2px;
-  transition-duration: 0.4s;
-  cursor: pointer;
-}
-.examButton{
-  background-color: rgb(171, 255, 36);  
-  color: black; 
-  font-weight: bold;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
-  border: 4px solid black;
-}
-.examButton:hover,.examButton :active{
-  background-color: black;
-  color: white;
-  transition: 2ms;
-}
-#finish,#feed,#hour,#min,#colon,#next,#music,#complete,#timeup{
-	visibility:hidden;
-}
-#result{
-font-size:large;
-text-align:center;
-}
-#passFail{
-font-size:large;
-text-align:center;
-}
-#studentGrade{
-font-size:large;
-text-align:center;
-}
-#buttons{
-visibility:hidden;
+b {
+	font-size: xx-large;
 }
 
-#home{
-float: right;
-margin-right:10px;
-margin-top:-70px;
-font-size:x-large;
+#clock {
+	position: absolute;
+	left: 1200px;
+	top: 100px;
+	font-size: xx-large;
 }
-.start{
-margin-top:210px;
-margin-left:630px;
+
+h2 {
+	text-align: center;
 }
-.timeupalign{
-	font-size:xx-large;
-	font-weight:bolder;
-	margin-top:170px;
-	margin-left:635px;
+
+body {
+	background: linear-gradient(to right, springgreen, rgb(253, 253, 53));
 }
-.form{
-margin-top:-400px;
+
+.questions {
+	position: absolute;
+	margin-top: 120px;
+	left: 170px;
+	font-size: 30px;
 }
-#next,#submit,#sendfeedback{
-margin-left:635px;
+
+.button {
+	background-color: #4CAF50; /* Green */
+	border: none;
+	color: white;
+	padding: 16px 32px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 16px;
+	margin: 4px 2px;
+	transition-duration: 0.4s;
+	cursor: pointer;
+}
+
+.examButton {
+	background-color: rgb(171, 255, 36);
+	color: black;
+	font-weight: bold;
+	font-family: Verdana, Geneva, Tahoma, sans-serif;
+	border: 4px solid black;
+}
+
+.examButton:hover, .examButton :active {
+	background-color: black;
+	color: white;
+	transition: 2ms;
+}
+
+#finish, #feed, #hour, #min, #colon, #next, #music, #complete, #timeup {
+	visibility: hidden;
+}
+
+#result {
+	font-size: large;
+	text-align: center;
+}
+
+#passFail {
+	font-size: large;
+	text-align: center;
+}
+
+#studentGrade {
+	font-size: large;
+	text-align: center;
+}
+
+#buttons {
+	visibility: hidden;
+}
+
+#home {
+	float: right;
+	margin-right: 10px;
+	margin-top: -70px;
+	font-size: x-large;
+}
+
+.start {
+	margin-top: 210px;
+	margin-left: 630px;
+}
+
+.timeupalign {
+	font-size: xx-large;
+	font-weight: bolder;
+	margin-top: 170px;
+	margin-left: 635px;
+}
+
+.form {
+	margin-top: -400px;
+}
+
+#next, #submit, #sendfeedback {
+	margin-left: 635px;
 }
 </style>
 <title>CSS Exam</title>
 </head>
 <body>
-	<h2 style="margin-left:50px;" id="css"><u>CSS Exam</u></h2>
-	<a id="home" href="UserChooseExams1"><h4 style="color:black;"><u>Back</u></h4></a>
+	<h2 style="margin-left: 50px;" id="css">
+		<u>CSS Exam</u>
+	</h2>
+	<a id="home" href="UserChooseExams1"><h4 style="color: black;">
+			<u>Back</u>
+		</h4></a>
 	<div id="clock">
-    <strong id="hour"></strong><label> &nbsp;<span id="colon">:</span>&nbsp;</label><strong id="min"></strong>
-</div>
-<br> <button id="startButton" onclick="clcok()" class="button examButton start">Start</button>
-	
-	<div style="margin-top:-250px;">
-	<div class="questions" id="question1">
-	<p>1)Which of the following is a component of CSS style rule?<br>
-		<input type="radio" name="answer1"  value="Selector">Selector<br>
-		<input type="radio" name="answer1"  value="Property">Property<br>
-		<input type="radio" name="answer1"  value="Value">Value<br>
-		<input type="radio" name="answer1"  value="All of the above.">All of the above.<br>
-		
-	</p>
+		<strong id="hour"></strong><label> &nbsp;<span id="colon">:</span>&nbsp;
+		</label><strong id="min"></strong>
 	</div>
-	<div class="questions" id="question2">
-	<p>2)Which of the following defines a measurement relative to a font's x-height?<br>
-		<input type="radio" name="answer2" value="%">%<br>
-		<input type="radio" name="answer2" value="cm">cm<br>
-		<input type="radio" name="answer2" value="em">em<br>
-		<input type="radio" name="answer2" value="ex">ex<br>
-	
-	</p>
-	</div>
-	<div class="questions" id="question3">
-	<p>3)Which of the following defines 1% of viewport height?<br>
-		<input type="radio" name="answer3" value="px">px<br>
-		<input type="radio" name="answer3" value="vh">vh<br>
-		<input type="radio" name="answer3" value="vw">vw<br>
-		<input type="radio" name="answer3" value="vmin">vmin<br>
-		
-	</p>
-	</div>
-	<div class="questions" id="question4">
-	<p>4)Which of the following property is used to control the position of an image in the background?<br>
-		<input type="radio" name="answer4" value="background-color">background-color<br>
-		<input type="radio" name="answer4" value="background-image">background-image<br>
-		<input type="radio" name="answer4" value="background-repeat">background-repeat<br>
-		<input type="radio" name="answer4" value="background-position">background-position<br>
-		
-	</p>
-	</div>
-	<div class="questions" id="question5">
-	<p>5) Which of the following property is used to align the text of a document?<br>
-		<input type="radio" name="answer5" value="text-indent">text-indent<br>
-		<input type="radio" name="answer5" value="text-align">text-align<br>
-		<input type="radio" name="answer5" value="text-decoration">text-decoration<br>
-		<input type="radio" name="answer5" value="text-transform">text-transform<br>
-		
-	</p>
-	</div>
-	<div class="questions" id="question6">
-	<p>6)Which of the following property of a anchor element signifies unvisited hyperlinks?<br>
-		<input type="radio" name="answer6" value=":link">:link<br>
-		<input type="radio" name="answer6" value=":visited">:visited<br>
-		<input type="radio" name="answer6" value=":hover">:hover<br>
-		<input type="radio" name="answer6" value=":active">:active<br>
-		
-	</p>
-	</div>
-	<div class="questions" id="question7">
-	<p>7)Which of the following property changes the color of right border?<br>
-		<input type="radio" name="answer7" value=":border-top-color">:border-top-color<br>
-		<input type="radio" name="answer7" value=":border-left-color">:border-left-color<br>
-		<input type="radio" name="answer7" value=":border-right-color">:border-right-color<br>
-		<input type="radio" name="answer7" value=":border-bottom-color">:border-bottom-color<br>
-		
-	</p>
-	</div>
-	<div class="questions" id="question8">
-	<p>8)Which of the following property specifies the left margin of an element?<br>
-		<input type="radio" name="answer8" value=":margin">:margin<br>
-		<input type="radio" name="answer8" value=":margin-bottom">:margin-bottom<br>
-		<input type="radio" name="answer8" value=":margin-top">:margin-top<br>
-		<input type="radio" name="answer8" value=":margin-left">:margin-left<br>
-	</p>
-	</div>
-	<div class="questions" id="question9">
-	<p>9)Which of the following property specifies the bottom padding of an element?<br>
-		<input type="radio" name="answer9" value="padding-bottom">padding-bottom<br>
-		<input type="radio" name="answer9" value="padding-top">padding-top<br>
-		<input type="radio" name="answer9" value="padding-left">padding-left<br>
-		<input type="radio" name="answer9" value="padding-right">padding-right<br>
-		
-	</p>
-	</div>
-	<div class="questions" id="question10">
-	<p>10)Which of the following is a way to associate styles with your HTML document?<br>
-		<input type="radio" name="answer10" value="External CSS - The Element">External CSS - The Element<br>
-		<input type="radio" name="answer10" value="Imported CSS - @import Rule">Imported CSS - @import Rule<br>
-		<input type="radio" name="answer10" value="Both of the above.">Both of the above.<br>
-		<input type="radio" name="answer10" value="None of the above.">None of the above.<br>
-		
-	</p>
-	
-	</div>
-	
-</div>
+	<br>
+	<button id="startButton" onclick="clcok()"
+		class="button examButton start">Start</button>
 
-<p id="result"></p>
-<p id="passFail"></p>
-<p id="studentGrade"></p>
-<div id="timeup" class="timeupalign">
-<p>Your time is up!....</p>
-<p>You have to submit exam</p></div>
-<div id="feed">
-<a href="feedbackDetails?examid=${exam_Id}&userid=${user_id}"><button id="sendfeedback" class="button examButton" style="margin-top:100px;">Send feedback</button>&nbsp;&nbsp;</a>
-</div>
-<div id="buttons" class="form">
-<form action="scoreDetails" >
-<input style="visibility:hidden;" type="text" id="examId" name="examId" value="${exam_Id}">
-<input style="visibility:hidden;" type="text" id="examName" name="examName" value="${exam_Name}">
-<input style="visibility:hidden;" type="text" id="studentId" name="uID" value="${user_id}"/>
-<input style="visibility:hidden;" type="text" id="score" name="score">
-<input style="visibility:hidden;" type="text" id="passOrFail" name="passOrFail">
-<input style="visibility:hidden;" type="text" id="grade" name="grade">
-<button id="submit" onclick="ans()" style="text-align:center;margin-top:270px;" class="button examButton">Submit</button>
-</form></div>
-<div>
-<button id="next" onclick="qu()" style="text-align:center;margin-top:-290px;" class="button examButton">Next</button>
+	<div style="margin-top: -250px;">
+		<div class="questions" id="question1">
+			<p>
+				1)Which of the following is a component of CSS style rule?<br>
+				<input type="radio" name="answer1" value="Selector">Selector<br>
+				<input type="radio" name="answer1" value="Property">Property<br>
+				<input type="radio" name="answer1" value="Value">Value<br>
+				<input type="radio" name="answer1" value="All of the above.">All
+				of the above.<br>
 
-</div>
+			</p>
+		</div>
+		<div class="questions" id="question2">
+			<p>
+				2)Which of the following defines a measurement relative to a font's
+				x-height?<br> <input type="radio" name="answer2" value="%">%<br>
+				<input type="radio" name="answer2" value="cm">cm<br> <input
+					type="radio" name="answer2" value="em">em<br> <input
+					type="radio" name="answer2" value="ex">ex<br>
+
+			</p>
+		</div>
+		<div class="questions" id="question3">
+			<p>
+				3)Which of the following defines 1% of viewport height?<br> <input
+					type="radio" name="answer3" value="px">px<br> <input
+					type="radio" name="answer3" value="vh">vh<br> <input
+					type="radio" name="answer3" value="vw">vw<br> <input
+					type="radio" name="answer3" value="vmin">vmin<br>
+
+			</p>
+		</div>
+		<div class="questions" id="question4">
+			<p>
+				4)Which of the following property is used to control the position of
+				an image in the background?<br> <input type="radio"
+					name="answer4" value="background-color">background-color<br>
+				<input type="radio" name="answer4" value="background-image">background-image<br>
+				<input type="radio" name="answer4" value="background-repeat">background-repeat<br>
+				<input type="radio" name="answer4" value="background-position">background-position<br>
+
+			</p>
+		</div>
+		<div class="questions" id="question5">
+			<p>
+				5) Which of the following property is used to align the text of a
+				document?<br> <input type="radio" name="answer5"
+					value="text-indent">text-indent<br> <input
+					type="radio" name="answer5" value="text-align">text-align<br>
+				<input type="radio" name="answer5" value="text-decoration">text-decoration<br>
+				<input type="radio" name="answer5" value="text-transform">text-transform<br>
+
+			</p>
+		</div>
+		<div class="questions" id="question6">
+			<p>
+				6)Which of the following property of a anchor element signifies
+				unvisited hyperlinks?<br> <input type="radio" name="answer6"
+					value=":link">:link<br> <input type="radio"
+					name="answer6" value=":visited">:visited<br> <input
+					type="radio" name="answer6" value=":hover">:hover<br>
+				<input type="radio" name="answer6" value=":active">:active<br>
+
+			</p>
+		</div>
+		<div class="questions" id="question7">
+			<p>
+				7)Which of the following property changes the color of right border?<br>
+				<input type="radio" name="answer7" value=":border-top-color">:border-top-color<br>
+				<input type="radio" name="answer7" value=":border-left-color">:border-left-color<br>
+				<input type="radio" name="answer7" value=":border-right-color">:border-right-color<br>
+				<input type="radio" name="answer7" value=":border-bottom-color">:border-bottom-color<br>
+
+			</p>
+		</div>
+		<div class="questions" id="question8">
+			<p>
+				8)Which of the following property specifies the left margin of an
+				element?<br> <input type="radio" name="answer8" value=":margin">:margin<br>
+				<input type="radio" name="answer8" value=":margin-bottom">:margin-bottom<br>
+				<input type="radio" name="answer8" value=":margin-top">:margin-top<br>
+				<input type="radio" name="answer8" value=":margin-left">:margin-left<br>
+			</p>
+		</div>
+		<div class="questions" id="question9">
+			<p>
+				9)Which of the following property specifies the bottom padding of an
+				element?<br> <input type="radio" name="answer9"
+					value="padding-bottom">padding-bottom<br> <input
+					type="radio" name="answer9" value="padding-top">padding-top<br>
+				<input type="radio" name="answer9" value="padding-left">padding-left<br>
+				<input type="radio" name="answer9" value="padding-right">padding-right<br>
+
+			</p>
+		</div>
+		<div class="questions" id="question10">
+			<p>
+				10)Which of the following is a way to associate styles with your
+				HTML document?<br> <input type="radio" name="answer10"
+					value="External CSS - The Element">External CSS - The
+				Element<br> <input type="radio" name="answer10"
+					value="Imported CSS - @import Rule">Imported CSS - @import
+				Rule<br> <input type="radio" name="answer10"
+					value="Both of the above.">Both of the above.<br> <input
+					type="radio" name="answer10" value="None of the above.">None
+				of the above.<br>
+
+			</p>
+
+		</div>
+
+	</div>
+
+	<p id="result"></p>
+	<p id="passFail"></p>
+	<p id="studentGrade"></p>
+	<div id="timeup" class="timeupalign">
+		<p>Your time is up!....</p>
+		<p>You have to submit exam</p>
+	</div>
+	<div id="feed">
+		<a href="feedbackDetails?examid=${exam_Id}&userid=${user_id}"><button
+				id="sendfeedback" class="button examButton"
+				style="margin-top: 100px;">Send feedback</button>&nbsp;&nbsp;</a>
+	</div>
+	<div id="buttons" class="form">
+		<form action="scoreDetails">
+			<input style="visibility: hidden;" type="text" id="examId"
+				name="examId" value="${exam_Id}"> <input
+				style="visibility: hidden;" type="text" id="examName"
+				name="examName" value="${exam_Name}"> <input
+				style="visibility: hidden;" type="text" id="studentId" name="uID"
+				value="${user_id}" /> <input style="visibility: hidden;" type="text"
+				id="score" name="score"> <input style="visibility: hidden;"
+				type="text" id="passOrFail" name="passOrFail"> <input
+				style="visibility: hidden;" type="text" id="grade" name="grade">
+			<button id="submit" onclick="ans()"
+				style="text-align: center; margin-top: 270px;"
+				class="button examButton">Submit</button>
+		</form>
+	</div>
+	<div>
+		<button id="next" onclick="qu()"
+			style="text-align: center; margin-top: -290px;"
+			class="button examButton">Next</button>
+
+	</div>
 
 </body>
 </html>

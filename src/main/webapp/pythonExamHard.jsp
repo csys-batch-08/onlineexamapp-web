@@ -1,226 +1,286 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="ISO-8859-1">
 <style>
-b{
-    font-size: xx-large;
-}
-#clock{
-    position: absolute;
-    left: 1200px;
-    top: 100px;
-    font-size: xx-large;
-}
-h2{
-	text-align: center;
-}
-body{
-    background: linear-gradient(to right, springgreen, rgb(253, 253, 53));
-}
-.questions{
-position: absolute;
-margin-top:120px;
-left:170px;
-font-size:30px;
-}
-.button {
-  background-color: #4CAF50; /* Green */
-  border: none;
-  color: white;
-  padding: 16px 32px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  margin: 4px 2px;
-  transition-duration: 0.4s;
-  cursor: pointer;
-}
-.examButton{
-  background-color: rgb(171, 255, 36);  
-  color: black; 
-  font-weight: bold;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
-  border: 4px solid black;
-}
-.examButton:hover,.examButton :active{
-  background-color: black;
-  color: white;
-  transition: 2ms;
-}
-#finish,#feed,#hour,#min,#colon,#next,#music,#complete,#timeup{
-	visibility:hidden;
-}
-#result{
-font-size:large;
-text-align:center;
-}
-#passFail{
-font-size:large;
-text-align:center;
-}
-#studentGrade{
-font-size:large;
-text-align:center;
-}
-#buttons{
-visibility:hidden;
+b {
+	font-size: xx-large;
 }
 
-#home{
-float: right;
-margin-right:10px;
-margin-top:-70px;
-font-size:x-large;
+#clock {
+	position: absolute;
+	left: 1200px;
+	top: 100px;
+	font-size: xx-large;
 }
-.start{
-margin-top:210px;
-margin-left:630px;
+
+h2 {
+	text-align: center;
 }
-.timeupalign{
-	font-size:xx-large;
-	font-weight:bolder;
-	margin-top:170px;
-	margin-left:635px;
+
+body {
+	background: linear-gradient(to right, springgreen, rgb(253, 253, 53));
 }
-.form{
-margin-top:-400px;
+
+.questions {
+	position: absolute;
+	margin-top: 120px;
+	left: 170px;
+	font-size: 30px;
 }
-#next,#submit,#sendfeedback{
-margin-left:635px;
+
+.button {
+	background-color: #4CAF50; /* Green */
+	border: none;
+	color: white;
+	padding: 16px 32px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 16px;
+	margin: 4px 2px;
+	transition-duration: 0.4s;
+	cursor: pointer;
+}
+
+.examButton {
+	background-color: rgb(171, 255, 36);
+	color: black;
+	font-weight: bold;
+	font-family: Verdana, Geneva, Tahoma, sans-serif;
+	border: 4px solid black;
+}
+
+.examButton:hover, .examButton :active {
+	background-color: black;
+	color: white;
+	transition: 2ms;
+}
+
+#finish, #feed, #hour, #min, #colon, #next, #music, #complete, #timeup {
+	visibility: hidden;
+}
+
+#result {
+	font-size: large;
+	text-align: center;
+}
+
+#passFail {
+	font-size: large;
+	text-align: center;
+}
+
+#studentGrade {
+	font-size: large;
+	text-align: center;
+}
+
+#buttons {
+	visibility: hidden;
+}
+
+#home {
+	float: right;
+	margin-right: 10px;
+	margin-top: -70px;
+	font-size: x-large;
+}
+
+.start {
+	margin-top: 210px;
+	margin-left: 630px;
+}
+
+.timeupalign {
+	font-size: xx-large;
+	font-weight: bolder;
+	margin-top: 170px;
+	margin-left: 635px;
+}
+
+.form {
+	margin-top: -400px;
+}
+
+#next, #submit, #sendfeedback {
+	margin-left: 635px;
 }
 </style>
 <title>PYTHON Exam</title>
 </head>
 <body>
-	<h2 style="margin-left:50px;" id="css"><u>PYTHON Exam</u></h2>
-	<a id="home" href="UserChooseExams"><h4 style="color:black;"><u>Back</u></h4></a>
+	<h2 style="margin-left: 50px;" id="css">
+		<u>PYTHON Exam</u>
+	</h2>
+	<a id="home" href="UserChooseExams"><h4 style="color: black;">
+			<u>Back</u>
+		</h4></a>
 	<div id="clock">
-    <strong id="hour"></strong><label> &nbsp;<span id="colon">:</span>&nbsp;</label><strong id="min"></strong>
-</div>
-<br> <button id="startButton" onclick="clcok()" class="button examButton start">Start</button>
-	
-	<div style="margin-top:-250px;">
-	<div class="questions" id="question1">
-	<p>1)Python pandas was developed by?<br>
-		<input type="radio" name="answer1"  value="Guido van Rossum">Guido van Rossum<br>
-		<input type="radio" name="answer1"  value="Travis Oliphant">Travis Oliphant<br>
-		<input type="radio" name="answer1"  value="Wes McKinney">Wes McKinney<br>
-		<input type="radio" name="answer1"  value="Brendan Eich">Brendan Eich<br>
-		
-	</p>
+		<strong id="hour"></strong><label> &nbsp;<span id="colon">:</span>&nbsp;
+		</label><strong id="min"></strong>
 	</div>
-	<div class="questions" id="question2">
-	<p>2)What will be correct syntax for pandas series?<br>
-		<input type="radio" name="answer2" value="pandas_Series( data, index, dtype, copy)">pandas_Series( data, index, dtype, copy)<br>
-		<input type="radio" name="answer2" value="pandas.Series( data, index, dtype)">pandas.Series( data, index, dtype)<br>
-		<input type="radio" name="answer2" value="pandas.Series( data, index, dtype, copy)">pandas.Series( data, index, dtype, copy)<br>
-		<input type="radio" name="answer2" value="pandas_Series( data, index, dtype)">pandas_Series( data, index, dtype)<br>
-	
-	</p>
-	</div>
-	<div class="questions" id="question3">
-	<p>3)Which of the following thing can be data in Pandas?<br>
-		<input type="radio" name="answer3" value="a python dict">a python dict<br>
-		<input type="radio" name="answer3" value="an ndarray">an ndarray<br>
-		<input type="radio" name="answer3" value="a scalar value">a scalar value<br>
-		<input type="radio" name="answer3" value="All of the above">All of the above<br>
-		
-	</p>
-	</div>
-	<div class="questions" id="question4">
-	<p>4)SciPy stands for?<br>
-		<input type="radio" name="answer4" value="science library">science library<br>
-		<input type="radio" name="answer4" value="source library">source library<br>
-		<input type="radio" name="answer4" value="significant library">significant library<br>
-		<input type="radio" name="answer4" value="scientific library">scientific library<br>
-		
-	</p>
-	</div>
-	<div class="questions" id="question5">
-	<p>5)what is constant defined for Boltzmann constant in SciPy?<br>
-		<input type="radio" name="answer5" value="G">G<br>
-		<input type="radio" name="answer5" value="e">e<br>
-		<input type="radio" name="answer5" value="R">R<br>
-		<input type="radio" name="answer5" value="k">k<br>
-		
-	</p>
-	</div>
-	<div class="questions" id="question6">
-	<p>6)Which of the following data types is shown below? L = [2, 54, 'javatpoint', 5] What will be the output of this statement?<br>
-		<input type="radio" name="answer6" value="Dictionary">Dictionary<br>
-		<input type="radio" name="answer6" value="Tuple">Tuple<br>
-		<input type="radio" name="answer6" value="List">List<br>
-		<input type="radio" name="answer6" value="Stack">Stack<br>
-		
-	</p>
-	</div>
-	<div class="questions" id="question7">
-	<p>7)What error will occur when you execute the following code? MANGO = APPLE <br>
-		<input type="radio" name="answer7" value="NameError">NameError<br>
-		<input type="radio" name="answer7" value="SyntaxError">SyntaxError<br>
-		<input type="radio" name="answer7" value="TypeError">TypeError<br>
-		<input type="radio" name="answer7" value="ValueError">ValueError<br>
-		
-	</p>
-	</div>
-	<div class="questions" id="question8">
-	<p>8)Study the following statements: >>> print(ord('h') - ord('z')) What will be the output of this statement?<br>
-		<input type="radio" name="answer8" value="18">18<br>
-		<input type="radio" name="answer8" value="-18">-18<br>
-		<input type="radio" name="answer8" value="17">17<br>
-		<input type="radio" name="answer8" value="-17">-17<br>
-	</p>
-	</div>
-	<div class="questions" id="question9">
-	<p>9)Study the following statements: >>> print(0xA + 0xB + 0xC) What will be the output of this statement?<br>
-		<input type="radio" name="answer9" value="33">33<br>
-		<input type="radio" name="answer9" value="63">63<br>
-		<input type="radio" name="answer9" value="0xA + 0xB + 0xC">0xA + 0xB + 0xCd<br>
-		<input type="radio" name="answer9" value="None of these">None of these<br>
-		
-	</p>
-	</div>
-	<div class="questions" id="question10">
-	<p>10)Study the following statement: >>>"a"+"bc" What will be the output of this statement?<br>
-		<input type="radio" name="answer10" value="a+bc">a+bc<br>
-		<input type="radio" name="answer10" value="abc">abc<br>
-		<input type="radio" name="answer10" value="a bc">a bc<br>
-		<input type="radio" name="answer10" value="a">a<br>
-		
-	</p>
-	
-	</div>
-	
-</div>
+	<br>
+	<button id="startButton" onclick="clcok()"
+		class="button examButton start">Start</button>
 
-<p id="result"></p>
-<p id="passFail"></p>
-<p id="studentGrade"></p>
-<div id="timeup" class="timeupalign">
-<p>Your time is up!....</p>
-<p>You have to submit exam</p></div>
-<div id="feed">
-<a href="feedbackDetails?examid=${exam_Id}&userid=${user_id}"><button id="sendfeedback" class="button examButton" style="margin-top:100px;">Send feedback</button>&nbsp;&nbsp;</a>
-</div>
-<div id="buttons" class="form">
-<form action="scoreDetails" >
-<input style="visibility:hidden;" type="text" id="examId" name="examId" value="${exam_Id}">
-<input style="visibility:hidden;" type="text" id="examName" name="examName" value="${exam_Name}">
-<input style="visibility:hidden;" type="text" id="studentId" name="uID" value="${user_id}"/>
-<input style="visibility:hidden;" type="text" id="score" name="score">
-<input style="visibility:hidden;" type="text" id="passOrFail" name="passOrFail">
-<input style="visibility:hidden;" type="text" id="grade" name="grade">
-<button id="submit" onclick="ans()" style="text-align:center;margin-top:270px;" class="button examButton">Submit</button>
-</form></div>
-<div>
-<button id="next" onclick="qu()" style="text-align:center;margin-top:-290px;" class="button examButton">Next</button>
+	<div style="margin-top: -250px;">
+		<div class="questions" id="question1">
+			<p>
+				1)Python pandas was developed by?<br> <input type="radio"
+					name="answer1" value="Guido van Rossum">Guido van Rossum<br>
+				<input type="radio" name="answer1" value="Travis Oliphant">Travis
+				Oliphant<br> <input type="radio" name="answer1"
+					value="Wes McKinney">Wes McKinney<br> <input
+					type="radio" name="answer1" value="Brendan Eich">Brendan
+				Eich<br>
 
-</div>
+			</p>
+		</div>
+		<div class="questions" id="question2">
+			<p>
+				2)What will be correct syntax for pandas series?<br> <input
+					type="radio" name="answer2"
+					value="pandas_Series( data, index, dtype, copy)">pandas_Series(
+				data, index, dtype, copy)<br> <input type="radio"
+					name="answer2" value="pandas.Series( data, index, dtype)">pandas.Series(
+				data, index, dtype)<br> <input type="radio" name="answer2"
+					value="pandas.Series( data, index, dtype, copy)">pandas.Series(
+				data, index, dtype, copy)<br> <input type="radio"
+					name="answer2" value="pandas_Series( data, index, dtype)">pandas_Series(
+				data, index, dtype)<br>
+
+			</p>
+		</div>
+		<div class="questions" id="question3">
+			<p>
+				3)Which of the following thing can be data in Pandas?<br> <input
+					type="radio" name="answer3" value="a python dict">a python
+				dict<br> <input type="radio" name="answer3" value="an ndarray">an
+				ndarray<br> <input type="radio" name="answer3"
+					value="a scalar value">a scalar value<br> <input
+					type="radio" name="answer3" value="All of the above">All of
+				the above<br>
+
+			</p>
+		</div>
+		<div class="questions" id="question4">
+			<p>
+				4)SciPy stands for?<br> <input type="radio" name="answer4"
+					value="science library">science library<br> <input
+					type="radio" name="answer4" value="source library">source
+				library<br> <input type="radio" name="answer4"
+					value="significant library">significant library<br> <input
+					type="radio" name="answer4" value="scientific library">scientific
+				library<br>
+
+			</p>
+		</div>
+		<div class="questions" id="question5">
+			<p>
+				5)what is constant defined for Boltzmann constant in SciPy?<br>
+				<input type="radio" name="answer5" value="G">G<br> <input
+					type="radio" name="answer5" value="e">e<br> <input
+					type="radio" name="answer5" value="R">R<br> <input
+					type="radio" name="answer5" value="k">k<br>
+
+			</p>
+		</div>
+		<div class="questions" id="question6">
+			<p>
+				6)Which of the following data types is shown below? L = [2, 54,
+				'javatpoint', 5] What will be the output of this statement?<br>
+				<input type="radio" name="answer6" value="Dictionary">Dictionary<br>
+				<input type="radio" name="answer6" value="Tuple">Tuple<br>
+				<input type="radio" name="answer6" value="List">List<br>
+				<input type="radio" name="answer6" value="Stack">Stack<br>
+
+			</p>
+		</div>
+		<div class="questions" id="question7">
+			<p>
+				7)What error will occur when you execute the following code? MANGO =
+				APPLE <br> <input type="radio" name="answer7" value="NameError">NameError<br>
+				<input type="radio" name="answer7" value="SyntaxError">SyntaxError<br>
+				<input type="radio" name="answer7" value="TypeError">TypeError<br>
+				<input type="radio" name="answer7" value="ValueError">ValueError<br>
+
+			</p>
+		</div>
+		<div class="questions" id="question8">
+			<p>
+				8)Study the following statements: >>> print(ord('h') - ord('z'))
+				What will be the output of this statement?<br> <input
+					type="radio" name="answer8" value="18">18<br> <input
+					type="radio" name="answer8" value="-18">-18<br> <input
+					type="radio" name="answer8" value="17">17<br> <input
+					type="radio" name="answer8" value="-17">-17<br>
+			</p>
+		</div>
+		<div class="questions" id="question9">
+			<p>
+				9)Study the following statements: >>> print(0xA + 0xB + 0xC) What
+				will be the output of this statement?<br> <input type="radio"
+					name="answer9" value="33">33<br> <input type="radio"
+					name="answer9" value="63">63<br> <input type="radio"
+					name="answer9" value="0xA + 0xB + 0xC">0xA + 0xB + 0xCd<br>
+				<input type="radio" name="answer9" value="None of these">None
+				of these<br>
+
+			</p>
+		</div>
+		<div class="questions" id="question10">
+			<p>
+				10)Study the following statement: >>>"a"+"bc" What will be the
+				output of this statement?<br> <input type="radio"
+					name="answer10" value="a+bc">a+bc<br> <input
+					type="radio" name="answer10" value="abc">abc<br> <input
+					type="radio" name="answer10" value="a bc">a bc<br> <input
+					type="radio" name="answer10" value="a">a<br>
+
+			</p>
+
+		</div>
+
+	</div>
+
+	<p id="result"></p>
+	<p id="passFail"></p>
+	<p id="studentGrade"></p>
+	<div id="timeup" class="timeupalign">
+		<p>Your time is up!....</p>
+		<p>You have to submit exam</p>
+	</div>
+	<div id="feed">
+		<a href="feedbackDetails?examid=${exam_Id}&userid=${user_id}"><button
+				id="sendfeedback" class="button examButton"
+				style="margin-top: 100px;">Send feedback</button>&nbsp;&nbsp;</a>
+	</div>
+	<div id="buttons" class="form">
+		<form action="scoreDetails">
+			<input style="visibility: hidden;" type="text" id="examId"
+				name="examId" value="${exam_Id}"> <input
+				style="visibility: hidden;" type="text" id="examName"
+				name="examName" value="${exam_Name}"> <input
+				style="visibility: hidden;" type="text" id="studentId" name="uID"
+				value="${user_id}" /> <input style="visibility: hidden;" type="text"
+				id="score" name="score"> <input style="visibility: hidden;"
+				type="text" id="passOrFail" name="passOrFail"> <input
+				style="visibility: hidden;" type="text" id="grade" name="grade">
+			<button id="submit" onclick="ans()"
+				style="text-align: center; margin-top: 270px;"
+				class="button examButton">Submit</button>
+		</form>
+	</div>
+	<div>
+		<button id="next" onclick="qu()"
+			style="text-align: center; margin-top: -290px;"
+			class="button examButton">Next</button>
+
+	</div>
 
 </body>
 </html>

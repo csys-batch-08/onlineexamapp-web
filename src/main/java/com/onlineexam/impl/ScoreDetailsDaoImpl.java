@@ -3,15 +3,23 @@ package com.onlineexam.impl;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
 import com.onlineexam.dao.ScoreDetailsDao;
+import com.onlineexam.logger.Logger;
 import com.onlineexam.model.ScoreDetails;
 import com.onlineexam.util.ConnectionPage;
 
 public class ScoreDetailsDaoImpl implements ScoreDetailsDao {
+	private static final String EXAMDATE = "examdate";
+	private static final String GRADE = "grade";
+	private static final String PASSORFAIL = "passorfail";
+	private static final String SCORE = "score";
+	private static final String EXAMNAME = "examname";
+	private static final String EXAMID = "examid";
+	private static final String STUDENTID2 = "studentid";
+
 	@Override
 	public void insertScore(ScoreDetails sd) {
 		Connection con = null;
@@ -27,19 +35,14 @@ public class ScoreDetailsDaoImpl implements ScoreDetailsDao {
 			pstmt.setString(5, sd.getPassOrFail());
 			pstmt.setString(6, sd.getGrade());
 			pstmt.executeUpdate();
-		} catch (SQLException e) {
-			e.printStackTrace();
+		} catch (Exception e) {
+
+			Logger.printStackTrace(e);
+			Logger.runTimeException(e.getMessage());
+
 		} finally {
-			try {
-				if (pstmt != null) {
-					pstmt.close();
-				}
-				if (con != null) {
-					con.close();
-				}
-			} catch (SQLException e) {
-				e.printStackTrace();
-			}
+
+			ConnectionPage.close(null, pstmt, con);
 		}
 	}
 
@@ -56,27 +59,19 @@ public class ScoreDetailsDaoImpl implements ScoreDetailsDao {
 			pstmt.setInt(1, studentId);
 			rs = pstmt.executeQuery();
 			while (rs.next()) {
-				ScoreDetails sdpp = new ScoreDetails(rs.getInt("studentid"), rs.getInt("examid"),
-						rs.getString("examname"), rs.getInt("score"), rs.getString("passorfail"), rs.getString("grade"),
-						rs.getTimestamp("examdate").toLocalDateTime());
+				ScoreDetails sdpp = new ScoreDetails(rs.getInt(STUDENTID2), rs.getInt(EXAMID),
+						rs.getString(EXAMNAME), rs.getInt(SCORE), rs.getString(PASSORFAIL), rs.getString(GRADE),
+						rs.getTimestamp(EXAMDATE).toLocalDateTime());
 				sdp.add(sdpp);
 			}
-		} catch (SQLException e) {
-			e.printStackTrace();
+		} catch (Exception e) {
+
+			Logger.printStackTrace(e);
+			Logger.runTimeException(e.getMessage());
+
 		} finally {
-			try {
-				if (pstmt != null) {
-					pstmt.close();
-				}
-				if (con != null) {
-					con.close();
-				}
-				if (rs != null) {
-					rs.close();
-				}
-			} catch (SQLException e) {
-				e.printStackTrace();
-			}
+
+			ConnectionPage.close(rs, pstmt, con);
 		}
 		return sdp;
 	}
@@ -94,30 +89,21 @@ public class ScoreDetailsDaoImpl implements ScoreDetailsDao {
 			pstmt.setString(1, date);
 			rs = pstmt.executeQuery();
 			while (rs.next()) {
-				ScoreDetails sdpp = new ScoreDetails(rs.getInt("studentid"), rs.getInt("examid"),
-						rs.getString("examname"), rs.getInt("score"), rs.getString("passorfail"), rs.getString("grade"),
-						rs.getTimestamp("examdate").toLocalDateTime());
+				ScoreDetails sdpp = new ScoreDetails(rs.getInt(STUDENTID2), rs.getInt(EXAMID),
+						rs.getString(EXAMNAME), rs.getInt(SCORE), rs.getString(PASSORFAIL), rs.getString(GRADE),
+						rs.getTimestamp(EXAMDATE).toLocalDateTime());
 				sdp.add(sdpp);
 			}
-		} catch (SQLException e) {
-			e.printStackTrace();
+		} catch (Exception e) {
+
+			Logger.printStackTrace(e);
+			Logger.runTimeException(e.getMessage());
+
 		} finally {
-			try {
-				if (pstmt != null) {
-					pstmt.close();
-				}
-				if (con != null) {
-					con.close();
-				}
-				if (rs != null) {
-					rs.close();
-				}
-			} catch (SQLException e) {
-				e.printStackTrace();
-			}
+
+			ConnectionPage.close(rs, pstmt, con);
 		}
 		return sdp;
-
 	}
 
 	@Override
@@ -133,27 +119,19 @@ public class ScoreDetailsDaoImpl implements ScoreDetailsDao {
 			pstmt.setString(1, pof);
 			rs = pstmt.executeQuery();
 			while (rs.next()) {
-				ScoreDetails sdpp = new ScoreDetails(rs.getInt("studentid"), rs.getInt("examid"),
-						rs.getString("examname"), rs.getInt("score"), rs.getString("passorfail"), rs.getString("grade"),
-						rs.getTimestamp("examdate").toLocalDateTime());
+				ScoreDetails sdpp = new ScoreDetails(rs.getInt(STUDENTID2), rs.getInt(EXAMID),
+						rs.getString(EXAMNAME), rs.getInt(SCORE), rs.getString(PASSORFAIL), rs.getString(GRADE),
+						rs.getTimestamp(EXAMDATE).toLocalDateTime());
 				sdp.add(sdpp);
 			}
-		} catch (SQLException e) {
-			e.printStackTrace();
+		} catch (Exception e) {
+
+			Logger.printStackTrace(e);
+			Logger.runTimeException(e.getMessage());
+
 		} finally {
-			try {
-				if (pstmt != null) {
-					pstmt.close();
-				}
-				if (con != null) {
-					con.close();
-				}
-				if (rs != null) {
-					rs.close();
-				}
-			} catch (SQLException e) {
-				e.printStackTrace();
-			}
+
+			ConnectionPage.close(rs, pstmt, con);
 		}
 		return sdp;
 	}
@@ -171,27 +149,19 @@ public class ScoreDetailsDaoImpl implements ScoreDetailsDao {
 			pstmt.setString(1, grade);
 			rs = pstmt.executeQuery();
 			while (rs.next()) {
-				ScoreDetails sdpp = new ScoreDetails(rs.getInt("studentid"), rs.getInt("examid"),
-						rs.getString("examname"), rs.getInt("score"), rs.getString("passorfail"), rs.getString("grade"),
-						rs.getTimestamp("examdate").toLocalDateTime());
+				ScoreDetails sdpp = new ScoreDetails(rs.getInt(STUDENTID2), rs.getInt(EXAMID),
+						rs.getString(EXAMNAME), rs.getInt(SCORE), rs.getString(PASSORFAIL), rs.getString(GRADE),
+						rs.getTimestamp(EXAMDATE).toLocalDateTime());
 				sdp.add(sdpp);
 			}
-		} catch (SQLException e) {
-			e.printStackTrace();
+		} catch (Exception e) {
+
+			Logger.printStackTrace(e);
+			Logger.runTimeException(e.getMessage());
+
 		} finally {
-			try {
-				if (pstmt != null) {
-					pstmt.close();
-				}
-				if (con != null) {
-					con.close();
-				}
-				if (rs != null) {
-					rs.close();
-				}
-			} catch (SQLException e) {
-				e.printStackTrace();
-			}
+
+			ConnectionPage.close(rs, pstmt, con);
 		}
 		return sdp;
 	}
@@ -208,27 +178,19 @@ public class ScoreDetailsDaoImpl implements ScoreDetailsDao {
 			pstmt = con.prepareStatement(query);
 			rs = pstmt.executeQuery();
 			while (rs.next()) {
-				ScoreDetails sdpp = new ScoreDetails(rs.getInt("studentid"), rs.getInt("examid"),
-						rs.getString("examname"), rs.getInt("score"), rs.getString("passorfail"), rs.getString("grade"),
-						rs.getTimestamp("examdate").toLocalDateTime());
+				ScoreDetails sdpp = new ScoreDetails(rs.getInt(STUDENTID2), rs.getInt(EXAMID),
+						rs.getString(EXAMNAME), rs.getInt(SCORE), rs.getString(PASSORFAIL), rs.getString(GRADE),
+						rs.getTimestamp(EXAMDATE).toLocalDateTime());
 				sdp.add(sdpp);
 			}
-		} catch (SQLException e) {
-			e.printStackTrace();
+		} catch (Exception e) {
+
+			Logger.printStackTrace(e);
+			Logger.runTimeException(e.getMessage());
+
 		} finally {
-			try {
-				if (pstmt != null) {
-					pstmt.close();
-				}
-				if (con != null) {
-					con.close();
-				}
-				if (rs != null) {
-					rs.close();
-				}
-			} catch (SQLException e) {
-				e.printStackTrace();
-			}
+
+			ConnectionPage.close(rs, pstmt, con);
 		}
 		return sdp;
 	}

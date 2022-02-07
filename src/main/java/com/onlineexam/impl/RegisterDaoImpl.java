@@ -3,15 +3,25 @@ package com.onlineexam.impl;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
 import com.onlineexam.dao.RegisterDao;
+import com.onlineexam.logger.Logger;
 import com.onlineexam.model.Register;
 import com.onlineexam.util.ConnectionPage;
 
 public class RegisterDaoImpl implements RegisterDao {
+	private static final String LASTACTIVEDATE = "lastactivedate";
+	private static final String REASON = "reason";
+	private static final String PROFILEPICTURE = "profilepicture";
+	private static final String PHONE_NUMBER = "phone_number";
+	private static final String CONFIRM_PASSWORD = "confirm_password";
+	private static final String PASSWORD = "password";
+	private static final String EMAIL = "email";
+	private static final String LAST_NAME = "last_name";
+	private static final String FIRST_NAME = "first_name";
+
 	@Override
 	public int fetchregister(Register rd) {
 		Connection con = null;
@@ -28,19 +38,14 @@ public class RegisterDaoImpl implements RegisterDao {
 			pstmt.setString(5, rd.getConfirmPassword());
 			pstmt.setLong(6, rd.getPhoneNumber());
 			i = pstmt.executeUpdate();
-		} catch (SQLException e) {
-			e.printStackTrace();
+		} catch (Exception e) {
+
+			Logger.printStackTrace(e);
+			Logger.runTimeException(e.getMessage());
+
 		} finally {
-			try {
-				if (pstmt != null) {
-					pstmt.close();
-				}
-				if (con != null) {
-					con.close();
-				}
-			} catch (SQLException e) {
-				e.printStackTrace();
-			}
+
+			ConnectionPage.close(null, pstmt, con);
 		}
 		return i;
 	}
@@ -65,19 +70,14 @@ public class RegisterDaoImpl implements RegisterDao {
 				flag = false;
 			}
 
-		} catch (SQLException e) {
-			e.printStackTrace();
+		} catch (Exception e) {
+
+			Logger.printStackTrace(e);
+			Logger.runTimeException(e.getMessage());
+
 		} finally {
-			try {
-				if (pstmt != null) {
-					pstmt.close();
-				}
-				if (con != null) {
-					con.close();
-				}
-			} catch (SQLException e) {
-				e.printStackTrace();
-			}
+
+			ConnectionPage.close(null, pstmt, con);
 		}
 		return flag;
 	}
@@ -90,32 +90,22 @@ public class RegisterDaoImpl implements RegisterDao {
 		ResultSet rs = null;
 		try {
 			con = ConnectionPage.connection();
-			String query = "select id,first_name,last_name,email,password,confirm_password,phone_number,role,profilepicture,reason,lastactivedate from registerPage where email=?";
+			String query = "select id,first_name,last_name,email from registerPage where email=?";
 			pstmt = con.prepareStatement(query);
 			pstmt.setString(1, rp.getEmail());
 			rs = pstmt.executeQuery();
 			if (rs.next()) {
-				register = new Register(rs.getInt("id"), rs.getString("first_name"), rs.getString("last_name"),
-						rs.getString("email"), rs.getString("password"), rs.getString("confirm_password"),
-						rs.getLong("phone_number"), rs.getString("role"), rs.getString("profilepicture"),
-						rs.getString("reason"), rs.getTimestamp("lastactivedate").toLocalDateTime());
+				register = new Register(rs.getInt("id"), rs.getString(FIRST_NAME), rs.getString(LAST_NAME),
+						rs.getString(EMAIL));
 			}
-		} catch (SQLException e) {
-			e.printStackTrace();
+		} catch (Exception e) {
+
+			Logger.printStackTrace(e);
+			Logger.runTimeException(e.getMessage());
+
 		} finally {
-			try {
-				if (pstmt != null) {
-					pstmt.close();
-				}
-				if (con != null) {
-					con.close();
-				}
-				if (rs != null) {
-					rs.close();
-				}
-			} catch (SQLException e) {
-				e.printStackTrace();
-			}
+
+			ConnectionPage.close(rs, pstmt, con);
 		}
 		return register;
 	}
@@ -128,32 +118,22 @@ public class RegisterDaoImpl implements RegisterDao {
 		ResultSet rs = null;
 		try {
 			con = ConnectionPage.connection();
-			String query = "select id,first_name,last_name,email,password,confirm_password,phone_number,role,profilepicture,reason,lastactivedate from registerPage where phone_number=?";
+			String query = "select id,first_name,last_name,email from registerPage where phone_number=?";
 			pstmt = con.prepareStatement(query);
 			pstmt.setLong(1, rp.getPhoneNumber());
 			rs = pstmt.executeQuery();
 			if (rs.next()) {
-				register = new Register(rs.getInt("id"), rs.getString("first_name"), rs.getString("last_name"),
-						rs.getString("email"), rs.getString("password"), rs.getString("confirm_password"),
-						rs.getLong("phone_number"), rs.getString("role"), rs.getString("profilepicture"),
-						rs.getString("reason"), rs.getTimestamp("lastactivedate").toLocalDateTime());
+				register = new Register(rs.getInt("id"), rs.getString(FIRST_NAME), rs.getString(LAST_NAME),
+						rs.getString(EMAIL));
 			}
-		} catch (SQLException e) {
-			e.printStackTrace();
+		} catch (Exception e) {
+
+			Logger.printStackTrace(e);
+			Logger.runTimeException(e.getMessage());
+
 		} finally {
-			try {
-				if (pstmt != null) {
-					pstmt.close();
-				}
-				if (con != null) {
-					con.close();
-				}
-				if (rs != null) {
-					rs.close();
-				}
-			} catch (SQLException e) {
-				e.printStackTrace();
-			}
+
+			ConnectionPage.close(rs, pstmt, con);
 		}
 		return register;
 	}
@@ -168,19 +148,14 @@ public class RegisterDaoImpl implements RegisterDao {
 			pstmt = con.prepareStatement(query);
 			pstmt.setInt(1, rp.getUserid());
 			pstmt.executeUpdate();
-		} catch (SQLException e) {
-			e.printStackTrace();
+		} catch (Exception e) {
+
+			Logger.printStackTrace(e);
+			Logger.runTimeException(e.getMessage());
+
 		} finally {
-			try {
-				if (pstmt != null) {
-					pstmt.close();
-				}
-				if (con != null) {
-					con.close();
-				}
-			} catch (SQLException e) {
-				e.printStackTrace();
-			}
+
+			ConnectionPage.close(null, pstmt, con);
 		}
 	}
 
@@ -194,19 +169,14 @@ public class RegisterDaoImpl implements RegisterDao {
 			pstmt = con.prepareStatement(query);
 			pstmt.setInt(1, rp.getUserid());
 			pstmt.executeUpdate();
-		} catch (SQLException e) {
-			e.printStackTrace();
+		} catch (Exception e) {
+
+			Logger.printStackTrace(e);
+			Logger.runTimeException(e.getMessage());
+
 		} finally {
-			try {
-				if (pstmt != null) {
-					pstmt.close();
-				}
-				if (con != null) {
-					con.close();
-				}
-			} catch (SQLException e) {
-				e.printStackTrace();
-			}
+
+			ConnectionPage.close(null, pstmt, con);
 		}
 	}
 
@@ -221,19 +191,14 @@ public class RegisterDaoImpl implements RegisterDao {
 			pstmt.setString(1, rp.getPhoto());
 			pstmt.setInt(2, rp.getUserid());
 			pstmt.executeUpdate();
-		} catch (SQLException e) {
-			e.printStackTrace();
+		} catch (Exception e) {
+
+			Logger.printStackTrace(e);
+			Logger.runTimeException(e.getMessage());
+
 		} finally {
-			try {
-				if (pstmt != null) {
-					pstmt.close();
-				}
-				if (con != null) {
-					con.close();
-				}
-			} catch (SQLException e) {
-				e.printStackTrace();
-			}
+
+			ConnectionPage.close(null, pstmt, con);
 		}
 	}
 
@@ -252,19 +217,14 @@ public class RegisterDaoImpl implements RegisterDao {
 			pstmt.setLong(4, rp.getPhoneNumber());
 			pstmt.setInt(5, rp.getUserid());
 			i = pstmt.executeUpdate();
-		} catch (SQLException e) {
-			e.printStackTrace();
+		} catch (Exception e) {
+
+			Logger.printStackTrace(e);
+			Logger.runTimeException(e.getMessage());
+
 		} finally {
-			try {
-				if (pstmt != null) {
-					pstmt.close();
-				}
-				if (con != null) {
-					con.close();
-				}
-			} catch (SQLException e) {
-				e.printStackTrace();
-			}
+
+			ConnectionPage.close(null, pstmt, con);
 		}
 		return i;
 	}
@@ -280,19 +240,14 @@ public class RegisterDaoImpl implements RegisterDao {
 			pstmt.setString(1, rp.getReason());
 			pstmt.setString(2, rp.getEmail());
 			pstmt.executeUpdate();
-		} catch (SQLException e) {
-			e.printStackTrace();
+		} catch (Exception e) {
+
+			Logger.printStackTrace(e);
+			Logger.runTimeException(e.getMessage());
+
 		} finally {
-			try {
-				if (pstmt != null) {
-					pstmt.close();
-				}
-				if (con != null) {
-					con.close();
-				}
-			} catch (SQLException e) {
-				e.printStackTrace();
-			}
+
+			ConnectionPage.close(null, pstmt, con);
 		}
 	}
 
@@ -307,19 +262,14 @@ public class RegisterDaoImpl implements RegisterDao {
 			pstmt.setInt(1, rp.getUserid());
 			pstmt.setInt(2, rp.getUserid());
 			pstmt.executeUpdate();
-		} catch (SQLException e) {
-			e.printStackTrace();
+		} catch (Exception e) {
+
+			Logger.printStackTrace(e);
+			Logger.runTimeException(e.getMessage());
+
 		} finally {
-			try {
-				if (pstmt != null) {
-					pstmt.close();
-				}
-				if (con != null) {
-					con.close();
-				}
-			} catch (SQLException e) {
-				e.printStackTrace();
-			}
+
+			ConnectionPage.close(null, pstmt, con);
 		}
 	}
 
@@ -333,19 +283,14 @@ public class RegisterDaoImpl implements RegisterDao {
 			pstmt = con.prepareStatement(query);
 			pstmt.setInt(1, rp.getUserid());
 			pstmt.executeUpdate();
-		} catch (SQLException e) {
-			e.printStackTrace();
+		} catch (Exception e) {
+
+			Logger.printStackTrace(e);
+			Logger.runTimeException(e.getMessage());
+
 		} finally {
-			try {
-				if (pstmt != null) {
-					pstmt.close();
-				}
-				if (con != null) {
-					con.close();
-				}
-			} catch (SQLException e) {
-				e.printStackTrace();
-			}
+
+			ConnectionPage.close(null, pstmt, con);
 		}
 	}
 
@@ -361,27 +306,19 @@ public class RegisterDaoImpl implements RegisterDao {
 			pstmt = con.prepareStatement(query);
 			rs = pstmt.executeQuery();
 			while (rs.next()) {
-				Register rpojo = new Register(rs.getInt("id"), rs.getString("first_name"), rs.getString("last_name"),
-						rs.getString("email"), rs.getLong("phone_number"),
-						rs.getTimestamp("lastactivedate").toLocalDateTime());
+				Register rpojo = new Register(rs.getInt("id"), rs.getString(FIRST_NAME), rs.getString(LAST_NAME),
+						rs.getString(EMAIL), rs.getLong(PHONE_NUMBER),
+						rs.getTimestamp(LASTACTIVEDATE).toLocalDateTime());
 				rp.add(rpojo);
 			}
-		} catch (SQLException e) {
-			e.printStackTrace();
+		} catch (Exception e) {
+
+			Logger.printStackTrace(e);
+			Logger.runTimeException(e.getMessage());
+
 		} finally {
-			try {
-				if (pstmt != null) {
-					pstmt.close();
-				}
-				if (con != null) {
-					con.close();
-				}
-				if (rs != null) {
-					rs.close();
-				}
-			} catch (SQLException e) {
-				e.printStackTrace();
-			}
+
+			ConnectionPage.close(rs, pstmt, con);
 		}
 		return rp;
 	}
@@ -398,26 +335,18 @@ public class RegisterDaoImpl implements RegisterDao {
 			pstmt = con.prepareStatement(query);
 			rs = pstmt.executeQuery();
 			while (rs.next()) {
-				Register rpojo = new Register(rs.getInt("id"), rs.getString("first_name"), rs.getString("last_name"),
-						rs.getString("email"), rs.getLong("phone_number"), rs.getString("reason"));
+				Register rpojo = new Register(rs.getInt("id"), rs.getString(FIRST_NAME), rs.getString(LAST_NAME),
+						rs.getString(EMAIL), rs.getLong(PHONE_NUMBER), rs.getString(REASON));
 				rp.add(rpojo);
 			}
-		} catch (SQLException e) {
-			e.printStackTrace();
+		} catch (Exception e) {
+
+			Logger.printStackTrace(e);
+			Logger.runTimeException(e.getMessage());
+
 		} finally {
-			try {
-				if (pstmt != null) {
-					pstmt.close();
-				}
-				if (con != null) {
-					con.close();
-				}
-				if (rs != null) {
-					rs.close();
-				}
-			} catch (SQLException e) {
-				e.printStackTrace();
-			}
+
+			ConnectionPage.close(rs, pstmt, con);
 		}
 		return rp;
 	}
@@ -436,29 +365,21 @@ public class RegisterDaoImpl implements RegisterDao {
 			pstmt.setString(2, rp.getPassword());
 			rs = pstmt.executeQuery();
 			if (rs.next()) {
-				register = new Register(rs.getInt("id"), rs.getString("first_name"), rs.getString("last_name"),
-						rs.getString("email"), rs.getString("password"), rs.getString("confirm_password"),
-						rs.getLong("phone_number"), rs.getString("role"), rs.getString("profilepicture"),
-						rs.getString("reason"), rs.getTimestamp("lastactivedate").toLocalDateTime());
+				register = new Register(rs.getInt("id"), rs.getString(FIRST_NAME), rs.getString(EMAIL),
+						rs.getString(PASSWORD), rs.getString(CONFIRM_PASSWORD), rs.getLong(PHONE_NUMBER),
+						rs.getString("role"));
 			}
 
-		} catch (SQLException e) {
-			e.printStackTrace();
+		} catch (Exception e) {
+
+			Logger.printStackTrace(e);
+			Logger.runTimeException(e.getMessage());
+
 		} finally {
-			try {
-				if (pstmt != null) {
-					pstmt.close();
-				}
-				if (con != null) {
-					con.close();
-				}
-				if (rs != null) {
-					rs.close();
-				}
-			} catch (SQLException e) {
-				e.printStackTrace();
-			}
+
+			ConnectionPage.close(rs, pstmt, con);
 		}
+
 		return register;
 	}
 
@@ -476,25 +397,17 @@ public class RegisterDaoImpl implements RegisterDao {
 			pstmt.setString(2, password);
 			rs = pstmt.executeQuery();
 			while (rs.next()) {
-				rpojo = new Register(rs.getInt("id"), rs.getString("first_name"), rs.getString("last_name"),
-						rs.getString("email"), rs.getString("role"), rs.getLong("phone_number"));
+				rpojo = new Register(rs.getInt("id"), rs.getString(FIRST_NAME), rs.getString(LAST_NAME),
+						rs.getString(EMAIL), rs.getString("role"), rs.getLong(PHONE_NUMBER));
 			}
-		} catch (SQLException e) {
-			e.printStackTrace();
+		} catch (Exception e) {
+
+			Logger.printStackTrace(e);
+			Logger.runTimeException(e.getMessage());
+
 		} finally {
-			try {
-				if (pstmt != null) {
-					pstmt.close();
-				}
-				if (con != null) {
-					con.close();
-				}
-				if (rs != null) {
-					rs.close();
-				}
-			} catch (SQLException e) {
-				e.printStackTrace();
-			}
+
+			ConnectionPage.close(rs, pstmt, con);
 		}
 		return rpojo;
 	}
@@ -512,25 +425,17 @@ public class RegisterDaoImpl implements RegisterDao {
 			pstmt.setInt(1, userid);
 			rs = pstmt.executeQuery();
 			while (rs.next()) {
-				rpp = new Register(rs.getString("first_name"), rs.getString("last_name"), rs.getString("email"),
-						rs.getLong("phone_number"), rs.getString("profilepicture"));
+				rpp = new Register(rs.getString(FIRST_NAME), rs.getString(LAST_NAME), rs.getString(EMAIL),
+						rs.getLong(PHONE_NUMBER), rs.getString(PROFILEPICTURE));
 			}
-		} catch (SQLException e) {
-			e.printStackTrace();
+		} catch (Exception e) {
+
+			Logger.printStackTrace(e);
+			Logger.runTimeException(e.getMessage());
+
 		} finally {
-			try {
-				if (pstmt != null) {
-					pstmt.close();
-				}
-				if (con != null) {
-					con.close();
-				}
-				if (rs != null) {
-					rs.close();
-				}
-			} catch (SQLException e) {
-				e.printStackTrace();
-			}
+
+			ConnectionPage.close(rs, pstmt, con);
 		}
 		return rpp;
 	}

@@ -1,8 +1,9 @@
 package com.onlineexam.model;
 
+import java.io.Serializable;
 import java.time.LocalDateTime;
 
-public class FeedbackDetails {
+public class FeedbackDetails implements Serializable {
 	private int feedbackId;
 	private int userId;
 	private String userName;

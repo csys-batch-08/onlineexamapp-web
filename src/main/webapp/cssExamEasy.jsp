@@ -1,226 +1,291 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="ISO-8859-1">
 <style>
-b{
-    font-size: xx-large;
-}
-#clock{
-    position: absolute;
-    left: 1200px;
-    top: 100px;
-    font-size: xx-large;
-}
-h2{
-	text-align: center;
-}
-body{
-    background: linear-gradient(to right, springgreen, rgb(253, 253, 53));
-}
-.questions{
-position: absolute;
-margin-top:120px;
-left:170px;
-font-size:30px;
-}
-.button {
-  background-color: #4CAF50; /* Green */
-  border: none;
-  color: white;
-  padding: 16px 32px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  margin: 4px 2px;
-  transition-duration: 0.4s;
-  cursor: pointer;
-}
-.examButton{
-  background-color: rgb(171, 255, 36);  
-  color: black; 
-  font-weight: bold;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
-  border: 4px solid black;
-}
-.examButton:hover,.examButton :active{
-  background-color: black;
-  color: white;
-  transition: 2ms;
-}
-#finish,#feed,#hour,#min,#colon,#next,#music,#complete,#timeup{
-	visibility:hidden;
-}
-#result{
-font-size:large;
-text-align:center;
-}
-#passFail{
-font-size:large;
-text-align:center;
-}
-#studentGrade{
-font-size:large;
-text-align:center;
-}
-#buttons{
-visibility:hidden;
+b {
+	font-size: xx-large;
 }
 
-#home{
-float: right;
-margin-right:10px;
-margin-top:-70px;
-font-size:x-large;
+#clock {
+	position: absolute;
+	left: 1200px;
+	top: 100px;
+	font-size: xx-large;
 }
-.start{
-margin-top:210px;
-margin-left:630px;
+
+h2 {
+	text-align: center;
 }
-.timeupalign{
-	font-size:xx-large;
-	font-weight:bolder;
-	margin-top:170px;
-	margin-left:635px;
+
+body {
+	background: linear-gradient(to right, springgreen, rgb(253, 253, 53));
 }
-.form{
-margin-top:-400px;
+
+.questions {
+	position: absolute;
+	margin-top: 120px;
+	left: 170px;
+	font-size: 30px;
 }
-#next,#submit,#sendfeedback{
-margin-left:635px;
+
+.button {
+	background-color: #4CAF50; /* Green */
+	border: none;
+	color: white;
+	padding: 16px 32px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 16px;
+	margin: 4px 2px;
+	transition-duration: 0.4s;
+	cursor: pointer;
+}
+
+.examButton {
+	background-color: rgb(171, 255, 36);
+	color: black;
+	font-weight: bold;
+	font-family: Verdana, Geneva, Tahoma, sans-serif;
+	border: 4px solid black;
+}
+
+.examButton:hover, .examButton :active {
+	background-color: black;
+	color: white;
+	transition: 2ms;
+}
+
+#finish, #feed, #hour, #min, #colon, #next, #music, #complete, #timeup {
+	visibility: hidden;
+}
+
+#result {
+	font-size: large;
+	text-align: center;
+}
+
+#passFail {
+	font-size: large;
+	text-align: center;
+}
+
+#studentGrade {
+	font-size: large;
+	text-align: center;
+}
+
+#buttons {
+	visibility: hidden;
+}
+
+#home {
+	float: right;
+	margin-right: 10px;
+	margin-top: -70px;
+	font-size: x-large;
+}
+
+.start {
+	margin-top: 210px;
+	margin-left: 630px;
+}
+
+.timeupalign {
+	font-size: xx-large;
+	font-weight: bolder;
+	margin-top: 170px;
+	margin-left: 635px;
+}
+
+.form {
+	margin-top: -400px;
+}
+
+#next, #submit, #sendfeedback {
+	margin-left: 635px;
 }
 </style>
 <title>CSS Exam</title>
 </head>
 <body>
-	<h2 style="margin-left:50px;" id="css"><u>CSS Exam</u></h2>
-	<a id="home" href="UserChooseExams"><h4 style="color:black;"><u>Back</u></h4></a>
+	<h2 style="margin-left: 50px;" id="css">
+		<u>CSS Exam</u>
+	</h2>
+	<a id="home" href="UserChooseExams"><h4 style="color: black;">
+			<u>Back</u>
+		</h4></a>
 	<div id="clock">
-    <strong id="hour"></strong><label> &nbsp;<span id="colon">:</span>&nbsp;</label><strong id="min"></strong>
-</div>
-<br> <button id="startButton" onclick="clcok()" class="button examButton start">Start</button>
-	
-	<div style="margin-top:-250px;">
-	<div class="questions" id="question1">
-	<p>1)The HTML attribute used to define the inline styles is -<br>
-		<input type="radio" name="answer1"  value="style">style<br>
-		<input type="radio" name="answer1"  value="styles">styles<br>
-		<input type="radio" name="answer1"  value="class">class<br>
-		<input type="radio" name="answer1"  value="None of the above">None of the above<br>
-		
-	</p>
+		<strong id="hour"></strong><label> &nbsp;<span id="colon">:</span>&nbsp;
+		</label><strong id="min"></strong>
 	</div>
-	<div class="questions" id="question2">
-	<p>2)Which of the following CSS property is used to set the background image of an element?<br>
-		<input type="radio" name="answer2" value="background-attachment">background-attachment<br>
-		<input type="radio" name="answer2" value="background-image">background-image<br>
-		<input type="radio" name="answer2" value="background-color">background-color<br>
-		<input type="radio" name="answer2" value="None of the above">None of the above<br>
-	
-	</p>
-	</div>
-	<div class="questions" id="question3">
-	<p>3)Which of the following is the correct syntax to make the background-color of all paragraph elements to yellow?<br>
-		<input type="radio" name="answer3" value="p {background-color : yellow;}">p {background-color : yellow;}<br>
-		<input type="radio" name="answer3" value="p {background-color : #yellow;}">p {background-color : #yellow;}<br>
-		<input type="radio" name="answer3" value="all {background-color : yellow;}">all {background-color : yellow;}<br>
-		<input type="radio" name="answer3" value="all p {background-color : #yellow;}">all p {background-color : #yellow;}<br>
-		
-	</p>
-	</div>
-	<div class="questions" id="question4">
-	<p>4)Which of the following is the correct syntax to display the hyperlinks without any underline?<br>
-		<input type="radio" name="answer4" value="a {text-decoration : underline;}">a {text-decoration : underline;}<br>
-		<input type="radio" name="answer4" value="a {decoration : no-underline;}">a {decoration : no-underline;}<br>
-		<input type="radio" name="answer4" value="a {text-decoration : none;}">a {text-decoration : none;}<br>
-		<input type="radio" name="answer4" value="None of the above">None of the above<br>
-		
-	</p>
-	</div>
-	<div class="questions" id="question5">
-	<p>5)Which of the following property is used as the shorthand property for the padding properties?<br>
-		<input type="radio" name="answer5" value="padding-left">padding-left<br>
-		<input type="radio" name="answer5" value="padding-right">padding-right<br>
-		<input type="radio" name="answer5" value="padding">padding<br>
-		<input type="radio" name="answer5" value="All of the above">All of the above<br>
-		
-	</p>
-	</div>
-	<div class="questions" id="question6">
-	<p>6)The CSS property used to make the text bold is -<br>
-		<input type="radio" name="answer6" value="font-weight : bold">font-weight : bold<br>
-		<input type="radio" name="answer6" value="weight: bold">weight: bold<br>
-		<input type="radio" name="answer6" value="font: bold">font: bold<br>
-		<input type="radio" name="answer6" value="style: bold">style: bold<br>
-		
-	</p>
-	</div>
-	<div class="questions" id="question7">
-	<p>7)Are the negative values allowed in padding property?<br>
-		<input type="radio" name="answer7" value="Yes">Yes<br>
-		<input type="radio" name="answer7" value="No">No<br>
-		<input type="radio" name="answer7" value="Can't say">Can't say<br>
-		<input type="radio" name="answer7" value="May be">May be<br>
-		
-	</p>
-	</div>
-	<div class="questions" id="question8">
-	<p>8)Which of the following property is used as the shorthand property of margin properties?<br>
-		<input type="radio" name="answer8" value="margin-left">margin-left<br>
-		<input type="radio" name="answer8" value="margin-right">margin-right<br>
-		<input type="radio" name="answer8" value="margin">margin<br>
-		<input type="radio" name="answer8" value="None of the above">None of the above<br>
-	</p>
-	</div>
-	<div class="questions" id="question9">
-	<p>9)The CSS property used to specify the transparency of an element is -<br>
-		<input type="radio" name="answer9" value="opacity">opacity<br>
-		<input type="radio" name="answer9" value="filter">filter<br>
-		<input type="radio" name="answer9" value="visibility">visibility<br>
-		<input type="radio" name="answer9" value="overlay">overlay<br>
-		
-	</p>
-	</div>
-	<div class="questions" id="question10">
-	<p>10)Which of the following is used to specify the subscript of text using CSS?<br>
-		<input type="radio" name="answer10" value="vertical-align: sub">vertical-align: sub<br>
-		<input type="radio" name="answer10" value="vertical-align: super">vertical-align: super<br>
-		<input type="radio" name="answer10" value="vertical-align: subscript">vertical-align: subscript<br>
-		<input type="radio" name="answer10" value="None of the above">None of the above<br>
-		
-	</p>
-	
-	</div>
-	
-</div>
+	<br>
+	<button id="startButton" onclick="clcok()"
+		class="button examButton start">Start</button>
 
-<p id="result"></p>
-<p id="passFail"></p>
-<p id="studentGrade"></p>
-<div id="timeup" class="timeupalign">
-<p>Your time is up!....</p>
-<p>You have to submit exam</p></div>
-<div id="feed">
-<a href="feedbackDetails?examid=${exam_Id}&userid=${user_id}"><button id="sendfeedback" class="button examButton" style="margin-top:100px;">Send feedback</button>&nbsp;&nbsp;</a>
-</div>
-<div id="buttons" class="form">
-<form action="scoreDetails" >
-<input style="visibility:hidden;" type="text" id="examId" name="examId" value="${exam_Id}">
-<input style="visibility:hidden;" type="text" id="examName" name="examName" value="${exam_Name}">
-<input style="visibility:hidden;" type="text" id="studentId" name="uID" value="${user_id}"/>
-<input style="visibility:hidden;" type="text" id="score" name="score">
-<input style="visibility:hidden;" type="text" id="passOrFail" name="passOrFail">
-<input style="visibility:hidden;" type="text" id="grade" name="grade">
-<button id="submit" onclick="ans()" style="text-align:center;margin-top:270px;" class="button examButton">Submit</button>
-</form></div>
-<div>
-<button id="next" onclick="qu()" style="text-align:center;margin-top:-290px;" class="button examButton">Next</button>
+	<div style="margin-top: -250px;">
+		<div class="questions" id="question1">
+			<p>
+				1)The HTML attribute used to define the inline styles is -<br>
+				<input type="radio" name="answer1" value="style">style<br>
+				<input type="radio" name="answer1" value="styles">styles<br>
+				<input type="radio" name="answer1" value="class">class<br>
+				<input type="radio" name="answer1" value="None of the above">None
+				of the above<br>
 
-</div>
+			</p>
+		</div>
+		<div class="questions" id="question2">
+			<p>
+				2)Which of the following CSS property is used to set the background
+				image of an element?<br> <input type="radio" name="answer2"
+					value="background-attachment">background-attachment<br>
+				<input type="radio" name="answer2" value="background-image">background-image<br>
+				<input type="radio" name="answer2" value="background-color">background-color<br>
+				<input type="radio" name="answer2" value="None of the above">None
+				of the above<br>
+
+			</p>
+		</div>
+		<div class="questions" id="question3">
+			<p>
+				3)Which of the following is the correct syntax to make the
+				background-color of all paragraph elements to yellow?<br> <input
+					type="radio" name="answer3" value="p {background-color : yellow;}">p
+				{background-color : yellow;}<br> <input type="radio"
+					name="answer3" value="p {background-color : #yellow;}">p
+				{background-color : #yellow;}<br> <input type="radio"
+					name="answer3" value="all {background-color : yellow;}">all
+				{background-color : yellow;}<br> <input type="radio"
+					name="answer3" value="all p {background-color : #yellow;}">all
+				p {background-color : #yellow;}<br>
+
+			</p>
+		</div>
+		<div class="questions" id="question4">
+			<p>
+				4)Which of the following is the correct syntax to display the
+				hyperlinks without any underline?<br> <input type="radio"
+					name="answer4" value="a {text-decoration : underline;}">a
+				{text-decoration : underline;}<br> <input type="radio"
+					name="answer4" value="a {decoration : no-underline;}">a
+				{decoration : no-underline;}<br> <input type="radio"
+					name="answer4" value="a {text-decoration : none;}">a
+				{text-decoration : none;}<br> <input type="radio"
+					name="answer4" value="None of the above">None of the above<br>
+
+			</p>
+		</div>
+		<div class="questions" id="question5">
+			<p>
+				5)Which of the following property is used as the shorthand property
+				for the padding properties?<br> <input type="radio"
+					name="answer5" value="padding-left">padding-left<br> <input
+					type="radio" name="answer5" value="padding-right">padding-right<br>
+				<input type="radio" name="answer5" value="padding">padding<br>
+				<input type="radio" name="answer5" value="All of the above">All
+				of the above<br>
+
+			</p>
+		</div>
+		<div class="questions" id="question6">
+			<p>
+				6)The CSS property used to make the text bold is -<br> <input
+					type="radio" name="answer6" value="font-weight : bold">font-weight
+				: bold<br> <input type="radio" name="answer6"
+					value="weight: bold">weight: bold<br> <input
+					type="radio" name="answer6" value="font: bold">font: bold<br>
+				<input type="radio" name="answer6" value="style: bold">style:
+				bold<br>
+
+			</p>
+		</div>
+		<div class="questions" id="question7">
+			<p>
+				7)Are the negative values allowed in padding property?<br> <input
+					type="radio" name="answer7" value="Yes">Yes<br> <input
+					type="radio" name="answer7" value="No">No<br> <input
+					type="radio" name="answer7" value="Can't say">Can't say<br>
+				<input type="radio" name="answer7" value="May be">May be<br>
+
+			</p>
+		</div>
+		<div class="questions" id="question8">
+			<p>
+				8)Which of the following property is used as the shorthand property
+				of margin properties?<br> <input type="radio" name="answer8"
+					value="margin-left">margin-left<br> <input
+					type="radio" name="answer8" value="margin-right">margin-right<br>
+				<input type="radio" name="answer8" value="margin">margin<br>
+				<input type="radio" name="answer8" value="None of the above">None
+				of the above<br>
+			</p>
+		</div>
+		<div class="questions" id="question9">
+			<p>
+				9)The CSS property used to specify the transparency of an element is
+				-<br> <input type="radio" name="answer9" value="opacity">opacity<br>
+				<input type="radio" name="answer9" value="filter">filter<br>
+				<input type="radio" name="answer9" value="visibility">visibility<br>
+				<input type="radio" name="answer9" value="overlay">overlay<br>
+
+			</p>
+		</div>
+		<div class="questions" id="question10">
+			<p>
+				10)Which of the following is used to specify the subscript of text
+				using CSS?<br> <input type="radio" name="answer10"
+					value="vertical-align: sub">vertical-align: sub<br> <input
+					type="radio" name="answer10" value="vertical-align: super">vertical-align:
+				super<br> <input type="radio" name="answer10"
+					value="vertical-align: subscript">vertical-align: subscript<br>
+				<input type="radio" name="answer10" value="None of the above">None
+				of the above<br>
+
+			</p>
+
+		</div>
+
+	</div>
+
+	<p id="result"></p>
+	<p id="passFail"></p>
+	<p id="studentGrade"></p>
+	<div id="timeup" class="timeupalign">
+		<p>Your time is up!....</p>
+		<p>You have to submit exam</p>
+	</div>
+	<div id="feed">
+		<a href="feedbackDetails?examid=${exam_Id}&userid=${user_id}"><button
+				id="sendfeedback" class="button examButton"
+				style="margin-top: 100px;">Send feedback</button>&nbsp;&nbsp;</a>
+	</div>
+	<div id="buttons" class="form">
+		<form action="scoreDetails">
+			<input style="visibility: hidden;" type="text" id="examId"
+				name="examId" value="${exam_Id}"> <input
+				style="visibility: hidden;" type="text" id="examName"
+				name="examName" value="${exam_Name}"> <input
+				style="visibility: hidden;" type="text" id="studentId" name="uID"
+				value="${user_id}" /> <input style="visibility: hidden;" type="text"
+				id="score" name="score"> <input style="visibility: hidden;"
+				type="text" id="passOrFail" name="passOrFail"> <input
+				style="visibility: hidden;" type="text" id="grade" name="grade">
+			<button id="submit" onclick="ans()"
+				style="text-align: center; margin-top: 270px;"
+				class="button examButton">Submit</button>
+		</form>
+	</div>
+	<div>
+		<button id="next" onclick="qu()"
+			style="text-align: center; margin-top: -290px;"
+			class="button examButton">Next</button>
+
+	</div>
 
 </body>
 </html>
