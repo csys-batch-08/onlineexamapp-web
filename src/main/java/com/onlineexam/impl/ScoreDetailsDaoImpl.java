@@ -36,10 +36,8 @@ public class ScoreDetailsDaoImpl implements ScoreDetailsDao {
 			pstmt.setString(6, sd.getGrade());
 			pstmt.executeUpdate();
 		} catch (Exception e) {
-
 			Logger.printStackTrace(e);
 			Logger.runTimeException(e.getMessage());
-
 		} finally {
 
 			ConnectionPage.close(null, pstmt, con);
@@ -59,8 +57,8 @@ public class ScoreDetailsDaoImpl implements ScoreDetailsDao {
 			pstmt.setInt(1, studentId);
 			rs = pstmt.executeQuery();
 			while (rs.next()) {
-				ScoreDetails sdpp = new ScoreDetails(rs.getInt(STUDENTID2), rs.getInt(EXAMID),
-						rs.getString(EXAMNAME), rs.getInt(SCORE), rs.getString(PASSORFAIL), rs.getString(GRADE),
+				ScoreDetails sdpp = new ScoreDetails(rs.getInt(STUDENTID2), rs.getInt(EXAMID), rs.getString(EXAMNAME),
+						rs.getInt(SCORE), rs.getString(PASSORFAIL), rs.getString(GRADE),
 						rs.getTimestamp(EXAMDATE).toLocalDateTime());
 				sdp.add(sdpp);
 			}
@@ -89,8 +87,8 @@ public class ScoreDetailsDaoImpl implements ScoreDetailsDao {
 			pstmt.setString(1, date);
 			rs = pstmt.executeQuery();
 			while (rs.next()) {
-				ScoreDetails sdpp = new ScoreDetails(rs.getInt(STUDENTID2), rs.getInt(EXAMID),
-						rs.getString(EXAMNAME), rs.getInt(SCORE), rs.getString(PASSORFAIL), rs.getString(GRADE),
+				ScoreDetails sdpp = new ScoreDetails(rs.getInt(STUDENTID2), rs.getInt(EXAMID), rs.getString(EXAMNAME),
+						rs.getInt(SCORE), rs.getString(PASSORFAIL), rs.getString(GRADE),
 						rs.getTimestamp(EXAMDATE).toLocalDateTime());
 				sdp.add(sdpp);
 			}
@@ -119,8 +117,8 @@ public class ScoreDetailsDaoImpl implements ScoreDetailsDao {
 			pstmt.setString(1, pof);
 			rs = pstmt.executeQuery();
 			while (rs.next()) {
-				ScoreDetails sdpp = new ScoreDetails(rs.getInt(STUDENTID2), rs.getInt(EXAMID),
-						rs.getString(EXAMNAME), rs.getInt(SCORE), rs.getString(PASSORFAIL), rs.getString(GRADE),
+				ScoreDetails sdpp = new ScoreDetails(rs.getInt(STUDENTID2), rs.getInt(EXAMID), rs.getString(EXAMNAME),
+						rs.getInt(SCORE), rs.getString(PASSORFAIL), rs.getString(GRADE),
 						rs.getTimestamp(EXAMDATE).toLocalDateTime());
 				sdp.add(sdpp);
 			}
@@ -149,8 +147,8 @@ public class ScoreDetailsDaoImpl implements ScoreDetailsDao {
 			pstmt.setString(1, grade);
 			rs = pstmt.executeQuery();
 			while (rs.next()) {
-				ScoreDetails sdpp = new ScoreDetails(rs.getInt(STUDENTID2), rs.getInt(EXAMID),
-						rs.getString(EXAMNAME), rs.getInt(SCORE), rs.getString(PASSORFAIL), rs.getString(GRADE),
+				ScoreDetails sdpp = new ScoreDetails(rs.getInt(STUDENTID2), rs.getInt(EXAMID), rs.getString(EXAMNAME),
+						rs.getInt(SCORE), rs.getString(PASSORFAIL), rs.getString(GRADE),
 						rs.getTimestamp(EXAMDATE).toLocalDateTime());
 				sdp.add(sdpp);
 			}
@@ -178,10 +176,39 @@ public class ScoreDetailsDaoImpl implements ScoreDetailsDao {
 			pstmt = con.prepareStatement(query);
 			rs = pstmt.executeQuery();
 			while (rs.next()) {
-				ScoreDetails sdpp = new ScoreDetails(rs.getInt(STUDENTID2), rs.getInt(EXAMID),
-						rs.getString(EXAMNAME), rs.getInt(SCORE), rs.getString(PASSORFAIL), rs.getString(GRADE),
+				ScoreDetails sdpp = new ScoreDetails(rs.getInt(STUDENTID2), rs.getInt(EXAMID), rs.getString(EXAMNAME),
+						rs.getInt(SCORE), rs.getString(PASSORFAIL), rs.getString(GRADE),
 						rs.getTimestamp(EXAMDATE).toLocalDateTime());
 				sdp.add(sdpp);
+			}
+		} catch (Exception e) {
+
+			Logger.printStackTrace(e);
+			Logger.runTimeException(e.getMessage());
+
+		} finally {
+
+			ConnectionPage.close(rs, pstmt, con);
+		}
+		return sdp;
+	}
+
+	@Override
+	public ScoreDetails viewUserScore(ScoreDetails sd) {
+		ScoreDetails sdp = null;
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		try {
+			con = ConnectionPage.connection();
+			String query = "select studentid,examid,examname,score,passorfail,grade,examdate from scoreDetails where studentId=? order by examdate desc fetch first 1 row only";
+			pstmt = con.prepareStatement(query);
+			pstmt.setInt(1, sd.getStudentId());
+			rs = pstmt.executeQuery();
+			while (rs.next()) {
+				sdp = new ScoreDetails(rs.getInt(STUDENTID2), rs.getInt(EXAMID), rs.getString(EXAMNAME),
+						rs.getInt(SCORE), rs.getString(PASSORFAIL), rs.getString(GRADE),
+						rs.getTimestamp(EXAMDATE).toLocalDateTime());
 			}
 		} catch (Exception e) {
 

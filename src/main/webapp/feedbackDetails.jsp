@@ -41,6 +41,10 @@ h2 {
 	color: white;
 	transition: 2ms;
 }
+.feedbackarea{
+	width:300px;
+	height:150px;
+}
 </style>
 <title>Feedback Details</title>
 </head>
@@ -65,7 +69,7 @@ h2 {
 		<p style="font-size: large; font-weight: bolder;">
 			<u>Drop your feedback</u>
 		</p>
-		<textarea name="feedback" id="feedback" autofocus required></textarea>
+		<textarea name="feedback" id="feedback" class="feedbackarea" autofocus required></textarea>
 		<br>
 		<br>
 		<button type="submit" class="button examButton">Submit</button>

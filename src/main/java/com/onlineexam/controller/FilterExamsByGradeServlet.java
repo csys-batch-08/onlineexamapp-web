@@ -15,6 +15,11 @@ import com.onlineexam.model.ScoreDetails;
 
 @WebServlet("/FilterExamsByGrade")
 public class FilterExamsByGradeServlet extends HttpServlet {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) {
 		String grade = req.getParameter("grade");

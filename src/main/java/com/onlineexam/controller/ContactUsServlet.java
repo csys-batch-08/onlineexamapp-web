@@ -15,6 +15,11 @@ import com.onlineexam.model.ContactUs;
 
 @WebServlet("/contact")
 public class ContactUsServlet extends HttpServlet {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException {
 		try {

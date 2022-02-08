@@ -147,8 +147,8 @@ h1 {
 						<td>${pf.passOrFail}</td>
 						<td>${pf.grade}</td>
 						<td><fmt:parseDate value="${pf.examdate}"
-								pattern="yyyy-MM-dd'T'HH:mm" var="parsedExamDate" type="both" />
-							<fmt:formatDate pattern="dd-MM-yyyy HH:mm"
+								pattern="yyyy-MM-dd'T'HH:mm:ss" var="parsedExamDate" type="both" />
+							<fmt:formatDate pattern="dd-MM-yyyy HH:mm:ss"
 								value="${parsedExamDate}" /></td>
 					</tr>
 					<c:set var="count" value="${count+1}" />

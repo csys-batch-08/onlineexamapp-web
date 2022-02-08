@@ -27,12 +27,12 @@ h2 {
 	font-color: black;
 }
 </style>
-<title>Feedback Details</title>
+<title>Feedback Details</title>	
 </head>
 <body>
 	<ul class="nav">
 		<li><a class="a1" href="adminMain.jsp">Home</a></li>
-		<li><a class="a2" href="index.jsp">Logout</a></li>
+		<li><a class="a2" href="index.jsp" onclick="logout()">Logout</a></li>
 		<li><a class="a3" href="ShowCommentsAdmin">Contact us</a></li>
 		<li><a class="a4" href="aboutUsAdmin.jsp">About us</a></li>
 		<li><a class="a5" href="ShowFeedbackAdmin">Feedbacks</a></li>
@@ -44,6 +44,7 @@ h2 {
 	<c:set var="count" value="1" />
 	<table style="width: 90%; margin-left: 70px; font-size: large;">
 		<caption>Feedbacks of users</caption>
+		<thead>
 		<tr>
 			<th>S.no.</th>
 			<th>Feedback Id</th>
@@ -52,7 +53,9 @@ h2 {
 			<th>Feedback</th>
 			<th>Feedback Date</th>
 		</tr>
+		</thead>
 		<c:forEach items="${showfeedback}" var="feedback">
+		<tbody>
 			<tr>
 				<td>${count}</td>
 				<td>${feedback.feedbackid}</td>
@@ -66,6 +69,15 @@ h2 {
 			</tr>
 			<c:set var="count" value="${count+1}" />
 		</c:forEach>
+		</tbody>
 	</table>
 </body>
+<script type="text/javascript">
+function logout() {
+	var result = confirm("Do you want to logout?");
+	if (result == false) {
+		event.preventDefault();
+	}
+}
+</script>
 </html>

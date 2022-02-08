@@ -15,6 +15,11 @@ import com.onlineexam.model.ScoreDetails;
 
 @WebServlet("/ShowUsersExams")
 public class ShowUsersExamsServlet extends HttpServlet {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	@Override
 	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		ScoreDetailsDaoImpl sdd = new ScoreDetailsDaoImpl();

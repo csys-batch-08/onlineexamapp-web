@@ -14,6 +14,11 @@ import com.onlineexam.model.ExamDetails;
 
 @WebServlet("/deleteExamServlet")
 public class DeleteExamDetailsServlet extends HttpServlet {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	@Override
 	public void doPost(HttpServletRequest req, HttpServletResponse res) {
 		PrintWriter out = null;
@@ -23,14 +28,13 @@ public class DeleteExamDetailsServlet extends HttpServlet {
 			ExamDetails edp = new ExamDetails(examId);
 			ExamDetailsDaoImpl ed = new ExamDetailsDaoImpl();
 			boolean flag = ed.deleteExam(edp);
-			if (flag) {
-				out.println("<script type=\"text/javascript\">");
-				out.println("alert('Exam deleted successfully');");
-				out.println("location='ShowExams';");
-				out.println("</script>");
-			} else {
+			if (!flag) {
 				throw new ExamNotDeleteException();
 			}
+			out.println("<script type=\"text/javascript\">");
+			out.println("alert('Exam deleted successfully');");
+			out.println("location='ShowExams';");
+			out.println("</script>");
 		} catch (ExamNotDeleteException end) {
 			out.println("<script type=\"text/javascript\">");
 			out.println("alert('Exam already registered, so could not delete');");

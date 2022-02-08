@@ -16,4 +16,6 @@ public interface ScoreDetailsDao {
 	public List<ScoreDetails> filterbyPOF(String pof);
 
 	public List<ScoreDetails> viewAllScore();
+
+	public ScoreDetails viewUserScore(ScoreDetails sd);
 }

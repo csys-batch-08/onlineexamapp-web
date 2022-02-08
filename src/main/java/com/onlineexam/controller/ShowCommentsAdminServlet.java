@@ -15,6 +15,11 @@ import com.onlineexam.model.ContactUs;
 
 @WebServlet("/ShowCommentsAdmin")
 public class ShowCommentsAdminServlet extends HttpServlet {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	@Override
 	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		ContactUsDaoImpl cud = new ContactUsDaoImpl();

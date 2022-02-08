@@ -67,12 +67,11 @@ h1 {
 </head>
 <body>
 	<h1>
-		<u>All Exams</u>
+		All Exams
 	</h1>
-	<a id="ExamDetails" href="examDetails.jsp"><h4
-			style="float: right; margin-right: 10px; margin-top: -50px; font-size: x-large; color: black;">
-			<u>Back</u>
-		</h4></a>
+	<h4 style="float: right; margin-right: 10px; margin-top: -50px; font-size: x-large; color: black;"><a id="ExamDetails" href="examDetails.jsp">
+			Back
+		</a></h4>
 	<div style="margin-left: 100px;">
 		<form action="FilterExamsByDate" method="post">
 			<h3>
@@ -147,8 +146,8 @@ h1 {
 						<td>${date.passOrFail}</td>
 						<td>${date.grade}</td>
 						<td><fmt:parseDate value="${date.examdate}"
-								pattern="yyyy-MM-dd'T'HH:mm" var="parsedExamDate" type="both" />
-							<fmt:formatDate pattern="dd-MM-yyyy HH:mm"
+								pattern="yyyy-MM-dd'T'HH:mm:ss" var="parsedExamDate" type="both" />
+							<fmt:formatDate pattern="dd-MM-yyyy HH:mm:ss"
 								value="${parsedExamDate}" /></td>
 					</tr>
 					<c:set var="count" value="${count+1}" />

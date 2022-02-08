@@ -22,8 +22,6 @@
 	</ul>
 	<img src="images/onlineExamIcon.png" class="imgIcon"
 		alt="online Exam Icon">
-	<marquee class="websitetext">Here you can improve your
-		knowledge by writing exams and by using materials...</marquee>
 	<div class="h1">
 		<h1>Explore the Exam</h1>
 		<h1 style="margin-left: 70px; margin-top: -30px;">Exclusively</h1>

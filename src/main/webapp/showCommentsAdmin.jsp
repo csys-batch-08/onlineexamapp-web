@@ -32,7 +32,7 @@ h2 {
 <body>
 	<ul class="nav">
 		<li><a class="a1" href="adminMain.jsp">Home</a></li>
-		<li><a class="a2" href="index.jsp">Logout</a></li>
+		<li><a class="a2" href="index.jsp" onclick="logout()">Logout</a></li>
 		<li><a class="a3" href="ShowCommentsAdmin">Contact us</a></li>
 		<li><a class="a4" href="aboutUsAdmin.jsp">About us</a></li>
 		<li><a class="a5" href="ShowFeedbackAdmin">Feedbacks</a></li>
@@ -59,8 +59,8 @@ h2 {
 					<td>${contact.email}</td>
 					<td>${contact.comments}</td>
 					<td><fmt:parseDate value="${contact.commentdate}"
-							pattern="yyyy-MM-dd'T'HH:mm" var="parsedExamDate" type="both" />
-						<fmt:formatDate pattern="dd-MM-yyyy HH:mm"
+							pattern="yyyy-MM-dd'T'HH:mm:ss" var="parsedExamDate" type="both" />
+						<fmt:formatDate pattern="dd-MM-yyyy HH:mm:ss"
 							value="${parsedExamDate}" /></td>
 				</tr>
 				<c:set var="count" value="${count+1}" />
@@ -68,4 +68,12 @@ h2 {
 		</table>
 	</div>
 </body>
+<script type="text/javascript">
+function logout() {
+	var result = confirm("Do you want to logout?");
+	if (result == false) {
+		event.preventDefault();
+	}
+}
+</script>
 </html>

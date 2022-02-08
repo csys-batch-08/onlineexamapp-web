@@ -119,4 +119,12 @@ body {
 		</c:forEach>
 	</table>
 </body>
+<script type="text/javascript">
+function logout() {
+	var result = confirm("Do you want to logout?");
+	if (result == false) {
+		event.preventDefault();
+	}
+}
+</script>
 </html>

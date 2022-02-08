@@ -14,6 +14,11 @@ import com.onlineexam.model.Register;
 
 @WebServlet("/changeprofile")
 public class ProfilePhotoChangeServlet extends HttpServlet {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException {
 		HttpSession session = req.getSession();

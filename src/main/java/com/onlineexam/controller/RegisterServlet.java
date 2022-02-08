@@ -15,6 +15,10 @@ import com.onlineexam.model.Register;
 
 @WebServlet("/register")
 public class RegisterServlet extends HttpServlet {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private static final String SCRIPT = "</script>";
 	private static final String SCRIPT_TYPE_TEXT_JAVASCRIPT = "<script type=\"text/javascript\">";
 

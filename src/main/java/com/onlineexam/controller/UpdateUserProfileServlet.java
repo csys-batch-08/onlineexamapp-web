@@ -15,6 +15,11 @@ import com.onlineexam.model.Register;
 
 @WebServlet("/editprofile")
 public class UpdateUserProfileServlet extends HttpServlet {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	@Override
 	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException {
 		try {

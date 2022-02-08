@@ -15,6 +15,11 @@ import com.onlineexam.model.ScoreDetails;
 
 @WebServlet("/FilterExamsByPOF")
 public class FilterExamsByPOFServlet extends HttpServlet {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) {
 		String pof = req.getParameter("pof");

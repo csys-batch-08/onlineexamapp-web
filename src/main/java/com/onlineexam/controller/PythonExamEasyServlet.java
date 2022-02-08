@@ -12,6 +12,11 @@ import javax.servlet.http.HttpSession;
 
 @WebServlet("/PythonExamEasy")
 public class PythonExamEasyServlet extends HttpServlet {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	@Override
 	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		HttpSession session = req.getSession();

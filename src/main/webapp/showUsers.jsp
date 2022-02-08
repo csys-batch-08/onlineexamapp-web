@@ -6,12 +6,6 @@
 <html lang="en">
 <head>
 <meta charset="ISO-8859-1">
-<link rel="style"
-	href="//cdn.datatables.net/1.11.4/css/jquery.dataTables.min.css">
-<script type="text/javascript"
-	src="https://code.jquery.com/jquery-3.5.1.js"></script>
-<script type="text/javascript"
-	src="https://cdn.datatables.net/1.11.4/js/jquery.dataTables.min.js"></script>
 <style>
 table, th, td {
 	border: 1px solid black;
@@ -59,6 +53,7 @@ color:black;
 <title>List of Users</title>
 </head>
 <body>
+
 	<h4 style="float: right; margin-top: -0.3px; margin-right: 10px; font-size: x-large; color: black">
 	<a id="ExamDetails" href="examDetails.jsp" class="back">
 			Back
@@ -66,10 +61,10 @@ color:black;
 	<h2 class="useralign">
 		Users
 	</h2>
-	<label for="searching">Search users:</label><input type="search" id="searching" name="search">
 	<c:set var="count" value="1" />
-	<table style="width: 90%; margin-left: 75px; font-size: large;" id="myTable">
+	<table style="width: 90%; margin-left: 75px; font-size: large;">
 		<caption>Active users</caption>
+		<thead>
 		<tr>
 			<th>S.no.</th>
 			<th>User Id</th>
@@ -80,7 +75,9 @@ color:black;
 			<th>Last active date</th>
 			<th>Status</th>
 		</tr>
+		</thead>
 		<c:forEach items="${users}" var="active">
+			<tbody>
 			<tr>
 				<td>${count}</td>
 				<td>${active.userid}</td>
@@ -89,8 +86,8 @@ color:black;
 				<td>${active.email}</td>
 				<td>${active.phoneNumber}</td>
 				<td><fmt:parseDate value="${active.lastActiveDate}"
-						pattern="yyyy-MM-dd'T'HH:mm" var="parsedExamDate" type="both" />
-					<fmt:formatDate pattern="dd-MM-yyyy HH:mm"
+						pattern="yyyy-MM-dd'T'HH:mm:ss" var="parsedExamDate" type="both" />
+					<fmt:formatDate pattern="dd-MM-yyyy HH:mm:ss"
 						value="${parsedExamDate}" /></td>
 				<td>
 				<form action="userstatus?userid=${active.userid}" method="post">
@@ -98,9 +95,12 @@ color:black;
 								onclick="makeinactive()">Make Inactive</button>
 						</form>
 						</td>
-			</tr>
+			
 			<c:set var="count" value="${count+1}" />
+		</tr>
 		</c:forEach>
+		
+		</tbody>
 	</table>
 </body>
 <script type="text/javascript">
@@ -111,8 +111,5 @@ function makeinactive() {
 	}
 }
 
-$(document).ready(function() {
-	$('#myTable').DataTable();
-});
 </script>
 </html>

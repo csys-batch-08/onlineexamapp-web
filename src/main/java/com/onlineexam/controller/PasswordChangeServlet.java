@@ -15,6 +15,11 @@ import com.onlineexam.model.Register;
 
 @WebServlet("/changepassword")
 public class PasswordChangeServlet extends HttpServlet {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException {
 		PrintWriter out = null;
@@ -30,16 +35,15 @@ public class PasswordChangeServlet extends HttpServlet {
 
 			if (phoneNumber.equals(adminnum)) {
 				throw new InvalidPhoneNumberException();
+			}
+			flag = rd.changepassword(rp);
+			if (flag) {
+				out.println("<script type=\"text/javascript\">");
+				out.println("alert('Your password has changed.')");
+				out.println("location='index.jsp';");
+				out.println("</script>");
 			} else {
-				flag = rd.changepassword(rp);
-				if (flag) {
-					out.println("<script type=\"text/javascript\">");
-					out.println("alert('Your password has changed.')");
-					out.println("location='index.jsp';");
-					out.println("</script>");
-				} else {
-					throw new InvalidPhoneNumberException();
-				}
+				throw new InvalidPhoneNumberException();
 			}
 		} catch (InvalidPhoneNumberException ipn) {
 			out.println("<script type=\"text/javascript\">");

@@ -15,6 +15,11 @@ import com.onlineexam.model.FeedbackDetails;
 
 @WebServlet("/ShowFeedbackAdmin")
 public class ShowFeedbackAdminServlet extends HttpServlet {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	@Override
 	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		FeedbackDetailsDaoImpl fdd = new FeedbackDetailsDaoImpl();

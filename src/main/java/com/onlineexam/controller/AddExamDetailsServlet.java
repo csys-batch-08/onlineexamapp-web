@@ -16,6 +16,11 @@ import com.onlineexam.model.ExamDetails;
 
 @WebServlet("/addExamDetails")
 public class AddExamDetailsServlet extends HttpServlet {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	// method for adding exam
 	@Override
 	public void doPost(HttpServletRequest req, HttpServletResponse res) {
@@ -34,16 +39,15 @@ public class AddExamDetailsServlet extends HttpServlet {
 			session.setAttribute("duration", duration);
 			List<ExamDetails> edplist = ed.showExistExams(examName, examType, difficultyLevel);
 
-			if (edplist.isEmpty()) {
-				int result = ed.addExam(edp);
-				if (result > 0) {
-					out.println("<script type=\"text/javascript\">");
-					out.println("alert('Exam added successfully');");
-					out.println("location='ShowExams';");
-					out.println("</script>");
-				}
-			} else {
+			if (!edplist.isEmpty()) {
 				throw new ExamAlreadyExistException();
+			}
+			int result = ed.addExam(edp);
+			if (result > 0) {
+				out.println("<script type=\"text/javascript\">");
+				out.println("alert('Exam added successfully');");
+				out.println("location='ShowExams';");
+				out.println("</script>");
 			}
 
 		} catch (IOException e1) {

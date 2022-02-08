@@ -14,6 +14,11 @@ import com.onlineexam.model.ScoreDetails;
 
 @WebServlet("/scoreDetails")
 public class ScoreDetailsServlet extends HttpServlet {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	@Override
 	public void service(HttpServletRequest req, HttpServletResponse res) throws IOException, ServletException {
 		int userId = Integer.parseInt(req.getParameter("uID"));
@@ -25,12 +30,14 @@ public class ScoreDetailsServlet extends HttpServlet {
 		ScoreDetails sd = new ScoreDetails(userId, examId, examName, score, passOrFail, grade);
 		ScoreDetailsDaoImpl sdd = new ScoreDetailsDaoImpl();
 		sdd.insertScore(sd);
+		ScoreDetails sdlist = sdd.viewUserScore(sd);
 		req.setAttribute("userid", userId);
 		req.setAttribute("examid", examId);
 		req.setAttribute("examName", examName);
 		req.setAttribute("score", score);
 		req.setAttribute("passfail", passOrFail);
 		req.setAttribute("grade", grade);
+		req.setAttribute("examwrittendate", sdlist.getExamdate());
 		RequestDispatcher rd = req.getRequestDispatcher("examResult.jsp");
 		rd.forward(req, res);
 

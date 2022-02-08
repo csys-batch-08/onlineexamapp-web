@@ -120,8 +120,8 @@ h2 {
 						<td>${scores.passOrFail}</td>
 						<td>${scores.grade}</td>
 						<td><fmt:parseDate value="${scores.examdate}"
-								pattern="yyyy-MM-dd'T'HH:mm" var="parsedExamDate" type="both" />
-							<fmt:formatDate pattern="dd-MM-yyyy HH:mm"
+								pattern="yyyy-MM-dd'T'HH:mm:ss" var="parsedExamDate" type="both" />
+							<fmt:formatDate pattern="dd-MM-yyyy HH:mm:ss"
 								value="${parsedExamDate}" /></td>
 					</tr>
 					<c:set var="count" value="${count+1}" />
@@ -150,4 +150,12 @@ h2 {
 	</c:choose>
 
 </body>
+<script type="text/javascript">
+function logout() {
+	var result = confirm("Do you want to logout?");
+	if (result == false) {
+		event.preventDefault();
+	}
+}
+</script>
 </html>
