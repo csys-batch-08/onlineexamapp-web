@@ -6,6 +6,12 @@
 <html lang="en">
 <head>
 <meta charset="ISO-8859-1">
+<link rel="style"
+	href="//cdn.datatables.net/1.11.4/css/jquery.dataTables.min.css">
+<script type="text/javascript"
+	src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<script type="text/javascript"
+	src="https://cdn.datatables.net/1.11.4/js/jquery.dataTables.min.js"></script>
 <style>
 table, th, td {
 	border: 1px solid black;
@@ -60,8 +66,9 @@ color:black;
 	<h2 class="useralign">
 		Users
 	</h2>
+	<label for="searching">Search users:</label><input type="search" id="searching" name="search">
 	<c:set var="count" value="1" />
-	<table style="width: 90%; margin-left: 75px; font-size: large;">
+	<table style="width: 90%; margin-left: 75px; font-size: large;" id="myTable">
 		<caption>Active users</caption>
 		<tr>
 			<th>S.no.</th>
@@ -103,5 +110,9 @@ function makeinactive() {
 		event.preventDefault();
 	}
 }
+
+$(document).ready(function() {
+	$('#myTable').DataTable();
+});
 </script>
 </html>

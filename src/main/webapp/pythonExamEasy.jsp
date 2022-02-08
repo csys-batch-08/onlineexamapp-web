@@ -150,14 +150,14 @@
 	<div id="buttons" class="form">
 		<form action="scoreDetails">
 			<input style="visibility: hidden;" type="text" id="examId"
-				name="examId" value="${exam_Id}"><label></label> <input
+				name="examId" value="${exam_Id}"><label for="examId"></label> <input
 				style="visibility: hidden;" type="text" id="examName"
-				name="examName" value="${exam_Name}"><label></label> <input
+				name="examName" value="${exam_Name}"><label for="examName"></label> <input
 				style="visibility: hidden;" type="text" id="studentId" name="uID"
-				value="${user_id}" /><label></label> <input style="visibility: hidden;" type="text"
-				id="score" name="score"><label></label> <input style="visibility: hidden;"
-				type="text" id="passOrFail" name="passOrFail"><label></label> <input
-				style="visibility: hidden;" type="text" id="grade" name="grade"><label></label>
+				value="${user_id}" /><label for="studentId"></label> <input style="visibility: hidden;" type="text"
+				id="score" name="score"><label for="score"></label> <input style="visibility: hidden;"
+				type="text" id="passOrFail" name="passOrFail"><label for="passOrFail"></label> <input
+				style="visibility: hidden;" type="text" id="grade" name="grade"><label for="grade"></label>
 			<button id="submit" onclick="ans()"
 				style="text-align: center; margin-top: 430px;"
 				class="button examButton">Submit</button>

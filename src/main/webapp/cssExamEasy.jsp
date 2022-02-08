@@ -105,7 +105,7 @@
 				7)Are the negative values allowed in padding property?<br><br> <input
 					type="radio" name="answer7" value="Yes" id="7option1"><label for="7option1">Yes</label><br><br> <input
 					type="radio" name="answer7" value="No" id="7option2"><label for="7option2">No</label><br><br> <input
-					type="radio" name="answer7" value="Can't say" id="7option3"><label for="7option3">Can't say</label><br><br>
+					type="radio" name="answer7" value="Can not say" id="7option3"><label for="7option3">Can not say</label><br><br>
 				<input type="radio" name="answer7" value="May be" id="7option4"><label for="7option4">May be</label><br><br>
 
 			</p>
@@ -163,14 +163,14 @@
 	<div id="buttons" class="form">
 		<form action="scoreDetails">
 			<input style="visibility: hidden;" type="text" id="examId"
-				name="examId" value="${exam_Id}"><label></label> <input
+				name="examId" value="${exam_Id}"><label for="examId"></label> <input
 				style="visibility: hidden;" type="text" id="examName"
-				name="examName" value="${exam_Name}"><label></label> <input
+				name="examName" value="${exam_Name}"><label for="examName"></label> <input
 				style="visibility: hidden;" type="text" id="studentId" name="uID"
-				value="${user_id}" /><label></label> <input style="visibility: hidden;" type="text"
-				id="score" name="score"><label></label> <input style="visibility: hidden;"
-				type="text" id="passOrFail" name="passOrFail"><label></label> <input
-				style="visibility: hidden;" type="text" id="grade" name="grade"><label></label>
+				value="${user_id}" /><label for="studentId"></label> <input style="visibility: hidden;" type="text"
+				id="score" name="score"><label for="score"></label> <input style="visibility: hidden;"
+				type="text" id="passOrFail" name="passOrFail"><label for="passOrFail"></label> <input
+				style="visibility: hidden;" type="text" id="grade" name="grade"><label for="grade"></label>
 			<button id="submit" onclick="ans()"
 				style="text-align: center; margin-top: 430px;"
 				class="button examButton">Submit</button>
