@@ -14,12 +14,8 @@ li {
 li a {
 	font-size: xx-large;
 	float: right;
-}
-
-li a {
 	padding: 12px;
 }
-
 .nav a:hover {
 	height: 30px;
 	color: white;
