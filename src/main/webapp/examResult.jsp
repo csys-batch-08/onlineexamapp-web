@@ -79,7 +79,7 @@ input[type=radio] {
 </style>
 </head>
 <body>
-<fmt:parseDate value="${examwrittendate}"
+<fmt:parseDate value="${sessionScope.examwrittendate}"
 								pattern="yyyy-MM-dd'T'HH:mm:ss" var="parsedExamDate" type="both" />
 							<fmt:formatDate pattern="dd-MM-yyyy HH:mm:ss"
 								value="${parsedExamDate}" var="examdate"/>
@@ -87,9 +87,9 @@ input[type=radio] {
 	<div>
 		<h2>Score Details</h2><br>
       <div class="container">
-      Your mark is:  ${score}<br><br>
-      Your status is:  ${passfail}<br><br>
-      Your grade is:  ${grade}<br><br>
+      Your mark is:  ${sessionScope.score}<br><br>
+      Your status is:  ${sessionScope.passfail}<br><br>
+      Your grade is:  ${sessionScope.grade}<br><br>
       Exam written date: ${examdate}<br><br>
       </div>
       <table class="table table-striped">
@@ -117,7 +117,7 @@ input[type=radio] {
       </table>
              <div class="printbutton"><button class="btn btn-primary hidden-print" onclick="myFunction()"><span class="glyphicon glyphicon-print" aria-hidden="true"></span> Print</button></div>
              <div class="homebutton"><button class="btn btn-primary hidden-print" onclick="window.location.href='/userMain.jsp'"><span  aria-hidden="true"></span>Home</button></div>
-             <div class="feedback"><a href="feedbackDetails?userid=${userid}&examid=${examid}&examname=${examName}"><button type="submit" class="btn btn-primary hidden-print"><span aria-hidden="true"></span>Send Feedback</button></a></div>
+             <div class="feedback"><button type="submit" class="btn btn-primary hidden-print" onclick="window.location='feedbackDetails?userid=${sessionScope.userinid}&examid=${sessionScope.examid}&examname=${sessionScope.examName}'"><span aria-hidden="true"></span>Send Feedback</button></div>
 	</div>
 </div>
 
