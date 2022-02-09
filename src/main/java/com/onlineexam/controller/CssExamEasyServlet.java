@@ -20,7 +20,6 @@ public class CssExamEasyServlet extends HttpServlet {
 	@Override
 	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		HttpSession session = req.getSession();
-		session.getAttribute("userid");
 		int examId = Integer.parseInt(req.getParameter("examid"));
 		String examName = req.getParameter("examName");
 		int duration = (int) session.getAttribute("duration");

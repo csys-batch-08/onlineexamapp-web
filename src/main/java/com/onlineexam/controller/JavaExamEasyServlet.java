@@ -20,14 +20,12 @@ public class JavaExamEasyServlet extends HttpServlet {
 	@Override
 	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		HttpSession session = req.getSession();
-		int userid = (int) session.getAttribute("userid");
 		int examId = Integer.parseInt(req.getParameter("examid"));
 		String examName = req.getParameter("examName");
 		int duration = (int) session.getAttribute("duration");
-		req.setAttribute("user_id", userid);
-		req.setAttribute("exam_Id", examId);
-		req.setAttribute("exam_Name", examName);
-		req.setAttribute("durationtime", duration);
+		session.setAttribute("exam_Id", examId);
+		session.setAttribute("exam_Name", examName);
+		session.setAttribute("durationtime", duration);
 		RequestDispatcher rd = req.getRequestDispatcher("javaExamEasy.jsp");
 		rd.forward(req, resp);
 	}

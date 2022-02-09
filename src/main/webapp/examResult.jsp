@@ -116,7 +116,7 @@ input[type=radio] {
           </tr>
       </table>
              <div class="printbutton"><button class="btn btn-primary hidden-print" onclick="myFunction()"><span class="glyphicon glyphicon-print" aria-hidden="true"></span> Print</button></div>
-             <div class="homebutton"><button class="btn btn-primary hidden-print" onclick="window.location.href='/userMain.jsp'"><span  aria-hidden="true"></span>Home</button></div>
+             <div class="homebutton"><button class="btn btn-primary hidden-print" onclick="window.location='userMain.jsp'"><span  aria-hidden="true"></span>Home</button></div>
              <div class="feedback"><button type="submit" class="btn btn-primary hidden-print" onclick="window.location='feedbackDetails?userid=${sessionScope.userinid}&examid=${sessionScope.examid}&examname=${sessionScope.examName}'"><span aria-hidden="true"></span>Send Feedback</button></div>
 	</div>
 </div>
