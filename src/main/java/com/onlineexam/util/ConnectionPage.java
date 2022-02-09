@@ -9,6 +9,8 @@ import java.sql.SQLException;
 import com.onlineexam.logger.Logger;
 
 public class ConnectionPage {
+	public static final String PASSWORD = "oracle";
+
 	private ConnectionPage() {
 
 	}
@@ -17,7 +19,7 @@ public class ConnectionPage {
 		Connection con = null;
 		try {
 			Class.forName("oracle.jdbc.OracleDriver");
-			con = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe", "system", "oracle");
+			con = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe", "system", PASSWORD);
 		} catch (ClassNotFoundException | SQLException e) {
 			e.printStackTrace();
 		}
