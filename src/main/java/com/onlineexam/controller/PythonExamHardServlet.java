@@ -23,10 +23,10 @@ public class PythonExamHardServlet extends HttpServlet {
 			HttpSession session = req.getSession();
 			int examId = Integer.parseInt(req.getParameter("examid"));
 			String examName = req.getParameter("examName");
+			session.setAttribute("exam_Id", examId);
 			session.setAttribute("exam_Name", examName);
 			int duration = (int) session.getAttribute("duration");
 			session.setAttribute("durationtime", duration);
-			session.setAttribute("exam_Id", examId);
 			RequestDispatcher rd = req.getRequestDispatcher("pythonExamHard.jsp");
 			rd.forward(req, resp);
 		} catch (ServletException | IOException e) {
