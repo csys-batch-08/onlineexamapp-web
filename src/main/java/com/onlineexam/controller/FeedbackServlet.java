@@ -26,7 +26,7 @@ public class FeedbackServlet extends HttpServlet {
 			PrintWriter out = resp.getWriter();
 			HttpSession session = req.getSession();
 			int userId = (int) session.getAttribute("userid");
-			int examId = Integer.parseInt(req.getParameter("examId"));
+			int examId = (int) session.getAttribute("idofexam");
 			String feedback = req.getParameter("feedback");
 			FeedbackDetails fdp = new FeedbackDetails(userId, examId, feedback);
 			FeedbackDetailsDaoImpl fdd = new FeedbackDetailsDaoImpl();

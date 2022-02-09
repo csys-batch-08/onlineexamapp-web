@@ -49,25 +49,21 @@ h2 {
 <title>Feedback Details</title>
 </head>
 <body>
-	<a href="userMain.jsp"><h4
-			style="float: right; margin-right: 10px; margin-top: -0.3px; font-size: x-large; color: black;">
-			<u>Home</u>
-		</h4></a>
+	<h4 style="float: right; margin-right: 10px; margin-top: -0.3px; font-size: x-large; color: black;">
+	<a href="userMain.jsp">
+			Home
+		</a></h4>
 
 	<form action="feedbacks" method="post"
 		style="text-align: center; font-size: large;">
 		<h2 style="margin-left: 75px;">
-			<u>Feedback Details</u>
+			Feedback Details
 		</h2>
 		<br>
 		<br>
-		<br> <input style="visibility: hidden;" type="text" id="examId"
-			name="examId" value="${idofexam}"> <input
-			style="visibility: hidden;" type="text" id="examName" name="examName"
-			value="${Nameofexam}"> <input style="visibility: hidden;"
-			type="text" id="studentId" name="uID" value="${idofuser}" />
+		<br> 
 		<p style="font-size: large; font-weight: bolder;">
-			<u>Drop your feedback</u>
+			Drop your feedback
 		</p>
 		<textarea name="feedback" id="feedback" class="feedbackarea" autofocus required></textarea>
 		<br>
