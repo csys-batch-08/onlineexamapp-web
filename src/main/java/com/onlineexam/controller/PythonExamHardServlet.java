@@ -18,17 +18,19 @@ public class PythonExamHardServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	@Override
-	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		HttpSession session = req.getSession();
-		int userid = (int) session.getAttribute("userid");
-		int examId = Integer.parseInt(req.getParameter("examid"));
-		String examName = req.getParameter("examName");
-		int duration = (int) session.getAttribute("duration");
-		req.setAttribute("user_id", userid);
-		req.setAttribute("exam_Id", examId);
-		req.setAttribute("exam_Name", examName);
-		req.setAttribute("durationtime", duration);
-		RequestDispatcher rd = req.getRequestDispatcher("pythonExamHard.jsp");
-		rd.forward(req, resp);
+	protected void service(HttpServletRequest req, HttpServletResponse resp) {
+		try {
+			HttpSession session = req.getSession();
+			int examId = Integer.parseInt(req.getParameter("examid"));
+			String examName = req.getParameter("examName");
+			session.setAttribute("exam_Name", examName);
+			int duration = (int) session.getAttribute("duration");
+			session.setAttribute("durationtime", duration);
+			session.setAttribute("exam_Id", examId);
+			RequestDispatcher rd = req.getRequestDispatcher("pythonExamHard.jsp");
+			rd.forward(req, resp);
+		} catch (ServletException | IOException e) {
+			e.printStackTrace();
+		}
 	}
 }
