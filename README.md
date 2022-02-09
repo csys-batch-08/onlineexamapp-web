@@ -22,27 +22,27 @@
 AdminEmail :karthikmarieswaran6477@gmail.com
 Password   :Karthik@6477
 
-1.Admin Can Add Exams
+1.Admin can Add Exams
 
-2.Admin Can Update Exams
+2.Admin can Update Exams
 
-3.Admin Can Delete Exams
+3.Admin can Delete Exams
 
-4.Admin Can View All User
+4.Admin can View All User
 
-5.Admin Can View All Exams
+5.Admin can View All Exams
 
-6.Admin Can View User Exams report.
+6.Admin can View User Exams report.
 
-7.Admin Can filter exam report by date.
+7.Admin can filter exam report by date.
 
-8.Admin Can filter exam report by Grade.
+8.Admin can filter exam report by Grade.
 
-9.Admin Can filter exam report by Pass or Fail.
+9.Admin can filter exam report by Pass or Fail.
 
-10.Admin Can make user as inactive and active
+10.Admin can make user as inactive and active
 
-11.Admin Can view user's last active date.
+11.Admin can view user's last active date.
 
 12.Admin can view user's feedbacks and complaints.
 
@@ -51,25 +51,29 @@ Password   :Karthik@6477
 UserEmail :pothi@gmail.com
 Password  :Pothi@1230
 
-UserEmail :mari@gmail.com
-Password  :Mari@3090
+UserEmail :velu@gmail.com
+Password  :Velu@008
 
-1.User Can Resgiter Details
+1.User can Resgiter Details
 
-2.User Can View All Exams
+2.User can view All Exams
 
-3.User Can Write Exam
+3.User can write Exam
 
-4.User Can View current Exam report
+4.User can view current and previous Exam reports
 
-5.User Can have study materials
+5.User can have study materials
 
-6.User Can give Feedback
+6.User can give Feedback
 
-7.User Can contact admin
+7.User can view their previous feedbacks
 
-8.User Can change password
+8.User can contact admin
 
-9.User can request admin if user in inactive mode
+9.User can change password
 
-10.User can view and edit their profile
+10.User can request admin if user in inactive mode
+
+11.User can view and edit their profile
+
+12.User can print and save their exam result
