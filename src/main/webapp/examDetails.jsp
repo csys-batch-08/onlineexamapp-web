@@ -70,28 +70,28 @@
 	<div class="container">
 
 		<h2>
-			<u>List of Exams</u>
+			List of Exams
 		</h2>
 		<a href="ShowExams"><button type="submit"
 				class="button examButton">Show Exams</button></a><br>
 		<br>
 		<br>
 		<h2>
-			<u>List of Active Users</u>
+			List of Active Users
 		</h2>
 		<a href="ShowUsers"><button type="submit"
 				class="button examButton">Show Active Users</button></a><br>
 	</div>
 	<div class="container2">
 		<h2>
-			<u>List of Exams report</u>
+			List of Exams report
 		</h2>
 		<a href="ShowUsersExams"><button type="submit"
 				class="button examButton">Show Exams report</button></a><br>
 		<br>
 		<br>
 		<h2>
-			<u>List of Inactive Users</u>
+			List of Inactive Users
 		</h2>
 		<a href="ShowInactiveUsers"><button type="submit"
 				class="button examButton">Show Inactive users</button></a>

@@ -59,6 +59,9 @@ margin-left:610px;
 .back{
 color:black;
 }
+.activebutton{
+margin-left:590px;
+}
 </style>
 <title>Inactive Users</title>
 </head>
@@ -115,7 +118,7 @@ color:black;
 			<br>
 			<br>
 			<a href="ShowUsers">
-					<button class="button examButton">Show Active Users</button>
+					<button class="button examButton activebutton">Show Active Users</button>
 				</a>
 		</c:otherwise>
 	</c:choose>

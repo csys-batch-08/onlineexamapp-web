@@ -222,4 +222,14 @@ public class Register implements Serializable {
 		this.role = role;
 	}
 
+	public Register(String email) {
+		super();
+		this.email = email;
+	}
+
+	public Register(long phoneNumber) {
+		super();
+		this.phoneNumber = phoneNumber;
+	}
+
 }

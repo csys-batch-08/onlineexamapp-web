@@ -2,6 +2,7 @@ package com.onlineexam.controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.SQLException;
 
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -14,6 +15,9 @@ import com.onlineexam.model.ExamDetails;
 
 @WebServlet("/deleteExamServlet")
 public class DeleteExamDetailsServlet extends HttpServlet {
+	private static final String SCRIPT = "</script>";
+	private static final String LOCATION_SHOW_EXAMS = "location='ShowExams';";
+	private static final String SCRIPT_TYPE_TEXT_JAVASCRIPT = "<script type=\"text/javascript\">";
 	/**
 	 * 
 	 */
@@ -27,23 +31,33 @@ public class DeleteExamDetailsServlet extends HttpServlet {
 			int examId = Integer.parseInt(req.getParameter("examid"));
 			ExamDetails edp = new ExamDetails(examId);
 			ExamDetailsDaoImpl ed = new ExamDetailsDaoImpl();
+
 			boolean flag = ed.deleteExam(edp);
 			if (!flag) {
 				throw new ExamNotDeleteException();
 			}
-			out.println("<script type=\"text/javascript\">");
+			out.println(SCRIPT_TYPE_TEXT_JAVASCRIPT);
 			out.println("alert('Exam deleted successfully');");
-			out.println("location='ShowExams';");
-			out.println("</script>");
+			out.println(LOCATION_SHOW_EXAMS);
+			out.println(SCRIPT);
 		} catch (ExamNotDeleteException end) {
-			out.println("<script type=\"text/javascript\">");
+			out.println(SCRIPT_TYPE_TEXT_JAVASCRIPT);
 			out.println("alert('Exam already registered, so could not delete');");
-			out.println("location='ShowExams';");
-			out.println("</script>");
-		} catch (IOException e2) {
-			e2.getMessage();
-		} catch (NumberFormatException e3) {
-			e3.getMessage();
+			out.println(LOCATION_SHOW_EXAMS);
+			out.println(SCRIPT);
+		}
+
+		catch (SQLException e) {
+			try {
+				throw new ExamNotDeleteException();
+			} catch (ExamNotDeleteException end) {
+				out.println(SCRIPT_TYPE_TEXT_JAVASCRIPT);
+				out.println("alert('Exam already registered, so could not delete');");
+				out.println(LOCATION_SHOW_EXAMS);
+				out.println(SCRIPT);
+			}
+		} catch (NumberFormatException | IOException e) {
+			e.getMessage();
 		}
 	}
 }

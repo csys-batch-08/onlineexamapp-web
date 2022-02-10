@@ -9,12 +9,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.onlineexam.exception.EmailAlreadyExistException;
-import com.onlineexam.exception.PhoneNumberExistException;
 import com.onlineexam.impl.RegisterDaoImpl;
 import com.onlineexam.model.Register;
 
 @WebServlet("/register")
 public class RegisterServlet extends HttpServlet {
+	private static final String LOCATION_REGISTER_JSP = "location='register.jsp';";
 	/**
 	 * 
 	 */
@@ -29,41 +29,48 @@ public class RegisterServlet extends HttpServlet {
 			out = res.getWriter();
 			String firstName = req.getParameter("firstName");
 			String lastName = req.getParameter("lastName");
-			String email = req.getParameter("email");
+
 			String password = req.getParameter("password");
 			String confirmpassword = req.getParameter("cpassword");
 			Long phonenumber = Long.parseLong(req.getParameter("phone_number"));
-			Register rd = new Register(firstName, lastName, email, password, confirmpassword, phonenumber);
+			Register phone = new Register(phonenumber);
 			RegisterDaoImpl rdao = new RegisterDaoImpl();
-			Register rs = rdao.getEmailDetails(rd);
-			Register rs1 = rdao.getPhoneDetails(rd);
-			if (rs != null && email.equals(rs.getEmail())) {
-				throw new EmailAlreadyExistException();
-			}
-			if (rs1 != null && phonenumber == (rs1.getPhoneNumber())) {
-				throw new PhoneNumberExistException();
-			}
-			int i = rdao.fetchregister(rd);
-			if (i > 0) {
+
+			try {
+				Register rs1 = rdao.getPhoneDetails(phone);
+				if (rs1 != null) {
+					throw new EmailAlreadyExistException();
+				}
+				String email = req.getParameter("email");
+				Register mail = new Register(email);
+				try {
+					Register rs = rdao.getEmailDetails(mail);
+					if (rs != null) {
+						throw new EmailAlreadyExistException();
+					}
+					Register rd = new Register(firstName, lastName, email, password, confirmpassword, phonenumber);
+					int i = rdao.fetchregister(rd);
+					if (i > 0) {
+						out.println(SCRIPT_TYPE_TEXT_JAVASCRIPT);
+						out.println("alert('You have registered successfully');");
+						out.println("location='login.jsp';");
+						out.println(SCRIPT);
+					}
+				} catch (EmailAlreadyExistException ea) {
+					out.println(SCRIPT_TYPE_TEXT_JAVASCRIPT);
+					out.println("alert('email already exist');");
+					out.println(LOCATION_REGISTER_JSP);
+					out.println(SCRIPT);
+				}
+
+			} catch (EmailAlreadyExistException ea) {
 				out.println(SCRIPT_TYPE_TEXT_JAVASCRIPT);
-				out.println("alert('You have registered successfully');");
-				out.println("location='login.jsp';");
+				out.println("alert('phone number already exist');");
+				out.println(LOCATION_REGISTER_JSP);
 				out.println(SCRIPT);
 			}
-		} catch (IOException e1) {
+		} catch (IOException | NumberFormatException e1) {
 			e1.getMessage();
-		} catch (NumberFormatException e2) {
-			e2.getMessage();
-		} catch (EmailAlreadyExistException ea) {
-			out.println(SCRIPT_TYPE_TEXT_JAVASCRIPT);
-			out.println("alert('email already exist');");
-			out.println("location='register.jsp';");
-			out.println(SCRIPT);
-		} catch (PhoneNumberExistException pn) {
-			out.println(SCRIPT_TYPE_TEXT_JAVASCRIPT);
-			out.println("alert('Phone number already exist');");
-			out.println("location='register.jsp';");
-			out.println(SCRIPT);
 		}
 	}
 }

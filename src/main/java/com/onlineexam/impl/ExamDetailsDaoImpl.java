@@ -3,6 +3,7 @@ package com.onlineexam.impl;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -77,7 +78,7 @@ public class ExamDetailsDaoImpl implements ExamDetailsDao {
 	}
 
 	@Override
-	public boolean deleteExam(ExamDetails edp) {
+	public boolean deleteExam(ExamDetails edp) throws SQLException {
 		Connection con = null;
 		PreparedStatement pstmt = null;
 		boolean flag = false;
@@ -93,11 +94,6 @@ public class ExamDetailsDaoImpl implements ExamDetailsDao {
 			} else {
 				flag = false;
 			}
-		} catch (Exception e) {
-
-			Logger.printStackTrace(e);
-			Logger.runTimeException(e.getMessage());
-
 		} finally {
 
 			ConnectionPage.close(null, pstmt, con);
@@ -144,8 +140,8 @@ public class ExamDetailsDaoImpl implements ExamDetailsDao {
 			pstmt = con.prepareStatement(query);
 			rs = pstmt.executeQuery();
 			while (rs.next()) {
-				ExamDetails edpp = new ExamDetails(rs.getInt(EXAM_ID), rs.getString(EXAM_NAME),
-						rs.getString(EXAM_TYPE), rs.getString(DIFFICULTY_LEVEL), rs.getInt(DURATION_MINUTES));
+				ExamDetails edpp = new ExamDetails(rs.getInt(EXAM_ID), rs.getString(EXAM_NAME), rs.getString(EXAM_TYPE),
+						rs.getString(DIFFICULTY_LEVEL), rs.getInt(DURATION_MINUTES));
 				edp.add(edpp);
 			}
 		} catch (Exception e) {
@@ -172,8 +168,8 @@ public class ExamDetailsDaoImpl implements ExamDetailsDao {
 			pstmt = con.prepareStatement(query);
 			rs = pstmt.executeQuery();
 			while (rs.next()) {
-				ExamDetails edpp = new ExamDetails(rs.getInt(EXAM_ID), rs.getString(EXAM_NAME),
-						rs.getString(EXAM_TYPE), rs.getString(DIFFICULTY_LEVEL), rs.getInt(DURATION_MINUTES));
+				ExamDetails edpp = new ExamDetails(rs.getInt(EXAM_ID), rs.getString(EXAM_NAME), rs.getString(EXAM_TYPE),
+						rs.getString(DIFFICULTY_LEVEL), rs.getInt(DURATION_MINUTES));
 				edp.add(edpp);
 			}
 		} catch (Exception e) {
@@ -200,8 +196,8 @@ public class ExamDetailsDaoImpl implements ExamDetailsDao {
 			pstmt = con.prepareStatement(query);
 			rs = pstmt.executeQuery();
 			while (rs.next()) {
-				ExamDetails edpp = new ExamDetails(rs.getInt(EXAM_ID), rs.getString(EXAM_NAME),
-						rs.getString(EXAM_TYPE), rs.getString(DIFFICULTY_LEVEL), rs.getInt(DURATION_MINUTES));
+				ExamDetails edpp = new ExamDetails(rs.getInt(EXAM_ID), rs.getString(EXAM_NAME), rs.getString(EXAM_TYPE),
+						rs.getString(DIFFICULTY_LEVEL), rs.getInt(DURATION_MINUTES));
 				edp.add(edpp);
 			}
 		} catch (Exception e) {

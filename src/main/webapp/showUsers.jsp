@@ -86,8 +86,8 @@ color:black;
 				<td>${active.email}</td>
 				<td>${active.phoneNumber}</td>
 				<td><fmt:parseDate value="${active.lastActiveDate}"
-						pattern="yyyy-MM-dd'T'HH:mm:ss" var="parsedExamDate" type="both" />
-					<fmt:formatDate pattern="dd-MM-yyyy HH:mm:ss"
+						pattern="yyyy-MM-dd'T'HH:mm" var="parsedExamDate" type="both" />
+					<fmt:formatDate pattern="dd-MM-yyyy HH:mm"
 						value="${parsedExamDate}" /></td>
 				<td>
 				<form action="userstatus?userid=${active.userid}" method="post">

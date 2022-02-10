@@ -21,7 +21,7 @@ public class ShowUsersServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	@Override
-	protected void service(HttpServletRequest req, HttpServletResponse resp) {
+	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException {
 		try {
 			RegisterDaoImpl rdao = new RegisterDaoImpl();
 			List<Register> rp;
@@ -29,7 +29,7 @@ public class ShowUsersServlet extends HttpServlet {
 			req.setAttribute("users", rp);
 			RequestDispatcher rd = req.getRequestDispatcher("showUsers.jsp");
 			rd.forward(req, resp);
-		} catch (ServletException | IOException e) {
+		} catch (IOException e) {
 			e.getMessage();
 		}
 	}

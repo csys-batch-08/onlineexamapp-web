@@ -91,6 +91,9 @@ margin-left:623px;
 .back{
 color:black;
 }
+.addexam{
+margin-left:600px;
+}
 </style>
 <title>List of Exams</title>
 </head>
@@ -101,45 +104,8 @@ color:black;
 		</a></h4>
 	<h2 class="useralign">
 		Exams
-	</h2>
-	<div class="addexamalign">
-		<button onclick="addexam()" id="addexam"
-			style="display: block; margin-left: 595px;" class="button examButton">Add
-			Exam</button>
-		<div id="add" style="display: none;">
-			<form action="addExamDetails" method="post">
-
-				<div class="input">
-					<div class="examdetails">
-						<label for="examName" style="margin-left: 74px;">Exam Name</label>
-						<input type="text" name="examName" id="examName" required><br>
-						<br>
-					</div>
-					<div class="examdetails">
-						<label for="examType" style="margin-left: 23px;">Exam type</label>
-						<input type="text" name="examType" id="examType" required><br>
-						<br>
-					</div>
-					<div class="examdetails">
-						<label for="difficultyLevel" style="margin-left: -9px;">Difficulty
-							Level</label> <input type="text" name="difficultyLevel"
-							id="difficultyLevel" required><br> <br>
-					</div>
-					<div class="examdetails">
-						<label for="durationHours" style="margin-left: -20px;">Duration
-							Minutes</label> <input type="number" name="durationMinutes"
-							id="durationMinutes" min="1" required><br> <br>
-					</div>
-
-				</div>
-				<button type="submit" class="button examButton">Add Exam</button>
-				&nbsp;&nbsp;
-				<button type="button" class="button examButton" onclick="hideadd()">Cancel</button>
-				<br> <br>
-		</div>
-	</div>
-
-	</form>
+	</h2><br>
+	<a href="addExams.jsp"><button class="button examButton addexam">Add Exam</button></a><br><br>
 	<c:set var="count" value="1" />
 	<table style="width: 90%; margin-left: 75px; font-size: large;">
 		<caption></caption>
@@ -166,15 +132,9 @@ color:black;
 				<td>
 					<form action="updateExamDetails?examid=${exam.examId}"
 						method="post">
-
-						<h2>
-							<u>Update Exam</u>
-						</h2>
-
 						<ul class="text">
 							<li><label for="difficultyLevel">Difficulty Level</label> <input
-								type="text" name="difficultyLevel" id="difficultyLevel" required></li>
-							<br>
+								type="text" name="difficultyLevel" id="difficultyLevel" required></li><br>
 							<li><label for="durationMinutes">Duration Minutes</label> <input
 								type="number" name="durationMinutes" id="durationMinutes"
 								min="1" required></li>
@@ -200,18 +160,6 @@ color:black;
 	</table>
 </body>
 <script>
-function addexam(){
-	var add=document.getElementById("addexam");
-	add.style.display="none";
-	var addexam=document.getElementById("add");
-	addexam.style.display="block";
-}
-function hideadd(){
-	var add=document.getElementById("addexam");
-	add.style.display="block";
-	var addexam=document.getElementById("add");
-	addexam.style.display="none";
-}
 function deleteexam() {
 	var result = confirm("Are you sure want to delete?");
 	if (result == false) {
