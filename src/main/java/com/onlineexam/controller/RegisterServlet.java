@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.onlineexam.exception.EmailAlreadyExistException;
+import com.onlineexam.exception.RegisterException;
 import com.onlineexam.impl.RegisterDaoImpl;
 import com.onlineexam.model.Register;
 
@@ -39,14 +39,14 @@ public class RegisterServlet extends HttpServlet {
 			try {
 				Register rs1 = rdao.getPhoneDetails(phone);
 				if (rs1 != null) {
-					throw new EmailAlreadyExistException();
+					throw new RegisterException();
 				}
 				String email = req.getParameter("email");
 				Register mail = new Register(email);
 				try {
 					Register rs = rdao.getEmailDetails(mail);
 					if (rs != null) {
-						throw new EmailAlreadyExistException();
+						throw new RegisterException();
 					}
 					Register rd = new Register(firstName, lastName, email, password, confirmpassword, phonenumber);
 					int i = rdao.fetchregister(rd);
@@ -56,14 +56,14 @@ public class RegisterServlet extends HttpServlet {
 						out.println("location='login.jsp';");
 						out.println(SCRIPT);
 					}
-				} catch (EmailAlreadyExistException ea) {
+				} catch (RegisterException ea) {
 					out.println(SCRIPT_TYPE_TEXT_JAVASCRIPT);
 					out.println("alert('email already exist');");
 					out.println(LOCATION_REGISTER_JSP);
 					out.println(SCRIPT);
 				}
 
-			} catch (EmailAlreadyExistException ea) {
+			} catch (RegisterException ea) {
 				out.println(SCRIPT_TYPE_TEXT_JAVASCRIPT);
 				out.println("alert('phone number already exist');");
 				out.println(LOCATION_REGISTER_JSP);
