@@ -18,13 +18,17 @@ public class FeedbackDetailsServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	@Override
-	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		HttpSession session = req.getSession();
-		int examId = Integer.parseInt(req.getParameter("examid"));
-		String examName = req.getParameter("examName");
-		session.setAttribute("idofexam", examId);
-		session.setAttribute("Nameofexam", examName);
-		RequestDispatcher rd = req.getRequestDispatcher("feedbackDetails.jsp");
-		rd.forward(req, resp);
+	protected void service(HttpServletRequest req, HttpServletResponse resp) {
+		try {
+			HttpSession session = req.getSession();
+			int examId = Integer.parseInt(req.getParameter("examid"));
+			String examName = req.getParameter("examName");
+			session.setAttribute("idofexam", examId);
+			session.setAttribute("Nameofexam", examName);
+			RequestDispatcher rd = req.getRequestDispatcher("feedbackDetails.jsp");
+			rd.forward(req, resp);
+		} catch (ServletException | IOException e) {
+			e.getMessage();
+		}
 	}
 }

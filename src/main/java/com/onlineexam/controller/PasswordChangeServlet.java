@@ -37,23 +37,22 @@ public class PasswordChangeServlet extends HttpServlet {
 				throw new InvalidPhoneNumberException();
 			}
 			flag = rd.changepassword(rp);
-			if (flag) {
-				out.println("<script type=\"text/javascript\">");
-				out.println("alert('Your password has changed.')");
-				out.println("location='index.jsp';");
-				out.println("</script>");
-			} else {
+			if (!flag) {
 				throw new InvalidPhoneNumberException();
 			}
+			out.println("<script type=\"text/javascript\">");
+			out.println("alert('Your password has changed.')");
+			out.println("location='index.jsp';");
+			out.println("</script>");
 		} catch (InvalidPhoneNumberException ipn) {
 			out.println("<script type=\"text/javascript\">");
 			out.println("alert('Entered phone number is invalid.')");
 			out.println("location='userPasswordUpdate.jsp';");
 			out.println("</script>");
 		} catch (NumberFormatException e) {
-			e.printStackTrace();
+			e.getMessage();
 		} catch (IOException e1) {
-			e1.printStackTrace();
+			e1.getMessage();
 		}
 	}
 }

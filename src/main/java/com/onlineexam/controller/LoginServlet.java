@@ -71,9 +71,9 @@ public class LoginServlet extends HttpServlet {
 			out.println("location='request.jsp';");
 			out.println("</script>");
 		} catch (IOException e1) {
-			e1.printStackTrace();
+			e1.getMessage();
 		} catch (NumberFormatException e2) {
-			e2.printStackTrace();
+			e2.getMessage();
 		}
 	}
 

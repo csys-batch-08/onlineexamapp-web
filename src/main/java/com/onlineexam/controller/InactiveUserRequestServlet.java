@@ -33,7 +33,7 @@ public class InactiveUserRequestServlet extends HttpServlet {
 			out.println("location='index.jsp';");
 			out.println("</script>");
 		} catch (IOException e1) {
-			e1.printStackTrace();
+			e1.getMessage();
 		}
 	}
 }

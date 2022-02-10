@@ -41,9 +41,9 @@ public class DeleteExamDetailsServlet extends HttpServlet {
 			out.println("location='ShowExams';");
 			out.println("</script>");
 		} catch (IOException e2) {
-			e2.printStackTrace();
+			e2.getMessage();
 		} catch (NumberFormatException e3) {
-			e3.printStackTrace();
+			e3.getMessage();
 		}
 	}
 }

@@ -22,13 +22,17 @@ public class StudentScoreDetailsServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	@Override
-	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		HttpSession session = req.getSession();
-		int userid = (int) session.getAttribute("userid");
-		ScoreDetailsDaoImpl sdd = new ScoreDetailsDaoImpl();
-		List<ScoreDetails> sdp = sdd.viewScore(userid);
-		req.setAttribute("scorelist", sdp);
-		RequestDispatcher rd = req.getRequestDispatcher("studentScoreDetails.jsp");
-		rd.forward(req, resp);
+	protected void service(HttpServletRequest req, HttpServletResponse resp) {
+		try {
+			HttpSession session = req.getSession();
+			int userid = (int) session.getAttribute("userid");
+			ScoreDetailsDaoImpl sdd = new ScoreDetailsDaoImpl();
+			List<ScoreDetails> sdp = sdd.viewScore(userid);
+			req.setAttribute("scorelist", sdp);
+			RequestDispatcher rd = req.getRequestDispatcher("studentScoreDetails.jsp");
+			rd.forward(req, resp);
+		} catch (ServletException | IOException e) {
+			e.getMessage();
+		}
 	}
 }

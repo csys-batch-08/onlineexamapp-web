@@ -21,11 +21,15 @@ public class ShowFeedbackAdminServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	@Override
-	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		FeedbackDetailsDaoImpl fdd = new FeedbackDetailsDaoImpl();
-		List<FeedbackDetails> fdp = fdd.showFeedbacksAdmin();
-		req.setAttribute("showfeedback", fdp);
-		RequestDispatcher rd = req.getRequestDispatcher("showFeedbackAdmin.jsp");
-		rd.forward(req, resp);
+	protected void service(HttpServletRequest req, HttpServletResponse resp) {
+		try {
+			FeedbackDetailsDaoImpl fdd = new FeedbackDetailsDaoImpl();
+			List<FeedbackDetails> fdp = fdd.showFeedbacksAdmin();
+			req.setAttribute("showfeedback", fdp);
+			RequestDispatcher rd = req.getRequestDispatcher("showFeedbackAdmin.jsp");
+			rd.forward(req, resp);
+		} catch (ServletException | IOException e) {
+			e.getMessage();
+		}
 	}
 }

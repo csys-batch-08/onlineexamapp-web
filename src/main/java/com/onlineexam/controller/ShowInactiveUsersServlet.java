@@ -21,13 +21,17 @@ public class ShowInactiveUsersServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	@Override
-	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		req.getSession();
-		RegisterDaoImpl rdao = new RegisterDaoImpl();
-		List<Register> rp;
-		rp = rdao.showInactiveUsers();
-		req.setAttribute("inusers", rp);
-		RequestDispatcher rd = req.getRequestDispatcher("showInactiveUsers.jsp");
-		rd.forward(req, resp);
+	protected void service(HttpServletRequest req, HttpServletResponse resp) {
+		try {
+			req.getSession();
+			RegisterDaoImpl rdao = new RegisterDaoImpl();
+			List<Register> rp;
+			rp = rdao.showInactiveUsers();
+			req.setAttribute("inusers", rp);
+			RequestDispatcher rd = req.getRequestDispatcher("showInactiveUsers.jsp");
+			rd.forward(req, resp);
+		} catch (ServletException | IOException e) {
+			e.getMessage();
+		}
 	}
 }

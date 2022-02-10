@@ -51,9 +51,9 @@ public class RegisterServlet extends HttpServlet {
 				out.println(SCRIPT);
 			}
 		} catch (IOException e1) {
-			e1.printStackTrace();
+			e1.getMessage();
 		} catch (NumberFormatException e2) {
-			e2.printStackTrace();
+			e2.getMessage();
 		} catch (EmailAlreadyExistException ea) {
 			out.println(SCRIPT_TYPE_TEXT_JAVASCRIPT);
 			out.println("alert('email already exist');");

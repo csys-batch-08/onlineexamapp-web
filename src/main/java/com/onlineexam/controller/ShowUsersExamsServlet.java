@@ -21,12 +21,16 @@ public class ShowUsersExamsServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	@Override
-	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		ScoreDetailsDaoImpl sdd = new ScoreDetailsDaoImpl();
-		List<ScoreDetails> sdp;
-		sdp = sdd.viewAllScore();
-		req.setAttribute("allscores", sdp);
-		RequestDispatcher rd = req.getRequestDispatcher("showUsersExams.jsp");
-		rd.forward(req, resp);
+	protected void service(HttpServletRequest req, HttpServletResponse resp) {
+		try {
+			ScoreDetailsDaoImpl sdd = new ScoreDetailsDaoImpl();
+			List<ScoreDetails> sdp;
+			sdp = sdd.viewAllScore();
+			req.setAttribute("allscores", sdp);
+			RequestDispatcher rd = req.getRequestDispatcher("showUsersExams.jsp");
+			rd.forward(req, resp);
+		} catch (ServletException | IOException e) {
+			e.getMessage();
+		}
 	}
 }

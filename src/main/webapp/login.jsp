@@ -57,10 +57,10 @@ opacity
 }
 }
 .wrapper {
-	max-width: 350px;
-	min-height: 300px;
+	max-width: 550px;
+	min-height: 400px;
 	margin-top: 120px;
-	margin-left: 520px;
+	margin-left: 420px;
 	padding: 10px 40px 10px 40px;
 	background-color: #ecf0f3;
 	border-radius: 15px;
@@ -152,11 +152,11 @@ opacity
 
 .passwordandsignup {
 	margin-top: 20px;
-	margin-left: 105px;
+	margin-left: 200px;
 }
 
 .passwordandpassword {
-	margin-left: 70px;
+	margin-left: 165px;
 }
 
 .back {

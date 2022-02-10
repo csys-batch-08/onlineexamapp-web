@@ -35,7 +35,7 @@ public class ContactUsServlet extends HttpServlet {
 				out.write("Your comment has been sent.");
 			}
 		} catch (IOException e1) {
-			e1.printStackTrace();
+			e1.getMessage();
 		}
 	}
 }

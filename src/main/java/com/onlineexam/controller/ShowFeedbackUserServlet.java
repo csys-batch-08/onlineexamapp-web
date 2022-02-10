@@ -22,16 +22,20 @@ public class ShowFeedbackUserServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	@Override
-	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		HttpSession session = req.getSession();
-		int userid = (int) session.getAttribute("userid");
-		FeedbackDetailsDaoImpl fdd = new FeedbackDetailsDaoImpl();
-		FeedbackDetails fdpp = new FeedbackDetails();
-		String username = (String) session.getAttribute("username");
-		fdpp.setUsername(username);
-		List<FeedbackDetails> fdp = fdd.showFeedbacks(userid, username);
-		req.setAttribute("feedback", fdp);
-		RequestDispatcher rd = req.getRequestDispatcher("showFeedback.jsp");
-		rd.forward(req, resp);
+	protected void service(HttpServletRequest req, HttpServletResponse resp) {
+		try {
+			HttpSession session = req.getSession();
+			int userid = (int) session.getAttribute("userid");
+			FeedbackDetailsDaoImpl fdd = new FeedbackDetailsDaoImpl();
+			FeedbackDetails fdpp = new FeedbackDetails();
+			String username = (String) session.getAttribute("username");
+			fdpp.setUsername(username);
+			List<FeedbackDetails> fdp = fdd.showFeedbacks(userid, username);
+			req.setAttribute("feedback", fdp);
+			RequestDispatcher rd = req.getRequestDispatcher("showFeedback.jsp");
+			rd.forward(req, resp);
+		} catch (ServletException | IOException e) {
+			e.getMessage();
+		}
 	}
 }

@@ -30,7 +30,7 @@ public class HtmlExamEasyServlet extends HttpServlet {
 			RequestDispatcher rd = req.getRequestDispatcher("htmlExamEasy.jsp");
 			rd.forward(req, resp);
 		} catch (ServletException | IOException e) {
-			e.printStackTrace();
+			e.getMessage();
 		}
 	}
 }

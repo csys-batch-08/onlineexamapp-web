@@ -21,13 +21,17 @@ public class UserProfileServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	@Override
-	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		HttpSession session = req.getSession();
-		int userid = (int) session.getAttribute("userid");
-		RegisterDaoImpl rdao = new RegisterDaoImpl();
-		Register rpojo = rdao.userprofile(userid);
-		session.setAttribute("profile", rpojo);
-		RequestDispatcher rd = req.getRequestDispatcher("userProfile.jsp");
-		rd.forward(req, resp);
+	protected void service(HttpServletRequest req, HttpServletResponse resp) {
+		try {
+			HttpSession session = req.getSession();
+			int userid = (int) session.getAttribute("userid");
+			RegisterDaoImpl rdao = new RegisterDaoImpl();
+			Register rpojo = rdao.userprofile(userid);
+			session.setAttribute("profile", rpojo);
+			RequestDispatcher rd = req.getRequestDispatcher("userProfile.jsp");
+			rd.forward(req, resp);
+		} catch (ServletException | IOException e) {
+			e.getMessage();
+		}
 	}
 }

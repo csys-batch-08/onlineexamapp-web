@@ -41,7 +41,7 @@ public class ScoreDetailsServlet extends HttpServlet {
 			session.setAttribute("examwrittendate", sdlist.getExamdate());
 			res.sendRedirect("examResult.jsp");
 		} catch (IOException e) {
-			e.printStackTrace();
+			e.getMessage();
 		}
 	}
 }

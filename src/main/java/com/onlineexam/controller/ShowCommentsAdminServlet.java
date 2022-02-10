@@ -21,12 +21,16 @@ public class ShowCommentsAdminServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	@Override
-	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		ContactUsDaoImpl cud = new ContactUsDaoImpl();
-		List<ContactUs> cup = cud.showCommentsAdmin();
-		req.setAttribute("contactlist", cup);
-		RequestDispatcher rd = req.getRequestDispatcher("showCommentsAdmin.jsp");
-		rd.forward(req, resp);
+	protected void service(HttpServletRequest req, HttpServletResponse resp) {
+		try {
+			ContactUsDaoImpl cud = new ContactUsDaoImpl();
+			List<ContactUs> cup = cud.showCommentsAdmin();
+			req.setAttribute("contactlist", cup);
+			RequestDispatcher rd = req.getRequestDispatcher("showCommentsAdmin.jsp");
+			rd.forward(req, resp);
+		} catch (ServletException | IOException e) {
+			e.getMessage();
+		}
 
 	}
 }

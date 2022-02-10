@@ -30,7 +30,7 @@ public class CssExamEasyServlet extends HttpServlet {
 			RequestDispatcher rd = req.getRequestDispatcher("cssExamEasy.jsp");
 			rd.forward(req, resp);
 		} catch (ServletException | IOException e) {
-			e.printStackTrace();
+			e.getMessage();
 		}
 	}
 }

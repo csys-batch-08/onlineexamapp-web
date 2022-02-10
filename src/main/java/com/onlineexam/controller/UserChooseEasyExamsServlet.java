@@ -21,12 +21,16 @@ public class UserChooseEasyExamsServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	@Override
-	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		ExamDetailsDaoImpl edd = new ExamDetailsDaoImpl();
-		List<ExamDetails> edp;
-		edp = edd.showExamsEasy();
-		req.setAttribute("easyexams", edp);
-		RequestDispatcher rd = req.getRequestDispatcher("userChooseExams.jsp");
-		rd.forward(req, resp);
+	protected void service(HttpServletRequest req, HttpServletResponse resp) {
+		try {
+			ExamDetailsDaoImpl edd = new ExamDetailsDaoImpl();
+			List<ExamDetails> edp;
+			edp = edd.showExamsEasy();
+			req.setAttribute("easyexams", edp);
+			RequestDispatcher rd = req.getRequestDispatcher("userChooseExams.jsp");
+			rd.forward(req, resp);
+		} catch (ServletException | IOException e) {
+			e.getMessage();
+		}
 	}
 }

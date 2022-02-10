@@ -30,7 +30,7 @@ public class PythonExamEasyServlet extends HttpServlet {
 			RequestDispatcher rd = req.getRequestDispatcher("pythonExamEasy.jsp");
 			rd.forward(req, resp);
 		} catch (ServletException | IOException e) {
-			e.printStackTrace();
+			e.getMessage();
 		}
 	}
 }

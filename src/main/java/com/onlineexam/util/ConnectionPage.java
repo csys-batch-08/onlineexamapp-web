@@ -6,11 +6,10 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import com.onlineexam.encryptpassword.EncryptPassword;
 import com.onlineexam.logger.Logger;
 
 public class ConnectionPage {
-	public static final String PASSWORD = "oracle";
-
 	private ConnectionPage() {
 
 	}
@@ -19,9 +18,14 @@ public class ConnectionPage {
 		Connection con = null;
 		try {
 			Class.forName("oracle.jdbc.OracleDriver");
-			con = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe", "system", PASSWORD);
+			con = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe", "system",
+					EncryptPassword.decrypt());
 		} catch (ClassNotFoundException | SQLException e) {
-			e.printStackTrace();
+			Logger.printStackTrace(e);
+			Logger.runTimeException(e.getMessage());
+		} catch (Exception e1) {
+			Logger.printStackTrace(e1);
+			Logger.runTimeException(e1.getMessage());
 		}
 
 		return con;

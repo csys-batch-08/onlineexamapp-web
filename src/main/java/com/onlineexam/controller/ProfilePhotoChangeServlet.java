@@ -30,7 +30,7 @@ public class ProfilePhotoChangeServlet extends HttpServlet {
 			rd.changephoto(rp);
 			resp.sendRedirect("UserProfile");
 		} catch (IOException e1) {
-			e1.printStackTrace();
+			e1.getMessage();
 		}
 	}
 }
